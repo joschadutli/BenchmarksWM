@@ -1,0 +1,6 @@
+dataset,N,grain,nation,group,note
+unsworth06a,235,subject,US,adults,
+bunting06,25,subject,US,undergrads,
+mcelree89,18,group,US,intro-psych,
+jonides97,18,group,US,adults,prescreened for performance from a group of 36 participants
+verhaeghen05,28,group,US,psych,30 participants tested - two removed for poor performance
