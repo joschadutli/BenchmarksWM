@@ -1,1 +1,3 @@
 exportPattern("^[[:alpha:]]+")
+importFrom("graphics", "axis", "par")
+importFrom("stats", "aggregate", "sd")
