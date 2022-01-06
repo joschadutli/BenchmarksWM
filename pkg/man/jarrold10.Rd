@@ -51,7 +51,7 @@
   
   Jarrold, C., Tam, H., Baddeley, A. D., & Harvey, C. E. (2010). The nature and position 
   of processing determines why forgetting occurs in working memory tasks. \emph{Psychonomic
-  Bulletin & Review, 17}, 772–777. http://dx.doi.org/10.3758/PBR.17.6.772
+  Bulletin & Review, 17}, 772-777. http://dx.doi.org/10.3758/PBR.17.6.772
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

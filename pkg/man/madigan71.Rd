@@ -31,7 +31,7 @@
 \references{
   
   Madigan, S. A. (1971). Modality and recall order interactions in short-term memory
-  for serial order. \emph{Journal of Experimental Psychology, 87}, 294– 296.
+  for serial order. \emph{Journal of Experimental Psychology, 87}, 294-296.
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

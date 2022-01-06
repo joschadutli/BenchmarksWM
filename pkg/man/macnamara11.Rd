@@ -38,7 +38,7 @@
 \references{
   
   Macnamara, B. N., Moore, A. B., & Conway, A. R. A. (2011). Phonological similarity 
-  effects in simple and complex span tasks. \emph{Memory & Cognition, 39}, 1174–1186. 
+  effects in simple and complex span tasks. \emph{Memory & Cognition, 39}, 1174-1186. 
   http://dx.doi.org/10.3758/s13421-011-0100-5
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

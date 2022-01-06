@@ -56,7 +56,7 @@
   
   Towse, J. N., Cowan, N., Hitch, G. J., & Horton, N. J. (2008). The recall of
   information from working memory. Insights from behavioural and chronometric
-  perspectives. \emph{Experimental Psychology, 55}, 371–383. 
+  perspectives. \emph{Experimental Psychology, 55}, 371-383. 
   http://dx.doi.org/10.1027/1618-3169.55.6.371
 }
 \examples{

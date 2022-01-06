@@ -58,7 +58,7 @@
   Unsworth, N., Spillers, G. J., & Brewer, G. A. (2010). The contributions of primary 
   and secondary memory to working memory capacity: An individual differences analysis 
   of immediate free recall. \emph{Journal of Experimental Psychology: Learning, Memory, 
-  and Cognition, 36}, 240–247. http://dx.doi.org/10.1037/a0017739
+  and Cognition, 36}, 240-247. http://dx.doi.org/10.1037/a0017739
   
 }
 \examples{

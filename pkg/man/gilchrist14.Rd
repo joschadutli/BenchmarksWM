@@ -51,7 +51,7 @@
 \references{
   Gilchrist, A. L., & Cowan, N. (2014). A two-stage search of visual working 
   memory: Investigating speed in the change-detection paradigm. \emph{Attention,
-  Perception & Psychophysics, 76}, 2031–2050.
+  Perception & Psychophysics, 76}, 2031-2050.
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

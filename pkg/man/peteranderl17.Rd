@@ -33,7 +33,7 @@
   
   Peteranderl, S., & Oberauer, K. (2017). Serial recall of colors: Two models of
   memory for serial order applied to continuous visual stimuli. \emph{Memory &
-  Cognition, 46}, 1–16. http://dx.doi.org/10.3758/s13421-017-0741-0
+  Cognition, 46}, 1-16. http://dx.doi.org/10.3758/s13421-017-0741-0
   
 }
 \examples{

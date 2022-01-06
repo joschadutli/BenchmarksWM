@@ -44,7 +44,7 @@
   
   Vergauwe, E., Hartstra, E., Barrouillet, P., & Brass, M. (2015). Domain-general involvement
   of the posterior frontolateral cortex in Time-Based Resource-Sharing in working memory: An
-  fMRI study. \emph{NeuroImage, 115}, 104–116. http://dx.doi.org/10.1016/j.neuroimage.2015.04.059
+  fMRI study. \emph{NeuroImage, 115}, 104-116. http://dx.doi.org/10.1016/j.neuroimage.2015.04.059
   
 }
 \examples{

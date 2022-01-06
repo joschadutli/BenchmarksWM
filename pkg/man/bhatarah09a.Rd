@@ -37,7 +37,7 @@
   Bhatarah, P., Ward, G., Smith, J., & Hayes, L. (2009). Examining the relationship between
   free recall and immediate serial recall: Similar patterns of rehearsal and similar effects
   of word length, presentation rate, and articulatory suppression. \emph{Memory & Cognition,
-  37}, 689 –713. http://dx.doi.org/10.3758/MC.37.5.689
+  37}, 689-713. http://dx.doi.org/10.3758/MC.37.5.689
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

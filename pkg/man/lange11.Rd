@@ -70,7 +70,7 @@
 \references{
   Lange, E. B., Cerella, J., & Verhaeghen, P. (2011). Ease of access to list items 
   in short-term memory depends on the order of the recognition probes. \emph{Journal
-  of Experimental Psychology: Learning, Memory, and Cognition, 37}, 608–620. 
+  of Experimental Psychology: Learning, Memory, and Cognition, 37}, 608-620. 
   http://dx.doi.org/10.1037/a0022220
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

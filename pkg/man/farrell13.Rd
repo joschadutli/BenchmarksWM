@@ -39,7 +39,7 @@
 \references{
   
   Farrell, S., Hurlstone, M. J., & Lewandowsky, S. (2013). Sequential dependencies in recall
-  of sequences: Filling in the blanks. \emph{Memory & Cognition, 41}, 938–952. 
+  of sequences: Filling in the blanks. \emph{Memory & Cognition, 41}, 938-952. 
   http://dx.doi.org/10.3758/s13421-013-0310-0
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

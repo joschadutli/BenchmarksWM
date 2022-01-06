@@ -40,7 +40,7 @@
 \references{
   Floden, D., Stuss, D. T., & Craik, F. I. M. (2000). Age differences in 
   performance on two versions of the Brown-Peterson task. \emph{Aging, 
-  Neuropsychology and Cognition, 7}, 245–259. http://dx.doi.org/10.1076/anec
+  Neuropsychology and Cognition, 7}, 245-259. http://dx.doi.org/10.1076/anec
   .7.4.245.795
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

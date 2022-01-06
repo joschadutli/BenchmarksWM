@@ -42,7 +42,7 @@
   
   Jarrold, C., & Citroën, R. (2013). Reevaluating key evidence for the development of
   rehearsal: Phonological similarity effects in children are subject to proportional 
-  scaling artifacts. \emph{Developmental Psychology, 49}, 837–847. 
+  scaling artifacts. \emph{Developmental Psychology, 49}, 837-847. 
   http://dx.doi.org/10.1037/a0028771
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

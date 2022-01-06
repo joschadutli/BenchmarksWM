@@ -49,7 +49,7 @@
   
   Page, M. P. A., Cumming, N., Norris, D., Hitch, G. J., & McNeil, A. M. (2006). Repetition
   learning in the immediate serial recall of visual and auditory materials. \emph{Journal 
-  of Experimental Psychology: Learning, Memory, and Cognition, 32}, 716–733. 
+  of Experimental Psychology: Learning, Memory, and Cognition, 32}, 716-733. 
   http://dx.doi.org/10.1037/0278-7393.32.4.716
   
 }

@@ -34,12 +34,12 @@
   Cowan, N., Wood, N. L., Wood, P. K., Keller, T. A., Nugent, L. D., & Keller, 
   & C. V. (1998). Two separate  verbal  processing  rates  contributing  to  
   short-term memory  span.  \emph{Journal  of Experimental Psychology: General, 
-  127}, 141–160. 10.1037//0096-3445.127.2.141 
+  127}, 141-160. 10.1037//0096-3445.127.2.141 
   
   Kane, M. J., Hambrick, D. Z., Tuholski, S. W., Wilhelm, O., Payne, T. W., & Engle, R. W.
   (2004). The generality of working memory capacity: A latent-variable approach to verbal 
   and visuospatial memory span and reasoning. \emph{Journal of Experimental Psychology:
-  General, 133}, 189– 217. http://dx.doi.org/10.1037/0096-3445.133.2.189
+  General, 133}, 189-217. http://dx.doi.org/10.1037/0096-3445.133.2.189
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
@@ -50,7 +50,7 @@
   Unsworth, N., Spillers, G. J., & Brewer, G. A. (2010). The contributions of primary 
   and secondary memory to working memory capacity: An individual differences analysis 
   of immediate free recall. \emph{Journal of Experimental Psychology: Learning, Memory, 
-  and Cognition, 36}, 240–247. http://dx.doi.org/10.1037/a0017739
+  and Cognition, 36}, 240-247. http://dx.doi.org/10.1037/a0017739
   
   
 }

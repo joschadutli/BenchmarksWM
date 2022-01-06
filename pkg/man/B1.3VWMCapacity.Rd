@@ -36,7 +36,7 @@
 \references{
   Chen, Z., & Cowan, N. (2009). Core verbal working-memory capacity: The limit in
   words retained without covert articulation. \emph{Quarterly Journal of 
-  Experimental Psychology: Human Experimental Psychology, 62}, 1420–1429. 
+  Experimental Psychology: Human Experimental Psychology, 62}, 1420-1429. 
   http://dx.doi.org/10.1080/17470210802453977
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

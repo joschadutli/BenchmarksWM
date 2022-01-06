@@ -48,7 +48,7 @@
   
   Vergauwe, E., Dewaele, N., Langerock, N., & Barrouillet, P. (2012). Evidence for a central
   pool of general resources in working memory. \emph{Journal of Cognitive Psychology, 24},
-  359–366. http://dx.doi.org/10.1080/20445911.2011.640625
+  359-366. http://dx.doi.org/10.1080/20445911.2011.640625
   
 }  
 \examples{

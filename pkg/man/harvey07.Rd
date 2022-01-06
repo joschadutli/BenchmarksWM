@@ -34,7 +34,7 @@
 \references{
 
   Harvey, A. J., & Beaman, C. P. (2007). Input and output modality effects in
-  immediate serial recall. \emph{Memory, 15}, 693–700.
+  immediate serial recall. \emph{Memory, 15}, 693-700.
   http://dx.doi.org/10.1080/09658210701644677
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

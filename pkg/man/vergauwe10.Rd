@@ -45,7 +45,7 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
   
   Vergauwe, E., Barrouillet, P., & Camos, V. (2010). Do mental processes share a 
-  domain-general resource? \emph{Psychological Science, 21}, 384–390. 
+  domain-general resource? \emph{Psychological Science, 21}, 384-390. 
   http://dx.doi.org/10.1177/0956797610361340
 }
 \examples{

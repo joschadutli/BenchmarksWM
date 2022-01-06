@@ -43,7 +43,7 @@
   
   Farrell, S., & Lewandowsky, S. (2003). Dissimilar items benefit from phonological 
   similarity in serial recall. \emph{Journal of Experimental Psychology: Learning, Memory, 
-  and Cognition, 29}, 838–849. http://dx.doi.org/10.1037/0278-7393.29.5.838
+  and Cognition, 29}, 838-849. http://dx.doi.org/10.1037/0278-7393.29.5.838
   
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

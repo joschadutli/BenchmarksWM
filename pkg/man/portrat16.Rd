@@ -41,7 +41,7 @@
   
   Portrat, S., Guida, A., Phénix, T., & Lemaire, B. (2016). Promoting the experimental
   dialogue between working memory and chunking: Behavioral data and simulation. 
-  \emph{Memory & Cognition, 44}, 420–434. http://dx.doi.org/10.3758/s13421-015-0572-9
+  \emph{Memory & Cognition, 44}, 420-434. http://dx.doi.org/10.3758/s13421-015-0572-9
   
 }
 \examples{

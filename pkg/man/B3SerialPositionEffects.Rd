@@ -46,20 +46,20 @@
 \references{
   
   Cowan, N., Saults, J. S., Elliott, E. M., & Moreno, M. V. (2002). 
-  Deconfounding serial recall. \emph{Journal of Memory and Language, 46}, 153–177.
+  Deconfounding serial recall. \emph{Journal of Memory and Language, 46}, 153-177.
   http://dx.doi.org/10.1006/jmla.2001.2805
   
   Farrell, S., & Lewandowsky, S. (2004). Modelling transposition latencies: 
   Constraints for theories of serial order memory. \emph{Journal of Memory and
-  Language, 51}, 115–135. http://dx.doi.org/10.1016/j.jml.2004.03.007
+  Language, 51}, 115-135. http://dx.doi.org/10.1016/j.jml.2004.03.007
 
   Grenfell-Essam, R., & Ward, G. (2012). Examining the relationship between free
   recall and immediate serial recall: The role of list length, strategy use,
-  and test expectancy. \emph{Journal of Memory and Language, 67}, 106–148. 
+  and test expectancy. \emph{Journal of Memory and Language, 67}, 106-148. 
   http://dx.doi.org/10.1016/j.jml.2012.04.004
   
   Harvey, A. J., & Beaman, C. P. (2007). Input and output modality effects in
-  immediate serial recall. \emph{Memory, 15}, 693–700.
+  immediate serial recall. \emph{Memory, 15}, 693-700.
   http://dx.doi.org/10.1080/09658210701644677
   
   Healey, M. K., Crutchley, P., & Kahana, M. J. (2014). Individual differences 
@@ -68,14 +68,14 @@
   
   Lange, E. B., Cerella, J., & Verhaeghen, P. (2011). Ease of access to list items 
   in short-term memory depends on the order of the recognition probes. \emph{Journal
-  of Experimental Psychology: Learning, Memory, and Cognition, 37}, 608–620. 
+  of Experimental Psychology: Learning, Memory, and Cognition, 37}, 608-620. 
   http://dx.doi.org/10.1037/a0022220
   
   Madigan, S. A. (1971). Modality and recall order interactions in short-term memory
-  for serial order. \emph{Journal of Experimental Psychology, 87}, 294– 296.
+  for serial order. \emph{Journal of Experimental Psychology, 87}, 294-296.
   
   Murdock, B. B., & Okada, R. (1970). Interresponse times in single-trial free 
-  recall. \emph{Journal of Experimental Psychology, 86}, 263–267. 
+  recall. \emph{Journal of Experimental Psychology, 86}, 263-267. 
   http://dx.doi.org/10.1037/h0029993
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
@@ -87,11 +87,11 @@
   Öztekin, I., & McElree, B. (2010). Relationship between measures of working 
   memory capacity and the time course of short-term memory retrieval and 
   interference resolution. \emph{Journal of Experimental Psychology: Learning, 
-  Memory, and Cognition, 36}, 383–397. http://dx.doi.org/10.1037/a0018029
+  Memory, and Cognition, 36}, 383-397. http://dx.doi.org/10.1037/a0018029
   
   Peteranderl, S., & Oberauer, K. (2017). Serial recall of colors: Two models of
   memory for serial order applied to continuous visual stimuli. \emph{Memory &
-  Cognition, 46}, 1–16. http://dx.doi.org/10.3758/s13421-017-0741-0
+  Cognition, 46}, 1-16. http://dx.doi.org/10.3758/s13421-017-0741-0
   
 }
 \examples{

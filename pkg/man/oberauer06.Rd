@@ -46,7 +46,7 @@
   
   Oberauer, K. (2006). Is the focus of attention in working memory expanded through 
   practice? \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 32},
-  197–214. http://dx.doi.org/10.1037/0278-7393.32.2.197
+  197-214. http://dx.doi.org/10.1037/0278-7393.32.2.197
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

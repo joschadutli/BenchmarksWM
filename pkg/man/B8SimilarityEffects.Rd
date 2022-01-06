@@ -34,11 +34,11 @@
   
   Farrell, S., & Lewandowsky, S. (2003). Dissimilar items benefit from phonological 
   similarity in serial recall. \emph{Journal of Experimental Psychology: Learning, Memory, 
-  and Cognition, 29}, 838–849. http://dx.doi.org/10.1037/0278-7393.29.5.838
+  and Cognition, 29}, 838-849. http://dx.doi.org/10.1037/0278-7393.29.5.838
   
   Jarrold, C., & Citroën, R. (2013). Reevaluating key evidence for the development of
   rehearsal: Phonological similarity effects in children are subject to proportional 
-  scaling artifacts. \emph{Developmental Psychology, 49}, 837–847. 
+  scaling artifacts. \emph{Developmental Psychology, 49}, 837-847. 
   http://dx.doi.org/10.1037/a0028771
   
   Keshvari, S., van den Berg, R., & Ma, W. J. (2013). No evidence for an item limit in 
@@ -46,7 +46,7 @@
   http://dx.doi.org/10.1371/journal.pcbi.1002927
   
   Macnamara, B. N., Moore, A. B., & Conway, A. R. A. (2011). Phonological similarity 
-  effects in simple and complex span tasks. \emph{Memory & Cognition, 39}, 1174–1186. 
+  effects in simple and complex span tasks. \emph{Memory & Cognition, 39}, 1174-1186. 
   http://dx.doi.org/10.3758/s13421-011-0100-5
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

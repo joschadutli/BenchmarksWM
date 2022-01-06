@@ -37,7 +37,7 @@
 \references{
   
   Quinlan, P.T., Roodenrys, S. & Miller, L.M. (2017). Serial reconstruction of order and
-  serial recall in verbal short-term memory. \emph{Memory & Cognition, 45}(7), 1126–1143. 
+  serial recall in verbal short-term memory. \emph{Memory & Cognition, 45}(7), 1126-1143. 
   https://doi.org/10.3758/s13421-017-0719-y
   
   

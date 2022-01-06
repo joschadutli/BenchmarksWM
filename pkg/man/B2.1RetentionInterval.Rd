@@ -46,13 +46,13 @@
   
   Floden, D., Stuss, D. T., & Craik, F. I. M. (2000). Age differences in 
   performance on two versions of the Brown-Peterson task. \emph{Aging, 
-  Neuropsychology and Cognition, 7}, 245–259. http://dx.doi.org/10.1076/anec
+  Neuropsychology and Cognition, 7}, 245-259. http://dx.doi.org/10.1076/anec
   .7.4.245.795
   
   Lewandowsky, S., Geiger, S. M., Morrell, D. B., & Oberauer, K. (2010). Turning
   simple span into complex span: Time for decay or interference from distractors?
   \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 36},
-  958–978. http://dx.doi.org/10.1037/a0019764
+  958-978. http://dx.doi.org/10.1037/a0019764
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

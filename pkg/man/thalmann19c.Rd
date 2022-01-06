@@ -40,7 +40,7 @@
 \references{
   
   Thalmann, M., Souza, A. S., & Oberauer, K. (2019). How does chunking help working memory?
-  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37–55.
+  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37-55.
   https://doi.org/10.1037/xlm0000578
   
   

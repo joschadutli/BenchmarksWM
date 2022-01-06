@@ -45,7 +45,7 @@
 \references{
   Donkin, C., & Nosofsky, R. M. (2012b). The structure of short-term memory
   scanning: An investigation using response time distribution models. Psychonomic
-  Bulletin & Review, 19, 363–394. http://dx.doi.org/ 10.3758/s13423-012-0236-8
+  Bulletin & Review, 19, 363-394. http://dx.doi.org/ 10.3758/s13423-012-0236-8
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
@@ -53,7 +53,7 @@
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
   
-  Sternberg, S. (1966). High-speed scanning in human memory. Science, 153, 652–654.
+  Sternberg, S. (1966). High-speed scanning in human memory. Science, 153, 652-654.
   http://dx.doi.org/10.1126/science.153.3736.652
   
 }

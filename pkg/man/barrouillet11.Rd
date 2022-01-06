@@ -30,7 +30,7 @@
 \references{
   
   Barrouillet, P., Portrat, S., & Camos, V. (2011). On the law relating processing to 
-  storage in working memory. \emph{Psychological Review, 118}, 175–192. 
+  storage in working memory. \emph{Psychological Review, 118}, 175-192. 
   http://dx.doi.org/10.1037/a0022324
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

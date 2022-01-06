@@ -47,7 +47,7 @@
 }
 \references{
   Oberauer, K. (2003). Understanding serial position curves in short-term 
-  recognition and recall. \emph{Journal of Memory and Language, 49}, 469 – 483. 
+  recognition and recall. \emph{Journal of Memory and Language, 49}, 469-483. 
   http://dx.doi.org/10.1016/S0749-596X(03)00080-9
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

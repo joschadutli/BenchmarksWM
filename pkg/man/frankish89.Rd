@@ -38,7 +38,7 @@
 \references{
   
   Frankish, C. (1989). Perceptual organization and precategorical acoustic storage. 
-  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 15}, 469 – 479.
+  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 15}, 469-479.
   http://dx.doi.org/10.1037/0278-7393.15.3.469
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

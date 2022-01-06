@@ -42,7 +42,7 @@
   
   Schlittmeier, S. J., Weißgerber, T., Kerber, S., Fastl, H., & Hellbrück, J. (2012).
   Algorithmic modeling of the irrelevant sound effect (ISE) by the hearing sensation 
-  fluctuation strength. \emph{Attention, Perception & Psychophysics, 74}, 194–203. 
+  fluctuation strength. \emph{Attention, Perception & Psychophysics, 74}, 194-203. 
   http://dx.doi.org/10.3758/s13414-011-0230-7
 }
 \examples{

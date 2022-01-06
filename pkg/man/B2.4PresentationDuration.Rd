@@ -53,7 +53,7 @@
 
   Bays, P. M., Gorgoraptis, N., Wee, N., Marshall, L., & Husain, M. (2011).
   Temporal dynamics of encoding, storage, and reallocation of visual working 
-  memory. \emph{Journal of Vision, 11}, 1–15. http://dx.doi.org/10.1167/11.10.6
+  memory. \emph{Journal of Vision, 11}, 1-15. http://dx.doi.org/10.1167/11.10.6
   
   Grenfell-Essam, R., Ward, G., Tan, L. (2013). The Role of Rehearsal on the 
   Output Order of Immediate Free Recall of Short and Long Lists. \emph{Journal of
@@ -71,7 +71,7 @@
   11}, 1551-1573. http://dx.doi.org/10.1037/xge0000346
   
   Tan, L., & Ward, G. (2008). Rehearsal in immediate serial recall. \emph{Psychonomic
-  Bulletin & Review, 15}, 535–542. http://dx.doi.org/10.3758/PBR.15.3.535
+  Bulletin & Review, 15}, 535-542. http://dx.doi.org/10.3758/PBR.15.3.535
 
 }
 

@@ -52,7 +52,7 @@
   Cowan, N., Wood, N. L., Wood, P. K., Keller, T. A., Nugent, L. D., & Keller, 
   & C. V. (1998). Two separate  verbal  processing  rates  contributing  to  
   short-term memory  span.  \emph{Journal  of Experimental Psychology: General, 
-  127}, 141–160. 10.1037//0096-3445.127.2.141 
+  127}, 141-160. 10.1037//0096-3445.127.2.141 
   
 }
 \examples{

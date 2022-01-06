@@ -55,19 +55,19 @@
   
   Page, M. P. A., Cumming, N., Norris, D., Hitch, G. J., & McNeil, A. M. (2006). Repetition
   learning in the immediate serial recall of visual and auditory materials. \emph{Journal 
-  of Experimental Psychology: Learning, Memory, and Cognition, 32}, 716–733. 
+  of Experimental Psychology: Learning, Memory, and Cognition, 32}, 716-733. 
   http://dx.doi.org/10.1037/0278-7393.32.4.716
   
   Portrat, S., Guida, A., Phénix, T., & Lemaire, B. (2016). Promoting the experimental
   dialogue between working memory and chunking: Behavioral data and simulation. 
-  \emph{Memory & Cognition, 44}, 420–434. http://dx.doi.org/10.3758/s13421-015-0572-9
+  \emph{Memory & Cognition, 44}, 420-434. http://dx.doi.org/10.3758/s13421-015-0572-9
   
   Quinlan, P.T., Roodenrys, S. & Miller, L.M. (2017). Serial reconstruction of order and
-  serial recall in verbal short-term memory. \emph{Memory & Cognition, 45}(7), 1126–1143. 
+  serial recall in verbal short-term memory. \emph{Memory & Cognition, 45}(7), 1126-1143. 
   https://doi.org/10.3758/s13421-017-0719-y
   
   Thalmann, M., Souza, A. S., & Oberauer, K. (2019). How does chunking help working memory?
-  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37–55.
+  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37-55.
   https://doi.org/10.1037/xlm0000578
   
   

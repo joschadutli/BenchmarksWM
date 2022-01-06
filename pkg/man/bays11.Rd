@@ -46,7 +46,7 @@
   
   Bays, P. M., Gorgoraptis, N., Wee, N., Marshall, L., & Husain, M. (2011).
   Temporal dynamics of encoding, storage, and reallocation of visual working 
-  memory. \emph{Journal of Vision, 11}, 1–15. http://dx.doi.org/10.1167/11.10.6
+  memory. \emph{Journal of Vision, 11}, 1-15. http://dx.doi.org/10.1167/11.10.6
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

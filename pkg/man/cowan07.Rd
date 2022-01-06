@@ -63,7 +63,7 @@
 \references{
   
   Cowan, N., & Morey, C. C. (2007). How can dual-task working memory retention limits 
-  be investigated? \emph{Psychological Science, 18}, 686–688. 
+  be investigated? \emph{Psychological Science, 18}, 686-688. 
   http://dx.doi.org/10.1111/j.1467-9280.2007.01960.x
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

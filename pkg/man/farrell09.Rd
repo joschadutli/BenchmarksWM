@@ -36,7 +36,7 @@
 \references{
   
   Farrell, S., & Lelièvre, A. (2009). End anchoring in short-term order memory. \emph{
-  Journal of Memory and Language, 60}, 209–227. http://dx.doi.org/10.1016/j.jml.2008.09.004
+  Journal of Memory and Language, 60}, 209-227. http://dx.doi.org/10.1016/j.jml.2008.09.004
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

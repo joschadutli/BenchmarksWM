@@ -41,7 +41,7 @@
   
   Farrell, S., & Lewandowsky, S. (2004). Modelling transposition latencies: 
   Constraints for theories of serial order memory. \emph{Journal of Memory and
-  Language, 51}, 115–135. http://dx.doi.org/10.1016/j.jml.2004.03.007
+  Language, 51}, 115-135. http://dx.doi.org/10.1016/j.jml.2004.03.007
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

@@ -32,18 +32,18 @@
 \references{
   
   Farrell, S., & Lelièvre, A. (2009). End anchoring in short-term order memory. \emph{
-  Journal of Memory and Language, 60}, 209–227. http://dx.doi.org/10.1016/j.jml.2008.09.004
+  Journal of Memory and Language, 60}, 209-227. http://dx.doi.org/10.1016/j.jml.2008.09.004
   
   Frankish, C. (1989). Perceptual organization and precategorical acoustic storage. 
-  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 15}, 469 – 479.
+  \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 15}, 469-479.
   http://dx.doi.org/10.1037/0278-7393.15.3.469
   
   Morin, C., Brown, G. D. A., & Lewandowsky, S. (2010). Temporal isolation effects in
-  recognition and serial recall. \emph{Memory & Cognition, 38}, 849–859. http://dx.doi.org/10.3758/MC.38.7.849
+  recognition and serial recall. \emph{Memory & Cognition, 38}, 849-859. http://dx.doi.org/10.3758/MC.38.7.849
   
   Nimmo, L. M., & Lewandowsky, S. (2006). Distinctiveness revisited: Unpredictable 
   temporal isolation does not benefit short-term serial recall of heard or seen events. 
-  \emph{Memory & Cognition, 34}, 1368–1375. http://dx.doi.org/10.3758/BF03193278
+  \emph{Memory & Cognition, 34}, 1368-1375. http://dx.doi.org/10.3758/BF03193278
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

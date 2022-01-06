@@ -1,6 +1,7 @@
 \name{bell19}
 \alias{bell19}
 \docType{data}
+\encoding{UTF-8}
 \title{
   Bell's et al. (2019) Data on the Changing-State and the Auditory Deviant Effect
 }

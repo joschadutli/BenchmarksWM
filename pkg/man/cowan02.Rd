@@ -37,7 +37,7 @@
 \references{
   
   Cowan, N., Saults, J. S., Elliott, E. M., & Moreno, M. V. (2002). 
-  Deconfounding serial recall. \emph{Journal of Memory and Language, 46}, 153–177.
+  Deconfounding serial recall. \emph{Journal of Memory and Language, 46}, 153-177.
   http://dx.doi.org/10.1006/jmla.2001.2805
     
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

@@ -65,12 +65,12 @@ data on the effect of retro cues and the effect of set size on response times
   
   Shepherdson, P., Oberauer, K., & Souza, A. S. (2018). Working Memory Load
   and the Retro-Cue Effect: A Diffusion Model Account. \emph{Journal of Experimental
-  Psychology: Human Perception and Performance, 44}, 286–310. 
+  Psychology: Human Perception and Performance, 44}, 286-310. 
   http://dx.doi.org/10.1037/xhp0000448
   
   Souza, A. S., Rerko, L., & Oberauer, K. (2014). Unloading and reloading working
   memory: Attending to one item frees capacity. \emph{Journal of Experimental 
-  Psychology: Human Perception and Performance, 40}, 1237–1256.
+  Psychology: Human Perception and Performance, 40}, 1237-1256.
   http://dx.doi.org/10.1037/a0036331
   
   

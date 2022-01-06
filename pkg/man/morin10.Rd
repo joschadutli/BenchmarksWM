@@ -39,7 +39,7 @@
 \references{
   
   Morin, C., Brown, G. D. A., & Lewandowsky, S. (2010). Temporal isolation effects in
-  recognition and serial recall. \emph{Memory & Cognition, 38}, 849–859. http://dx.doi.org/10.3758/MC.38.7.849
+  recognition and serial recall. \emph{Memory & Cognition, 38}, 849-859. http://dx.doi.org/10.3758/MC.38.7.849
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

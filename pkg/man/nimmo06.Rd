@@ -39,7 +39,7 @@
   
   Nimmo, L. M., & Lewandowsky, S. (2006). Distinctiveness revisited: Unpredictable 
   temporal isolation does not benefit short-term serial recall of heard or seen events. 
-  \emph{Memory & Cognition, 34}, 1368–1375. http://dx.doi.org/10.3758/BF03193278
+  \emph{Memory & Cognition, 34}, 1368-1375. http://dx.doi.org/10.3758/BF03193278
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

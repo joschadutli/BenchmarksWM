@@ -46,7 +46,7 @@
   
   Rerko, L., Oberauer, K., & Lin, H.-Y. (2014). Spatially imprecise representations in 
   working memory. \emph{Quarterly Journal of Experimental Psychology: Human Experimental
-  Psychology, 67}, 3–15. http://dx.doi.org/10.1080/17470218.2013.789543
+  Psychology, 67}, 3-15. http://dx.doi.org/10.1080/17470218.2013.789543
   
 }
 \examples{

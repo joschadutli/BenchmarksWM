@@ -35,7 +35,7 @@
 \references{
   
   Chein, J. M., Moore, A. B., & Conway, A. R. A. (2011). Domain-general mechanisms of
-  complex working memory span. \emph{NeuroImage, 54}, 550–559. 
+  complex working memory span. \emph{NeuroImage, 54}, 550-559. 
   http://dx.doi.org/10.1016/j.neuroimage.2010.07.067
   
   

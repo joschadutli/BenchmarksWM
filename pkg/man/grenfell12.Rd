@@ -38,7 +38,7 @@
 \references{
   Grenfell-Essam, R., & Ward, G. (2012). Examining the relationship between free
   recall and immediate serial recall: The role of list length, strategy use,
-  and test expectancy. \emph{Journal of Memory and Language, 67}, 106–148. 
+  and test expectancy. \emph{Journal of Memory and Language, 67}, 106-148. 
   http://dx.doi.org/10.1016/j.jml.2012.04.004
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

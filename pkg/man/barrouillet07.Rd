@@ -37,7 +37,7 @@
   
   Barrouillet, P., Bernardin, S., Portrat, S., Vergauwe, E., & Camos, V. (2007). Time 
   and cognitive load in working memory. \emph{Journal of Experimental Psychology: Learning,
-  Memory, and Cognition, 33}, 570–585. http://dx.doi.org/10.1037/0278-7393.33.3.570
+  Memory, and Cognition, 33}, 570-585. http://dx.doi.org/10.1037/0278-7393.33.3.570
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,

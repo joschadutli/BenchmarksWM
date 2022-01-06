@@ -47,7 +47,7 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
   
   Tan, L., & Ward, G. (2008). Rehearsal in immediate serial recall. \emph{Psychonomic
-  Bulletin & Review, 15}, 535–542. http://dx.doi.org/10.3758/PBR.15.3.535
+  Bulletin & Review, 15}, 535-542. http://dx.doi.org/10.3758/PBR.15.3.535
   
 }
 \examples{

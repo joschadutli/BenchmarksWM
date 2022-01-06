@@ -33,7 +33,7 @@
 \references{
   
   Murdock, B. B., & Okada, R. (1970). Interresponse times in single-trial free 
-  recall. \emph{Journal of Experimental Psychology, 86}, 263–267. 
+  recall. \emph{Journal of Experimental Psychology, 86}, 263-267. 
   http://dx.doi.org/10.1037/h0029993
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

@@ -1,11 +1,12 @@
 \name{oeztekin10}
 \alias{oeztekin10}
 \docType{data}
+\encoding{UTF-8}
 \title{
-  Oeztekin and McElree's (2010) Data on the Speed-Accuracy Trade-Off (SAT) Procedure and the Effects it shows in Working Memory Tasks
+  Öeztekin and McElree's (2010) Data on the Speed-Accuracy Trade-Off (SAT) Procedure and the Effects it shows in Working Memory Tasks
 }
 \description{
- Individual-trial data from Oeztekin and McElree (2010). The data show that the SAT
+ Individual-trial data from Öeztekin and McElree (2010). The data show that the SAT
  approximates to an exponential approach to a limit. That is, more retrieval time 
  leads to rapid improvement of recognition memory for short retrieval intervals, 
  which finally reaches a limit of accuracy which cannot be improved by more 

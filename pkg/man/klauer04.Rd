@@ -56,7 +56,7 @@
 \references{
   
   Klauer, K. C., & Zhao, Z. (2004). Double dissociations in visual and spatial short-term
-  memory. \emph{Journal of Experimental Psychology: General, 133}, 355–381. 
+  memory. \emph{Journal of Experimental Psychology: General, 133}, 355-381. 
   http://dx.doi.org/10.1037/0096-3445.133.3.355
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

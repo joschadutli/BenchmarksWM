@@ -66,7 +66,7 @@
   Kane, M. J., Hambrick, D. Z., Tuholski, S. W., Wilhelm, O., Payne, T. W., & Engle, R. W.
   (2004). The generality of working memory capacity: A latent-variable approach to verbal 
   and visuospatial memory span and reasoning. \emph{Journal of Experimental Psychology:
-  General, 133}, 189– 217. http://dx.doi.org/10.1037/0096-3445.133.2.189
+  General, 133}, 189-217. http://dx.doi.org/10.1037/0096-3445.133.2.189
   
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

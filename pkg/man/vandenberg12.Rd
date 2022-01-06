@@ -58,7 +58,7 @@
   
   van den Berg, R., Shin, H., Chou, W.-C., George, R., & Ma, W. J. (2012). Variability in
   encoding precision accounts for visual short-term memory limitations. \emph{Proceedings of
-  the National Academy of Sciences of the United States of America, 109}, 8780–8785. 
+  the National Academy of Sciences of the United States of America, 109}, 8780-8785. 
   http://dx.doi.org/10.1073/pnas.1117465109
   
 }

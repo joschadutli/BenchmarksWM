@@ -38,7 +38,7 @@
   
   Ricker, T. J., Spiegel, L. R., & Cowan, N. (2014). Time-based loss in visual short-term
   memory is from trace decay, not temporal distinctiveness. \emph{Journal of Experimental
-  Psychology: Learning, Memory, and Cognition, 40}, 1510–1523. 
+  Psychology: Learning, Memory, and Cognition, 40}, 1510-1523. 
   http://dx.doi.org/10.1037/xlm0000018
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

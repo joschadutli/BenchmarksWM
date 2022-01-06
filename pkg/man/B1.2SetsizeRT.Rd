@@ -45,7 +45,7 @@
 \references{
   Donkin, C., & Nosofsky, R. M. (2012b). The structure of short-term memory
   scanning: An investigation using response time distribution models. \emph{Psychonomic
-  Bulletin & Review, 19}, 363–394. http://dx.doi.org/ 10.3758/s13423-012-0236-8
+  Bulletin & Review, 19}, 363-394. http://dx.doi.org/ 10.3758/s13423-012-0236-8
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
@@ -55,20 +55,20 @@
   
   Shepherdson, P., Oberauer, K., & Souza, A. S. (2018). Working Memory Load
   and the Retro-Cue Effect: A Diffusion Model Account. \emph{Journal of Experimental
-  Psychology: Human Perception and Performance, 44}, 286–310. 
+  Psychology: Human Perception and Performance, 44}, 286-310. 
   http://dx.doi.org/10.1037/xhp0000448
   
   Souza, A. S., Rerko, L., & Oberauer, K. (2014). Unloading and reloading working
   memory: Attending to one item frees capacity. \emph{Journal of Experimental 
-  Psychology: Human Perception and Performance, 40}, 1237–1256.
+  Psychology: Human Perception and Performance, 40}, 1237-1256.
   http://dx.doi.org/10.1037/a0036331
   
-  Sternberg, S. (1966). High-speed scanning in human memory. \emph{Science, 153}, 652–654.
+  Sternberg, S. (1966). High-speed scanning in human memory. \emph{Science, 153}, 652-654.
   http://dx.doi.org/10.1126/science.153.3736.652
   
   Towse, J. N., Cowan, N., Hitch, G. J., & Horton, N. J. (2008). The recall of
   information from working memory. Insights from behavioural and chronometric
-  perspectives. \emph{Experimental Psychology, 55}, 371–383. 
+  perspectives. \emph{Experimental Psychology, 55}, 371-383. 
   http://dx.doi.org/10.1027/1618-3169.55.6.371
   
 }
