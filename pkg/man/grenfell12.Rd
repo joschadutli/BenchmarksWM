@@ -58,22 +58,25 @@ colors <- c("black", "grey50", "grey80", "white")
 
 ## written by K. Oberauer
 plotpanel <- function(post,title4panel) {
-  plot(0,0, xlim=c(0,max(post$listlength)+1),ylim=c(0,1), type="n", las=1, xaxt="n",
-       xlab="List Length", ylab="Probability of First Recall",cex.lab=0.8)
-  k<-0
-  for (rx in unique(post$output)) {
-    tbp<-filter(post, output==rx)
-    k<-k+1
-    lines(tbp$listlength, tbp$prob_fr,lwd=1,lty=k)  
-    points(tbp$listlength, tbp$prob_fr,pch=20+k, bg=colors[k],cex=0.8)
-  }
-  text(7.5,.95,title4panel,cex=1.0)
-  legend(10,.6,unique(post$output),lty=c(1:k),pch=c(21:(20+k)),pt.bg=colors,pt.cex=0.6,y.intersp = 1, cex = 0.6)
-  par(tcl= -0.2)  #minor ticks
-  axis(1, at=seq(from=0,to=max(post$listlength)+1,by=1), labels=F, lwd=1, lwd.ticks=0.5)
-  par(tcl= -0.5)  #major ticks with labels
-  axis(1, at=seq(from=0,to=max(post$listlength)+1,by=3), labels=seq(from=0,to=max(post$listlength)+1,by=3),
-       lwd=0, lwd.ticks=1)
+    plot(0,0, xlim=c(0,max(post$listlength)+1),ylim=c(0,1), type="n", las=1,
+         xaxt="n", xlab="List Length", ylab="Probability of First Recall",
+         cex.lab=0.8)
+    k <- 0
+    for (rx in unique(post$output)) {
+        tbp<-filter(post, output==rx)
+        k<-k+1
+        lines(tbp$listlength, tbp$prob_fr,lwd=1,lty=k)
+        points(tbp$listlength, tbp$prob_fr,pch=20+k, bg=colors[k],cex=0.8)
+    }
+    text(7.5,.95,title4panel,cex=1.0)
+    legend(10,.6,unique(post$output),lty=c(1:k),pch=c(21:(20+k)),pt.bg=colors,
+           pt.cex=0.6,y.intersp = 1, cex = 0.6)
+    par(tcl= -0.2)  # minor ticks
+    axis(1, at=seq(from=0,to=max(post$listlength)+1,by=1), labels=F, lwd=1,
+         lwd.ticks=0.5)
+    par(tcl= -0.5)  # major ticks with labels
+    axis(1, at=seq(from=0,to=max(post$listlength)+1,by=3),
+         labels=seq(from=0,to=max(post$listlength)+1,by=3), lwd=0, lwd.ticks=1)
 }
 par(mfrow=c(1,2),mar=c(4, 4, 2, 1) + 0.2)
 plotpanel(pre,"Pre-cued")

@@ -57,12 +57,14 @@
 \examples{
 data(lewandowsky10)
 ### reproduce Figure 5 (Oberauer et al., 2018)
-
 plotd <- aggregate(acc ~ cond, data = lewandowsky10, FUN = mean)
 plot(x=c(0,3), y=c(0.3,1.0), type = "n", xlab = "Condition", 
      ylab = "Proportion Correct", main = "Forgetting in Verbal Complex Span",
      xaxt = "n")
-axis(side = 1, at = c(0,1,2,3), labels = c("Quiet", "1 distractor", "3 identical distr.", "3 different distr."))
+axis(side = 1, at = c(0,1,2,3),
+     labels = c("Quiet", "1 distractor", "3 identical distr.",
+                "3 different distr."))
+
 lines(x = plotd$cond, y = plotd$acc, type = "b", lty = 1, pch = 15)
 }
 \keyword{datasets}

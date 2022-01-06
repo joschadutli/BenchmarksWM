@@ -59,10 +59,14 @@ plot(c(1,6), c(0,1), type = "n", xlab = "Serial Position",
      ylab = "Proportion Correct", main = "Serial Recall as an Effect of 
      Presentation Timing", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6), labels = T)
-lines(x = plotd$serpos[plotd$ptime == 1], y = plotd$corr[plotd$ptime == 1], type = "b", lty = 1, pch = 15)
-lines(x = plotd$serpos[plotd$ptime == 2.5], y = plotd$corr[plotd$ptime == 2.5], type = "b", lty = 2, pch = 16)
-lines(x = plotd$serpos[plotd$ptime == 5], y = plotd$corr[plotd$ptime == 5], type = "b", lty = 3, pch = 17)
-legend(4, 0.6, c("1 s / item", "2.5 s / item", "5 s / item"), lty = 1:3, pch=15:17, yjust=0)
+lines(x = plotd$serpos[plotd$ptime == 1], y = plotd$corr[plotd$ptime == 1],
+      type = "b", lty = 1, pch = 15)
+lines(x = plotd$serpos[plotd$ptime == 2.5], y = plotd$corr[plotd$ptime == 2.5],
+      type = "b", lty = 2, pch = 16)
+lines(x = plotd$serpos[plotd$ptime == 5], y = plotd$corr[plotd$ptime == 5],
+      type = "b", lty = 3, pch = 17)
+legend(4, 0.6, c("1 s / item", "2.5 s / item", "5 s / item"), lty = 1:3,
+       pch=15:17, yjust=0)
 
 }
 \keyword{datasets}

@@ -53,12 +53,12 @@
 \examples{
 data(farrell04)
 ### Reproduce Figure B2 in Oberauer et al. (2018) without CIs
-fl04m     <- aggregate(rt~condition+spos, data=farrell04, FUN=mean)
+fl04m <- aggregate(rt~condition+spos, data=farrell04, FUN=mean)
 par(mfrow=c(1,1))  #accuracy and then RT
 bgk <- c("gray","black")
 ltyk <- c("solid","dashed")
 
-#now plot RT by serial position
+# Now plot RT by serial position
 plot(c(0,7),c(0,3000), xlim=c(0.5,6.5),ylim=c(0,3100), type="n", las=1,
      xlab="Serial Position", ylab="Mean Latency (ms)",cex.lab=1.2,cex.axis=1.)
 for (k in c(0:1)) {
@@ -67,6 +67,7 @@ for (k in c(0:1)) {
   lines(xx,tbp$rt,lwd=2,lty=ltyk[k+1])
   points(xx,tbp$rt,pch=21+k,bg=bgk[k+1],cex=1.5)
 }
-legend(6,2900,c("No interference","Interference"),lty=ltyk,pch=20+c(1:2),pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=1)
+legend(6,2900,c("No interference","Interference"),lty=ltyk,pch=20+c(1:2),
+       pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=1)
 }
 \keyword{datasets}

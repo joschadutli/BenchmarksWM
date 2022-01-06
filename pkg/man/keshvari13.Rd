@@ -41,7 +41,9 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 }
 \examples{
-## Approximate reproduction of Figure 2c in Keshvari et al. (2013) and and Figure B3 in Oberauer et al. (2018)
+## Approximate reproduction of Figure 2c in Keshvari et al. (2013)
+## and Figure B3 in Oberauer et al. (2018)
+
 data(keshvari13)
 pd <- aggregate(response ~ deltabin+setsize, data = keshvari13, FUN = mean)
 
@@ -62,9 +64,8 @@ lines(x = pd$deltabin[pd$setsize == 6],
 lines(x = pd$deltabin[pd$setsize == 8], 
       y = pd$response[pd$setsize == 8], 
       type = "b", lty = 4, pch = 18, col = "lightgrey")
-legend(1.6, 0, c("N=1","N=2","N=4","N=8"), 
-       lty = 1:4, 
-       pch=15:18, col = c("black", "darkgrey", "grey","lightgrey"), 
-       horiz = F, cex = 0.6, yjust = 0, xjust = 1)
+legend(1.6, 0, c("N=1","N=2","N=4","N=8"), lty = 1:4, pch=15:18,
+       col = c("black", "darkgrey", "grey","lightgrey"), horiz = F, cex = 0.6,
+       yjust = 0, xjust = 1)
 }
 \keyword{datasets}

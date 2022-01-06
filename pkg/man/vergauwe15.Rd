@@ -50,7 +50,8 @@
 \examples{
 ### Two Figures that represent the data
 data(vergauwe15)
-pd <- aggregate(cbind(acc, CL) ~  domain + num, data = vergauwe15[which(vergauwe15$condition == "easy"),], FUN = mean)
+pd <- aggregate(cbind(acc, CL) ~ domain + num,
+                data = vergauwe15[which(vergauwe15$condition == "easy"),], FUN = mean)
 
 plot(c(0.05,0.25), c(0.5,1), type = "n", xlab = "Cognitive Load (Mean RT / Total Time)",
      ylab = "Proportion correct", main = "Easy Processing Task", xaxt = "n")
@@ -72,7 +73,8 @@ legend(0.05, 0.5, c("verbal-many",
        pch=c(15,17), col = c("red","green"),
        horiz = T, cex = 0.5, yjust = 0, xjust = 0)
 
-pd <- aggregate(cbind(acc, CL) ~  domain + num, data = vergauwe15[which(vergauwe15$condition == "hard"),], FUN = mean)
+pd <- aggregate(cbind(acc, CL) ~  domain + num,
+                data = vergauwe15[which(vergauwe15$condition == "hard"),], FUN = mean)
 
 plot(c(0.05,0.25), c(0.5,1), type = "n", xlab = "Cognitive Load (Mean RT / Total Time)",
      ylab = "Proportion correct", main = "Hard Processing Task", xaxt = "n")

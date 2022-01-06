@@ -88,6 +88,7 @@ for (sp in 1:6) {
          y = pd_whole$corr, 
          pch = 21, bg = bgk[sp])
 }
-legend(maxx,miny,c("SP=1", "SP=2", "SP=3", "SP=4", "SP=5", "SP=6"), pch=21, pt.bg = bgk, xjust=1, yjust=0)
+legend(maxx,miny,c("SP=1", "SP=2", "SP=3", "SP=4", "SP=5", "SP=6"), pch=21,
+       pt.bg = bgk, xjust=1, yjust=0)
 }
 \keyword{datasets}

@@ -56,7 +56,7 @@
     
 }
 \examples{
-### Approximate replication of Figure 3 (top panel) in Oberauer (2006
+### Approximate replication of Figure 3 (top panel) in Oberauer (2006)
 data(oberauer06)
 pd <- aggregate(rt ~ setsize+update_type+session, 
                 data = oberauer06[which(oberauer06$update_type != "first item"),],
@@ -75,7 +75,8 @@ for (k in c(1:10)) {
   points(c(((k-1)*5+2):((k-1)*5+5)),tbp$rt[6:9],pch=19,bg=bgk[2],cex=0.5)
 }
 
-legend(50,1800,c("no-switch", "switch"),lty=c(1:2),pch=c(22,19),pt.bg=bgk,cex=0.6,pt.cex=1.0, yjust = 1, xjust = 1)
+legend(50,1800,c("no-switch", "switch"),lty=c(1:2),pch=c(22,19),pt.bg=bgk,
+       cex=0.6,pt.cex=1.0, yjust = 1, xjust = 1)
 
 }
 \keyword{datasets}

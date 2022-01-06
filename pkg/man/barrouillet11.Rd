@@ -40,25 +40,26 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 }
 \examples{
+
 ### Reproduce Figure 2 in Barrouillet et al. (2011)
 data(barrouillet11)
+# markers corresponding to Barrouillet et al (2011)
 pd <- aggregate(cbind(span, CL) ~ task, data = barrouillet11, FUN = mean)
-
-pt=c(24, 24, 23, 23, 23, 23, 21, 21, 21, 24, 24, 22, 22, 22) # markers corresponding to Barrouillet et al (2011)
-col=rep("black", 14)
-ptcol=c("red", "red", "blue", "blue", "blue", "blue", "black", "black", "black", "red", "red", "green", "green", "green")
+pt = c(24, 24, 23, 23, 23, 23, 21, 21, 21, 24, 24, 22, 22, 22) 
+col = rep("black", 14)
+ptcol = c("red", "red", "blue", "blue", "blue", "blue", "black", "black",
+          "black", "red", "red", "green", "green", "green")
 Tasks <- unique(Data$task)
 xlim <- c(0,1)
 ylim <- c(0,9)
-
-plot(xlim, ylim, type = "n", xlab = "Cognitive Load",
-     ylab = "Memory Span", main = "Cognitive Load in different Tasks", xaxt = "n")
+plot(xlim, ylim, type = "n", xlab = "Cognitive Load", ylab = "Memory Span",
+     main = "Cognitive Load in different Tasks", xaxt = "n")
 axis(side = 1, at = 0:10/10, labels = T)
 points(x = pd$CL, y = pd$span, 
        type = "p", pch = pt, bg = ptcol)
 abline(a=8.13, b=-8.33)
-legend(1,9,c("Updating", "Inhibition", "Response Selection", "Retrieval"), 
-       pch=c(24,23,22,21), pt.bg=c("red", "blue", "green", "black"), yjust=1, xjust=1,
-       cex = 0.7)
+legend(1,9,c("Updating", "Inhibition", "Response Selection", "Retrieval"),
+       pch=c(24,23,22,21), pt.bg=c("red", "blue", "green", "black"), yjust=1,
+       xjust=1, cex = 0.7)
 }
 \keyword{datasets}

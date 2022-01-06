@@ -54,7 +54,8 @@ subdat <- subset(frankish89, group == "visual")
 pd <- aggregate(acc ~ serpos+cond_num, data = subdat, FUN = mean)
 bgk <- c("gray","black","gray","black","white")
 plot(0,0, xlim=c(0.5,9.5),ylim=c(0.2,1), type="n", las=1, xaxt="n", yaxt="n",
-     xlab="Serial Position", ylab="Proportion Correct",cex.lab=1.4,cex.axis=1.2)
+     xlab="Serial Position", ylab="Proportion Correct",cex.lab=1.4,
+     cex.axis=1.2)
 title("Visual")
 axis(1, at=c(1:9),lwd=1, lwd.ticks=1,cex.axis=1.0)
 axis(2, at=seq(from=.3,to=1.,by=.1),lwd=1, lwd.ticks=1,cex.axis=1.0)
@@ -66,7 +67,8 @@ for (k in c(1:5)) {
   points(tbp$serpos,tbp$acc,pch=20+k,bg=bgk[k],cex=1.0)
 }
 
-legend(1,.5,c("Ungrouped","0.25 s", "0.5 s", "1 s", "2 s"),lty=c(1:5),pch=20+c(1:5),pt.bg=bgk,cex=0.6,pt.cex=1.0)
+legend(1,.5,c("Ungrouped","0.25 s", "0.5 s", "1 s", "2 s"),lty=c(1:5),
+       pch=20+c(1:5),pt.bg=bgk,cex=0.6,pt.cex=1.0)
 
 }
 \keyword{datasets}
