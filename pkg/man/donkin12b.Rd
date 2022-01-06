@@ -13,7 +13,7 @@
 \format{
   A data frame with 140 observations on the following 5 variables.
   \describe{
-    \item{\code{id}}{Unique ID number for each subject}
+    \item{\code{subject}}{Unique ID number for each subject}
     \item{\code{rate}}{Presentation rate: "fast" (subj 1-4) vs. "slow" (subj 5-7)}
     \item{\code{size}}{Set size: 1-5}
     \item{\code{pos}}{Serial position of recognition probe: 1-size, 6 for
