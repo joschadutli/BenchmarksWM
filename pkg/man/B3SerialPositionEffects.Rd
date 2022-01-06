@@ -27,7 +27,7 @@
   \item{\code{\link{harvey07}}}{Modality (visual vs. auditory) and recency effects
   in serial recall. (BM 3.2)}
   \item{\code{\link{oeztekin10}}}{Fast access to recently presented items. (BM 3.3.2)}
-  \item{\code{\link{farell04}}}{Serial position effects on retrieval latencies.
+  \item{\code{\link{farrell04}}}{Serial position effects on retrieval latencies.
   (BM 3.3.3)}
   \item{\code{\link{murdock70}}}{Output position effect on inter-response latencies (BM 3.3.3)}
   \item{\code{\link{cowan02}}}{Deconfounded output and input position effects in serial recall. (BM 3.4.1)}
