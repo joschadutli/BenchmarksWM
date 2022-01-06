@@ -8,6 +8,6 @@ Maintainer: Joscha Dutli <joscha.dutli@psychologie.uzh.ch>
 Description: Individual-subject data from benchmark working memory experiments.
 License: GPL (>= 2)
 Imports:
-	tidyverse, dplyr
+	tidyverse, dplyr, Hmisc
 LazyData: true
 
