@@ -54,8 +54,7 @@
 \examples{
   ### reproduce Figure 4 in Oberauer et al. (2018)
   data("chen09")
-  dAS <- subset(chen09, group==4) # data where rehearsal is articulatory 
-  suppressed
+  dAS <- subset(chen09, group==4) # data where rehearsal is articulatory suppressed
   plot_data <- aggregate(span ~ condition, data = dAS, FUN = mean)
   plot_data <- plot_data[c(1,9,6,3,2,10,8,5,7,4),]
   t <- as.table(plot_data$span)
