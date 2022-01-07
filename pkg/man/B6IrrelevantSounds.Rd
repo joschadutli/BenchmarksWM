@@ -2,7 +2,7 @@
 \alias{B6IrrelevantSounds}
 \alias{B6 IrrelevantSounds}
 \alias{IrrelevantSounds}
-
+\encoding{UTF-8}
 \title{Working Memory Benchmark 6: Effects of Irrelevant Sounds}
 
 \description{

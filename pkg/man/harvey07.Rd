@@ -92,8 +92,8 @@ lines(x = pds$serpos[pds$modality == "visual" & pds$material == "numbers"],
 lines(x = pds$serpos[pds$modality == "visual" & pds$material == "words"], 
       y = pds$acc[pds$modality == "visual" & pds$material == "words"], 
       type = "b", lty = 4, pch= 22, bg="grey", col="black")
-legend(4.5, 1.0, c("Auditory — numbers", "Auditory — words", "Visual — numbers", 
-                   "Visual — words"), lty = 1:4, pch = c(21,22,21,22),
+legend(4.5, 1.0, c("Auditory - numbers", "Auditory - words", "Visual — numbers", 
+                   "Visual - words"), lty = 1:4, pch = c(21,22,21,22),
        pt.bg = c("black","black","grey","grey"), horiz = F, cex = 0.6, 
        yjust = 1, xjust = 0)
 

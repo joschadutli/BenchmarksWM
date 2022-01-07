@@ -1,5 +1,6 @@
 \name{schlittmeier12}
 \alias{schlittmeier12}
+\encoding{UTF-8}
 \docType{data}
 \title{
   Schlittmeier's et al. (2012) Data on the Irrelevant Sound Effect

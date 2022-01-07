@@ -47,9 +47,9 @@
     \item{\code{ets.surface.development}}{ ETS Surface Development Test (spatial visualization)}
     \item{\code{afq.reading.comprehension}}{ AFOQT Reading Comprehension (verbal reasoning)}
     \item{\code{ets.form.board}}{ ETS Form Board Test (spatial visualization)}
-    \item{\code{wasi.matrices}}{ WASI Matrix Reasoning (figural inductive reasoning–Gf)}
-    \item{\code{raven.matrices}}{ RAPM, Set II (figural inductive reasoning–Gf)}
-    \item{\code{beta3.matrices}}{ BETA III Matrix Reasoning (figural inductive reasoning–Gf)}
+    \item{\code{wasi.matrices}}{ WASI Matrix Reasoning (figural inductive reasoning-Gf)}
+    \item{\code{raven.matrices}}{ RAPM, Set II (figural inductive reasoning-Gf)}
+    \item{\code{beta3.matrices}}{ BETA III Matrix Reasoning (figural inductive reasoning-Gf)}
   }
 }
 \details{

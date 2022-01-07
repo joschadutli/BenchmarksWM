@@ -2,7 +2,7 @@
 \alias{B9DistinctivenessGrouping}
 \alias{DistinctivenessGrouping}
 \alias{B9 DistinctivenessGrouping}
-
+\encoding{UTF-8}
 \title{Working Memory Benchmark 9: Effects of Distinctiveness and Grouping}
 
 \description{

@@ -2,7 +2,7 @@
 \alias{B3SerialPositionEffects}
 \alias{B3 SerialPositionEffects}
 \alias{SerialPositionEffects}
-
+\encoding{UTF-8}
 \title{Working Memory Benchmarks 3: Effects of Serial Position}
 
 \description{

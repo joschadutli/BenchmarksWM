@@ -1,6 +1,7 @@
 \name{portrat16}
 \alias{portrat16}
 \docType{data}
+\encoding{UTF-8}
 \title{
   Portrat, Guida, Phénix, & Lemaire's (2016) Data on Chunking
 }

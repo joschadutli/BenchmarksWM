@@ -1,6 +1,7 @@
 \name{jarrold13}
 \alias{jarrold13}
 \docType{data}
+\encoding{UTF-8}
 \title{
   Jarrold & Citroën's (2013) Data on the Phonological Similarity Effect in Children
 }

@@ -2,7 +2,7 @@
 \alias{B8SimilarityEffects}
 \alias{B8 SimilarityEffects}
 \alias{SimilarityEffects}
-
+\encoding{UTF-8}
 \title{Working Memory Benchmark 8: Effects of Similarity}
 
 \description{

@@ -2,7 +2,7 @@
 \alias{B11EffectsOfKnowledge}
 \alias{B11 EffectsOfKnowledge}
 \alias{EffectsOfKnowledge}
-
+\encoding{UTF-8}
 \title{Working Memory Benchmark 11: Effects of Knowledge on WM performance}
 
 

@@ -1,6 +1,7 @@
 \name{farrell09}
 \alias{farrell09}
 \docType{data}
+\encoding{UTF-8}
 \title{
   Farrell & Lelièvre's (2009) Data on the Effects of Grouping
 }
