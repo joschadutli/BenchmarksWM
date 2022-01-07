@@ -11,5 +11,5 @@ Imports:
 	tidyverse, dplyr, Hmisc
 LazyData: true
 LazyDataCompression: xz
-
+Depends: R (>= 3.5)
 
