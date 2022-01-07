@@ -80,6 +80,7 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 }
 \examples{
+
 data(lange11)
 ### Reproduction of Figure 2A (Exp. 1) in Lange et al. (2011)
 plotd <- lange11[which(lange11$exp == 1),] # Experiment 1
@@ -110,5 +111,6 @@ for (sp in 1:4) {
 
 legend(3, 1200, c("forward", "fixed-irr.", "backward", "random"), pch=pt,
        pt.bg = bgk, xjust=0, yjust=1, title = "Order Conditions", cex = 0.6)
+
 }
 \keyword{datasets}
