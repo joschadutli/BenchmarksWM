@@ -50,6 +50,7 @@
 \examples{
 ## Reproduction of Figure 8A in Bhatarah et al. (2009)
 ### Immediate serial recall
+data(bhatarah09e)
 pd <- aggregate(recalled ~ serpos+word.length, 
                 data = bhatarah09e[which(bhatarah09e$task == "FR"),], FUN = mean)
 plot(c(1,12), c(0.0,1.0), type = "n", xlab = "Serial Position",
