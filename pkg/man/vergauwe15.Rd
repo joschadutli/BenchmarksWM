@@ -55,7 +55,7 @@ pd <- aggregate(cbind(acc, CL) ~ domain + num,
 
 plot(c(0.05,0.25), c(0.5,1), type = "n", xlab = "Cognitive Load (Mean RT / Total Time)",
      ylab = "Proportion correct", main = "Easy Processing Task", xaxt = "n")
-axis(side = 1, at = c(0.05,0.1,0.15,0.2,0.25), labels = T)
+axis(side = 1, at = c(0.05,0.1,0.15,0.2,0.25), labels = TRUE)
 points(x = pd$CL[pd$domain == "verbal"], 
        y = pd$acc[pd$domain == "verbal"], 
        type = "p", pch = 15, col = "red")
@@ -71,7 +71,7 @@ abline(lm(acc ~ CL, data = pd[which(pd$domain == "spatial"),])$coefficients,
 legend(0.05, 0.5, c("verbal-many",
                    "spatial-many"), lty = c(1,3), 
        pch=c(15,17), col = c("red","green"),
-       horiz = T, cex = 0.5, yjust = 0, xjust = 0)
+       horiz = TRUE, cex = 0.5, yjust = 0, xjust = 0)
 
 pd <- aggregate(cbind(acc, CL) ~  domain + num,
                 data = vergauwe15[which(vergauwe15$condition == "hard"),], FUN = mean)
@@ -94,6 +94,6 @@ abline(lm(acc ~ CL, data = pd[which(pd$domain == "spatial"),])$coefficients,
 legend(0.05, 0.5, c("verbal-many",
                     "spatial-many"), lty = c(1,3), 
        pch=c(15,17), col = c("red","green"),
-       horiz = T, cex = 0.5, yjust = 0, xjust = 0)
+       horiz = TRUE, cex = 0.5, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

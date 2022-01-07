@@ -66,7 +66,7 @@ par(mfrow=c(1,2))
 splot <- aggregate(FRcorrect ~ length*prestime, data = dSilent, FUN = mean)
 plot(c(2,12), c(0,1.1), type = "n", xlab = "List length",
      ylab = "P(first item recalled correctly)", main = "Silent", xaxt = "n")
-axis(side = 1, at = c(2,4,5,6,7,8,10,12), labels = T)
+axis(side = 1, at = c(2,4,5,6,7,8,10,12), labels = TRUE)
 lines(x = splot$length[splot$prestime == 0.5], 
       y = splot$FRcorrect[splot$prestime == 0.5], 
       type = "b", lty = 1, pch = 15)
@@ -82,7 +82,7 @@ legend(2, 0, c("0.5 s / item", "1 s / item", "3 s / item"), lty = 1:3, pch=15:17
 ASplot <- aggregate(FRcorrect ~ length*prestime, data = dAS, FUN = mean)
 plot(c(2,12), c(0,1.1), type = "n", xlab = "List length",
      ylab = "P(first item recalled correctly)", main = "Articulatory Suppression", xaxt = "n")
-axis(side = 1, at = c(2,4,5,6,7,8,10,12), labels = T)
+axis(side = 1, at = c(2,4,5,6,7,8,10,12), labels = TRUE)
 lines(x = ASplot$length[ASplot$prestime == 0.5], 
       y = ASplot$FRcorrect[ASplot$prestime == 0.5], 
       type = "b", lty = 1, pch = 15)

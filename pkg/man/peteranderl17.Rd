@@ -43,7 +43,7 @@ pd <- aggregate(errordeg ~ AS*serpos, data = peteranderl17, FUN=mean)
 plot(c(1,5), c(0.0,65), type = "n", xlab = "Serial Position",
      ylab = "Precision error in degrees", 
      main = "Serial Recall", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5), labels = T)
+axis(side = 1, at = c(1,2,3,4,5), labels = TRUE)
 
 lines(x = pd$serpos[pd$AS == 0], 
       y = pd$errordeg[pd$AS == 0], 

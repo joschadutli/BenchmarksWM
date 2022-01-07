@@ -84,7 +84,7 @@ data on the effect of retro cues and the effect of set size on response times
   plotd <- aggregate(rt ~ size*CTI*subj, data=plotd, FUN=mean)
   plot <- interaction.plot(plotd$size, plotd$CTI, plotd$rt, type = "b",
                            pch= 15:19, xlab = "Set size", ylab = "Mean RT",
-                           legend = F, xtick = T, ylim = c(0.4,1.3),
+                           legend = F, xtick = TRUE, ylim = c(0.4,1.3),
                            main = "Set size effect on RT with retro cues")
   legend(1, 0.8, c("No Cue", "100 ms", "2000 ms", "400 ms"), pch=15:19, yjust=0)
   ### watch out: legend is messy

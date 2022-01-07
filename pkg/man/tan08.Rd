@@ -58,7 +58,7 @@ plotd <- aggregate(corr ~ serpos*ptime, data = tan08, FUN = mean)
 plot(c(1,6), c(0,1), type = "n", xlab = "Serial Position",
      ylab = "Proportion Correct", main = "Serial Recall as an Effect of 
      Presentation Timing", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6), labels = T)
+axis(side = 1, at = c(1,2,3,4,5,6), labels = TRUE)
 lines(x = plotd$serpos[plotd$ptime == 1], y = plotd$corr[plotd$ptime == 1],
       type = "b", lty = 1, pch = 15)
 lines(x = plotd$serpos[plotd$ptime == 2.5], y = plotd$corr[plotd$ptime == 2.5],

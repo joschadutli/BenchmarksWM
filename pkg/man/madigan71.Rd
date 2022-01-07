@@ -52,7 +52,7 @@ par(mfrow=c(1,2))
 plot(c(1,8), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", 
      main = "Serial Recall", xaxt = "n")
-axis(side = 1, at = c(2,4,6,8), labels = T)
+axis(side = 1, at = c(2,4,6,8), labels = TRUE)
 
 lines(x = pd$serpos[pd$direction == 1], 
       y = pd$acc[pd$direction == 1], 

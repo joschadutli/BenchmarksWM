@@ -57,7 +57,7 @@ pdw <- aggregate(acc ~ serpos*modality*material, data = d_writ, FUN = mean)
 plot(c(1,9), c(0.0,1.05), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", 
      main = "Written response", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6,7,8,9), labels = T)
+axis(side = 1, at = c(1,2,3,4,5,6,7,8,9), labels = TRUE)
 
 lines(x = pdw$serpos[pdw$modality == "auditory" & pdw$material == "numbers"], 
       y = pdw$acc[pdw$modality == "auditory" & pdw$material == "numbers"], 
@@ -78,7 +78,7 @@ pds <- aggregate(acc ~ serpos*modality*material, data = d_spok, FUN = mean)
 plot(c(1,9), c(0.0,1.05), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", 
      main = "Spoken response", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6,7,8,9), labels = T)
+axis(side = 1, at = c(1,2,3,4,5,6,7,8,9), labels = TRUE)
 
 lines(x = pds$serpos[pds$modality == "auditory" & pds$material == "numbers"], 
       y = pds$acc[pds$modality == "auditory" & pds$material == "numbers"], 

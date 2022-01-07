@@ -66,7 +66,7 @@ agg_pd <- aggregate(in_acc ~ serpos*memory, data = pd, FUN = mean)
 plot(c(1,6), c(0.5,1.0), type = "n", xlab = "Serial Position (Input)",
      ylab = "Proportion correct", 
      main = "Serial Position Curve in Recognition Memory", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6), labels = T)
+axis(side = 1, at = c(1,2,3,4,5,6), labels = TRUE)
 
 lines(x = agg_pd$serpos[agg_pd$memory == "global"], 
       y = agg_pd$in_acc[agg_pd$memory == "global"], 

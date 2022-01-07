@@ -57,8 +57,8 @@ barspacing <- c(0.2,0.2,0.7,0.2,0.7,0.2)
 legendtext <- c("","Words", "Sentences", "Stories","")
 bp = barplot(pd$span, space = barspacing, col=c("dark gray","light gray","dark gray",
                                                "light gray","dark gray","light gray"),
-             ylab="Serial Span", xlab="Task", axisnames=T, 
-             ylim = c(0,1), xpd = T)
+             ylab="Serial Span", xlab="Task", axisnames=TRUE, 
+             ylim = c(0,1), xpd = TRUE)
 axis(1, at = c(0,1.3,4.2,7.1,8.2), labels=legendtext, cex.axis=1, outer = F)
 legend(8, 1, c("similar", "dissimilar"), 
        pch=c(15,15), col = c("darkgrey", "lightgrey"), 

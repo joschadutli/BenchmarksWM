@@ -55,7 +55,7 @@ par(mfrow=c(1,1))
 plot(c(0.2,1.0), c(0,55), type = "n", xlab = "Condolidation time in seconds",
      ylab = "Precision error in degrees", 
      main = "Serial Position and Consolidation Time", xaxt = "n")
-axis(side = 1, at = c(0.2,0.4,0.6,0.8,1.0), labels = T)
+axis(side = 1, at = c(0.2,0.4,0.6,0.8,1.0), labels = TRUE)
 
 lines(x = dp$ctime[dp$serpos == 1], 
       y = dp$error[dp$serpos == 1], 

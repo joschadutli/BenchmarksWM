@@ -94,13 +94,13 @@
   dfast$pos[dfast$pos == 6] <- "new"
   interaction.plot(dfast$pos, dfast$size, dfast$rt, type = "b", pch = 15:19, 
                    ylim = c(.35,.70), xlab = "Serial Position", 
-                   ylab = "Mean RT", legend = F, xtick=T,
+                   ylab = "Mean RT", legend = F, xtick=TRUE,
                    main = "Fast presentation rate")
   dslow$pos[dslow$pos == 6] <- "new"
   interaction.plot(dslow$pos, dslow$size, dslow$rt, type = "b", pch = 15:19,
                    ylim = c(.35,.70), xlab = "Serial Position",
                    ylab = "Mean RT", trace.label = "Set size", 
-                   main = "Slow presentation rate", xtick = T)
+                   main = "Slow presentation rate", xtick = TRUE)
 
 }
 \keyword{datasets}

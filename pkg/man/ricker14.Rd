@@ -54,7 +54,7 @@ data(ricker14)
 pd <- aggregate(accuracy ~ RI*ITI, data = ricker14, FUN = mean)
 plot(c(0.0,12), c(0.6,0.9), type = "n", xlab = "Retention Interval (s)",
      ylab = "Proportion correct", main = "Figure 2 in Ricker et al. (2014)", xaxt = "n")
-axis(side = 1, at = c(1,6,12), labels = T)
+axis(side = 1, at = c(1,6,12), labels = TRUE)
 lines(x = pd$RI[pd$ITI == 1], y = pd$accuracy[pd$ITI == 1], 
       type = "b", lty = 1, pch = 15)
 lines(x = pd$RI[pd$ITI == 6], y = pd$accuracy[pd$ITI == 6], 
@@ -63,7 +63,7 @@ lines(x = pd$RI[pd$ITI == 12], y = pd$accuracy[pd$ITI == 12],
       type = "b", lty = 3, pch = 17)
 legend(12, 0.9, c("1s", "6s", "12s"), lty = 1:3, pch=15:17, 
        title = "Inter-trial Interval (s):",
-       horiz = T, cex = 0.6, yjust = 1, xjust = 1)
+       horiz = TRUE, cex = 0.6, yjust = 1, xjust = 1)
 
 }
 \keyword{datasets}

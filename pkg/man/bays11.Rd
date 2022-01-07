@@ -64,7 +64,7 @@ pd <- aggregate(dev ~ ptime*size, data = bays11, FUN = sd.circular)
 pd$devrad <- 1/pd$dev
 plot(c(0.0,1.0), c(0,6), type = "n", xlab = "Presentation Time (s)",
      ylab = "Mean Precision (1/rad)", main = "Reproduction of Colors", xaxt = "n")
-axis(side = 1, at = c(0,0.2,0.4,0.6,0.8,1.0), labels = T)
+axis(side = 1, at = c(0,0.2,0.4,0.6,0.8,1.0), labels = TRUE)
 lines(x = pd$ptime[pd$size == 1], y = pd$devrad[pd$size == 1], 
       type = "b", lty = 1, pch = 15)
 lines(x = pd$ptime[pd$size == 2], y = pd$devrad[pd$size == 2], 
@@ -74,7 +74,7 @@ lines(x = pd$ptime[pd$size == 4], y = pd$devrad[pd$size == 4],
 lines(x = pd$ptime[pd$size == 6], y = pd$devrad[pd$size == 6], 
       type = "b", lty = 4, pch = 18)
 legend(1.0, 0, c("1", "2", "3", "4"), lty = 1:4, pch=15:18, title = "Set size:",
-       horiz = T, cex = 0.6, yjust = 0, xjust = 1)
+       horiz = TRUE, cex = 0.6, yjust = 0, xjust = 1)
 
 }
 \keyword{datasets}

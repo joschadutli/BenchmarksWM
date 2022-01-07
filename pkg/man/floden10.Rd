@@ -57,7 +57,7 @@ plotd <- aggregate(acc ~ RI*group, data = floden10, FUN = mean)
 plot(c(0,60), c(0,1), type = "n", xlab = "Retention Interval (s)",
      ylab = "Proportion Correct", main = "Age Differences in the Brown-Peterson 
      Task", xaxt = "n")
-axis(side = 1, at = c(0,3,18,36,60), labels = T)
+axis(side = 1, at = c(0,3,18,36,60), labels = TRUE)
 young <- subset(plotd, plotd$group == "young")
 lines(x = young$RI, y = young$acc, type = "b", lty = 1, pch = 15)
 old <- subset(plotd, plotd$group == "old")

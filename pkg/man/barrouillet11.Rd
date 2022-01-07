@@ -54,7 +54,7 @@ xlim <- c(0,1)
 ylim <- c(0,9)
 plot(xlim, ylim, type = "n", xlab = "Cognitive Load", ylab = "Memory Span",
      main = "Cognitive Load in different Tasks", xaxt = "n")
-axis(side = 1, at = 0:10/10, labels = T)
+axis(side = 1, at = 0:10/10, labels = TRUE)
 points(x = pd$CL, y = pd$span, 
        type = "p", pch = pt, bg = ptcol)
 abline(a=8.13, b=-8.33)

@@ -81,7 +81,7 @@ for (ss in 1:length(ssvector)) {
 
 plot(c(-3,3), c(0.0,60), type = "n", xlab = "Error (rad)",
      ylab = "Mean Frequency", main = "Errors in continuous reproduction", xaxt = "n")
-axis(side = 1, at = c(-3,-2,-1,0,1,2,3), labels = T)
+axis(side = 1, at = c(-3,-2,-1,0,1,2,3), labels = TRUE)
 lines(x = h$mids, y = errorFreq[1,], 
       type = "b", lty = 1, pch = 15)
 lines(x = h$mids, y = errorFreq[2,], 

@@ -51,7 +51,7 @@ data(barrouillet07)
 pd <- aggregate(cbind(span, CL) ~ task + cogload, data = barrouillet07, FUN = mean)
 plot(c(0.25,0.6), c(3.0,6.5), type = "n", xlab = "Total Procesing Time / Total Time",
      ylab = "Mean Span", main = "Effects of Cognitive Load", xaxt = "n")
-axis(side = 1, at = c(0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6), labels = T)
+axis(side = 1, at = c(0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6), labels = TRUE)
 lines(x = pd$CL[pd$task == "parity"], y = pd$span[pd$task == "parity"], 
       type = "b", lty = 1, pch = 15)
 lines(x = pd$CL[pd$task == "location"], y = pd$span[pd$task == "location"], 
