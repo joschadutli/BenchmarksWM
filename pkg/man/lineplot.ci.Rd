@@ -11,7 +11,7 @@
 \usage{
 lineplot.ci(data, dv, iv, id = 1, group = NULL, x = 1, off = 0, Bakeman = TRUE, 
 upper = TRUE, lower = TRUE, ylim = c(0,1), xlim = NULL, pt = 15:25, 
-col = rep("black", 11), ptcol = rep("white",11), na.rm = TRUE, cex = 1), ...
+col = rep("black", 11), ptcol = rep("white",11), na.rm = TRUE, cex = 1, ...)
 }
 
 \arguments{
