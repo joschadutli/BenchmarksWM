@@ -11,7 +11,6 @@ lineplot.ci <- function(data, dv, iv, id=1, group=NULL, x=1, off=0, Bakeman=T, u
                          pt=15:25, col=rep("black", 11), ptcol=rep("white",11),na.rm=T, cex=1, ...)  # default: remove NAs, so function runs over valid cases, without returning NA!
   
 {
-  library(Hmisc)
   
   if (is.character(iv) & is.numeric(id)) id = names(data)[id]  # prevent mis-match of character and numeric indices into columns
   
@@ -87,7 +86,7 @@ lineplot.ci <- function(data, dv, iv, id=1, group=NULL, x=1, off=0, Bakeman=T, u
     CIlow <- y - dci
     xx <- xx + (j-1)*off
     plot(xx, y, xlim=xlim, ylim=ylim, type="b", pch=pt[j], col=col[j], bg=ptcol[j], xaxt=xaxt, cex=cex, ...)  
-    errbar(xx, y, yplus=CIhigh, yminus=CIlow, xlim=xlim, ylim=ylim,add=T,type="l", xaxt=xaxt, ...)
+    Hmisc::errbar(xx, y, yplus=CIhigh, yminus=CIlow, xlim=xlim, ylim=ylim,add=T,type="l", xaxt=xaxt, ...)
     if (xaxt == "n") axis(side=1, at=xaxis, labels=xticks)  # if x-axis is a factor: add the factor levels as tick labels 
     if (j < loop) par(new=T)
   }
