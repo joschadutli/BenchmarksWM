@@ -1,9 +1,9 @@
 Package: BenchmarksWM
 Type: Package
 Title: Working Memory Benchmarks
-Version: 1.0.0
-Date: 2022-01-05
-Author: Andy Wills, Joscha Dutli
+Version: 1.0.1
+Date: 2022-01-07
+Author: Andy Wills, Joscha Dutli, Klaus Oberauer
 Maintainer: Joscha Dutli <joscha.dutli@psychologie.uzh.ch>
 Description: Individual-subject data from benchmark working memory experiments.
 License: GPL (>= 2)

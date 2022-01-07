@@ -9,22 +9,23 @@
 }
 \usage{data("healey14")}
 \format{
-  A data frame with 27198 observations on the following 102 variables.
+  A data frame with over 1.2M observations on the following 6 variables.
   \describe{
     \item{\code{subject}}{Unique subject ID for each participant.}
     \item{\code{session}}{Session ID}
-    \item{\code{wordX}}{Identification number of word presented in list position X.}
-    \item{\code{recwordY}}{Identification number of word recalled in output position Y.}
-    
-    \item{\code{recinposY}}{List position of word recalled in output position Y.}
-    
-    \item{\code{rectimeY}}{Cumulative response time of word recalled in output position Y.}
-    
+    \item{\code{listN}}{List ID}    
+    \item{\code{type}}{Type of data: \code{word} = ID number of word presented to
+      participant, \code{recword} = ID number of word recalled by participant,
+      \code{rectime} = culumative response time of recall,
+      \code{recinpos} = position of recalled word appeared in presented
+      list; -1 if word was not presented.}
+    \item{\code{pos}}{Position in list (presented or recalled, depending
+      on \code{type}}
+    \item{\code{value}}{Data point; either a word ID, a list position,
+      or a time in milliseconds, depending on \code{type}}
   }
 }
-\details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
+
 \source{
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
   
