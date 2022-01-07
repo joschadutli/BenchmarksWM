@@ -18,26 +18,26 @@
   \describe{
     \item{\code{subj}}{a numeric vector}
     \item{\code{trial}}{a numeric vector}
-    \strong{Proportion correct in STM tasks}
-    \itemize{
+    \strong{Proportion correct in STM tasks:}
+
     \item{\code{arrow.span}}{ (spatial STM)}
     \item{\code{word.span}}{ (verbal STM)}
     \item{\code{matrix.span}}{ (spatial STM)}
     \item{\code{letter.span}}{ (verbal STM)}
     \item{\code{ball.span}}{ (spatial STM)}
     \item{\code{digit.span}}{ (verbal STM)}
-    }
-    \strong{Proportion correct in WM tasks}
-    \itemize{
+
+    \strong{Proportion correct in WM tasks:}
+
     \item{\code{operation.span}}{ (verbal WM)}
     \item{\code{navigation.span}}{ (spatial WM)}
     \item{\code{counting.span}}{ (verbal WM)}
     \item{\code{symmetry.span}}{ (spatial WM)}
     \item{\code{reading.span}}{ (verbal WM)}
     \item{\code{rotation.span}}{ (spatial WM)}
-    }
-    \strong{Proportion correct in reasoning tasks}
-    \itemize{
+
+    \strong{Proportion correct in reasoning tasks:}
+
     \item{\code{ets.inference}}{ ETS inference test (verbal reasoning)}
     \item{\code{paper.folding}}{ ETS Paper Folding Test (spatial visualization)}
     \item{\code{afq.analogies}}{ AFOQT Analogies Test (verbal reasoning)}
@@ -51,9 +51,10 @@
     \item{\code{wasi.matrices}}{ WASI Matrix Reasoning (figural inductive reasoning–Gf)}
     \item{\code{raven.matrices}}{ RAPM, Set II (figural inductive reasoning–Gf)}
     \item{\code{beta3.matrices}}{ BETA III Matrix Reasoning (figural inductive reasoning–Gf)}
-    }
+
   }
 }
+
 \details{
   Some tasks have fewer trials than others. These data cells are filled with NAs.
   For further details, see Kane et al. (2004).

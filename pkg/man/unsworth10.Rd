@@ -31,7 +31,16 @@
     \item{\code{prim.mem.2}}{PM score (from the second half of the experimental lists)}
     \item{\code{second.mem.1}}{SM score (from the first half of the experimental lists)}
     \item{\code{second.mem.2}}{SM score (from the second half of the experimental lists)}
-    \item{\code{serpos1} - \code{serpos10}}{Mean score at each serial position}
+    \item{\code{serpos1}}{Mean score at 1st serial position}
+    \item{\code{serpos2}}{Mean score at 2nd serial position}
+    \item{\code{serpos3}}{Mean score at 3rd serial position}
+    \item{\code{serpos4}}{Mean score at 4th serial position}
+    \item{\code{serpos5}}{Mean score at 5th serial position}
+    \item{\code{serpos6}}{Mean score at 6th serial position}
+    \item{\code{serpos7}}{Mean score at 7th serial position}
+    \item{\code{serpos8}}{Mean score at 8th serial position}
+    \item{\code{serpos9}}{Mean score at 9th serial position}
+    \item{\code{serpos10}}{Mean score at 10th serial position}    
   }
 }
 \details{

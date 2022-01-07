@@ -2,15 +2,17 @@
 \alias{oberauer06}
 \docType{data}
 \title{
-  Oberauer's (2006) Data on Switch Costs and Practice Effects in an N-Back Task
+  Oberauer's (2006) Data on Switch Costs and Practice Effects in an
+  N-Back Task
 }
 \description{
-  These are the individual-trial data from Experiment 1 in Oberauer (2006). Depending on 
-  set size, digits appeared in several columns on the screen and participants were asked to
-  decide whether the currently displayed digit matched the digit last presented in this 
-  column. The data show a switch cost such that participants were slower and less accurate
-  when consecutive digits were from different columns relative to consecutive digits 
-  presented in the same column.
+  These are the individual-trial data from Experiment 1 in Oberauer
+  (2006). Depending on set size, digits appeared in several columns on
+  the screen and participants were asked to decide whether the currently
+  displayed digit matched the digit last presented in this column. The
+  data show a switch cost such that participants were slower and less
+  accurate when consecutive digits were from different columns relative
+  to consecutive digits presented in the same column.
 }
 \usage{data("oberauer06")}
 \format{
@@ -19,33 +21,51 @@
     \item{\code{subj}}{Unique subject ID for each participant}
     \item{\code{session}}{Session ID}
     \item{\code{trial}}{Trial ID}
-    \item{\code{setsize}}{Set size (1-5; equivalent to number of columns; set size 1 means no switch items.)}
-    \item{\code{init.dig1}-\code{init.dig5}}{Initially presented digits. 0 in unused columns}
+    \item{\code{setsize}}{Set size (1-5; equivalent to number of
+      columns; set size 1 means no switch items.)}
+    \item{\code{init.dig1}}{First initially presented digit. 0 if
+      unused.}
+    \item{\code{init.dig2}}{Second initially presented digit. 0 if
+      unused.}
+    \item{\code{init.dig3}}{Third initially presented digit. 0 if
+      unused.}
+    \item{\code{init.dig4}}{Fourth initially presented digit. 0 if
+      unused.}
+    \item{\code{init.dig5}}{Fifth initially presented digit. 0 if
+      unused.}
     \item{\code{serpos}}{Serial Position in n-back task (1-20)}
     \item{\code{digit}}{Presented digit}
     \item{\code{column}}{Column in which digit was presented}
     \item{\code{row}}{Row in which digit was presented}
-    \item{\code{update_type}}{Type of updating step: \itemize{ \item{\code{first item}}{ (excluded from analysis)} \item{\code{no-switch}} \item{\code{switch}}}}
-    \item{\code{dist}}{Unclear; could be a spatial distance across columns and rows.}
-    \item{\code{ptype}}{Probe type: \itemize{ \item{\code{match}} \item{\code{mismatch}} \item{\code{intrusion}}{ (presented digit identical to a digit currently held in WM from another column)}}}
-    \item{\code{lag}}{Lag in serial positions since current column was last updated}
+    \item{\code{update_type}}{Type of updating step: \itemize{
+	\item{\code{first item}}{ (excluded from analysis)}
+	\item{\code{no-switch}} \item{\code{switch}}}}
+    \item{\code{dist}}{Unclear; could be a spatial distance across
+      columns and rows.}
+    \item{\code{ptype}}{Probe type: \itemize{ \item{\code{match}}
+	\item{\code{mismatch}} \item{\code{intrusion}}{ (presented digit
+	  identical to a digit currently held in WM from another
+	  column)}}}
+    \item{\code{lag}}{Lag in serial positions since current column was
+      last updated}
     \item{\code{acc}}{Correct/Incorrect response (1/0)}
     \item{\code{rt}}{Response time (ms)}
   }
 }
 \details{
-  The meaning of the variable \code{dist} is undetermined. For further details about the 
-  procedure of the experiment, see the Method section and Figure 2 in Oberauer (2006) in
-  particular.
+  The meaning of the variable \code{dist} is undetermined. For further
+  details about the procedure of the experiment, see the Method section
+  and Figure 2 in Oberauer (2006) in particular.
 }
 \source{
-      Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
-
+      Oberauer,
+      K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
 }
 \references{
   
-  Oberauer, K. (2006). Is the focus of attention in working memory expanded through 
-  practice? \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 32},
+  Oberauer, K. (2006). Is the focus of attention in working memory
+  expanded through practice? \emph{Journal of Experimental Psychology:
+  Learning, Memory, and Cognition, 32},
   197-214. http://dx.doi.org/10.1037/0278-7393.32.2.197
   
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,

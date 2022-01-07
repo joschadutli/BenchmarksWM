@@ -18,11 +18,18 @@
     \item{\code{id}}{Unique subject ID for each participant.}
     \item{\code{session}}{Experimental Session: 1,2 or 3}
     \item{\code{trial}}{Trial ID}
-    \item{\code{dist1:dist5}}{Euclidean distances between each non-target and the target 
-    item. Is equal to zero for the target items.}
-
+    \item{\code{dist1}}{Euclidean distances between 1st non-target and the target 
+      item. Is equal to zero for the target items.}
+    \item{\code{dist2}}{Euclidean distances between 2nd non-target and the target 
+      item. Is equal to zero for the target items.}
+    \item{\code{dist3}}{Euclidean distances between 3rd non-target and the target 
+      item. Is equal to zero for the target items.}
+    \item{\code{dist4}}{Euclidean distances between 4th non-target and the target 
+      item. Is equal to zero for the target items.}
+    \item{\code{dist5}}{Euclidean distances between 5th non-target and the target 
+      item. Is equal to zero for the target items.}
     \item{\code{dist}}{Euclidean distance between selected item and target item. NA if 
-    selected item not part of memory array.}
+      selected item not part of memory array.}
     \item{\code{correct}}{Correct: 1/0: correct/incorrect}
   }
 }
