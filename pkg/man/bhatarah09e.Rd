@@ -12,7 +12,7 @@
   syllables), and long (five syllables). In contrast to the other experiments, the list 
   length was twelve and therefore longer.
 }
-\usage{data("bhatarah09d")}
+\usage{data("bhatarah09e")}
 \format{
   A data frame with 4320 observations on the following 11 variables.
   \describe{
