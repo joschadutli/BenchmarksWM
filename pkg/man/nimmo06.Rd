@@ -65,6 +65,6 @@ lines(x = pd$serpos[pd$condition == "auditory"],
 legend(1, 0, c("visual", "auditory"), 
        lty = 1:2, 
        pch=15:16, col = c("black","darkgrey"), 
-       horiz = F, cex = 0.9, yjust = 0, xjust = 0)
+       horiz = FALSE, cex = 0.9, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

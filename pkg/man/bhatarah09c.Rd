@@ -74,7 +74,7 @@ lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "quiet"],
 legend(8, 1.0, c("AS-short","AS-long",
                  "quiet-short","quiet-long"), lty = c(1,1,2,2), 
        pch=c(15,17,15,17), title = "Cue condition:",
-       col = c("blue","green","blue","green"), horiz = F, cex = 0.6, 
+       col = c("blue","green","blue","green"), horiz = FALSE, cex = 0.6, 
        yjust = 1, xjust = 1)
 }
 \keyword{datasets}

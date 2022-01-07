@@ -65,7 +65,7 @@ lines(x = pd$deltabin[pd$setsize == 8],
       y = pd$response[pd$setsize == 8], 
       type = "b", lty = 4, pch = 18, col = "lightgrey")
 legend(1.6, 0, c("N=1","N=2","N=4","N=8"), lty = 1:4, pch=15:18,
-       col = c("black", "darkgrey", "grey","lightgrey"), horiz = F, cex = 0.6,
+       col = c("black", "darkgrey", "grey","lightgrey"), horiz = FALSE, cex = 0.6,
        yjust = 0, xjust = 1)
 }
 \keyword{datasets}

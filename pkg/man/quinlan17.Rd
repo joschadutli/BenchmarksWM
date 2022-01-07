@@ -65,6 +65,6 @@ lines(x = pd$serpos[pd$condition == "Lo-Recon"],
       type = "b", lty = 4, pch = 18)
 legend(1, 0, c("Hi-Recall", "Lo-Recall", "Hi-Recon", "Lo-Recon"), lty = 1:4, 
        pch=15:18, 
-       horiz = F, cex = 0.6, yjust = 0, xjust = 0)
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

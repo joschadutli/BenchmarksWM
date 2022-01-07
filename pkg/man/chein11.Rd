@@ -53,8 +53,8 @@ pd <- pd[c(1,2,3,5,4,6),] ## should be lex -> sym for verbal and sym -> let for 
 barspacing <- c(0.2,0.2,0.2,0.7,0.2,0.2)
 legendtext <- c("Lexical", "Symmetry", "None", "Symmetry", "Lexical", "None")
 bp = barplot(pd$acc, space = barspacing, col=c(rep("dark gray",3),rep("light gray",3)),
-        ylab="Mean Number of Items Recalled", xlab="Distractor Task", axisnames=F, 
-        ylim = c(1.9,4.5), xpd = F)
+        ylab="Mean Number of Items Recalled", xlab="Distractor Task", axisnames=FALSE, 
+        ylim = c(1.9,4.5), xpd = FALSE)
 text (2,4.2,"Verbal Memory",cex=1)
 text (6,4.2,"Spatial Memory",cex=1)
 box()

@@ -68,7 +68,7 @@ lines(x = dp$ctime[dp$serpos == 4],
       y = dp$error[dp$serpos == 4], 
       type = "l", lty = 4)
 legend(1.0, 0, c("1", "2", "3", "4"), lty = 1:4,
-       title = "Serial Position", horiz = F, cex = 0.5, yjust = 0, xjust = 1)
+       title = "Serial Position", horiz = FALSE, cex = 0.5, yjust = 0, xjust = 1)
 
 }
 \keyword{datasets}

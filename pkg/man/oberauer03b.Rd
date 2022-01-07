@@ -81,6 +81,6 @@ points(x = agg_pd$serpos[agg_pd$memory == "local"],
        y = agg_pd$in_acc[agg_pd$memory == "local"],  
        pch = 22, bg = "grey")
 legend(1.0, 1, c("Item Recognition", "Relational Recognition"), lty = 1, 
-       pch = 21:22, pt.bg = c("black","grey"), horiz = F, cex = 0.8, yjust = 1, xjust = 0)
+       pch = 21:22, pt.bg = c("black","grey"), horiz = FALSE, cex = 0.8, yjust = 1, xjust = 0)
 }
 \keyword{datasets}

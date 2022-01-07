@@ -68,7 +68,7 @@ lines(x = pd$setsize[pd$condition == "invalid"],
       type = "b", lty = 3, pch = 17)
 legend(8, 0, c("neutral", "valid", "invalid"), lty = 1:3, 
        pch=15:17, 
-       horiz = F, cex = 0.6, yjust = 0, xjust = 1, title = "Cue condition:")
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 1, title = "Cue condition:")
 
 }
 \keyword{datasets}

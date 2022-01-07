@@ -59,7 +59,7 @@ lines(x = pd$serpos[pd$direction == 2],
       y = pd$acc[pd$direction == 2], 
       type = "l", lty = 2)
 legend(1, 1.0, c("Forward", "Backward"), lty = 1:2,
-       horiz = F, cex = 0.5, yjust = 1, xjust = 0)
+       horiz = FALSE, cex = 0.5, yjust = 1, xjust = 0)
 
 }
 \keyword{datasets}

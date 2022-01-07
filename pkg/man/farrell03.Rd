@@ -69,6 +69,6 @@ lines(x = pd$serpos[pd$condition == "SSSSSS"],
       type = "b", lty = 2, pch = 17, col = "grey")
 legend(1, 0.0, c("dissimilar","similar"), lty = 1:2, 
        pch=c(15,17), col = c("black", "grey"), 
-       horiz = F, cex = 0.6, yjust = 0, xjust = 0)
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

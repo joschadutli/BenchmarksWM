@@ -62,6 +62,6 @@ lines(x = pd$serpos[pd$condition == "changing"], y = pd$acc[pd$condition == "cha
       type = "b", lty = 3, pch = 18, col = "green")
 legend(0, 0, c("quiet", "steady", "changing"), lty = 1:3, pch=c(15,17, 18), 
        title = "Condition:",
-       col = c("red", "blue", "green"), horiz = F, cex = 0.6, yjust = 0, xjust = 0)
+       col = c("red", "blue", "green"), horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

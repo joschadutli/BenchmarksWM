@@ -53,11 +53,11 @@ spacing <- c(0.2,0.2,0.7,0.2,0.7,0.2,0.7,0.2)
 bp = barplot(pd$acc, col=c("darkgrey", "lightgrey", "darkgrey", "lightgrey", 
                            "darkgrey", "lightgrey"), space = spacing,
              ylab="Number of Items Recalled", xlab="Acronym Condition", 
-             axisnames=F, ylim = c(0,7))
+             axisnames=FALSE, ylim = c(0,7))
 
 box()
 axis(1, at = c(1.3,4.2,7.1,10), labels=c(0,1,3,5), cex.axis=0.7)
 legend(9.5, 6.5, c("fast", "slow"), fill=c("darkgrey", "lightgrey"),
-       horiz = F, cex = 0.6, yjust = 1, xjust = 0)
+       horiz = FALSE, cex = 0.6, yjust = 1, xjust = 0)
 }
 \keyword{datasets}

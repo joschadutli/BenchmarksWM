@@ -61,6 +61,6 @@ data(rerko14)
 ## very imprecise reconstruction of Figure 10B in Oberauer et al. (2018)
 pd <- rerko14[which(rerko14$correct == 0),]
 hist(pd$dist, breaks=10, xlab = "Euclidean distance",
-     main = "Prob. for Spatial Distances of Errors", freq=F)
+     main = "Prob. for Spatial Distances of Errors", freq=FALSE)
 }
 \keyword{datasets}

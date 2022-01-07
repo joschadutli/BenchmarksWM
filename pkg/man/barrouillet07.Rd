@@ -61,6 +61,6 @@ abline(lm(span ~ CL, data = pd[which(pd$task == "parity"),])$coefficients,
 abline(lm(span ~ CL, data = pd[which(pd$task == "location"),])$coefficients,
        lty = 2, pch = 16)
 legend(0.6, 6.5, c("Parity", "Location"), lty = 1:4, pch=15:18, title = "Task:",
-       horiz = F, cex = 0.7, yjust = 1, xjust = 1)
+       horiz = FALSE, cex = 0.7, yjust = 1, xjust = 1)
 }
 \keyword{datasets}

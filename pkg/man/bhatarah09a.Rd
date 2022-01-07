@@ -61,7 +61,7 @@ lines(x = pd$serpos[pd$cue == "postcued"],
       type = "b", lty = 2, pch = 17, col = "red")
 legend(1, 0.0, c("precued", "postcued"), lty = 1:2, pch=c(15,17), 
        title = "Cue condition:",
-       col = c("blue", "red"), horiz = F, cex = 0.6, yjust = 0, xjust = 0)
+       col = c("blue", "red"), horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0)
 ### Serial recall
 pd <- aggregate(spos.correct ~ serpos+cue, 
                 data = bhatarah09a[which(bhatarah09a$task == "SR"),], FUN = mean)
@@ -75,7 +75,7 @@ lines(x = pd$serpos[pd$cue == "postcued"],
       type = "b", lty = 2, pch = 17, col = "red")
 legend(8, 1.0, c("precued", "postcued"), lty = 1:2, pch=c(15,17), 
        title = "Cue condition:",
-       col = c("blue", "red"), horiz = F, cex = 0.6, yjust = 1, xjust = 1)
+       col = c("blue", "red"), horiz = FALSE, cex = 0.6, yjust = 1, xjust = 1)
 
 }
 \keyword{datasets}

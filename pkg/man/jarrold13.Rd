@@ -77,6 +77,6 @@ lines(x = pd$grade.level[pd$condition == 4],
 legend(5, -2, c("visual-verbal","visual-visual","verbal-verbal","verbal-visual"), 
        lty = 1:4, 
        pch=15:18, col = c("black", "darkgrey", "grey","lightgrey"), 
-       horiz = F, cex = 0.6, yjust = 0, xjust = 1)
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 1)
 }
 \keyword{datasets}

@@ -72,7 +72,7 @@ plotpanel <- function(post,title4panel) {
     legend(10,.6,unique(post$output),lty=c(1:k),pch=c(21:(20+k)),pt.bg=colors,
            pt.cex=0.6,y.intersp = 1, cex = 0.6)
     par(tcl= -0.2)  # minor ticks
-    axis(1, at=seq(from=0,to=max(post$listlength)+1,by=1), labels=F, lwd=1,
+    axis(1, at=seq(from=0,to=max(post$listlength)+1,by=1), labels=FALSE, lwd=1,
          lwd.ticks=0.5)
     par(tcl= -0.5)  # major ticks with labels
     axis(1, at=seq(from=0,to=max(post$listlength)+1,by=3),

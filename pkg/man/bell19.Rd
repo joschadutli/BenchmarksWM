@@ -57,6 +57,6 @@ lines(x = pd$serpos[pd$condition == "changing"], y = pd$correct[pd$condition == 
       type = "b", lty = 3, pch = 18, col = "green")
 legend(1, 0.3, c("steady", "auditory deviant", "changing"), lty = 1:3, pch=c(15,17, 18), 
        title = "Condition:",
-       col = c("blue", "red", "green"), horiz = F, cex = 0.6, yjust = 0, xjust = 0)
+       col = c("blue", "red", "green"), horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

@@ -61,7 +61,7 @@ hedge13included <- hedge13[which(hedge13$block != 1 & hedge13$update_type != "fi
 pd <- aggregate(rt ~ update_type+exp, data = hedge13included, FUN = median, na.rm=TRUE)
 bp = barplot(pd$rt, space = c(0.2,0.2,0.7,0.2), col=c("lightgrey", "darkgrey", 
                                                       "lightgrey", "darkgrey"),
-             ylab="Median RT", xlab="Update Type", axisnames=F, ylim = c(0,1.5))
+             ylab="Median RT", xlab="Update Type", axisnames=FALSE, ylim = c(0,1.5))
 text (1.3,1.3,"Experiment 1",cex=0.8)
 text (4.2,1.3,"Experiment 2",cex=0.8)
 box()

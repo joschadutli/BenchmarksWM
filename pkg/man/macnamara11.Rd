@@ -59,9 +59,9 @@ bp = barplot(pd$span, space = barspacing, col=c("dark gray","light gray","dark g
                                                "light gray","dark gray","light gray"),
              ylab="Serial Span", xlab="Task", axisnames=TRUE, 
              ylim = c(0,1), xpd = TRUE)
-axis(1, at = c(0,1.3,4.2,7.1,8.2), labels=legendtext, cex.axis=1, outer = F)
+axis(1, at = c(0,1.3,4.2,7.1,8.2), labels=legendtext, cex.axis=1, outer = FALSE)
 legend(8, 1, c("similar", "dissimilar"), 
        pch=c(15,15), col = c("darkgrey", "lightgrey"), 
-       horiz = F, cex = 0.8, yjust = 1, xjust = 1)
+       horiz = FALSE, cex = 0.8, yjust = 1, xjust = 1)
 }
 \keyword{datasets}

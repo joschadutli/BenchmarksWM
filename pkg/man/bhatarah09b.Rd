@@ -80,7 +80,7 @@ lines(x = pd$serpos[pd$word.length == "long" & pd$presrate == "fast"],
 legend(8, 0.0, c("slow-short","slow-medium","slow-long",
                  "fast-short","fast-medium","fast-long"), lty = c(1,1,1,2,2,2), 
        pch=c(15,17,18,15,17,18), title = "Cue condition:",
-       col = c("blue", "red","green","blue", "red","green"), horiz = F, cex = 0.6, 
+       col = c("blue", "red","green","blue", "red","green"), horiz = FALSE, cex = 0.6, 
        yjust = 0, xjust = 1)
 
 }

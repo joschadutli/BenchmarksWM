@@ -75,7 +75,7 @@ errorFreq <- array(dim=c(length(ssvector), nbins))
 
 for (ss in 1:length(ssvector)) {
   d <- subset(pd, setsize==ssvector[ss])
-  h <- hist(d$devrad, breaks=breakpoints, plot=F)
+  h <- hist(d$devrad, breaks=breakpoints, plot=FALSE)
   errorFreq[ss,] <- h$counts/length(idvector)
 }
 
@@ -91,6 +91,6 @@ lines(x = h$mids, y = errorFreq[3,],
 lines(x = h$mids, y = errorFreq[4,], 
       type = "b", lty = 4, pch = 18)
 legend(3.0, 60, c("N=1", "N=2", "N=4", "N=8"), lty = 1:4, pch=15:18, title = "Set size:",
-       horiz = F, cex = 0.6, yjust = 1, xjust = 1)
+       horiz = FALSE, cex = 0.6, yjust = 1, xjust = 1)
 }
 \keyword{datasets}

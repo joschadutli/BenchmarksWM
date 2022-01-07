@@ -72,6 +72,6 @@ lines(x = pd$cond[pd$group == "rhyme"], y = pd$correct[pd$group == "rhyme"],
 lines(x = pd$cond[pd$group == "symmetry"], y = pd$correct[pd$group == "symmetry"], 
       type = "b", lty = 2, pch = 17, col = "blue")
 legend(7, 0, c("Rhyme", "Symmetry"), lty = 1:2, pch=c(15,17), title = "Processing Task:",
-       col = c("red", "blue"), horiz = F, cex = 0.6, yjust = 0, xjust = 1)
+       col = c("red", "blue"), horiz = FALSE, cex = 0.6, yjust = 0, xjust = 1)
 }
 \keyword{datasets}

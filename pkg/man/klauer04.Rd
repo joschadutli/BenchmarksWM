@@ -45,7 +45,7 @@
   Instead, the \code{acc} is the mean from all trials. The accuracy of this spatial
   tapping task was computed from long pauses which according to the authors were 
   rare. For all except one participant, this measure indicates no long pauses (i.e.
-  \code{acc = 1.0}). Klauer & Zhao (2004) report an average tapping error of 2.6 percent
+  \code{acc = .0}). Klauer & Zhao (2004) report an average tapping error of 2.6 percent
   which isn't present in the dataset.
 }
 \source{
@@ -73,8 +73,8 @@ pd <- aggregate(correct ~ processing*memory_task, data = d, FUN = mean)
 barspacing <- c(0.2,0.2,0.2,0.7,0.2,0.2)
 legendtext <- c("None", "Spatial", "Visual", "None", "Spatial", "Visual")
 bp = barplot(pd$correct, space = barspacing, col=c(rep("dark gray",3),rep("light gray",3)),
-             ylab="Proportion correct", xlab="Distractor Task", axisnames=F, 
-             ylim = c(0.6,1.0), xpd = F, main = "Effects of Task Domains")
+             ylab="Proportion correct", xlab="Distractor Task", axisnames=FALSE, 
+             ylim = c(0.6,1.0), xpd = FALSE, main = "Effects of Task Domains")
 text (2,.95,"Visual Memory",cex=1)
 text (6,.95,"Spatial Memory",cex=1)
 box()

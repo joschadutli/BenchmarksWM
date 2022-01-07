@@ -72,7 +72,7 @@ lines(x = p1$sso[p1$chunk_other == "New List"],
       type = "b", lty = 2, pch = 16, col = "red")
 legend(1, 0.6, c("Chunk", "New List"), lty = 1:2, 
        pch=15:17, col = c("blue","red"),
-       horiz = F, cex = 0.6, yjust = 0, xjust = 0, title = "Type Other:")
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0, title = "Type Other:")
 plot(c(1,5), c(0.6,1.0), type = "n", xlab = "Size Other",
      ylab = "", main = "Size Tested = 4", xaxt = "n")
 axis(side = 1, at = c(2,4), labels = c(2,4), 

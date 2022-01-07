@@ -89,6 +89,6 @@ lines(x = pd$pcode[pd$condition == "cross"], y = pd$acc[pd$condition == "cross"]
 lines(x = pd$pcode[pd$condition == "within"], y = pd$acc[pd$condition == "within"], 
       type = "b", lty = 3, pch = 17)
 legend(1, 0.5, c("single", "cross", "within"), lty = 1:3, pch=15:17,
-       horiz = F, cex = 0.7, yjust = 0, xjust = 0)
+       horiz = FALSE, cex = 0.7, yjust = 0, xjust = 0)
 }
 \keyword{datasets}

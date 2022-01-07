@@ -77,7 +77,7 @@ lines(x = splot$length[splot$prestime == 3],
       y = splot$FRcorrect[splot$prestime == 3], 
       type = "b", lty = 3, pch = 17)
 legend(2, 0, c("0.5 s / item", "1 s / item", "3 s / item"), lty = 1:3, pch=15:17,
-       title = "Pres. Time:", horiz = F, cex = 0.5, yjust = 0, xjust = 0)
+       title = "Pres. Time:", horiz = FALSE, cex = 0.5, yjust = 0, xjust = 0)
 
 ASplot <- aggregate(FRcorrect ~ length*prestime, data = dAS, FUN = mean)
 plot(c(2,12), c(0,1.1), type = "n", xlab = "List length",
