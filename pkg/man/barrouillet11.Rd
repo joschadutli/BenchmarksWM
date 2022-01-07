@@ -49,7 +49,6 @@ pt = c(24, 24, 23, 23, 23, 23, 21, 21, 21, 24, 24, 22, 22, 22)
 col = rep("black", 14)
 ptcol = c("red", "red", "blue", "blue", "blue", "blue", "black", "black",
           "black", "red", "red", "green", "green", "green")
-Tasks <- unique(Data$task)
 xlim <- c(0,1)
 ylim <- c(0,9)
 plot(xlim, ylim, type = "n", xlab = "Cognitive Load", ylab = "Memory Span",
