@@ -82,20 +82,22 @@
 \examples{
 data(lange11)
 ### Reproduction of Figure 2A (Exp. 1) in Lange et al. (2011)
-plotd <- lange11[which(lange11$exp == 1),] #experiment 1
-taskd <- plotd[which(plotd$task == 1),] #recognition memory data only
+plotd <- lange11[which(lange11$exp == 1),] # Experiment 1
+
+taskd <- plotd[which(plotd$task == 1),] # Eecognition memory data only
+
 pd_rt <- aggregate(rt ~ size*con, data = taskd, FUN = mean)
 
-#plotting
+# Plotting
 bgk <- c("black","grey40", "grey80", "white")
 pt <- 21:24
 
 maxx <- 5
 miny <- 500
-plot(c(3,5),c(500,1200), xlim=c(3, maxx),ylim=c(miny,1200), type="n", las=1,
-     xlab="Set Size", ylab="Proportion Correct",cex.lab=1, cex.axis=1,
-     main = "Response Times by Output-Order Condition 
-     and Set Size")
+plot(c(3,5), c(500,1200), xlim=c(3, maxx), ylim=c(miny,1200), type="n", las=1,
+     xlab="Set Size", ylab="Proportion Correct", cex.lab=1, cex.axis=1,
+     main = "Response Times by Output-Order Condition and Set Size")
+
 for (sp in 1:4) {
   pid <- subset(pd_rt, con==sp)
   lines(x = pid$size, 
@@ -105,8 +107,8 @@ for (sp in 1:4) {
          y = pid$rt, 
          pch = pt[sp], bg = bgk[sp])
 }
-legend(3,1200,c("forward", "fixed-irr.", "backward", "random"), 
-       pch=pt, pt.bg = bgk, xjust=0, yjust=1,
-       title = "Order Conditions", cex = 0.6)
+
+legend(3, 1200, c("forward", "fixed-irr.", "backward", "random"), pch=pt,
+       pt.bg = bgk, xjust=0, yjust=1, title = "Order Conditions", cex = 0.6)
 }
 \keyword{datasets}
