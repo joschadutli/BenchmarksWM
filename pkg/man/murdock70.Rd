@@ -22,9 +22,7 @@
     \code{1} and extralist intrusions \code{0}}
   }
 }
-\details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
+
 \source{
 
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM

@@ -20,9 +20,7 @@
     \item{\code{acc}}{Proportion correct (accuracy)}
   }
 }
-\details{
 
-}
 \source{
 
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
