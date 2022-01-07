@@ -44,6 +44,11 @@ function}
 \item{ptcol}{Background colour, passed to bg argument of base R
   \code{plot} function }
 
+\item{na.rm}{Remove NAs from dataset}
+
+\item{cex}{Symbol size, passed to cex argument of base R
+  \code{plot} function }
+
 }
 \details{
   Returns a line plot with within-subjects 95 percent confidence intervals 
