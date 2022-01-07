@@ -10,4 +10,6 @@ License: GPL (>= 2)
 Imports:
 	tidyverse, dplyr, Hmisc
 LazyData: true
+LazyDataCompression: xz
+
 
