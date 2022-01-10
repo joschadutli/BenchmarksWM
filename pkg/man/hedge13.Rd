@@ -56,8 +56,10 @@
 ## Simple barplot
 data(hedge13)
 ### Simple barplot
-hedge13included <- hedge13[which(hedge13$block != 1 & hedge13$update_type != "first update"
-                                 & hedge13$acc == 1),]
+
+hedge13included <- hedge13[which(hedge13$block != 1 &
+  hedge13$update_type != "first update" & hedge13$acc == 1),]
+
 pd <- aggregate(rt ~ update_type+exp, data = hedge13included, FUN = median, na.rm=TRUE)
 bp = barplot(pd$rt, space = c(0.2,0.2,0.7,0.2), col=c("lightgrey", "darkgrey", 
                                                       "lightgrey", "darkgrey"),
