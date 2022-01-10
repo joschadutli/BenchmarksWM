@@ -49,6 +49,7 @@
 }
 \examples{
 data(grenfell12)
+library(dplyr)
 ## Reproduce Figure 14 (A&B) in Grnefell-Essam and Ward (2012) or
 ## Figure 9 in Oberauer et al. (2018), respectively.
 post <- filter(grenfell12, cue=="post-presentation")

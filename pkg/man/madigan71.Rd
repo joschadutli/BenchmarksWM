@@ -42,11 +42,10 @@
 data(madigan71)
 
 # Reproduce Figure 7a in Obverauer et al. (2018) (data for visual presentation modality)
-visual <- madigan71[which(magidan71$modality == 2),]
+visual <- madigan71[which(madigan71$modality == 2),]
 
 pd <- aggregate(acc ~ serpos*direction, data = visual, FUN = mean)
 
-par(mfrow=c(1,2))
 plot(c(1,8), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", 
      main = "Serial Recall", xaxt = "n")

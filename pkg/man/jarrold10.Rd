@@ -62,7 +62,7 @@
 \examples{
 ## Produce an overall Figure
 data(jarrold10)
-pd <- aggregate(correct ~ cond+condition+group, data = jar, FUN = mean)
+pd <- aggregate(correct ~ cond+condition+group, data = jarrold10, FUN = mean)
 plot(c(1,7), c(0.0,1.0), type = "n", xlab = "Condition",
      ylab = "Proportion correct", main = "Positions of Processing Interval 
      in Serial Recall", xaxt = "n")
