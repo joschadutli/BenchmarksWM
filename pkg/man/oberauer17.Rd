@@ -52,6 +52,7 @@
 }
 \examples{
 ## Reproduce Figure 10 (lower panel) in Oberauer and Lin (2017)
+data(oberauer17)
 pd <- aggregate(errordeg ~ + setsize + condition, data=oberauer17, FUN=mean)
 plot(c(1,8), c(0,80), type = "n", xlab = "Set Size",
      ylab = "Error (deg)", main = "Retro-Cue Effect in Continuous Reproduction", xaxt = "n")
