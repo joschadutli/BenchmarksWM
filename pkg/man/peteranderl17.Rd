@@ -52,7 +52,7 @@ lines(x = pd$serpos[pd$AS == 1],
       y = pd$errordeg[pd$AS == 1], 
       type = "l", lty = 2)
 legend(1, 65, c("silent", "AS"), lty = 1:2,
-       horiz = F, cex = 0.5, yjust = 1, xjust = 0)
+       horiz = FALSE, cex = 0.5, yjust = 1, xjust = 0)
 
 }
 \keyword{datasets}
