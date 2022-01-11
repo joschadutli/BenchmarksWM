@@ -73,7 +73,7 @@ abline(lm(uscore ~ bin, data = pd), lty = 2, pch = 17)
 legend(10, 0, c("remember", "know"), 
        lty = 1:2, 
        pch=c(15,17), 
-       horiz = F, cex = 0.9, yjust = 0, xjust = 1)
+       horiz = FALSE, cex = 0.9, yjust = 0, xjust = 1)
 
 }
 \keyword{datasets}
