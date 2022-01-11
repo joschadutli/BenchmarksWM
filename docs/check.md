@@ -2,7 +2,7 @@
 ## NOTEs
 ### Use of commands from default packages (done)
 
-Problem:  R has some default packages (e.g. "stats") i.e. not part of core R but always installed. If you use commands from these packages in your own package, you need to tell R you're doing that, otherwise it can potentially get confused on some systems. 
+Problem:  R has some default packages (e.g. "stats") i.e. not part of core R but always installed. If you use commands from these packages in your own package's R scripts, you need to tell R you're doing that, otherwise it can potentially get confused on some systems. 
 
 Solution: Add to the NAMESPACE file the code provided by the R CMD check
 
@@ -118,15 +118,42 @@ Fixed:
 
 barrouillet11.Rd had the code `Tasks <- unique(Data$task)`. Not only is `Tasks` not used anywhere else in the code, `Data` is not defined anywhere so it throws an error.
 
-data(bhatarah09e) missing
-
 chen09 had a comment that wasn't commented (no #)
+
+grenfell12.Rd - Failed to declare `library(dplyr)`, so code throws error due to using base R version of `filter`.
+
+jarrold10.Rd - Data referred to as 'jar' rather than 'jarrold10', so code does not run.
+
+madigan71.Rd - data referred to as `magidan71`, so code does not run.
 
 Oustanding issues:
 
 farrell04.Rd - Example code not working in a way I could not quickly diagnose. I had to move the Rd out of the package so I could continue auto-checking.
 
+
+
+
 ## Other stuff I came across
 - Your build scripts don't seem reproducible. For example, the one to make jarrold10.rda throws errors, and assumes the presence of `rhyme_ids` despite this not being defined in the script. You should probably fix this. Also, this is why I created post-build.R rather than modifying your build scripts. Ideally the stuff in the post-build script would be part of your main scripts.
 
-- Is kane04 just a summary of kane04t? If you that's bad practice, you shouldn't have the same dataset twice. If necessary, include example code for deriving what kane04 gives you from kane04t.
+- Is kane04 just a summary of kane04t? If so that's bad practice, you shouldn't have the same dataset twice. If necessary, include example code for deriving what kane04 gives you from kane04t.
+
+- [healey14.Rd, kane04.Rd, kane04t.Rd, thalmann19b.Rd],  have no example code - is there's nothing in the paper that can be reproduced from these data?
+
+- [thalmann19c.Rd, thalman19d.Rd]  have incomplete example code.
+
+- murdock70.Rd - "It is very much possible the second plot is erroneous" - What's the issue? Should we not trust the latency data? Why not? Sounds like something that should appear more prominently than a note in the example?
+
+- oezteken10 - "Vaguely reproduce Figure B1 in Oberauer et al. (2018)" - this is an odd comment. What is vague about the reproduction? Should that vagueness make us concerned about the veracity of the data?"
+
+- rerko14 - " very imprecise reconstruction of Figure 10B in Oberauer et al. (2018)" - see previous comment.
+
+- thalman19a - "Approximate reproduction of Figure 1" - see previous comment
+
+- vandenberg12 - " Approximate reproduction of Figure 11" - see previous comment
+
+- vergauwe10 - "## Approximately reproduce Fig. 1 in Vergauwe et al. (2010) (CogLoad measure seems different)" - so in this case, it seems like you don't reproduce the figure. That probably calls for further investiagtion, perhaps with the author if necessary?
+
+
+
+
