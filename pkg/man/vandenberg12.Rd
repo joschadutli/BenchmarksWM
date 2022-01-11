@@ -65,7 +65,7 @@
 \examples{
 ### Approximate reproduction of Figure 11 in Oberauer et al. (2018) (Data from ExpS3)
 data(vandenberg12)
-pd <- vandenberg12[which(vandenberg12$experiment == "ExpS3" & vandenberg12$setsize %in% 
+pd <- vandenberg12[which(vandenberg12$experiment == "ExpS3" & vandenberg12$setsize \%in\% 
                            c(1,2,4,8)),]
 nbins <- 21
 breakpoints <- seq(-pi, pi, length.out=nbins+1)
