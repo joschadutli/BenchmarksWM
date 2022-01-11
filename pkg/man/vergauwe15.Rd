@@ -78,7 +78,7 @@ pd <- aggregate(cbind(acc, CL) ~  domain + num,
 
 plot(c(0.05,0.25), c(0.5,1), type = "n", xlab = "Cognitive Load (Mean RT / Total Time)",
      ylab = "Proportion correct", main = "Hard Processing Task", xaxt = "n")
-axis(side = 1, at = c(0.05,0.1,0.15,0.2,0.25), labels = T)
+axis(side = 1, at = c(0.05,0.1,0.15,0.2,0.25), labels = TRUE)
 points(x = pd$CL[pd$domain == "verbal"], 
        y = pd$acc[pd$domain == "verbal"], 
        type = "p", pch = 15, col = "red")

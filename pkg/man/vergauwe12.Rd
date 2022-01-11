@@ -58,7 +58,7 @@ pd <- aggregate(cbind(span, cogload) ~  CL + memory + processing, data = vergauw
 
 plot(c(0.2,0.7), c(1.5,6.0), type = "n", xlab = "Total Procesing Time / Total Time",
      ylab = "Mean Span", main = "Effects of Cognitive Load", xaxt = "n")
-axis(side = 1, at = c(0.2,0.3,0.4,0.5,0.6,0.7), labels = T)
+axis(side = 1, at = c(0.2,0.3,0.4,0.5,0.6,0.7), labels = TRUE)
 points(x = pd$cogload[pd$memory == "verbal"], 
        y = pd$span[pd$memory == "verbal"], 
        type = "p", pch = 15, col = "red")
@@ -74,7 +74,7 @@ abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial"),])$coefficient
 legend(0.2, 1.5, c("verbal-spatial",
                    "spatial-verbal"), lty = c(1,3), 
        pch=c(15,17), col = c("red","green"),
-       horiz = T, cex = 0.5, yjust = 0, xjust = 0)
+       horiz = TRUE, cex = 0.5, yjust = 0, xjust = 0)
 
 }
 \keyword{datasets}

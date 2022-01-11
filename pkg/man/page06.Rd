@@ -77,6 +77,6 @@ lines(x = pd$trial[pd$condition == "HebbEffect" & pd$AS == "su"],
       type = "b", lty = 1, pch = 18, col = "red")
 legend(16, 0.3, c("Filler", "Repeating", "Filler - AS", "Repeating - AS"), lty = c(2,1,2,1),
        pch=15:18, col = c("blue", "blue", "red", "red"),
-       horiz = F, cex = 0.6, yjust = 0, xjust = 1)
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 1)
 }
 \keyword{datasets}
