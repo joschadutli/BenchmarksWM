@@ -51,12 +51,10 @@
 ## Approximately reproduce Figure 2 in Morin et al. (2010).
 data(morin10)
 ## Exclude serial positions at beginning and end of list
-twoseven <- morin10[which(morin10$serpos %in% c(2,3,4,5,6,7)),]
-
-pd <- plyr::count(twoseven, vars = c("resp","bin"))
+twoseven <- morin10[which(morin10$serpos \%in\% c(2, 3, 4, 5, 6, 7)), ]
+pd <- plyr::count(twoseven, vars = c("resp", "bin"))
 pd <- tidyr::spread(pd, key = "resp", value = "freq")
-
-pd$tot <- pd$r+pd$u+pd$p
+pd$tot <- pd$r + pd$u + pd$p
 pd$score <- pd$r/pd$tot
 pd$uscore <- pd$u/pd$tot
 pd$bin <- pd$bin/1000
@@ -76,5 +74,6 @@ legend(10, 0, c("remember", "know"),
        lty = 1:2, 
        pch=c(15,17), 
        horiz = F, cex = 0.9, yjust = 0, xjust = 1)
+
 }
 \keyword{datasets}
