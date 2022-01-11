@@ -41,6 +41,10 @@
   is defined by a processing task at the end of the presentation of the six words (this
   was the hardest condition due to the data). 
   For further details, see Jarrold et al. (2010).
+
+  On 7 occasions, the "response" column contains \code{NA}. This
+represents the presence of non-ASCII characters in the original raw
+data. 
 }
 \source{
 
