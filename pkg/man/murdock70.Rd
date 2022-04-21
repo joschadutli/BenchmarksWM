@@ -57,7 +57,9 @@
 }
 \examples{
 data(murdock70)
-## a plot with the serial recall curve and one for inter-response latency by output position, dependent on correct recall:
+## a plot with the serial recall curve and
+# one for inter-response latency by output
+#position, dependent on correct recall:
 
 ## Serial Position Curve by Frequency
 pd <- aggregate(correct ~ input, data = murdock70, FUN = function(x){sum(x)})
@@ -97,7 +99,10 @@ for (op in sort(unique(pdirl$num_correct))) {
          y = pdirl$irl[pdirl$num_correct == op],
          pch = op+12, bg = "black")
 }
-legend(1,12,sort(unique(pdirl$num_correct)),lty=sort(unique(pdirl$num_correct))-3,pch=sort(unique(pdirl$num_correct))+12,pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=0)
+legend(1,12,sort(unique(pdirl$num_correct)),
+lty=sort(unique(pdirl$num_correct))-3,
+pch=sort(unique(pdirl$num_correct))+12,
+pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=0)
 
 
 
