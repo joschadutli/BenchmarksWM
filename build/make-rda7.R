@@ -85,42 +85,42 @@ save(bhatarah09b, file = "./pkg/data/bhatarah09b.rda")
 
 ### Plots 1 and 2
 ### Free recall
-pd <- aggregate(recalled ~ serpos+presrate+word.length, 
+pd <- aggregate(recalled ~ serpos+presrate+word.length,
                 data = bhatarah09b[which(bhatarah09b$task == "FR"),], FUN = mean)
 plot(c(1,8), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Free Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8), labels = levels(pd$serpos), cex.axis = 0.7)
-lines(x = pd$serpos[pd$word.length == "short" & pd$presrate == "slow"], 
-      y = pd$recalled[pd$word.length == "short" & pd$presrate == "slow"], 
+lines(x = pd$serpos[pd$word.length == "short" & pd$presrate == "slow"],
+      y = pd$recalled[pd$word.length == "short" & pd$presrate == "slow"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "medium" & pd$presrate == "slow"], 
-      y = pd$recalled[pd$word.length == "medium" & pd$presrate == "slow"], 
+lines(x = pd$serpos[pd$word.length == "medium" & pd$presrate == "slow"],
+      y = pd$recalled[pd$word.length == "medium" & pd$presrate == "slow"],
       type = "b", lty = 1, pch = 17, col = "red")
-lines(x = pd$serpos[pd$word.length == "long" & pd$presrate == "slow"], 
-      y = pd$recalled[pd$word.length == "long" & pd$presrate == "slow"], 
+lines(x = pd$serpos[pd$word.length == "long" & pd$presrate == "slow"],
+      y = pd$recalled[pd$word.length == "long" & pd$presrate == "slow"],
       type = "b", lty = 1, pch = 18, col = "green")
-lines(x = pd$serpos[pd$word.length == "short" & pd$presrate == "fast"], 
-      y = pd$recalled[pd$word.length == "short" & pd$presrate == "fast"], 
+lines(x = pd$serpos[pd$word.length == "short" & pd$presrate == "fast"],
+      y = pd$recalled[pd$word.length == "short" & pd$presrate == "fast"],
       type = "b", lty = 2, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "medium" & pd$presrate == "fast"], 
-      y = pd$recalled[pd$word.length == "medium" & pd$presrate == "fast"], 
+lines(x = pd$serpos[pd$word.length == "medium" & pd$presrate == "fast"],
+      y = pd$recalled[pd$word.length == "medium" & pd$presrate == "fast"],
       type = "b", lty = 2, pch = 17, col = "red")
-lines(x = pd$serpos[pd$word.length == "long" & pd$presrate == "fast"], 
-      y = pd$recalled[pd$word.length == "long" & pd$presrate == "fast"], 
+lines(x = pd$serpos[pd$word.length == "long" & pd$presrate == "fast"],
+      y = pd$recalled[pd$word.length == "long" & pd$presrate == "fast"],
       type = "b", lty = 2, pch = 18, col = "green")
 legend(8, 0.0, c("slow-short","slow-medium","slow-long",
-                 "fast-short","fast-medium","fast-long"), lty = c(1,1,1,2,2,2), 
+                 "fast-short","fast-medium","fast-long"), lty = c(1,1,1,2,2,2),
        pch=c(15,17,18,15,17,18), title = "Cue condition:",
-       col = c("blue", "red","green","blue", "red","green"), horiz = F, cex = 0.6, 
+       col = c("blue", "red","green","blue", "red","green"), horiz = F, cex = 0.6,
        yjust = 0, xjust = 1)
 
 ### Experiment 3!
 
 
-d3_ifr <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"), 
+d3_ifr <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                  sheet = "Experiment 3-IFR",
                  range = "A1:J4609")
-d3_isr <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"), 
+d3_isr <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                      sheet = "Experiment 3-ISR",
                      range = "A1:J4609")
 d3 <- rbind(d3_ifr, d3_isr)
@@ -145,34 +145,34 @@ bhatarah09c <- bhatarah09c %>% select(exp, subj, block, trial, task, activity,
 save(bhatarah09c, file = "./pkg/data/bhatarah09c.rda")
 
 ### Immediate serial recall
-pd <- aggregate(spos.correct ~ serpos+activity+word.length, 
+pd <- aggregate(spos.correct ~ serpos+activity+word.length,
                 data = bhatarah09c[which(bhatarah09c$task == "ISR"),], FUN = mean)
 plot(c(1,8), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Immediate Serial Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8), labels = levels(pd$serpos), cex.axis = 0.7)
-lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "articulatory suppression"], 
-      y = pd$spos.correct[pd$word.length == "short" & 
+lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "articulatory suppression"],
+      y = pd$spos.correct[pd$word.length == "short" &
                             pd$activity == "articulatory suppression"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "articulatory suppression"], 
-      y = pd$spos.correct[pd$word.length == "long" 
-                          & pd$activity == "articulatory suppression"], 
+lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "articulatory suppression"],
+      y = pd$spos.correct[pd$word.length == "long"
+                          & pd$activity == "articulatory suppression"],
       type = "b", lty = 1, pch = 17, col = "green")
-lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "quiet"], 
-      y = pd$spos.correct[pd$word.length == "short" & pd$activity == "quiet"], 
+lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "quiet"],
+      y = pd$spos.correct[pd$word.length == "short" & pd$activity == "quiet"],
       type = "b", lty = 2, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "quiet"], 
-      y = pd$spos.correct[pd$word.length == "long" & pd$activity == "quiet"], 
+lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "quiet"],
+      y = pd$spos.correct[pd$word.length == "long" & pd$activity == "quiet"],
       type = "b", lty = 2, pch = 17, col = "green")
 legend(8, 1.0, c("AS-short","AS-long",
-                 "quiet-short","quiet-long"), lty = c(1,1,2,2), 
+                 "quiet-short","quiet-long"), lty = c(1,1,2,2),
        pch=c(15,17,15,17), title = "Cue condition:",
-       col = c("blue","green","blue","green"), horiz = F, cex = 0.6, 
+       col = c("blue","green","blue","green"), horiz = F, cex = 0.6,
        yjust = 1, xjust = 1)
 
 #### Experiment 4
 
-d4 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"), 
+d4 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                  sheet = "Experiment 4",
                  range = "A1:H4321")
 d4$trial[d4$task == "ISR"] <- max(d4$trial)+d4$trial[d4$task == "ISR"]
@@ -192,28 +192,28 @@ bhatarah09d <- bhat4 %>% select(exp, subj, trial, task, listlength, word.length,
 save(bhatarah09d, file = "./pkg/data/bhatarah09d.rda")
 
 ### Immediate serial recall
-pd <- aggregate(spos.correct ~ serpos+word.length, 
+pd <- aggregate(spos.correct ~ serpos+word.length,
                 data = bhatarah09d[which(bhatarah09d$task == "ISR"),], FUN = mean)
 plot(c(1,6), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Immediate Serial Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8), labels = levels(pd$serpos), cex.axis = 0.7)
-lines(x = pd$serpos[pd$word.length == "short"], 
-      y = pd$spos.correct[pd$word.length == "short"], 
+lines(x = pd$serpos[pd$word.length == "short"],
+      y = pd$spos.correct[pd$word.length == "short"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "medium"], 
-      y = pd$spos.correct[pd$word.length == "medium"], 
+lines(x = pd$serpos[pd$word.length == "medium"],
+      y = pd$spos.correct[pd$word.length == "medium"],
       type = "b", lty = 2, pch = 17, col = "red")
-lines(x = pd$serpos[pd$word.length == "long"], 
-      y = pd$spos.correct[pd$word.length == "long"], 
+lines(x = pd$serpos[pd$word.length == "long"],
+      y = pd$spos.correct[pd$word.length == "long"],
       type = "b", lty = 3, pch = 18, col = "green")
-legend(6, 1.0, c("short","medium","long"), lty = 1:3, 
-       pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"), 
+legend(6, 1.0, c("short","medium","long"), lty = 1:3,
+       pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"),
        horiz = F, cex = 0.6, yjust = 1, xjust = 1)
 
 
 ### Experiment 5:
 
-d5 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"), 
+d5 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                  sheet = "Experiment 5",
                  range = "A1:H8641")
 d5 <- d5 %>% rename(word.length = wordlength, words = word, output = `output order`)
@@ -232,24 +232,26 @@ bhat5$exp <- 5
 bhatarah09e <- bhat5 %>% select(exp, subj, trial, task, listlength, word.length,
                                 serpos, words, output, recalled, spos.correct)
 
+save(bhatarah09e, file = "./pkg/data/bhatarah09e.rda")
+
 ## Reproduction of Figure 8A in Bhatarah et al. (2009)
 ### Immediate serial recall
-pd <- aggregate(recalled ~ serpos+word.length, 
+pd <- aggregate(recalled ~ serpos+word.length,
                 data = bhatarah09e[which(bhatarah09e$task == "FR"),], FUN = mean)
 plot(c(1,12), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Free Recall", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6,7,8,9,10,11,12), labels = levels(pd$serpos), 
+axis(side = 1, at = c(1,2,3,4,5,6,7,8,9,10,11,12), labels = levels(pd$serpos),
     cex.axis = 0.7)
-lines(x = pd$serpos[pd$word.length == "short"], 
-      y = pd$recalled[pd$word.length == "short"], 
+lines(x = pd$serpos[pd$word.length == "short"],
+      y = pd$recalled[pd$word.length == "short"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "medium"], 
-      y = pd$recalled[pd$word.length == "medium"], 
+lines(x = pd$serpos[pd$word.length == "medium"],
+      y = pd$recalled[pd$word.length == "medium"],
       type = "b", lty = 2, pch = 17, col = "red")
-lines(x = pd$serpos[pd$word.length == "long"], 
-      y = pd$recalled[pd$word.length == "long"], 
+lines(x = pd$serpos[pd$word.length == "long"],
+      y = pd$recalled[pd$word.length == "long"],
       type = "b", lty = 3, pch = 18, col = "green")
-legend(1, 1.0, c("short","medium","long"), lty = 1:3, 
-       pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"), 
+legend(1, 1.0, c("short","medium","long"), lty = 1:3,
+       pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"),
        horiz = F, cex = 0.6, yjust = 1, xjust = 0)
 

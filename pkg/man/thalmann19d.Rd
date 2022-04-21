@@ -2,7 +2,7 @@
 \alias{thalmann19d}
 \docType{data}
 \title{
-  Data from Experiment 4 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking 
+  Data from Experiment 4 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking
   in WM
 }
 \description{
@@ -39,16 +39,17 @@
 
 }
 \references{
-  
+
   Thalmann, M., Souza, A. S., & Oberauer, K. (2019). How does chunking help working memory?
   \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37-55.
   https://doi.org/10.1037/xlm0000578
-  
-  
+
+
 }
 \examples{
-data(thalmann19c)
+data(thalmann19d)
 ## Data for plot
 pd <- aggregate(seracc ~ condition+list.type+inpos, data = thalmann19d, FUN = mean)
+summary(pd)
 }
 \keyword{datasets}

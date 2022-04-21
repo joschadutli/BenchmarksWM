@@ -7,12 +7,12 @@
 }
 \description{
  Individual-trial data from Öeztekin and McElree (2010). The data show that the SAT
- approximates to an exponential approach to a limit. That is, more retrieval time 
- leads to rapid improvement of recognition memory for short retrieval intervals, 
- which finally reaches a limit of accuracy which cannot be improved by more 
- retrieval time. Secondly, the data show that participants recognition memory is 
- better and easier to retrieve (participants respond faster and more accurate) for 
- recently presented stimuli as opposed to stimuli presented early in the list 
+ approximates to an exponential approach to a limit. That is, more retrieval time
+ leads to rapid improvement of recognition memory for short retrieval intervals,
+ which finally reaches a limit of accuracy which cannot be improved by more
+ retrieval time. Secondly, the data show that participants recognition memory is
+ better and easier to retrieve (participants respond faster and more accurate) for
+ recently presented stimuli as opposed to stimuli presented early in the list
  (Oberauer et al., 2018, BM3.3.2, Appendix B (Figure B1)).
 }
 \usage{data("oeztekin10")}
@@ -21,7 +21,7 @@
   \describe{
     \item{\code{id}}{Unique subject ID for each participant.}
     \item{\code{trial}}{Trial ID}
-    \item{\code{lag}}{Index of lag in SAT: This variable can be used to calculate mean Lag + RT measures for each step of experimentally induced lag. Lags: 
+    \item{\code{lag}}{Index of lag in SAT: This variable can be used to calculate mean Lag + RT measures for each step of experimentally induced lag. Lags:
     \itemize{
     \item{\code{0}}{43 ms}
     \item{\code{1}}{200 ms}
@@ -51,21 +51,21 @@
     Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
 }
 \references{
-    
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
-  
-  Öztekin, I., & McElree, B. (2010). Relationship between measures of working 
-  memory capacity and the time course of short-term memory retrieval and 
-  interference resolution. \emph{Journal of Experimental Psychology: Learning, 
+
+  Öztekin, I., & McElree, B. (2010). Relationship between measures of working
+  memory capacity and the time course of short-term memory retrieval and
+  interference resolution. \emph{Journal of Experimental Psychology: Learning,
   Memory, and Cognition, 36}, 383–397. http://dx.doi.org/10.1037/a0018029
 }
 \examples{
 data(oeztekin10)
-## Vaguely reproduce Figure B1 in Oberauer et al. (2018)
+## Reproduce Figure B1 in Oberauer et al. (2018) without CIs
 SATpos <- subset(oeztekin10, ptype==1)
 
 ## Plot
@@ -81,11 +81,11 @@ for (sp in 1:6) {
   pd_rt <- aggregate(lagrt ~ lag, data = sat, FUN = mean)
   pd_whole <- cbind(pd, pd_rt$lagrt)
   pd_whole$lagrt <- pd_whole$`pd_rt$lagrt`/1000
-  lines(x = pd_whole$lagrt, 
-        y = pd_whole$corr, 
+  lines(x = pd_whole$lagrt,
+        y = pd_whole$corr,
         type = "l", lty = 2)
-  points(x = pd_whole$lagrt, 
-         y = pd_whole$corr, 
+  points(x = pd_whole$lagrt,
+         y = pd_whole$corr,
          pch = 21, bg = bgk[sp])
 }
 legend(maxx,miny,c("SP=1", "SP=2", "SP=3", "SP=4", "SP=5", "SP=6"), pch=21,

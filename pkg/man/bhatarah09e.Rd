@@ -6,10 +6,10 @@
   Effect with Longer List Lengths
 }
 \description{
-  These are the individual-trial data from Experiment 4 in Bhatarah et al. (2009). 
-  Participants preformed free recall or immediate serial recall of lists of words 
-  by experimental block. Word length varied betwee short (one syllable), medium (three
-  syllables), and long (five syllables). In contrast to the other experiments, the list 
+  These are the individual-trial data from Experiment 4 in Bhatarah et al. (2009).
+  Participants preformed free recall or immediate serial recall of lists of words
+  by experimental block. Word length varied between short (one syllable), medium (three
+  syllables), and long (five syllables). In contrast to the other experiments, the list
   length was twelve and therefore longer.
 }
 \usage{data("bhatarah09e")}
@@ -40,7 +40,7 @@
   free recall and immediate serial recall: Similar patterns of rehearsal and similar effects
   of word length, presentation rate, and articulatory suppression. \emph{Memory & Cognition,
   37}, 689-713. http://dx.doi.org/10.3758/MC.37.5.689
-  
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
@@ -51,23 +51,23 @@
 ## Reproduction of Figure 8A in Bhatarah et al. (2009)
 ### Immediate serial recall
 data(bhatarah09e)
-pd <- aggregate(recalled ~ serpos+word.length, 
+pd <- aggregate(recalled ~ serpos+word.length,
                 data = bhatarah09e[which(bhatarah09e$task == "FR"),], FUN = mean)
 plot(c(1,12), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Free Recall", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6,7,8,9,10,11,12), labels = levels(pd$serpos), 
+axis(side = 1, at = c(1,2,3,4,5,6,7,8,9,10,11,12), labels = levels(pd$serpos),
     cex.axis = 0.7)
-lines(x = pd$serpos[pd$word.length == "short"], 
-      y = pd$recalled[pd$word.length == "short"], 
+lines(x = pd$serpos[pd$word.length == "short"],
+      y = pd$recalled[pd$word.length == "short"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "medium"], 
-      y = pd$recalled[pd$word.length == "medium"], 
+lines(x = pd$serpos[pd$word.length == "medium"],
+      y = pd$recalled[pd$word.length == "medium"],
       type = "b", lty = 2, pch = 17, col = "red")
-lines(x = pd$serpos[pd$word.length == "long"], 
-      y = pd$recalled[pd$word.length == "long"], 
+lines(x = pd$serpos[pd$word.length == "long"],
+      y = pd$recalled[pd$word.length == "long"],
       type = "b", lty = 3, pch = 18, col = "green")
-legend(1, 1.0, c("short","medium","long"), lty = 1:3, 
-       pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"), 
+legend(1, 1.0, c("short","medium","long"), lty = 1:3,
+       pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"),
        horiz = F, cex = 0.6, yjust = 1, xjust = 0)
 }
 \keyword{datasets}

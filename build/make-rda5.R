@@ -32,11 +32,11 @@ pd$pcode[pd$probe == "Vis"] <- 2
 plot(c(0.8,2.2), c(0.5,1.0), type = "n", xlab = "Tested Domain",
      ylab = "Proportion correct", main = "Multiple Memory Sets", xaxt = "n")
 axis(side = 1, at = c(1,2), labels = c("Verb","Vis"))
-lines(x = pd$pcode[pd$condition == "single"], y = pd$acc[pd$condition == "single"], 
+lines(x = pd$pcode[pd$condition == "single"], y = pd$acc[pd$condition == "single"],
       type = "b", lty = 1, pch = 15)
-lines(x = pd$pcode[pd$condition == "cross"], y = pd$acc[pd$condition == "cross"], 
+lines(x = pd$pcode[pd$condition == "cross"], y = pd$acc[pd$condition == "cross"],
       type = "b", lty = 2, pch = 16)
-lines(x = pd$pcode[pd$condition == "within"], y = pd$acc[pd$condition == "within"], 
+lines(x = pd$pcode[pd$condition == "within"], y = pd$acc[pd$condition == "within"],
       type = "b", lty = 3, pch = 17)
 legend(1, 0.5, c("single", "cross", "within"), lty = 1:3, pch=15:17,
        horiz = F, cex = 0.7, yjust = 0, xjust = 0)
@@ -69,7 +69,7 @@ pd <- pd[c(1,2,3,5,4,6),] ## should be lex -> sym for verbal and sym -> let for 
 barspacing <- c(0.2,0.2,0.2,0.7,0.2,0.2)
 legendtext <- c("Lexical", "Symmetry", "None", "Symmetry", "Lexical", "None")
 bp = barplot(pd$acc, space = barspacing, col=c(rep("dark gray",3),rep("light gray",3)),
-        ylab="Mean Number of Items Recalled", xlab="Distractor Task", axisnames=F, 
+        ylab="Mean Number of Items Recalled", xlab="Distractor Task", axisnames=F,
         ylim = c(1.9,4.5), xpd = F)
 text (2,4.2,"Verbal Memory",cex=1)
 text (6,4.2,"Spatial Memory",cex=1)
@@ -90,7 +90,7 @@ Data <- Data[Data$id != excluded, ]
 
 rowNum <- 1
 for (subj in 1:53) {
-  d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=subj, range="A1:AL69"))  
+  d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=subj, range="A1:AL69"))
   for (cond in 1:7) {
     for (trial in 1:10) {
       trialname = paste0("T", trial)
@@ -106,7 +106,7 @@ for (subj in 1:53) {
         response <- resp  # default
         if (resp == "c") response <- Data[rowNum, 5]  # correct responses are coded as "c", so set response to the list item
         if (resp == "x") response <- "omission"
-        if (is.na(resp)) response <- "omission" 
+        if (is.na(resp)) response <- "omission"
         Data[rowNum, 6] <- response
         rowNum <- rowNum + 1
       }
@@ -116,7 +116,7 @@ for (subj in 1:53) {
 
 write.table(Data, file="Jarrold2010.long.txt", row.names=F)
 
-d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=50, range="A1:AL69"))  
+d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=50, range="A1:AL69"))
 
 
 
@@ -149,17 +149,17 @@ jar$condition <- ordered(jar$condition, levels = c("SixZero", "FiveOne", "FourTw
 
 jar_rhyme <- jar[which(jar$group == "symmetry"),]
 
-## Overall Figure 
+## Overall Figure
 pd <- aggregate(correct ~ cond+condition+group, data = jar, FUN = mean)
 
 
 plot(c(1,7), c(0.0,1.0), type = "n", xlab = "Condition",
-     ylab = "Proportion correct", main = "Positions of Processing Interval 
+     ylab = "Proportion correct", main = "Positions of Processing Interval
      in Serial Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7), labels = levels(pd$condition), cex.axis = 0.7)
-lines(x = pd$cond[pd$group == "rhyme"], y = pd$correct[pd$group == "rhyme"], 
+lines(x = pd$cond[pd$group == "rhyme"], y = pd$correct[pd$group == "rhyme"],
       type = "b", lty = 1, pch = 15, col = "red")
-lines(x = pd$cond[pd$group == "symmetry"], y = pd$correct[pd$group == "symmetry"], 
+lines(x = pd$cond[pd$group == "symmetry"], y = pd$correct[pd$group == "symmetry"],
       type = "b", lty = 2, pch = 17, col = "blue")
 legend(7, 0, c("Rhyme", "Symmetry"), lty = 1:2, pch=c(15,17), title = "Processing Task:",
        col = c("red", "blue"), horiz = F, cex = 0.6, yjust = 0, xjust = 1)
@@ -179,22 +179,22 @@ for (subj in id_vec) {
     for (c in cond_vec) {
       words <- jar$item[jar$id == subj & jar$trial == tr & jar$cond == c]
       for (sp in 1:6) {
-        resp <- jar$response[jar$id == subj & jar$trial == tr & 
+        resp <- jar$response[jar$id == subj & jar$trial == tr &
                                jar$cond == c & jar$serpos == sp]
-        corr <- jar$correct[jar$id == subj & jar$trial == tr & 
+        corr <- jar$correct[jar$id == subj & jar$trial == tr &
                                jar$cond == c & jar$serpos == sp]
         if (corr == 1) {
-          jar$recalled[jar$id == subj & jar$trial == tr & 
+          jar$recalled[jar$id == subj & jar$trial == tr &
                         jar$cond == c & jar$serpos == sp] <- 1
         } else if (corr == 0) {
           if (resp == "omission") {
-            jar$recalled[jar$id == subj & jar$trial == tr & 
+            jar$recalled[jar$id == subj & jar$trial == tr &
                            jar$cond == c & jar$serpos == sp] <- 0
           } else if (resp %in% words) {
-            jar$recalled[jar$id == subj & jar$trial == tr & 
+            jar$recalled[jar$id == subj & jar$trial == tr &
                            jar$cond == c & jar$serpos == sp] <- 1
           } else {
-            jar$recalled[jar$id == subj & jar$trial == tr & 
+            jar$recalled[jar$id == subj & jar$trial == tr &
                            jar$cond == c & jar$serpos == sp] <- 0
           }
         }
@@ -211,6 +211,11 @@ jarrold10 <- jar %>% select(id, trial, group, cond, condition, serpos,
 
 levels(jarrold10$condition)[levels(jarrold10$condition) == "Three"] <- "ThreeThree"
 
+## Andy's fix code:
+jarrold10$response <- stri_trans_general(jarrold10$response, "latin-ascii")
+jarrold10$response <- iconv(jarrold10$response, from="UTF-8", to="ASCII")
+unique(jarrold10$response)
+
 save(jarrold10, file = "./pkg/data/jarrold10.rda")
 
 #### Klauer & Zhao (2004)
@@ -226,30 +231,30 @@ Nsubj <- c(20, 24, 18)
 ### Read data of Experiments 1 and 2
 
 for (experiment in 1:2) {
-  
+
   maxT2trials <- 16
-  
+
   for (id in 1:Nsubj[experiment]) {
-    
+
     filename = paste0(pth, "/Klauer.Zhao.2004/exp", experiment, "/RAUS.", id)
     ncol <- count.fields(filename, skip=1)
     data <- read.table(filename, header=F, skip=1, fill=T, col.names=1:max(ncol))
-    
+
     D <- as.data.frame(matrix(NA, dim(data)[1]/2, 9 + 3*maxT2trials))
     varnames <- c("id", "trial", "T1", "T2", "T1prestime", "T1stim", "T1resp", "T1correct", "T2num")
     for (t2 in 1:maxT2trials) {
       varnames <- c( varnames, c(paste0("T2stim", t2), paste0("T2resp", t2), paste0("T2correct", t2)) )
     }
     names(D) <- varnames
-    
+
     trial <- 1
     for (line in 1:dim(data)[1]) {
       task <- 2 - (line %% 2) # odd lines -> task 1, even lines -> task 2
       if (task == 1) {
         D[trial, "id"] <- id
         D[trial, "trial"] <- trial
-        D[trial, c("T1", "T1prestime", "T1stim", "T1resp")] <- data[line, 1:4]  
-        D[trial, "T1correct"] = D[trial,"T1stim"] == D[trial,"T1resp"] 
+        D[trial, c("T1", "T1prestime", "T1stim", "T1resp")] <- data[line, 1:4]
+        D[trial, "T1correct"] = D[trial,"T1stim"] == D[trial,"T1resp"]
       }
       if (task == 2) {
         D[trial, "T2"] <- data[line, 1]
@@ -259,7 +264,7 @@ for (experiment in 1:2) {
           b <- 4
           for (t2 in 1:data[line, 2]) {
             D[trial, c(paste0("T2stim", t2), paste0("T2resp", t2))] <- data[line, a:b]
-            if (D[trial, "T2"] == 1) D[trial, paste0("T2correct", t2)] = data[line,a] == data[line,b] 
+            if (D[trial, "T2"] == 1) D[trial, paste0("T2correct", t2)] = data[line,a] == data[line,b]
             # T2 = 1: movement task: correct if stim == response
             if (D[trial, "T2"] == 2) D[trial, paste0("T2correct", t2)] = ceiling(data[line,a]/8) == data[line,b]
             # T2 = 2: color task: correct for stim < 8 and response = 1, and for stim > 8 and response = 2
@@ -270,7 +275,7 @@ for (experiment in 1:2) {
         trial <- trial + 1
       }
     }
-    
+
     if (experiment == 1) Data1 <- rbind(Data1, D)
     if (experiment == 2) Data2 <- rbind(Data2, D)
   }
@@ -283,26 +288,26 @@ for (experiment in 1:2) {
 maxT2trials <- 16
 
 for (id in 1:Nsubj[3]) {
-  
+
   filename = paste0(pth, "Klauer.Zhao.2004/exp4/RAUS.", id)
   ncol <- count.fields(filename, skip=1)
   data <- read.table(filename, header=F, skip=1, fill=T, col.names=1:max(ncol))
-  
+
   D <- as.data.frame(matrix(NA, dim(data)[1]/2, 9 + 3*maxT2trials))
   varnames <- c("id", "trial", "T1", "T2", "T1prestime", "T1stim", "T1resp", "T1correct", "T2num")
   for (t2 in 1:maxT2trials) {
     varnames <- c( varnames, c(paste0("T2stim", t2), paste0("T2resp", t2), paste0("T2correct", t2)) )
   }
   names(D) <- varnames
-  
+
   trial <- 1
   for (line in 1:dim(data)[1]) {
     task <- 2 - (line %% 2) # odd lines -> task 1, even lines -> task 2
     if (task == 1) {
       D[trial, "id"] <- id
       D[trial, "trial"] <- trial
-      D[trial, c("T1", "T1prestime", "T1stim", "T1resp")] <- data[line, 1:4]  
-      D[trial, "T1correct"] = D[trial,"T1stim"] == D[trial,"T1resp"] 
+      D[trial, c("T1", "T1prestime", "T1stim", "T1resp")] <- data[line, 1:4]
+      D[trial, "T1correct"] = D[trial,"T1stim"] == D[trial,"T1resp"]
     }
     if (task == 2) {
       D[trial, "T2"] <- data[line, 1]
@@ -321,19 +326,19 @@ for (id in 1:Nsubj[3]) {
       trial <- trial + 1
     }
   }
-  
+
   Data4 <- rbind(Data4, D)
 }
 
 # Read aggregate data of accuracy in the movement (tapping) task
 Data4T2 <- read.table(paste0(pth,"Klauer.Zhao.2004/exp4/data1-18.dat"), header=T)
-names(Data4T2) <- c("id", 
-                    "T1corr.t1fast,t1loc.t2none", "T1corr.t1fast,t1loc.t2move", "T1corr.t1fast,t1loc.t2col", 
-                    "T1corr.t1fast,t1ideo.t2none", "T1corr.t1fast,t1ideo.t2move", "T1corr.t1fast,t1ideo.t2col",  
-                    "T1corr.t1medium,t1loc.t2none", "T1corr.t1medium,t1loc.t2move", "T1corr.t1medium,t1loc.t2col", 
-                    "T1corr.t1medium,t1ideo.t2none", "T1corr.t1medium,t1ideo.t2move", "T1corr.t1medium,t1ideo.t2col",  
-                    "T1corr.t1slow,t1loc.t2none", "T1corr.t1slow,t1loc.t2move", "T1corr.t1slow,t1loc.t2col", 
-                    "T1corr.t1slow,t1ideo.t2none", "T1corr.t1slow,t1ideo.t2move", "T1corr.t1slow,t1ideo.t2col",  
+names(Data4T2) <- c("id",
+                    "T1corr.t1fast,t1loc.t2none", "T1corr.t1fast,t1loc.t2move", "T1corr.t1fast,t1loc.t2col",
+                    "T1corr.t1fast,t1ideo.t2none", "T1corr.t1fast,t1ideo.t2move", "T1corr.t1fast,t1ideo.t2col",
+                    "T1corr.t1medium,t1loc.t2none", "T1corr.t1medium,t1loc.t2move", "T1corr.t1medium,t1loc.t2col",
+                    "T1corr.t1medium,t1ideo.t2none", "T1corr.t1medium,t1ideo.t2move", "T1corr.t1medium,t1ideo.t2col",
+                    "T1corr.t1slow,t1loc.t2none", "T1corr.t1slow,t1loc.t2move", "T1corr.t1slow,t1loc.t2col",
+                    "T1corr.t1slow,t1ideo.t2none", "T1corr.t1slow,t1ideo.t2move", "T1corr.t1slow,t1ideo.t2col",
                     "T2corr.t1fast.t1loc.t2move", "T2corr.t1fast.t1loc.t2col",
                     "T2corr.t1fast.t1ideo.t2move", "T2corr.t1fast.t1ideo.t2col",
                     "T2corr.t1medium.t1loc.t2move", "T2corr.t1medium.t1loc.t2col",
@@ -346,10 +351,116 @@ names(Data4T2) <- c("id",
 
 
 ## Experiment 1
+dd <- Data1
+dd$memory_task[dd$T1 == 0] <- "locations"
+dd$memory_task[dd$T1 == 1] <- "ideographs"
 
+dd$processing[dd$T2 == 0] <- "none"
+dd$processing[dd$T2 == 1] <- "spatial tapping"
+dd$processing[dd$T2 == 2] <- "visual"
+
+dd$domain <- "none"
+dd$domain[dd$T1 == 0 & dd$T2 == 1] <- "same"
+dd$domain[dd$T1 == 1 & dd$T2 == 2] <- "same"
+dd$domain[dd$T1 == 0 & dd$T2 == 2] <- "different"
+dd$domain[dd$T1 == 1 & dd$T2 == 1] <- "different"
+
+names(dd)[names(dd) == "T1prestime"] <- "prestime"
+
+dd$correct <- 0
+dd$correct[dd$T1correct == "TRUE"] <- 1
+
+### Compute an accuracy score for the processing tasks
+
+id_vec <- sort(unique(dd$id))
+trial_vec <- sort(unique(dd$trial))
+dd$acc <- 0
+for (subj in id_vec) {
+  for (tr in trial_vec) {
+    num <- dd$T2num[dd$id == subj & dd$trial == tr]
+    if (is.na(num)) {
+      dd$acc[dd$id == subj & dd$trial == tr] <- NA
+    } else {
+      counter <-  0
+      for (div in 1:num) {
+        name <- paste0("T2correct", div)
+        subdata <- subset(dd, id == subj & trial == tr)
+        if (subdata[names(subdata) == name] == "TRUE") {
+          counter <-  counter + 1
+        } else {
+          counter <- counter
+        }
+      }
+      dd$acc[dd$id == subj & dd$trial == tr] <- counter/num
+    }
+  }
+}
+
+names(dd)[names(dd) == "T2num"] <- "num"
+
+dd$exp <- "Exp1"
+
+exp1 <- dd %>% select(exp, id, trial, memory_task, processing, domain, prestime,
+                      num, correct, acc)
+
+## Experiment 2
+
+dd <- Data2
+dd$memory_task[dd$T1 == 0] <- "locations"
+dd$memory_task[dd$T1 == 1] <- "ideographs"
+
+dd$processing[dd$T2 == 0] <- "none"
+dd$processing[dd$T2 == 1] <- "spatial tapping"
+dd$processing[dd$T2 == 2] <- "visual"
+
+dd$domain <- "none"
+dd$domain[dd$T1 == 0 & dd$T2 == 1] <- "same"
+dd$domain[dd$T1 == 1 & dd$T2 == 2] <- "same"
+dd$domain[dd$T1 == 0 & dd$T2 == 2] <- "different"
+dd$domain[dd$T1 == 1 & dd$T2 == 1] <- "different"
+
+names(dd)[names(dd) == "T1prestime"] <- "prestime"
+
+dd$correct <- 0
+dd$correct[dd$T1correct == "TRUE"] <- 1
+
+### Compute an accuracy score for the processing tasks
+
+id_vec <- sort(unique(dd$id))
+trial_vec <- sort(unique(dd$trial))
+dd$acc <- 0
+for (subj in id_vec) {
+  for (tr in trial_vec) {
+    num <- dd$T2num[dd$id == subj & dd$trial == tr]
+    if (is.na(num)) {
+      dd$acc[dd$id == subj & dd$trial == tr] <- NA
+    } else {
+      counter <-  0
+      for (div in 1:num) {
+        name <- paste0("T2correct", div)
+        subdata <- subset(dd, id == subj & trial == tr)
+        if (subdata[names(subdata) == name] == "TRUE") {
+          counter <-  counter + 1
+        } else {
+          counter <- counter
+        }
+      }
+      dd$acc[dd$id == subj & dd$trial == tr] <- counter/num
+    }
+  }
+}
+
+names(dd)[names(dd) == "T2num"] <- "num"
+
+dd$exp <- "Exp2"
+
+exp2 <- dd %>% select(exp, id, trial, memory_task, processing, domain, prestime,
+                      num, correct, acc)
+
+## Experiment 4
 dd <- Data4
-dd$memory_task[dd$T1 == 0] <- "locations" 
-dd$memory_task[dd$T1 == 1] <- "ideographs" 
+dd$memory_task[dd$T1 == 0] <- "locations"
+dd$memory_task[dd$T1 == 1] <- "ideographs"
 
 dd$processing[dd$T2 == 0] <- "none"
 dd$processing[dd$T2 == 1] <- "spatial tapping"
@@ -395,22 +506,22 @@ for (subj in id_vec) {
 names(dd)[names(dd) == "T2num"] <- "num"
 
 for (subj in id_vec) {
-  fl <- dd$id == subj & dd$prestime == 225 & 
+  fl <- dd$id == subj & dd$prestime == 225 &
     dd$memory_task == "locations" & dd$processing == "spatial tapping"
   dd$acc[fl] <- Data4T2$T2corr.t1fast.t1loc.t2move[Data4T2$id == subj]
-  fi <- dd$id == subj & dd$prestime == 225 & 
+  fi <- dd$id == subj & dd$prestime == 225 &
     dd$memory_task == "ideographs" & dd$processing == "spatial tapping"
   dd$acc[fi] <- Data4T2$T2corr.t1fast.t1ideo.t2move[Data4T2$id == subj]
-  ml <- dd$id == subj & dd$prestime == 281 & 
+  ml <- dd$id == subj & dd$prestime == 281 &
     dd$memory_task == "locations" & dd$processing == "spatial tapping"
   dd$acc[ml] <- Data4T2$T2corr.t1medium.t1loc.t2move[Data4T2$id == subj]
-  mi <- dd$id == subj & dd$prestime == 281 & 
+  mi <- dd$id == subj & dd$prestime == 281 &
     dd$memory_task == "ideographs" & dd$processing == "spatial tapping"
   dd$acc[mi] <- Data4T2$T2corr.t1medium.t1ideo.t2move[Data4T2$id == subj]
-  sl <- dd$id == subj & dd$prestime == 337 & 
+  sl <- dd$id == subj & dd$prestime == 337 &
     dd$memory_task == "locations" & dd$processing == "spatial tapping"
   dd$acc[sl] <- Data4T2$T2corr.t1slow.t1loc.t2move[Data4T2$id == subj]
-  si <- dd$id == subj & dd$prestime == 337 & 
+  si <- dd$id == subj & dd$prestime == 337 &
     dd$memory_task == "ideographs" & dd$processing == "spatial tapping"
   dd$acc[si] <- Data4T2$T2corr.t1slow.t1ideo.t2move[Data4T2$id == subj]
 }
@@ -429,6 +540,8 @@ klauer04 <- klauer04 %>% rename(subj = id)
 
 klauer04$num[klauer04$exp == "Exp4" & klauer04$processing == "spatial tapping"] <- 11.2
 
+save(klauer04, file="./pkg/data/klauer04.rda")
+
 ## Reproduce Figure 2 in Klauer & Zhao (2004)
 
 d <- subset(klauer04, exp == "Exp1")
@@ -437,7 +550,7 @@ pd <- aggregate(correct ~ processing*memory_task, data = d, FUN = mean)
 barspacing <- c(0.2,0.2,0.2,0.7,0.2,0.2)
 legendtext <- c("None", "Spatial", "Visual", "None", "Spatial", "Visual")
 bp = barplot(pd$correct, space = barspacing, col=c(rep("dark gray",3),rep("light gray",3)),
-             ylab="Proportion correct", xlab="Distractor Task", axisnames=F, 
+             ylab="Proportion correct", xlab="Distractor Task", axisnames=F,
              ylim = c(0.6,1.0), xpd = F, main = "Effects of Task Domains")
 text (2,.95,"Visual Memory",cex=1)
 text (6,.95,"Spatial Memory",cex=1)
@@ -470,7 +583,7 @@ b07 <- as.data.frame(lapply(temp,FUN=function(x) as.numeric(as.character(x))))
 #add identifier for task
 b07$task <- c(rep("parity",16),rep("location",16))
 
-names(b07) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", 
+names(b07) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9",
                 "X10", "X11", "X12", "X13", "task")
 
 #now convert into suitable format
@@ -518,12 +631,12 @@ xx <- filter(b07means, task=="location")$'Time on task'
 mn <- filter(b07means, task=="location")$'Mean Span'
 se <- filter(b07SE, task=="location")$'Mean Span'
 points(xx,mn,cex=1.3,pch=21,bg="gray")
-arrows(xx,mn-1.96*se, xx, mn+1.96*se, length=0.05, angle=90, code=3)   
+arrows(xx,mn-1.96*se, xx, mn+1.96*se, length=0.05, angle=90, code=3)
 xx <- filter(b07means, task=="parity")$'Time on task'
 mn <- filter(b07means, task=="parity")$'Mean Span'
 se <- filter(b07SE, task=="parity")$'Mean Span'
 points(xx,mn,cex=1.3,pch=22,bg="black")
-arrows(xx,mn-1.96*se, xx, mn+1.96*se, length=0.05, angle=90, code=3) 
+arrows(xx,mn-1.96*se, xx, mn+1.96*se, length=0.05, angle=90, code=3)
 legend(.3,2,c("Parity","Location"),lty=c("solid","dashed"),pch=c(22,21),pt.bg=c("gray","black"), pt.cex=1.2)
 
 if (p2f) {dev.off()}
@@ -550,11 +663,11 @@ pd <- aggregate(cbind(span, CL) ~ task + cogload, data = barrouillet07, FUN = me
 plot(c(0.25,0.6), c(3.0,6.5), type = "n", xlab = "Total Procesing Time / Total Time",
      ylab = "Mean Span", main = "Effects of Cognitive Load", xaxt = "n")
 axis(side = 1, at = c(0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6), labels = T)
-lines(x = pd$CL[pd$task == "parity"], y = pd$span[pd$task == "parity"], 
+lines(x = pd$CL[pd$task == "parity"], y = pd$span[pd$task == "parity"],
       type = "b", lty = 1, pch = 15)
-lines(x = pd$CL[pd$task == "location"], y = pd$span[pd$task == "location"], 
+lines(x = pd$CL[pd$task == "location"], y = pd$span[pd$task == "location"],
       type = "b", lty = 2, pch = 17)
-abline(lm(span ~ CL, data = pd[which(pd$task == "parity"),])$coefficients, 
+abline(lm(span ~ CL, data = pd[which(pd$task == "parity"),])$coefficients,
        lty = 1, pch = 15)
 abline(lm(span ~ CL, data = pd[which(pd$task == "location"),])$coefficients,
        lty = 2, pch = 16)
@@ -596,7 +709,7 @@ names(Size8) <- c("subject", "ptime", "span")
 Size8$task <- "Size-8"
 Size <- rbind(Size4, Size6, Size8)
 Size$totaltime <- 6900
-Size$CL <- Size$ptime/Size$totaltime  
+Size$CL <- Size$ptime/Size$totaltime
 
 # Color Stroop and number Stroop experiments - for these experiments, processing time is constant
 # across participants because it was assessed in a separate pre-test
@@ -611,7 +724,7 @@ names(CStroopColor) <- c("subject", "ptime", "span")
 CStroopColor$task <- "ColorStroopColor"
 ColorStroop <- rbind(CStroopNeutral, CStroopColor)
 ColorStroop$totaltime <- 8500
-ColorStroop$CL <- ColorStroop$ptime/ColorStroop$totaltime  
+ColorStroop$CL <- ColorStroop$ptime/ColorStroop$totaltime
 
 NumberStroop <- as.data.frame(read_excel("Barrouillet.2011.xlsx",sheet="Inhibition",range="I13:M33"))
 names(NumberStroop) <- c("subject", "ptimeNeutral", "ptimeNumber", "spanNeutral", "spanNumber")
@@ -623,10 +736,10 @@ names(NStroopNumber) <- c("subject", "ptime", "span")
 NStroopNumber$task <- "NumberStroopNumber"
 NumberStroop <- rbind(NStroopNeutral, NStroopNumber)
 NumberStroop$totaltime <- 8500
-NumberStroop$CL <- NumberStroop$ptime/NumberStroop$totaltime  
+NumberStroop$CL <- NumberStroop$ptime/NumberStroop$totaltime
 
 # Updating experiments
-# Span procedure, according to Barrouillet et al: 
+# Span procedure, according to Barrouillet et al:
 # "Two units were added to spans to take into account the fact that the processing task
 # required the continuous maintenance of two items"
 
@@ -640,7 +753,7 @@ names(RCountUpdate) <- c("subject", "ptime", "span")
 RCountUpdate$task <- "Running Count"
 RunningCount <- rbind(RCountSimple, RCountUpdate)
 RunningCount$totaltime <- 14000
-RunningCount$CL <- RunningCount$ptime/RunningCount$totaltime  
+RunningCount$CL <- RunningCount$ptime/RunningCount$totaltime
 
 Nback <- read_excel("Barrouillet.2011.xlsx",sheet="Updating",range="J14:N38")
 names(Nback) <- c("subject", "ptime0back", "ptime2back", "span2back", "span0back")
@@ -652,7 +765,7 @@ names(NB2) <- c("subject", "ptime", "span")
 NB2$task <- "2-back"
 Nback <- rbind(NB0, NB2)
 Nback$totaltime <- 12500
-Nback$CL <- Nback$ptime/Nback$totaltime  
+Nback$CL <- Nback$ptime/Nback$totaltime
 
 Data <- as.data.frame(rbind(Parity, Size, ColorStroop, NumberStroop, RunningCount, Nback))
 Data$task <- as.factor(Data$task)
@@ -689,11 +802,11 @@ ylim <- c(0,9)
 plot(xlim, ylim, type = "n", xlab = "Cognitive Load",
      ylab = "Memory Span", main = "Cognitive Load in different Tasks", xaxt = "n")
 axis(side = 1, at = 0:10/10, labels = T)
-points(x = pd$CL, y = pd$span, 
+points(x = pd$CL, y = pd$span,
        type = "p", pch = pt, bg = ptcol)
 
 abline(a=8.13, b=-8.33)
-legend(1,9,c("Updating", "Inhibition", "Response Selection", "Retrieval"), 
+legend(1,9,c("Updating", "Inhibition", "Response Selection", "Retrieval"),
        pch=c(24,23,22,21), pt.bg=c("red", "blue", "green", "black"), yjust=1, xjust=1,
        cex = 0.7)
 
@@ -702,13 +815,13 @@ legend(1,9,c("Updating", "Inhibition", "Response Selection", "Retrieval"),
 rm(list = ls())
 pth <- "BenchmarksWM.Data/BM5.2.4.CogLoad/"
 
-verver <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"), 
+verver <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"),
                      sheet = "verbal-verbal_recall", range = "A3:D27")
-spaspa <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"), 
+spaspa <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"),
                      sheet = "spatial-spatial_recall", range = "A3:D27")
-verspa <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"), 
+verspa <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"),
                      sheet = "verbal-spatial recall", range = "A3:D27")
-spaver <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"), 
+spaver <- read_excel(paste0(pth,"Vergauwe et al. 2010.xlsx"),
                      sheet = "spatial-verbal_recall", range = "A3:D27")
 
 verver$memory <- "verbal"
@@ -732,7 +845,7 @@ levels(vergauwe10$CL)[levels(vergauwe10$CL) == "span high CL"] <- "high"
 
 
 ###
-pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"), 
+pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"),
                     sheet = "verbal-verbal_processing", range = "A1:GL865")
 pro_1l <- subset(pro_1, Procedure == "blockprocL")
 pro_1l$acc <- rowMeans(pro_1l[,3:98], na.rm = T)
@@ -770,7 +883,7 @@ for (subj in id_vec) {
 verg10 <- dvv
 
 ###
-pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"), 
+pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"),
                     sheet = "spatial-spatial_processing", range = "A1:FF865")
 pro_1l <- subset(pro_1, Procedure == "blockprocL")
 pro_1l$acc <- rowMeans(pro_1l[,3:82], na.rm = T)
@@ -808,7 +921,7 @@ for (subj in id_vec) {
 verg10 <- rbind(verg10,dvv)
 
 ###
-pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"), 
+pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"),
                     sheet = "verbal-spatial_processing", range = "A1:GL865")
 pro_1l <- subset(pro_1, Procedure == "blockprocL")
 pro_1l$acc <- rowMeans(pro_1l[,3:98], na.rm = T)
@@ -846,7 +959,7 @@ for (subj in id_vec) {
 verg10 <- rbind(verg10,dvv)
 
 ###
-pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"), 
+pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2010.xlsx"),
                     sheet = "spatial-verbal_processing", range = "A1:FF865")
 pro_1l <- subset(pro_1, Procedure == "blockprocL")
 pro_1l$acc <- rowMeans(pro_1l[,3:82], na.rm = T)
@@ -889,8 +1002,9 @@ vergauwe10 <- vergauwe10 %>% dplyr::rename(meanAcc = acc, meanRT = rt)
 vergauwe10 <- vergauwe10 %>% dplyr::rename(subj = sub)
 vergauwe10$totaltime <- 0
 vergauwe10$totaltime[vergauwe10$CL == "low"] <- 2000
-vergauwe10$totaltime[vergauwe10$CL == "medium"] <- 1239
+vergauwe10$totaltime[vergauwe10$CL == "medium"] <- 1293
 vergauwe10$totaltime[vergauwe10$CL == "high"] <- 1000
+
 
 vergauwe10$cogload <- vergauwe10$meanRT/vergauwe10$totaltime
 
@@ -907,32 +1021,32 @@ pd <- aggregate(cbind(span, cogload) ~  CL + memory + processing, data = vergauw
 plot(c(0.2,0.7), c(1.5,6.0), type = "n", xlab = "Total Procesing Time / Total Time",
      ylab = "Mean Span", main = "Effects of Cognitive Load", xaxt = "n")
 axis(side = 1, at = c(0.2,0.3,0.4,0.5,0.6,0.7), labels = T)
-points(x = pd$cogload[pd$memory == "verbal" & pd$processing == "verbal"], 
-      y = pd$span[pd$memory == "verbal" & pd$processing == "verbal"], 
+points(x = pd$cogload[pd$memory == "verbal" & pd$processing == "verbal"],
+      y = pd$span[pd$memory == "verbal" & pd$processing == "verbal"],
       type = "p", pch = 15, col = "red")
-abline(lm(span ~ cogload, data = pd[which(pd$memory == "verbal" & 
-                                            pd$processing == "verbal"),])$coefficients, 
+abline(lm(span ~ cogload, data = pd[which(pd$memory == "verbal" &
+                                            pd$processing == "verbal"),])$coefficients,
        lty = 1, pch = 15, col = "red")
-points(x = pd$cogload[pd$memory == "verbal" & pd$processing == "spatial"], 
-      y = pd$span[pd$memory == "verbal" & pd$processing == "spatial"], 
+points(x = pd$cogload[pd$memory == "verbal" & pd$processing == "spatial"],
+      y = pd$span[pd$memory == "verbal" & pd$processing == "spatial"],
       type = "p", pch = 16, col = "blue")
-abline(lm(span ~ cogload, data = pd[which(pd$memory == "verbal" & 
-                                            pd$processing == "spatial"),])$coefficients, 
+abline(lm(span ~ cogload, data = pd[which(pd$memory == "verbal" &
+                                            pd$processing == "spatial"),])$coefficients,
        lty = 2, pch = 16, col = "blue")
-points(x = pd$cogload[pd$memory == "spatial" & pd$processing == "verbal"], 
-      y = pd$span[pd$memory == "spatial" & pd$processing == "verbal"], 
+points(x = pd$cogload[pd$memory == "spatial" & pd$processing == "verbal"],
+      y = pd$span[pd$memory == "spatial" & pd$processing == "verbal"],
       type = "p", pch = 17, col = "green")
-abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial" & 
-                                            pd$processing == "verbal"),])$coefficients, 
+abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial" &
+                                            pd$processing == "verbal"),])$coefficients,
        lty = 3, pch = 17, col = "green")
-points(x = pd$cogload[pd$memory == "spatial" & pd$processing == "spatial"], 
-      y = pd$span[pd$memory == "spatial" & pd$processing == "spatial"], 
+points(x = pd$cogload[pd$memory == "spatial" & pd$processing == "spatial"],
+      y = pd$span[pd$memory == "spatial" & pd$processing == "spatial"],
       type = "p", pch = 18, col = "black")
-abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial" & 
-                                            pd$processing == "spatial"),])$coefficients, 
+abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial" &
+                                            pd$processing == "spatial"),])$coefficients,
        lty = 4, pch = 18, col = "black")
 legend(0.2, 1.5, c("verbal-verbal", "verbal-spatial",
-                   "spatial-verbal", "spatial-spatial"), lty = 1:4, 
+                   "spatial-verbal", "spatial-spatial"), lty = 1:4,
        pch=15:18, col = c("red","blue","green","black"),
        horiz = T, cex = 0.5, yjust = 0, xjust = 0)
 
@@ -942,9 +1056,9 @@ legend(0.2, 1.5, c("verbal-verbal", "verbal-spatial",
 rm(list = ls())
 pth <- "BenchmarksWM.Data/BM5.2.4.CogLoad/"
 
-verspa <- read_excel(paste0(pth,"Vergauwe et al. 2012.xlsx"), 
+verspa <- read_excel(paste0(pth,"Vergauwe et al. 2012.xlsx"),
                      sheet = "Exp 1_recall performance", range = "A4:D35")
-spaver <- read_excel(paste0(pth,"Vergauwe et al. 2012.xlsx"), 
+spaver <- read_excel(paste0(pth,"Vergauwe et al. 2012.xlsx"),
                      sheet = "Exp 2_recall performance", range = "A4:D40")
 
 verspa$memory <- "verbal"
@@ -962,7 +1076,7 @@ levels(vergauwe10$CL)[levels(vergauwe10$CL) == "span high CL"] <- "high"
 
 
 ###
-pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2012.xlsx"), 
+pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2012.xlsx"),
                     sheet = "Exp 1_processing performance", range = "A1:GM1117")
 pro_1l <- subset(pro_1, Procedure == "blockprocL")
 pro_1l$acc <- rowMeans(pro_1l[,4:99], na.rm = T)
@@ -1002,7 +1116,7 @@ for (subj in id_vec) {
 verg10 <- dvv
 
 ###
-pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2012.xlsx"), 
+pro_1 <- read_excel(paste0(pth, "Vergauwe et al. 2012.xlsx"),
                     sheet = "Exp2_processing performance", range = "A1:CD1297")
 pro_1l <- subset(pro_1, Procedure == "blockprocL")
 pro_1l$acc <- rowMeans(pro_1l[,3:42], na.rm = T)
@@ -1068,20 +1182,20 @@ pd <- aggregate(cbind(span, cogload) ~  CL + memory + processing, data = vergauw
 plot(c(0.2,0.7), c(1.5,6.0), type = "n", xlab = "Total Procesing Time / Total Time",
      ylab = "Mean Span", main = "Effects of Cognitive Load", xaxt = "n")
 axis(side = 1, at = c(0.2,0.3,0.4,0.5,0.6,0.7), labels = T)
-points(x = pd$cogload[pd$memory == "verbal"], 
-       y = pd$span[pd$memory == "verbal"], 
+points(x = pd$cogload[pd$memory == "verbal"],
+       y = pd$span[pd$memory == "verbal"],
        type = "p", pch = 15, col = "red")
-abline(lm(span ~ cogload, data = pd[which(pd$memory == "verbal"),])$coefficients, 
+abline(lm(span ~ cogload, data = pd[which(pd$memory == "verbal"),])$coefficients,
        lty = 1, pch = 15, col = "red")
 
-points(x = pd$cogload[pd$memory == "spatial"], 
-       y = pd$span[pd$memory == "spatial"], 
+points(x = pd$cogload[pd$memory == "spatial"],
+       y = pd$span[pd$memory == "spatial"],
        type = "p", pch = 17, col = "green")
-abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial"),])$coefficients, 
+abline(lm(span ~ cogload, data = pd[which(pd$memory == "spatial"),])$coefficients,
        lty = 3, pch = 17, col = "green")
 
 legend(0.2, 1.5, c("verbal-spatial",
-                   "spatial-verbal"), lty = c(1,3), 
+                   "spatial-verbal"), lty = c(1,3),
        pch=c(15,17), col = c("red","green"),
        horiz = T, cex = 0.5, yjust = 0, xjust = 0)
 
@@ -1090,14 +1204,14 @@ legend(0.2, 1.5, c("verbal-spatial",
 ### Vergauwe 15
 rm(list = ls())
 pth <- "BenchmarksWM.Data/BM5.2.4.CogLoad/"
-ver15 <- read_excel(paste0(pth, "Vergauwe et al. 2015 behavioral.xlsx"), 
+ver15 <- read_excel(paste0(pth, "Vergauwe et al. 2015 behavioral.xlsx"),
                     sheet = "Feuil1", range = "A1:AZ1729")
 
 
 ver15 <- ver15 %>% rename(subj = sub, domain = `Running[Block]`, trial = Trial,
                           condition = CONDITION, num = Numbitems, probe = POSPROBE)
 
-### compute Means 
+### compute Means
 
 verb <- subset(ver15, domain == "VERBBLOCKLIST")
 spat <- subset(ver15, domain == "SPATBLOCKLIST")
@@ -1129,7 +1243,7 @@ spat <- spat %>% rename(acc = RECALLS.ACC, rt = RECALLS.RT)
 
 vergauwe15 <- rbind(verb, spat)
 
-vergauwe15$domain <- as.factor(vergauwe15$domain) 
+vergauwe15$domain <- as.factor(vergauwe15$domain)
 vergauwe15$condition <- as.factor(vergauwe15$condition)
 vergauwe15$num <- as.numeric(vergauwe15$num)
 
@@ -1147,20 +1261,20 @@ pd <- aggregate(cbind(acc, CL) ~  domain + num, data = vergauwe15[which(vergauwe
 plot(c(0.05,0.25), c(0.5,1), type = "n", xlab = "Cognitive Load (Mean RT / Total Time)",
      ylab = "Proportion correct", main = "Easy Processing Task", xaxt = "n")
 axis(side = 1, at = c(0.05,0.1,0.15,0.2,0.25), labels = T)
-points(x = pd$CL[pd$domain == "verbal"], 
-       y = pd$acc[pd$domain == "verbal"], 
+points(x = pd$CL[pd$domain == "verbal"],
+       y = pd$acc[pd$domain == "verbal"],
        type = "p", pch = 15, col = "red")
-abline(lm(acc ~ CL, data = pd[which(pd$domain == "verbal"),])$coefficients, 
+abline(lm(acc ~ CL, data = pd[which(pd$domain == "verbal"),])$coefficients,
        lty = 1, pch = 15, col = "red")
 
-points(x = pd$CL[pd$domain == "spatial"], 
-       y = pd$acc[pd$domain == "spatial"], 
+points(x = pd$CL[pd$domain == "spatial"],
+       y = pd$acc[pd$domain == "spatial"],
        type = "p", pch = 17, col = "green")
-abline(lm(acc ~ CL, data = pd[which(pd$domain == "spatial"),])$coefficients, 
+abline(lm(acc ~ CL, data = pd[which(pd$domain == "spatial"),])$coefficients,
        lty = 3, pch = 17, col = "green")
 
 legend(0.05, 0.5, c("verbal-many",
-                   "spatial-many"), lty = c(1,3), 
+                   "spatial-many"), lty = c(1,3),
        pch=c(15,17), col = c("red","green"),
        horiz = T, cex = 0.5, yjust = 0, xjust = 0)
 
@@ -1169,20 +1283,20 @@ pd <- aggregate(cbind(acc, CL) ~  domain + num, data = vergauwe15[which(vergauwe
 plot(c(0.05,0.25), c(0.5,1), type = "n", xlab = "Cognitive Load (Mean RT / Total Time)",
      ylab = "Proportion correct", main = "Hard Processing Task", xaxt = "n")
 axis(side = 1, at = c(0.05,0.1,0.15,0.2,0.25), labels = T)
-points(x = pd$CL[pd$domain == "verbal"], 
-       y = pd$acc[pd$domain == "verbal"], 
+points(x = pd$CL[pd$domain == "verbal"],
+       y = pd$acc[pd$domain == "verbal"],
        type = "p", pch = 15, col = "red")
-abline(lm(acc ~ CL, data = pd[which(pd$domain == "verbal"),])$coefficients, 
+abline(lm(acc ~ CL, data = pd[which(pd$domain == "verbal"),])$coefficients,
        lty = 1, pch = 15, col = "red")
 
-points(x = pd$CL[pd$domain == "spatial"], 
-       y = pd$acc[pd$domain == "spatial"], 
+points(x = pd$CL[pd$domain == "spatial"],
+       y = pd$acc[pd$domain == "spatial"],
        type = "p", pch = 17, col = "green")
-abline(lm(acc ~ CL, data = pd[which(pd$domain == "spatial"),])$coefficients, 
+abline(lm(acc ~ CL, data = pd[which(pd$domain == "spatial"),])$coefficients,
        lty = 3, pch = 17, col = "green")
 
 legend(0.05, 0.5, c("verbal-many",
-                    "spatial-many"), lty = c(1,3), 
+                    "spatial-many"), lty = c(1,3),
        pch=c(15,17), col = c("red","green"),
        horiz = T, cex = 0.5, yjust = 0, xjust = 0)
 

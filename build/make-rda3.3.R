@@ -13,11 +13,11 @@ pth  <- "BenchmarksWM.Data/BM3.3.SP.Latency/"
 fnam <- paste0(pth, "Farrell.Lewandowsky.2004.Exp2.dat")
 fl04 <- read.table(fnam, header=FALSE)  # Data from Farrell  & Lewandowsky, 2004, Exp. 2
 names(fl04) <- c("subject", "trial", "condition",paste("opp",c(1:6),sep=""),paste("rt",c(1:6),sep=""))
-#The columns are subject, trial, condition  (0=no  interference, 1 = interference), 
+#The columns are subject, trial, condition  (0=no  interference, 1 = interference),
 #the recall order (columns are output positions), and the recall latencies
 #intrusions prevented, omissions coded as -9
 
-fl04rt   <- fl04 %>% gather("serpos","rt",rt1:rt6) %>% 
+fl04rt   <- fl04 %>% gather("serpos","rt",rt1:rt6) %>%
   select(subject,trial,condition,serpos,rt) %>%
   mutate(serpos=as.numeric(substr(serpos,3,10)))
 fl04pos <- fl04 %>% gather("opp","outpos", opp1:opp6) %>%
@@ -39,11 +39,11 @@ source("BenchmarksWM.Data/Functions/BakemanL.R")
 source("BenchmarksWM.Data/Functions/Confint.R")
 
 
-fl04rtagg <- aggregate(rt ~ subject + condition + spos, data=farrell04, FUN=mean)
+fl04rtagg <- aggregate(rt ~ subject + condition + serpos, data=farrell04, FUN=mean)
 fl04RT <- BakemanL(fl04rtagg, id="subject", dv="rt")
 
-fl04m     <- aggregate(rt~condition+spos, data=fl04rtagg, FUN=mean)
-fl04SE    <- aggregate(rt~condition+spos, data=fl04rtagg, FUN=function(x) sd(x)/sqrt(length(x))) #SE for within-subjects comparisons
+fl04m     <- aggregate(rt~condition+serpos, data=fl04rtagg, FUN=mean)
+fl04SE    <- aggregate(rt~condition+serpos, data=fl04rtagg, FUN=function(x) sd(x)/sqrt(length(x))) #SE for within-subjects comparisons
 
 #now do some plotting
 par(mfrow=c(1,1))  #accuracy and then RT
@@ -55,24 +55,24 @@ plot(c(0,7),c(0,3000), xlim=c(0.5,6.5),ylim=c(0,3100), type="n", las=1,
      xlab="Serial Position", ylab="Mean Latency (ms)",cex.lab=1.2,cex.axis=1.)
 for (k in c(0:1)) {
   tbp <- filter(fl04m,condition==k)
-  xx <- tbp$spos - 0.05 + k*0.1
+  xx <- tbp$serpos - 0.05 + k*0.1
   lines(xx,tbp$rt,lwd=2,lty=ltyk[k+1])
   #tbpSE <- filter(fl04SE,condition==k)
-  #arrows(xx,tbp$rt-1.96*tbpSE$rt, xx, tbp$rt+1.96*tbpSE$rt, length=0.05, angle=90, code=3)    
+  #arrows(xx,tbp$rt-1.96*tbpSE$rt, xx, tbp$rt+1.96*tbpSE$rt, length=0.05, angle=90, code=3)
   points(xx,tbp$rt,pch=21+k,bg=bgk[k+1],cex=1.5)
 }
 legend(6,2900,c("No interference","Interference"),lty=ltyk,pch=20+c(1:2),pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=1)
 
 
-########################## Read Murdock & Okada (1970) data: Inter-Response Times for Free Recall 
+########################## Read Murdock & Okada (1970) data: Inter-Response Times for Free Recall
 
 fnam <- paste0(pth, "MurdockOkada.1970.txt")
 
 mo70 <- read.table(fnam, header=F)
-names(mo70) <- c("RunningCount", "ID", "trial", 
+names(mo70) <- c("RunningCount", "ID", "trial",
                  "inpos1", "inpos2", "inpos3","inpos4", "inpos5", "inpos6","inpos7", "inpos8", "inpos9","inpos10", "inpos11", "inpos12","inpos13",
                  "time1", "time2", "time3","time4", "time5", "time6","time7", "time8", "time9","time10", "time11", "time12","time13")
-# inpos is the input serial position recalled, ordered by output position (according to Kahana, code 88 signals an extralist intrusion, but that is probably 99) 
+# inpos is the input serial position recalled, ordered by output position (according to Kahana, code 88 signals an extralist intrusion, but that is probably 99)
 
 
 ### let's gather this data (It's BM 3.4.2..)
@@ -111,15 +111,22 @@ names(molong)[which(names(molong) == "moirl$irl")] <- "irl"
 check <- sum(abs(molong$run_trial_output - molong$rtoirl))
 #it works
 
-molong <- molong %>% select(ID, trial, output, input, irl) 
+molong <- molong %>% select(ID, trial, output, input, irl)
 molong$correct <- 0
 molong$correct[molong$input != 0 & molong$input != 99] <- 1
 
 molong$irl[molong$irl < 0.1] <- NA
 molong$irl[molong$input == 0] <- NA
 
-murdock70 <- molong
-save(murdock70, file="./pkg/data/mudrock70.rda")
+murdock70 <- molong %>% rename(subj = ID) %>%
+  filter(input > 0) %>%
+  group_by(subj, trial) %>%
+  mutate(
+    num_correct = sum(correct)
+  )
+
+
+save(murdock70, file="./pkg/data/murdock70.rda")
 ## a plot:
 
 
@@ -128,22 +135,38 @@ pd <- pd[which(pd$input != 0 & pd$input != 99), ]
 plot(c(0,20),c(0,1300), xlim=c(1,20),ylim=c(0,1300), type="n", las=1,
      main = "Serial Position Curve by Frequency",
      xlab="Serial Position", ylab="Frequency of recall",cex.lab=1.2,cex.axis=1.)
-lines(x = pd$input, 
-      y = pd$correct, 
+lines(x = pd$input,
+      y = pd$correct,
       type = "l", lty = 1)
 
+## in the original, inter-response latencies are plotted
+## dependent on correct recall.
+## here's an approximation
+## from the plot it seems that extra-list items were excluded
 
-pdrt <- aggregate(irl ~ output, data = murdock70, FUN = mean)
-plot(c(1,20),c(0,20), xlim=c(1,14),ylim=c(0,20), type="n", las=1,
-     main = "Inter-response Latency by Output Position",
-     xlab="Output Position", ylab="Inter-Response Latency",cex.lab=1.2,cex.axis=1.)
-lines(x = pdrt$output, 
-      y = pdrt$irl, 
-      type = "l", lty = 1)
-points(x = pdrt$output, 
-       y = pdrt$irl, 
-       pch = 22, bg = "black")
+prep_pd <- murdock70 %>% filter(num_correct %in% 4:9) %>%
+  group_by(subj, trial) %>%
+  mutate(
+    legal = case_when(max(output) > num_correct ~ 0,
+                      TRUE ~ 1)
+  )
 
+next_prep <- prep_pd %>% filter(legal == 1) %>% filter(output > 1)
+
+pdirl <- aggregate(irl ~ output + num_correct, data = next_prep, FUN = mean)
+plot(c(1,9),c(0,12), xlim=c(1,9),ylim=c(0,13), type="n", las=1,
+     main = "IRL partioned on total number of words recalled",
+     xlab="Output Position", ylab="IRL (seconds)",cex.lab=1.2,cex.axis=1.)
+## create lines with a for-loop
+for (op in sort(unique(pdirl$num_correct))) {
+  lines(x = pdirl$output[pdirl$num_correct == op],
+        y = pdirl$irl[pdirl$num_correct == op],
+        type = "l", lty = op-3)
+  points(x = pdirl$output[pdirl$num_correct == op],
+         y = pdirl$irl[pdirl$num_correct == op],
+         pch = op+12, bg = "black")
+}
+legend(1,12,sort(unique(pdirl$num_correct)),lty=sort(unique(pdirl$num_correct))-3,pch=sort(unique(pdirl$num_correct))+12,pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=0)
 
 
 ## Oeztekin & McElree (2010) (BM3.3.2 Fast Access to Last Item)
@@ -190,11 +213,11 @@ for (sp in 1:6) {
   pd_rt <- aggregate(lagrt ~ lag, data = sat, FUN = mean)
   pd_whole <- cbind(pd, pd_rt$lagrt)
   pd_whole$lagrt <- pd_whole$`pd_rt$lagrt`/1000
-  lines(x = pd_whole$lagrt, 
-        y = pd_whole$corr, 
+  lines(x = pd_whole$lagrt,
+        y = pd_whole$corr,
         type = "l", lty = 2)
-  points(x = pd_whole$lagrt, 
-         y = pd_whole$corr, 
+  points(x = pd_whole$lagrt,
+         y = pd_whole$corr,
          pch = 21, bg = bgk[sp])
 }
 legend(maxx,miny,c("SP=1", "SP=2", "SP=3", "SP=4", "SP=5", "SP=6"), pch=21, pt.bg = bgk, xjust=1, yjust=0)

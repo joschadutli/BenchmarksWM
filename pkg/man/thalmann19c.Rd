@@ -2,12 +2,12 @@
 \alias{thalmann19c}
 \docType{data}
 \title{
-  Data from Experiment 3 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking 
+  Data from Experiment 3 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking
   in WM
 }
 \description{
   These are the individual-trial data from Experiment 3 in Thalmann, Souza, and Oberauer
-  (2019). The procedure of Experiment 3 was exactly the same as in Experiment 2 (see 
+  (2019). The procedure of Experiment 3 was exactly the same as in Experiment 2 (see
   \code{\link{thalmann19b}}), except that participant were instructed to use articulatory
   suppression throughout list presentation.
 }
@@ -38,16 +38,17 @@
 
 }
 \references{
-  
+
   Thalmann, M., Souza, A. S., & Oberauer, K. (2019). How does chunking help working memory?
   \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37-55.
   https://doi.org/10.1037/xlm0000578
-  
-  
+
+
 }
 \examples{
 data(thalmann19c)
 ## Data for plot
 pd <- aggregate(seracc ~ condition+list.type+inpos, data = thalmann19c, FUN = mean)
+summary(pd)
 }
 \keyword{datasets}

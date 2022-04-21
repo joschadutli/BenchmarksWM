@@ -13,7 +13,7 @@
   \describe{
     \item{\code{subject}}{Unique subject ID for each participant.}
     \item{\code{session}}{Session ID}
-    \item{\code{listN}}{List ID}    
+    \item{\code{listN}}{List ID}
     \item{\code{type}}{Type of data: \code{word} = ID number of word presented to
       participant, \code{recword} = ID number of word recalled by participant,
       \code{rectime} = culumative response time of recall,
@@ -28,14 +28,15 @@
 
 \source{
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
-  
+
 }
 \references{
-  Healey, M. K., Crutchley, P., & Kahana, M. J. (2014). Individual differences 
-  in memory search and their relation to intelligence. \emph{Journal of 
+  Healey, M. K., Crutchley, P., & Kahana, M. J. (2014). Individual differences
+  in memory search and their relation to intelligence. \emph{Journal of
   Experimental Psychology: General, 143}(4), 1553. https://doi.org/10.1037/a0036306
 }
 \examples{
 data(healey14)
+summary(healey14)
 }
 \keyword{datasets}

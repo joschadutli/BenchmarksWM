@@ -2,7 +2,7 @@
 \alias{thalmann19a}
 \docType{data}
 \title{
-  Data from Experiment 1 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking 
+  Data from Experiment 1 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking
   in WM
 }
 \description{
@@ -10,7 +10,7 @@
   (2019). Stimuli were words that were either new or pre-learned chunks (i.e. word pairs).
   In the experiment, words appeared in sequence in two rows on the screen (upper row first).
   In each row, either 2 or 4 words were presented in each trial. The data show that lists
-  that contained chunks instead of new lists freed up WM capacity resulting in better 
+  that contained chunks instead of new lists freed up WM capacity resulting in better
   memory performance in these trials. The size of the list containing chunks didn't matter.
 }
 \usage{data("thalmann19a")}
@@ -43,17 +43,17 @@
 
 }
 \references{
-  
+
   Thalmann, M., Souza, A. S., & Oberauer, K. (2019). How does chunking help working memory?
   \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37-55.
   https://doi.org/10.1037/xlm0000578
-  
-  
+
+
 }
 \examples{
-## Approximate reproduction of Figure 1 in Thalmann, Souza, & Oberauer (2019)
+## Reproduction of Figure 1 in Thalmann, Souza, & Oberauer (2019)
 data(thalmann19a)
-pd <- aggregate(seracc ~ chunk_other+setsize_this+setsize_other, 
+pd <- aggregate(seracc ~ chunk_other+setsize_this+setsize_other,
                 data = thalmann19a, FUN = mean)
 pd$sso[pd$setsize_other == 2] <- 2
 pd$sso[pd$setsize_other == 4] <- 4
@@ -62,26 +62,26 @@ p2 <- pd[which(pd$setsize_this == 4),]
 par(mfrow=c(1,2))
 plot(c(1,5), c(0.6,1.0), type = "n", xlab = "Size Other",
      ylab = "Proportion correct", main = "Size Tested = 2", xaxt = "n")
-axis(side = 1, at = c(2,4), labels = c(2,4), 
+axis(side = 1, at = c(2,4), labels = c(2,4),
      cex.axis = 0.7)
-lines(x = p1$sso[p1$chunk_other == "Chunk"], 
-      y = p1$seracc[p1$chunk_other == "Chunk"], 
+lines(x = p1$sso[p1$chunk_other == "Chunk"],
+      y = p1$seracc[p1$chunk_other == "Chunk"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = p1$sso[p1$chunk_other == "New List"], 
-      y = p1$seracc[p1$chunk_other == "New List"], 
+lines(x = p1$sso[p1$chunk_other == "New List"],
+      y = p1$seracc[p1$chunk_other == "New List"],
       type = "b", lty = 2, pch = 16, col = "red")
-legend(1, 0.6, c("Chunk", "New List"), lty = 1:2, 
+legend(1, 0.6, c("Chunk", "New List"), lty = 1:2,
        pch=15:17, col = c("blue","red"),
        horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0, title = "Type Other:")
 plot(c(1,5), c(0.6,1.0), type = "n", xlab = "Size Other",
      ylab = "", main = "Size Tested = 4", xaxt = "n")
-axis(side = 1, at = c(2,4), labels = c(2,4), 
+axis(side = 1, at = c(2,4), labels = c(2,4),
      cex.axis = 0.7)
-lines(x = p2$sso[p2$chunk_other == "Chunk"], 
-      y = p2$seracc[p2$chunk_other == "Chunk"], 
+lines(x = p2$sso[p2$chunk_other == "Chunk"],
+      y = p2$seracc[p2$chunk_other == "Chunk"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = p2$sso[p2$chunk_other == "New List"], 
-      y = p2$seracc[p2$chunk_other == "New List"], 
+lines(x = p2$sso[p2$chunk_other == "New List"],
+      y = p2$seracc[p2$chunk_other == "New List"],
       type = "b", lty = 2, pch = 16, col = "red")
 }
 \keyword{datasets}

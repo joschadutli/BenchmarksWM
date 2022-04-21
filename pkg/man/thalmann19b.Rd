@@ -2,16 +2,16 @@
 \alias{thalmann19b}
 \docType{data}
 \title{
-  Data from Experiment 2 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking 
+  Data from Experiment 2 in Thalmann, Souza, & Oberauer's (2019) on the Effects of Chunking
   in WM
 }
 \description{
   These are the individual-trial data from Experiment 2 in Thalmann, Souza, and Oberauer
   (2019). Participants were presented with letters in a 3x3 grid where each row was considered
-  as a list. Lists could consist of known chunks (e.g. FBI), singletons (i.e. only 1 letter 
-  in the last of the three boxes), or new letters (i.e. letters not constituting a known 
-  chunk). Chunks or singletons were either presented in the first row or the last row (and 
-  therefore, at the beginning or the end of the list). Each list (i.e. row) had to be 
+  as a list. Lists could consist of known chunks (e.g. FBI), singletons (i.e. only 1 letter
+  in the last of the three boxes), or new letters (i.e. letters not constituting a known
+  chunk). Chunks or singletons were either presented in the first row or the last row (and
+  therefore, at the beginning or the end of the list). Each list (i.e. row) had to be
   serially recalled but the order of the lists at test was varied over trials.
   The data show that chunks are better recalled than new lists and that chunks improved
   recall of later presented new lists but not recall of earlier presented new lists compared
@@ -48,11 +48,11 @@
   Thalmann, M., Souza, A. S., & Oberauer, K. (2019). How does chunking help working memory?
   \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition, 45}(1), 37-55.
   https://doi.org/10.1037/xlm0000578
-  
-  
+
+
 }
 \examples{
 data(thalmann19b)
-## maybe str(thalmann19b) ; plot(thalmann19b) ...
+summary(thalmann19b)
 }
 \keyword{datasets}

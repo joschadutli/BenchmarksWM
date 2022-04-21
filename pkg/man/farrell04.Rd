@@ -7,12 +7,12 @@
 }
 \description{
   These are the individual-trial data from Experiment 2 in Farrell
-  and Lewandowsky (2004). Stimuli were single consonants. In interference trials, 
+  and Lewandowsky (2004). Stimuli were single consonants. In interference trials,
   participants read four digits
-  aloud before performing forward serial recall. No interference trials are 
+  aloud before performing forward serial recall. No interference trials are
   characterized by immediate forward serial recall.
-  
-  In Farrell and Lewandowsky (2004), output positions were transformed to transposition 
+
+  In Farrell and Lewandowsky (2004), output positions were transformed to transposition
   distances of the form: P(Response)/P(Opportunity).
 }
 \usage{data("farrell04")}
@@ -29,7 +29,7 @@
   }
 }
 \details{
-  For details, see Farrell and Lewandowsky (2004) or Figures 10 & B2 in Oberauer et al. 
+  For details, see Farrell and Lewandowsky (2004) or Figures 10 & B2 in Oberauer et al.
   (2018), which can be partly reproduced using the code in Examples.
 }
 \source{
@@ -38,22 +38,22 @@
 
 }
 \references{
-  
-  Farrell, S., & Lewandowsky, S. (2004). Modelling transposition latencies: 
+
+  Farrell, S., & Lewandowsky, S. (2004). Modelling transposition latencies:
   Constraints for theories of serial order memory. \emph{Journal of Memory and
   Language, 51}, 115-135. http://dx.doi.org/10.1016/j.jml.2004.03.007
-  
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
-  
+
 }
 \examples{
 data(farrell04)
 ### Reproduce Figure B2 in Oberauer et al. (2018) without CIs
-fl04m <- aggregate(rt~condition+spos, data=farrell04, FUN=mean)
+fl04m <- aggregate(rt~condition+serpos, data=farrell04, FUN=mean)
 par(mfrow=c(1,1))  #accuracy and then RT
 bgk <- c("gray","black")
 ltyk <- c("solid","dashed")
@@ -63,7 +63,7 @@ plot(c(0,7),c(0,3000), xlim=c(0.5,6.5),ylim=c(0,3100), type="n", las=1,
      xlab="Serial Position", ylab="Mean Latency (ms)",cex.lab=1.2,cex.axis=1.)
 for (k in c(0:1)) {
   tbp <- filter(fl04m,condition==k)
-  xx <- tbp$spos - 0.05 + k*0.1
+  xx <- tbp$serpos - 0.05 + k*0.1
   lines(xx,tbp$rt,lwd=2,lty=ltyk[k+1])
   points(xx,tbp$rt,pch=21+k,bg=bgk[k+1],cex=1.5)
 }
