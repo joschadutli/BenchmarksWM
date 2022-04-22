@@ -33,7 +33,7 @@ for (subj in id_vec) {
 
 bhat <- data
 
-bhat <- bhat %>% rename(trial = list, serpos = listpos...3, condition = trial, output = ...15)
+bhat <- bhat %>% dplyr::rename(trial = list, serpos = listpos...3, condition = trial, output = ...15)
 bhat$recalled <- 0
 bhat$recalled[!is.na(bhat$output)] <- 1
 bhat$spos.correct <- 0
@@ -58,7 +58,7 @@ bhat1 <- bhat %>% select(exp, subj, trial, task, cue, serpos, words, output,
 d2 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"), sheet = "Experiment 2",
                  range = "A1:N13825")
 
-bhat2 <- d2 %>% rename(subj = Subj, block = Block, trial = List, task = Task,
+bhat2 <- d2 %>% dplyr::rename(subj = Subj, block = Block, trial = List, task = Task,
                        presrate = PresRate, length = `Word Length`, serpos = SP,
                        output = `Output order`, recalled = Correct, rehearsals = `#R's`,
                        last.rehearsal = `Last R`, spos.correct = `Correct ISR`)
@@ -69,10 +69,10 @@ bhat2 <- bhat2 %>% select(exp, subj, block, trial, task, presrate, length,
                           spos.correct)
 
 bhatarah09a <- bhat1
-save(bhatarah09a, file = "./pkg/data/bhatarah09a.rda")
+save(bhatarah09a, file = "./pkg/data/bhatarah09a.rda", compress = "xz")
 
 bhat2$trial <- (bhat2$block-1)*max(bhat2$trial) + bhat2$trial
-bhat2 <- bhat2 %>% rename(word.length = length)
+bhat2 <- bhat2 %>% dplyr::rename(word.length = length)
 
 bhat2$presrate[bhat2$presrate == "SLOW"] <- "slow"
 bhat2$presrate[bhat2$presrate == "FAST"] <- "fast"
@@ -81,7 +81,7 @@ bhat2$word.length[bhat2$word.length == "M"] <- "medium"
 bhat2$word.length[bhat2$word.length == "L"] <- "long"
 
 bhatarah09b <- bhat2
-save(bhatarah09b, file = "./pkg/data/bhatarah09b.rda")
+save(bhatarah09b, file = "./pkg/data/bhatarah09b.rda", compress = "xz")
 
 ### Plots 1 and 2
 ### Free recall
@@ -125,11 +125,11 @@ d3_isr <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                      range = "A1:J4609")
 d3 <- rbind(d3_ifr, d3_isr)
 
-bhat3 <- d3 %>% rename(activity = Activity, word.length = wordlength, serpos = SP,
+bhat3 <- d3 %>% dplyr::rename(activity = Activity, word.length = wordlength, serpos = SP,
                        output = OutptOrdr, recalled = Correct, spos.correct = ISRCorrect)
 
 
-bhat3 <- bhat3 %>% rename(trial = list)
+bhat3 <- bhat3 %>% dplyr::rename(trial = list)
 
 bhat3$activity[bhat3$activity == "ARTIC_SUPP"] <- "articulatory suppression"
 bhat3$activity[bhat3$activity == "QUIET"] <- "quiet"
@@ -142,7 +142,7 @@ bhatarah09c$exp <- 3
 bhatarah09c <- bhatarah09c %>% select(exp, subj, block, trial, task, activity,
                                       word.length, serpos, output, recalled, spos.correct)
 
-save(bhatarah09c, file = "./pkg/data/bhatarah09c.rda")
+save(bhatarah09c, file = "./pkg/data/bhatarah09c.rda", compress = "xz")
 
 ### Immediate serial recall
 pd <- aggregate(spos.correct ~ serpos+activity+word.length,
@@ -177,7 +177,7 @@ d4 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                  range = "A1:H4321")
 d4$trial[d4$task == "ISR"] <- max(d4$trial)+d4$trial[d4$task == "ISR"]
 
-bhat4 <- d4 %>% rename(word.length = wordlength, words = word)
+bhat4 <- d4 %>% dplyr::rename(word.length = wordlength, words = word)
 bhat4$recalled <- 1
 bhat4$recalled[is.na(bhat4$output)] <- 0
 bhat4$spos.correct <- 0
@@ -189,7 +189,7 @@ bhat4$exp <- 4
 
 bhatarah09d <- bhat4 %>% select(exp, subj, trial, task, listlength, word.length,
                                 serpos, words, output, recalled, spos.correct)
-save(bhatarah09d, file = "./pkg/data/bhatarah09d.rda")
+save(bhatarah09d, file = "./pkg/data/bhatarah09d.rda", compress = "xz")
 
 ### Immediate serial recall
 pd <- aggregate(spos.correct ~ serpos+word.length,
@@ -216,7 +216,7 @@ legend(6, 1.0, c("short","medium","long"), lty = 1:3,
 d5 <- read_excel(paste0(pth, "BhatarahWardSmith&Hayes(2009).xls"),
                  sheet = "Experiment 5",
                  range = "A1:H8641")
-d5 <- d5 %>% rename(word.length = wordlength, words = word, output = `output order`)
+d5 <- d5 %>% dplyr::rename(word.length = wordlength, words = word, output = `output order`)
 d5$trial[d5$task == "ISR"] <- max(d5$trial)+d5$trial[d5$task == "ISR"]
 
 bhat5 <- d5
@@ -232,7 +232,7 @@ bhat5$exp <- 5
 bhatarah09e <- bhat5 %>% select(exp, subj, trial, task, listlength, word.length,
                                 serpos, words, output, recalled, spos.correct)
 
-save(bhatarah09e, file = "./pkg/data/bhatarah09e.rda")
+save(bhatarah09e, file = "./pkg/data/bhatarah09e.rda", compress = "xz")
 
 ## Reproduction of Figure 8A in Bhatarah et al. (2009)
 ### Immediate serial recall

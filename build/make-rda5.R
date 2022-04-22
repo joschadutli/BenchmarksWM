@@ -22,9 +22,10 @@ d <- d %>% select(subj, age, sex, trial, condition, ISI, listlength, setsize,
                   serpos, order, cue, probe, testpos, acc, corr_resp, resp, rt)
 
 cowan07 <- d %>% rename(testset = testpos)
-save(cowan07, file = "./pkg/data/cowan07.rda")
+save(cowan07, file = "./pkg/data/cowan07.rda", compress = "xz")
 
 ### Reproduce Figure 12 in Oberauer et al. (2018)
+par(mfrow=c(1,1))
 pd = aggregate(acc ~ probe * condition, data = cowan07, FUN = mean)
 pd$pcode[pd$probe == "Verb"] <- 1
 pd$pcode[pd$probe == "Vis"] <- 2
@@ -62,7 +63,7 @@ levels(chein11$stimuli)[levels(chein11$stimuli) == "LETTER"] <- "letters"
 levels(chein11$stimuli)[levels(chein11$stimuli) == "LOCATION"] <- "locations"
 
 chein11 <- chein11 %>% select(stimuli, task, acc)
-save(chein11, file = "./pkg/data/chein11.rda")
+save(chein11, file = "./pkg/data/chein11.rda", compress = "xz")
 
 pd <- aggregate(acc ~ task*stimuli, data = chein11, FUN = mean)
 pd <- pd[c(1,2,3,5,4,6),] ## should be lex -> sym for verbal and sym -> let for spatial
@@ -78,46 +79,46 @@ axis(1, at = bp[,1], labels=legendtext, cex.axis=0.7)
 
 ### Jarrold (2010) prepare
 
-
-CondNames <- c("ZeroSix", "OneFive", "TwoFour", "ThreeThree", "FourTwo", "FiveOne", "ZeroSix")
-CondCols <- c(3, 8, 13, 19, 24, 29, 34)
-
-Data <- as.data.frame(matrix(NA, 53*7*10*6, 6))
-names(Data) <- c("id", "trial", "condition", "serpos", "item", "response")
-
-excluded <- c(1, 19, 27, 29, 33, 35, 37, 43)  # these participants were excluded by Jarrold et al.
-Data <- Data[Data$id != excluded, ]
-
-rowNum <- 1
-for (subj in 1:53) {
-  d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=subj, range="A1:AL69"))
-  for (cond in 1:7) {
-    for (trial in 1:10) {
-      trialname = paste0("T", trial)
-      subdat <- subset(d, Trial==trialname)
-      for (serpos in 1:6) {
-        condition <- names(d)[CondCols[cond]]
-        Data[rowNum, 1] <- subj
-        Data[rowNum, 2] <- trial
-        Data[rowNum, 3] <- condition
-        Data[rowNum, 4] <- serpos
-        Data[rowNum, 5] <- subdat[serpos, CondCols[cond]]
-        resp <- subdat[serpos, CondCols[cond]+1]
-        response <- resp  # default
-        if (resp == "c") response <- Data[rowNum, 5]  # correct responses are coded as "c", so set response to the list item
-        if (resp == "x") response <- "omission"
-        if (is.na(resp)) response <- "omission"
-        Data[rowNum, 6] <- response
-        rowNum <- rowNum + 1
-      }
-    }
-  }
-}
-
-write.table(Data, file="Jarrold2010.long.txt", row.names=F)
-
-d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=50, range="A1:AL69"))
-
+#
+# CondNames <- c("ZeroSix", "OneFive", "TwoFour", "ThreeThree", "FourTwo", "FiveOne", "ZeroSix")
+# CondCols <- c(3, 8, 13, 19, 24, 29, 34)
+#
+# Data <- as.data.frame(matrix(NA, 53*7*10*6, 6))
+# names(Data) <- c("id", "trial", "condition", "serpos", "item", "response")
+#
+# excluded <- c(1, 19, 27, 29, 33, 35, 37, 43)  # these participants were excluded by Jarrold et al.
+# Data <- Data[!(Data$id %in% excluded), ]
+#
+# rowNum <- 1
+# for (subj in 1:53) {
+#   d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=subj, range="A1:AL69"))
+#   for (cond in 1:7) {
+#     for (trial in 1:10) {
+#       trialname = paste0("T", trial)
+#       subdat <- subset(d, Trial==trialname)
+#       for (serpos in 1:6) {
+#         condition <- names(d)[CondCols[cond]]
+#         Data[rowNum, 1] <- subj
+#         Data[rowNum, 2] <- trial
+#         Data[rowNum, 3] <- condition
+#         Data[rowNum, 4] <- serpos
+#         Data[rowNum, 5] <- subdat[serpos, CondCols[cond]]
+#         resp <- subdat[serpos, CondCols[cond]+1]
+#         response <- resp  # default
+#         if (resp == "c") response <- Data[rowNum, 5]  # correct responses are coded as "c", so set response to the list item
+#         if (resp == "x") response <- "omission"
+#         if (is.na(resp)) response <- "omission"
+#         Data[rowNum, 6] <- response
+#         rowNum <- rowNum + 1
+#       }
+#     }
+#   }
+# }
+#
+# write.table(Data, file="Jarrold2010.long.txt", row.names=F)
+#
+# d = as.data.frame(read_excel(paste0(pth, "Jarrold2010.detailed.xls"), sheet=50, range="A1:AL69"))
+#
 
 
 
@@ -132,6 +133,9 @@ jar$id[jar$id == 48] <- 51
 jar$id[jar$id == 49] <- 52
 jar$id[jar$id == 50] <- 53
 
+rhyme_ids <- c(2 , 4 , 6 , 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42)
+symm_ids <- c(3,  5,  7,  9, 11, 13, 15, 17, 21, 23, 25, 31, 39, 41, 44, 47, 49, 50, 51, 52, 53)
+
 jar$group[jar$id %in% rhyme_ids] <- "rhyme"
 jar$group[jar$id %in% symm_ids] <- "symmetry"
 
@@ -144,16 +148,27 @@ jar$correct <- 1
 jar$correct[jar$response == "omission"] <- 0
 jar$correct[jar$response != jar$item] <- 0
 
+jar$condition <- as.character(jar$condition)
+jar$cond[jar$condition == "SixZero"] <- 1
+jar$cond[jar$condition == "FiveOne"] <- 2
+jar$cond[jar$condition == "FourTwo"] <- 3
+jar$cond[jar$condition == "Three"] <- 4
+jar$cond[jar$condition == "TwoFour"] <- 5
+jar$cond[jar$condition == "OneFive"] <- 6
+jar$cond[jar$condition == "ZeroSix"] <- 7
+
 jar$condition <- ordered(jar$condition, levels = c("SixZero", "FiveOne", "FourTwo",
                                               "Three","TwoFour","OneFive","ZeroSix"))
 
-jar_rhyme <- jar[which(jar$group == "symmetry"),]
 
 ## Overall Figure
-pd <- aggregate(correct ~ cond+condition+group, data = jar, FUN = mean)
+
+## Inverse of Figure 3 in Jarrold et al. (2010)
+subjar <- jar[which(jar$serpos == 1), ]
+pd <- aggregate(correct ~ cond+condition+group, data = subjar, FUN = mean)
 
 
-plot(c(1,7), c(0.0,1.0), type = "n", xlab = "Condition",
+plot(c(1,7), c(0.4,1.0), type = "n", xlab = "Condition",
      ylab = "Proportion correct", main = "Positions of Processing Interval
      in Serial Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7), labels = levels(pd$condition), cex.axis = 0.7)
@@ -212,11 +227,13 @@ jarrold10 <- jar %>% select(id, trial, group, cond, condition, serpos,
 levels(jarrold10$condition)[levels(jarrold10$condition) == "Three"] <- "ThreeThree"
 
 ## Andy's fix code:
+library(stringi)
+
 jarrold10$response <- stri_trans_general(jarrold10$response, "latin-ascii")
 jarrold10$response <- iconv(jarrold10$response, from="UTF-8", to="ASCII")
 unique(jarrold10$response)
 
-save(jarrold10, file = "./pkg/data/jarrold10.rda")
+save(jarrold10, file = "./pkg/data/jarrold10.rda", compress = "xz")
 
 #### Klauer & Zhao (2004)
 
@@ -540,7 +557,8 @@ klauer04 <- klauer04 %>% rename(subj = id)
 
 klauer04$num[klauer04$exp == "Exp4" & klauer04$processing == "spatial tapping"] <- 11.2
 
-save(klauer04, file="./pkg/data/klauer04.rda")
+data("klauer04")
+save(klauer04, file="./pkg/data/klauer04.rda", compress = "xz")
 
 ## Reproduce Figure 2 in Klauer & Zhao (2004)
 
@@ -603,8 +621,18 @@ serfait$'Cognitive Load' <- remap(serfait,c("X4","X8","X12"))
 b07fin<-Reduce(function(...) merge(...),list(span,tontask,pcnr,serfait))
 names(b07fin)[1] <- "participant"
 
-funpth <- "BenchmarksWM.Data/Functions/"
-source(paste(funpth, "/BakemanL.R", sep=""))
+# Bakeman & McArthur correction (for long data): id = column with subject id, dv = column with dependent variable
+BakemanL <- function (data, id=1, dv=2) {
+  idvar <- data[,id]
+  subjMeans <- aggregate(x=data[,dv], by=list(data[,id]), FUN=mean)
+  names(subjMeans) <- c(id, dv)
+  ids <- unique(idvar)
+  corrdata <- data
+  for (ii in 1:length(ids)) {
+    corrdata[data[,id]==ids[ii],dv] <- corrdata[data[,id]==ids[ii],dv] - subjMeans[subjMeans[,id]==ids[ii],2] + mean(subjMeans[,2])
+  }
+  return(corrdata)
+}
 library(sciplot)
 library(tidyr)
 library(plyr)
@@ -656,7 +684,7 @@ barrouillet07 <- barrouillet07 %>% dplyr::rename(series_completed = serfait)
 
 barrouillet07 <- barrouillet07 %>% dplyr::select(subj, task, cogload, CL, tasktime,
                                                  series_completed, span, pctNR)
-save(barrouillet07, file = "./pkg/data/barrouillet07.rda")
+save(barrouillet07, file = "./pkg/data/barrouillet07.rda", compress = "xz")
 
 pd <- aggregate(cbind(span, CL) ~ task + cogload, data = barrouillet07, FUN = mean)
 
@@ -680,14 +708,14 @@ legend(0.6, 6.5, c("Parity", "Location"), lty = 1:4, pch=15:18, title = "Task:",
 ##### More CL: Barrouillet et al. (2011)
 
 # Parity judgment experiment
-Parity4 <- read_excel("Barrouillet.2011.xlsx",sheet="Retrieval",range="B17:D33")
+Parity4 <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Retrieval",range="B17:D33")
 names(Parity4) <- c("subject", "ptime", "span")
 Parity4$task <- "Parity-4"
-Parity6 <- read_excel("Barrouillet.2011.xlsx",sheet="Retrieval",range="E17:F33")
+Parity6 <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Retrieval",range="E17:F33")
 Parity6 <- cbind(Parity4[,"subject"], Parity6)
 names(Parity6) <- c("subject", "ptime", "span")
 Parity6$task <- "Parity-6"
-Parity8 <- read_excel("Barrouillet.2011.xlsx",sheet="Retrieval",range="G17:H33")
+Parity8 <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Retrieval",range="G17:H33")
 Parity8 <- cbind(Parity4[,"subject"], Parity8)
 names(Parity8) <- c("subject", "ptime", "span")
 Parity8$task <- "Parity-8"
@@ -696,14 +724,14 @@ Parity$totaltime <- 6900
 Parity$CL <- Parity$ptime/Parity$totaltime  # cognitive load = processing time / total time
 
 # Size judgment experiment
-Size4 <- read_excel("Barrouillet.2011.xlsx",sheet="Response Selection",range="B17:D33")
+Size4 <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Response Selection",range="B17:D33")
 names(Size4) <- c("subject", "ptime", "span")
 Size4$task <- "Size-4"
-Size6 <- read_excel("Barrouillet.2011.xlsx",sheet="Response Selection",range="E17:F33")
+Size6 <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Response Selection",range="E17:F33")
 Size6 <- cbind(Size4[,"subject"], Size6)
 names(Size6) <- c("subject", "ptime", "span")
 Size6$task <- "Size-6"
-Size8 <- read_excel("Barrouillet.2011.xlsx",sheet="Response Selection",range="G17:H33")
+Size8 <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Response Selection",range="G17:H33")
 Size8 <- cbind(Size4[,"subject"], Size8)
 names(Size8) <- c("subject", "ptime", "span")
 Size8$task <- "Size-8"
@@ -714,7 +742,7 @@ Size$CL <- Size$ptime/Size$totaltime
 # Color Stroop and number Stroop experiments - for these experiments, processing time is constant
 # across participants because it was assessed in a separate pre-test
 
-ColorStroop <- as.data.frame(read_excel("Barrouillet.2011.xlsx",sheet="Inhibition",range="B13:F33"))
+ColorStroop <- as.data.frame(read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Inhibition",range="B13:F33"))
 names(ColorStroop) <- c("subject", "ptimeNeutral", "ptimeColor", "spanNeutral", "spanColor")
 CStroopNeutral <- ColorStroop[,c("subject", "ptimeNeutral", "spanNeutral")]
 names(CStroopNeutral) <- c("subject", "ptime", "span")
@@ -726,7 +754,7 @@ ColorStroop <- rbind(CStroopNeutral, CStroopColor)
 ColorStroop$totaltime <- 8500
 ColorStroop$CL <- ColorStroop$ptime/ColorStroop$totaltime
 
-NumberStroop <- as.data.frame(read_excel("Barrouillet.2011.xlsx",sheet="Inhibition",range="I13:M33"))
+NumberStroop <- as.data.frame(read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Inhibition",range="I13:M33"))
 names(NumberStroop) <- c("subject", "ptimeNeutral", "ptimeNumber", "spanNeutral", "spanNumber")
 NStroopNeutral <- NumberStroop[,c("subject", "ptimeNeutral", "spanNeutral")]
 names(NStroopNeutral) <- c("subject", "ptime", "span")
@@ -743,7 +771,7 @@ NumberStroop$CL <- NumberStroop$ptime/NumberStroop$totaltime
 # "Two units were added to spans to take into account the fact that the processing task
 # required the continuous maintenance of two items"
 
-RunningCount <- read_excel("Barrouillet.2011.xlsx",sheet="Updating",range="B14:F33")
+RunningCount <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Updating",range="B14:F33")
 names(RunningCount) <- c("subject", "ptimeUpdate", "ptimeSimple", "spanUpdate", "spanSimple")
 RCountSimple <- RunningCount[, c("subject", "ptimeSimple", "spanSimple")]
 names(RCountSimple) <- c("subject", "ptime", "span")
@@ -755,7 +783,7 @@ RunningCount <- rbind(RCountSimple, RCountUpdate)
 RunningCount$totaltime <- 14000
 RunningCount$CL <- RunningCount$ptime/RunningCount$totaltime
 
-Nback <- read_excel("Barrouillet.2011.xlsx",sheet="Updating",range="J14:N38")
+Nback <- read_excel(paste0(pth,"Barrouillet.2011.xlsx"),sheet="Updating",range="J14:N38")
 names(Nback) <- c("subject", "ptime0back", "ptime2back", "span2back", "span0back")
 NB0 <- Nback[, c("subject", "ptime0back", "span0back")]
 names(NB0) <- c("subject", "ptime", "span")
@@ -788,7 +816,7 @@ bar$task_domain[bar$task %in% retr] <- "retrieval"
 barrouillet11 <- bar %>% dplyr::rename(prestime = ptime, subj = subject) %>%
   dplyr::select(subj, task_domain, task, totaltime, prestime, CL, span)
 
-save(barrouillet11, file = "./pkg/data/barrouillet11.rda")
+save(barrouillet11, file = "./pkg/data/barrouillet11.rda", compress = "xz")
 
 pd <- aggregate(cbind(span, CL) ~ task, data = barrouillet11, FUN = mean)
 
@@ -1013,7 +1041,7 @@ aggregate(cbind(span, cogload) ~ CL + memory + processing, data = vergauwe10, FU
 vergauwe10 <- vergauwe10 %>% select(subj, memory, processing, CL, totaltime, meanRT,
                                     meanAcc, cogload, span)
 
-save(vergauwe10, file = "./pkg/data/vergauwe10.rda")
+save(vergauwe10, file = "./pkg/data/vergauwe10.rda", compress = "xz")
 
 
 pd <- aggregate(cbind(span, cogload) ~  CL + memory + processing, data = vergauwe10, FUN = mean)
@@ -1174,7 +1202,7 @@ vergauwe10$exp[vergauwe12$memory == "spatial"] <- 2
 vergauwe12 <- vergauwe10 %>% select(exp, subj, memory, processing, CL, totaltime, meanRT,
                                     meanAcc, cogload, span)
 
-save(vergauwe12, file = "./pkg/data/vergauwe12.rda")
+save(vergauwe12, file = "./pkg/data/vergauwe12.rda", compress = "xz")
 
 
 pd <- aggregate(cbind(span, cogload) ~  CL + memory + processing, data = vergauwe12, FUN = mean)
@@ -1208,7 +1236,7 @@ ver15 <- read_excel(paste0(pth, "Vergauwe et al. 2015 behavioral.xlsx"),
                     sheet = "Feuil1", range = "A1:AZ1729")
 
 
-ver15 <- ver15 %>% rename(subj = sub, domain = `Running[Block]`, trial = Trial,
+ver15 <- ver15 %>% dplyr::rename(subj = sub, domain = `Running[Block]`, trial = Trial,
                           condition = CONDITION, num = Numbitems, probe = POSPROBE)
 
 ### compute Means
@@ -1235,11 +1263,11 @@ spat$condition[spat$condition == "6HARD"] <- "hard"
 
 verb <- verb %>% select(subj, trial, domain, condition, num, probe, proc.pc, proc.meanRT,
                         RECALLV.ACC, RECALLV.RT)
-verb <- verb %>% rename(acc = RECALLV.ACC, rt = RECALLV.RT)
+verb <- verb %>% dplyr::rename(acc = RECALLV.ACC, rt = RECALLV.RT)
 
 spat <- spat %>% select(subj, trial, domain, condition, num, probe, proc.pc, proc.meanRT,
                         RECALLS.ACC, RECALLS.RT)
-spat <- spat %>% rename(acc = RECALLS.ACC, rt = RECALLS.RT)
+spat <- spat %>% dplyr::rename(acc = RECALLS.ACC, rt = RECALLS.RT)
 
 vergauwe15 <- rbind(verb, spat)
 
@@ -1253,7 +1281,7 @@ vergauwe15$CL <- vergauwe15$proc.meanRT/(vergauwe15$totaltime/as.numeric(vergauw
 
 
 
-save(vergauwe15, file = "./pkg/data/vergauwe15.rda")
+save(vergauwe15, file = "./pkg/data/vergauwe15.rda", compress = "xz")
 
 
 pd <- aggregate(cbind(acc, CL) ~  domain + num, data = vergauwe15[which(vergauwe15$condition == "easy"),], FUN = mean)

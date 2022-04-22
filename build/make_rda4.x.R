@@ -12,7 +12,7 @@ pth  <- "BenchmarksWM.Data/BM4.1.1.LocalityConstraint/"
 
 ### Reproduce Figure B2 in Oberauer et al. (2018) without CIs
 data(farrell04)
-fl04m     <- aggregate(rt~condition+spos, data=farrell04, FUN=mean)
+fl04m     <- aggregate(rt~condition+serpos, data=farrell04, FUN=mean)
 par(mfrow=c(1,1))  #accuracy and then RT
 bgk <- c("gray","black")
 ltyk <- c("solid","dashed")
@@ -22,7 +22,7 @@ plot(c(0,7),c(0,3000), xlim=c(0.5,6.5),ylim=c(0,3100), type="n", las=1,
      xlab="Serial Position", ylab="Mean Latency (ms)",cex.lab=1.2,cex.axis=1.)
 for (k in c(0:1)) {
   tbp <- fl04m[which(fl04m$condition==k),]
-  xx <- tbp$spos - 0.05 + k*0.1
+  xx <- tbp$serpos - 0.05 + k*0.1
   lines(xx,tbp$rt,lwd=2,lty=ltyk[k+1])
   points(xx,tbp$rt,pch=21+k,bg=bgk[k+1],cex=1.5)
 }
@@ -32,7 +32,7 @@ legend(6,2900,c("No interference","Interference"),lty=ltyk,pch=20+c(1:2),pt.bg=b
 
 fl04 <- read.table(paste0(pth, "FL04_2.dat"),header=FALSE)
 names(fl04) <- c("subject", "trial", "condition",paste("opp",c(1:6),sep=""),paste("rt",c(1:6),sep=""))
-#The columns are subject, trial, condition  (0=no  interference, 1 = interference), 
+#The columns are subject, trial, condition  (0=no  interference, 1 = interference),
 #the recall order (columns are output positions), and the recall latencies
 #intrusions prevented, omissions coded as -9
 Transgrad <- function(data) {
@@ -90,7 +90,7 @@ for (sj in subjVec) {
   for (ss in sessionVec) {
     for (tr in trialVec) {
       distVec <- grepl("dist", names(spatgrad))
-      
+
     }
   }
 }
@@ -117,14 +117,29 @@ for (subj in idvector) {
 
 library(Hmisc)
 
-source(paste(dirname(getwd()), "/BenchmarksWM-joscha/BenchmarksWM.Data/Functions/Confint.R", sep=""))
-source(paste(dirname(getwd()), "/BenchmarksWM-joscha/BenchmarksWM.Data/Functions/Bakeman.R", sep=""))
+#Compute Means and Confidence Intervals (from wide data)
+Confint <- function(data) {
+  means <- colMeans(data)
+  ci <- 1.96*apply(data, MARGIN=2, sd)/sqrt(dim(data)[1])
+  upperci <- means+ci
+  lowerci <- means-ci
+  return(rbind(means, upperci, lowerci))
+}
+
+
+#Bakeman & McArthur correction (for wide data)
+Bakeman <- function (data) {
+  mean = rowMeans(data)
+  corrdata = data - mean + mean(mean)
+}
+
 
 Dens <- Confint(Bakeman(densities))
 binwidths <- diff(histbounds)
 bincenters <- histbounds[1:nBins] + 0.5*binwidths
-errbar(bincenters, y=Dens[1,], yplus=Dens[2,], yminus=Dens[3,], 
-       xlab="Euclidean Distance", ylab="P(Selection|Error)", 
+Hmisc::errbar(bincenters, y=Dens[1,], yplus=Dens[2,],
+              yminus=Dens[3,],
+       xlab="Euclidean Distance", ylab="P(Selection|Error)",
        xlim=c(0.5,max(histbounds)+0.5), ylim=c(0,0.3), add=F, type="b", cex=1.3)
 xcoord <- cbind(histbounds,histbounds)
 ycoord <- cbind(rep(0,nBins+1), rep(0.05,nBins+1))
@@ -141,7 +156,7 @@ spatgrad$correct[spatgrad$selColor != spatgrad$corrColor] <- 0
 
 rerko14 <- spatgrad %>% select(id,session,trial,dist1:dist5,dist,correct)
 
-save(rerko14, file="./pkg/data/rerko14.rda")
+save(rerko14, file="./pkg/data/rerko14.rda", compress = "xz")
 
 pd <- rerko14[which(rerko14$correct == 0),]
 hist(pd$dist, breaks=10, xlab = "Euclidean distance", main = "Prob. for Spatial Distances of Errors", freq=F)
@@ -153,14 +168,14 @@ hist(pd$dist, breaks=10, xlab = "Euclidean distance", main = "Prob. for Spatial 
 
 ##################### Read 19 data sets of serial-recall tests compiled by Farrell, Hurlstone, & Lewandowsky (2013, Memory & Cognition) for analysis of fill-in vs. in-fill errors #######
 
-# each line is one trial; successive columns represent successive outputs, coding the input position of the item recalled 
+# each line is one trial; successive columns represent successive outputs, coding the input position of the item recalled
 # in that output; -1 = omission, -9 = extralist intrusion
 
 rm(list=ls())
-
+pth  <- "BenchmarksWM.Data/BM4.1.2.FillInFill/"
 fnam <- 'Farrell_Lewandowsky_2003_E1.dat'
 
-Dat <- read.table(fnam, header=F)
+Dat <- read.table(paste0(pth,fnam), header=F)
 names(Dat)[1] <- "id"
 if (dim(Dat)[2] < 8) {
   for (col in 1:(8-dim(Dat)[2])) {
@@ -173,13 +188,13 @@ Dat$exp_name <- 'Farrell_Lewandowsky_2003_E1'
 Dat$exp_code = 'a'
 
 # experiment names
-Ename = c('Farrell_Lewandowsky_2003_E3', 
+Ename = c('Farrell_Lewandowsky_2003_E3',
           'Farrell_Lewandowsky_2004_E1',
           'Nimmo_Lewandowsky_2006_E1',
           'Nimmo_Lewandowsky_2006_E2_aud',
           'Nimmo_Lewandowsky_2006_E2_vis',
           'Lewandowsky_Brown_Wright_Nimmo_2006_E1_quiet',
-          'Lewandowsky_Brown_Wright_Nimmo_2006_E1_suppr',     
+          'Lewandowsky_Brown_Wright_Nimmo_2006_E1_suppr',
           'Lewandowsky_Geiger_Oberauer_2008_E1',
           'Lewandowsky_Geiger_Oberauer_2008_E2',
           'Lewandowsky_Geiger_Oberauer_2008_E3',
@@ -219,7 +234,7 @@ Ecode <- c('b',
 
 for (experiment in 1:length(Ename)) {
   filename <- paste0(Ename[experiment], '.dat')
-  data <- read.table(filename, header=F)
+  data <- read.table(paste0(pth,filename), header=F)
   names(data)[1] <- "id"
   if (dim(data)[2] < 8) {
     for (col in 1:(8-dim(data)[2])) {
@@ -245,7 +260,7 @@ farrell13$correct[is.na(farrell13$outpos)] <- 0
 
 farrell13 <- farrell13 %>% select(exp_code, exp_name, id, serpos, outpos, correct)
 
-save(farrell13, file = "./pkg/data/farrell13.rda")
+save(farrell13, file = "./pkg/data/farrell13.rda", compress = "xz")
 
 
 #####################
@@ -285,19 +300,19 @@ detr <- cbind(de, trVec)
 
 Color <- read.table(paste0(pth,"vandenberg_et_al_2012_color_long.dat"), header=F)
 Orient <- read.table(paste0(pth,"vandenberg_et_al_2012_orient_long.dat"), header=F)
-names(Color) <- c("id", "trial", "exp", "setsize", 
+names(Color) <- c("id", "trial", "exp", "setsize",
                   "stim1", "stim2", "stim3", "stim4", "stim5", "stim6", "stim7", "stim8",
                   "loc1", "loc2", "loc3", "loc4", "loc5", "loc6", "loc7", "loc8",
                   "response")
-names(Orient) <- c("id", "trial", "exp", "setsize", 
+names(Orient) <- c("id", "trial", "exp", "setsize",
                    "stim1", "stim2", "stim3", "stim4", "stim5", "stim6", "stim7", "stim8",
                    "loc1", "loc2", "loc3", "loc4", "loc5", "loc6", "loc7", "loc8",
                    "response")
 # stim1 to stim8 are the angles (1 to 360) of the stimuli (in case of colors: angles in the color wheel). The experiments distinguished only 180 angles, so the angles were doubled to scale them into a range from 1 to 360 (degrees) in steps of 2.
-# loc1 to loc8 refer to the 8 possible locations of stimuli in the array. 
+# loc1 to loc8 refer to the 8 possible locations of stimuli in the array.
 # stim1 is the target stimulus, and loc1 is the target location
-# stimuli that did not exist (set sizes < 8) are set to 360; locations that did not exist are set to 0. 
-# In Color, exp=3 is the experiment using the color wheel, and exp=4 is the experiment using scrolling. In Orient, this variable is meaningless. 
+# stimuli that did not exist (set sizes < 8) are set to 360; locations that did not exist are set to 0.
+# In Color, exp=3 is the experiment using the color wheel, and exp=4 is the experiment using scrolling. In Orient, this variable is meaningless.
 
 # Paul Bays' wrap function -> signed angular difference (radians)!
 wrap = function(angle) {
@@ -342,10 +357,10 @@ vandenberg12 <- rbind(vandenberg, vandenberg_o)
 
 vandenberg12 <- vandenberg12 %>% rename(target = stim1)
 
-save(vandenberg12, file="./pkg/data/vandenberg12.rda")
+save(vandenberg12, file="./pkg/data/vandenberg12.rda", compress = "xz")
 
 ### Approximate reproduction of Figure 11 in Oberauer et al. (2018)
-pd <- vandenberg12[which(vandenberg12$experiment == "ExpS3" & vandenberg12$setsize %in% 
+pd <- vandenberg12[which(vandenberg12$experiment == "ExpS3" & vandenberg12$setsize %in%
                            c(1,2,4,8)),]
 nbins <- 21
 breakpoints <- seq(-pi, pi, length.out=nbins+1)
@@ -362,13 +377,14 @@ for (ss in 1:length(ssvector)) {
 plot(c(-3,3), c(0.0,60), type = "n", xlab = "Error (rad)",
      ylab = "Mean Frequency", main = "Errors in continuous reproduction", xaxt = "n")
 axis(side = 1, at = c(-3,-2,-1,0,1,2,3), labels = T)
-lines(x = h$mids, y = errorFreq[1,], 
+lines(x = h$mids, y = errorFreq[1,],
       type = "b", lty = 1, pch = 15)
-lines(x = h$mids, y = errorFreq[2,], 
+lines(x = h$mids, y = errorFreq[2,],
       type = "b", lty = 2, pch = 16)
-lines(x = h$mids, y = errorFreq[3,], 
+lines(x = h$mids, y = errorFreq[3,],
       type = "b", lty = 3, pch = 17)
-lines(x = h$mids, y = errorFreq[4,], 
+lines(x = h$mids, y = errorFreq[4,],
       type = "b", lty = 4, pch = 18)
 legend(3.0, 60, c("N=1", "N=2", "N=4", "N=8"), lty = 1:4, pch=15:18, title = "Set size:",
        horiz = F, cex = 0.6, yjust = 1, xjust = 1)
+

@@ -22,8 +22,8 @@ dat1 <- read.table(paste0(pth,"Farrell.Lsky.normed1201.txt"),
 
 # subject = subject number; trial = trial number, scond = similarity condition: 0 = all D, 1 = all S, 2 = D in Pos 2, 3 = D in Pos 4, 4 = D in Pos 6, 5 = SDSDSD
 # c1 to c6: similar (0) or dissimilar (1) item in input positions 1 to 6
-# o.1 to o.6: input position of the item reported in output positions 1 to 6; values > 6 are extralist intrusions; 0 = omissions. 
-# rt1 to rt6: response times for outputs 1 to 6. 
+# o.1 to o.6: input position of the item reported in output positions 1 to 6; values > 6 are extralist intrusions; 0 = omissions.
+# rt1 to rt6: response times for outputs 1 to 6.
 
 dat2 <- read.table(paste0(pth,"psim2dat.ed"),
                    col.names = c("subject",
@@ -57,7 +57,7 @@ d1$condition[d1$scond == 3] <- "SSSDSS"
 d1$condition[d1$scond == 4] <- "SSSSSD"
 d1$condition[d1$scond == 5] <- "SDSDSD"
 
-d1$acc <- as.numeric(d1$serpos==d1$output) 
+d1$acc <- as.numeric(d1$serpos==d1$output)
 
 far1 <- d1
 
@@ -86,7 +86,7 @@ d1$condition[d1$scond == 3] <- "SSSDSS"
 d1$condition[d1$scond == 4] <- "SSSSSD"
 d1$condition[d1$scond == 5] <- "SDSDSD"
 
-d1$acc <- as.numeric(d1$serpos==d1$output) 
+d1$acc <- as.numeric(d1$serpos==d1$output)
 
 
 far2 <- d1
@@ -99,14 +99,14 @@ far2$task <- "reconstruction"
 
 farrell03 <- rbind(far1,far2)
 
-farrell03 <- farrell03 %>% dplyr::rename(subj = subject, cond_num = scond)
+farrell03 <- farrell03 %>% dplyr::dplyr::rename(subj = subject, cond_num = scond)
 farrell03 <- farrell03 %>% select(exp, subj, trial, task, condition,
                                   serpos, similarity, output, acc, rt)
 
 farrell03$similarity[farrell03$similarity == 0] <- "S"
 farrell03$similarity[farrell03$similarity == 1] <- "D"
 
-save(farrell03, file="./pkg/data/farrell03.rda")
+save(farrell03, file="./pkg/data/farrell03.rda", compress = "xz")
 
 ## Figure 16 upper panel
 
@@ -114,16 +114,16 @@ psd <- farrell03[which(farrell03$exp == 1),]
 pd <- aggregate(acc ~ serpos+condition, data = psd, FUN = mean)
 plot(c(1,6), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Phonological Similarity", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6,7,8,9,10,11,12), labels = levels(pd$serpos), 
+axis(side = 1, at = c(1,2,3,4,5,6,7,8,9,10,11,12), labels = levels(pd$serpos),
      cex.axis = 0.7)
-lines(x = pd$serpos[pd$condition == "DDDDDD"], 
-      y = pd$acc[pd$condition == "DDDDDD"], 
+lines(x = pd$serpos[pd$condition == "DDDDDD"],
+      y = pd$acc[pd$condition == "DDDDDD"],
       type = "b", lty = 1, pch = 15, col = "black")
-lines(x = pd$serpos[pd$condition == "SSSSSS"], 
-      y = pd$acc[pd$condition == "SSSSSS"], 
+lines(x = pd$serpos[pd$condition == "SSSSSS"],
+      y = pd$acc[pd$condition == "SSSSSS"],
       type = "b", lty = 2, pch = 17, col = "grey")
-legend(1, 0.0, c("dissimilar","similar"), lty = 1:2, 
-       pch=c(15,17), col = c("black", "grey"), 
+legend(1, 0.0, c("dissimilar","similar"), lty = 1:2,
+       pch=c(15,17), col = c("black", "grey"),
        horiz = F, cex = 0.6, yjust = 0, xjust = 0)
 
 
@@ -132,18 +132,18 @@ legend(1, 0.0, c("dissimilar","similar"), lty = 1:2,
 j13 <- read.table(paste0(pth, "jarrold13.txt"),header=TRUE, sep=",")
 names(j13)[1] <- "Year"  #weird insertion of characters in variable name must be corrected
 
-j13 <- j13 %>% rename(dissimilar.pc = DISPC, similar.pc = SIMPC,
+j13 <- j13 %>% dplyr::rename(dissimilar.pc = DISPC, similar.pc = SIMPC,
                       condition = CONDITION, age = Age, encoding = Encoding,
                       recall = Recall, order = ORDER)
 
-j13 <- j13 %>% rename(digit.span = DSPC, absolute.pse = PSEABSPC, 
+j13 <- j13 %>% dplyr::rename(digit.span = DSPC, absolute.pse = PSEABSPC,
                       proportional.pse = PROPPSE)
-j13 <- j13 %>% rename(school.year = Year)
+j13 <- j13 %>% dplyr::rename(school.year = Year)
 j13$school.year[j13$school.year == 1] <- "K"
 j13$school.year[j13$school.year == 2] <- "1"
 j13$school.year[j13$school.year == 3] <- "2"
 j13$school.year[j13$school.year == 4] <- "3"
-j13 <- j13 %>% rename(grade.level = school.year)
+j13 <- j13 %>% dplyr::rename(grade.level = school.year)
 
 subj <- 1:116
 jar13 <- cbind(j13,subj)
@@ -158,32 +158,32 @@ jarrold13 <- jar13 %>% select(subj, grade.level, age, digit.span, order, conditi
                               absolute.pse, proportional.pse)
 jarrold13$grade.level <- as.factor(jarrold13$grade.level)
 jarrold13$grade.level <- ordered(jarrold13$grade.level, levels = c("K","1","2","3"))
-save(jarrold13, file = "./pkg/data/jarrold13.rda")
+save(jarrold13, file = "./pkg/data/jarrold13.rda", compress = "xz")
 
 ### Plot Figure 16 (lower panel)
 
 pd <- aggregate(absolute.pse ~ grade.level+condition, data = jarrold13, FUN = mean)
 
 plot(c(0,5), c(-2,8), type = "n", xlab = "Grade Level",
-     ylab = "Phonological Similarity", 
+     ylab = "Phonological Similarity",
      main = "Absolute Phonological Similarity Effect", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4), labels = levels(pd$grade.level), 
+axis(side = 1, at = c(1,2,3,4), labels = levels(pd$grade.level),
      cex.axis = 0.7)
-lines(x = pd$grade.level[pd$condition == 1], 
-      y = pd$absolute.pse[pd$condition == 1], 
+lines(x = pd$grade.level[pd$condition == 1],
+      y = pd$absolute.pse[pd$condition == 1],
       type = "b", lty = 1, pch = 15, col = "black")
-lines(x = pd$grade.level[pd$condition == 2], 
-      y = pd$absolute.pse[pd$condition == 2], 
+lines(x = pd$grade.level[pd$condition == 2],
+      y = pd$absolute.pse[pd$condition == 2],
       type = "b", lty = 2, pch = 16, col = "darkgrey")
-lines(x = pd$grade.level[pd$condition == 3], 
-      y = pd$absolute.pse[pd$condition == 3], 
+lines(x = pd$grade.level[pd$condition == 3],
+      y = pd$absolute.pse[pd$condition == 3],
       type = "b", lty = 3, pch = 17, col = "grey")
-lines(x = pd$grade.level[pd$condition == 4], 
-      y = pd$absolute.pse[pd$condition == 4], 
+lines(x = pd$grade.level[pd$condition == 4],
+      y = pd$absolute.pse[pd$condition == 4],
       type = "b", lty = 4, pch = 18, col = "lightgrey")
-legend(5, -2, c("visual-verbal","visual-visual","verbal-verbal","verbal-visual"), 
-       lty = 1:4, 
-       pch=15:18, col = c("black", "darkgrey", "grey","lightgrey"), 
+legend(5, -2, c("visual-verbal","visual-visual","verbal-verbal","verbal-visual"),
+       lty = 1:4,
+       pch=15:18, col = c("black", "darkgrey", "grey","lightgrey"),
        horiz = F, cex = 0.6, yjust = 0, xjust = 1)
 
 
@@ -194,13 +194,13 @@ rm(list=ls())
 pth  <- "BenchmarksWM.Data/BM8.1.PhonSimEffect/"
 
 ## words simple span
-simpsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+simpsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Words", range = "A2:F22")
-simpserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+simpserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Words", range = "H2:M22")
-simpfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+simpfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Words", range = "A28:F48")
-simpfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+simpfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Words", range = "H28:M48")
 simpsersim$recall <- "serial"
 simpfreesim$recall <- "free"
@@ -210,21 +210,21 @@ simpfreedis$recall <- "free"
 simpdis <- rbind(simpserdis, simpfreedis)
 simpsim$list <- "similar"
 simpdis$list <- "dissimilar"
-simpdis <- simpdis %>% rename(span = DisSpan, subj = Subject)
+simpdis <- simpdis %>% dplyr::rename(span = DisSpan, subj = Subject)
 simpdis <- simpdis %>% select(subj, recall, list, span)
-simpsim <- simpsim %>% rename(span = SimSpan, subj = Subject)
+simpsim <- simpsim %>% dplyr::rename(span = SimSpan, subj = Subject)
 simpsim <- simpsim %>% select(subj, recall, list, span)
 simplespan <- rbind(simpsim, simpdis)
 
 ## sentence complex span
 
-sensersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+sensersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Sentences", range = "A2:F22")
-senserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+senserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Sentences", range = "H2:M22")
-senfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+senfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                           sheet = "Sentences", range = "A28:F48")
-senfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+senfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                           sheet = "Sentences", range = "H28:M48")
 sensersim$recall <- "serial"
 senfreesim$recall <- "free"
@@ -234,21 +234,21 @@ senfreedis$recall <- "free"
 sendis <- rbind(senserdis, senfreedis)
 sensim$list <- "similar"
 sendis$list <- "dissimilar"
-sendis <- sendis %>% rename(span = DisSpan, subj = Subject)
+sendis <- sendis %>% dplyr::rename(span = DisSpan, subj = Subject)
 sendis <- sendis %>% select(subj, recall, list, span)
-sensim <- sensim %>% rename(span = SimSpan, subj = Subject)
+sensim <- sensim %>% dplyr::rename(span = SimSpan, subj = Subject)
 sensim <- sensim %>% select(subj, recall, list, span)
 sentspan <- rbind(sensim, sendis)
 
 ### stories complex span
 
-storsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+storsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                         sheet = "Stories", range = "A2:F23")
-storserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+storserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                         sheet = "Stories", range = "H2:M23")
-storfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+storfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Stories", range = "A29:F50")
-storfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"), 
+storfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E1 Data.xlsx"),
                          sheet = "Stories", range = "H29:M50")
 storsersim$recall <- "serial"
 storfreesim$recall <- "free"
@@ -258,9 +258,9 @@ storfreedis$recall <- "free"
 stordis <- rbind(storserdis, storfreedis)
 storsim$list <- "similar"
 stordis$list <- "dissimilar"
-stordis <- stordis %>% rename(span = DisSpan, subj = Subject)
+stordis <- stordis %>% dplyr::rename(span = DisSpan, subj = Subject)
 stordis <- stordis %>% select(subj, recall, list, span)
-storsim <- storsim %>% rename(span = SimSpan, subj = Subject)
+storsim <- storsim %>% dplyr::rename(span = SimSpan, subj = Subject)
 storsim <- storsim %>% select(subj, recall, list, span)
 storyspan <- rbind(storsim, stordis)
 
@@ -272,13 +272,13 @@ storyspan$task <- "story span"
 mac11a <- rbind(simplespan, sentspan, storyspan)
 
 ## short sentences span
-simpsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                          sheet = "A", range = "A2:F22")
-simpserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                          sheet = "A", range = "H2:M22")
-simpfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                           sheet = "A", range = "A28:F48")
-simpfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                           sheet = "A", range = "H28:M48")
 simpsersim$recall <- "serial"
 simpfreesim$recall <- "free"
@@ -288,20 +288,20 @@ simpfreedis$recall <- "free"
 simpdis <- rbind(simpserdis, simpfreedis)
 simpsim$list <- "similar"
 simpdis$list <- "dissimilar"
-simpdis <- simpdis %>% rename(span = DisSpan, subj = Subject)
+simpdis <- simpdis %>% dplyr::rename(span = DisSpan, subj = Subject)
 simpdis <- simpdis %>% select(subj, recall, list, span)
-simpsim <- simpsim %>% rename(span = SimSpan, subj = Subject)
+simpsim <- simpsim %>% dplyr::rename(span = SimSpan, subj = Subject)
 simpsim <- simpsim %>% select(subj, recall, list, span)
 short_sentences <- rbind(simpsim, simpdis)
 
 ## long sentences span
-simpsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpsersim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                          sheet = "B", range = "A2:F22")
-simpserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpserdis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                          sheet = "B", range = "H2:M22")
-simpfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpfreesim <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                           sheet = "B", range = "A28:F48")
-simpfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"), 
+simpfreedis <- read_excel(paste0(pth, "Macnamara et al. (2011) E2 Data.xlsx"),
                           sheet = "B", range = "H28:M48")
 simpsersim$recall <- "serial"
 simpfreesim$recall <- "free"
@@ -311,9 +311,9 @@ simpfreedis$recall <- "free"
 simpdis <- rbind(simpserdis, simpfreedis)
 simpsim$list <- "similar"
 simpdis$list <- "dissimilar"
-simpdis <- simpdis %>% rename(span = DisSpan, subj = Subject)
+simpdis <- simpdis %>% dplyr::rename(span = DisSpan, subj = Subject)
 simpdis <- simpdis %>% select(subj, recall, list, span)
-simpsim <- simpsim %>% rename(span = SimSpan, subj = Subject)
+simpsim <- simpsim %>% dplyr::rename(span = SimSpan, subj = Subject)
 simpsim <- simpsim %>% select(subj, recall, list, span)
 long_sentences <- rbind(simpsim, simpdis)
 
@@ -331,21 +331,21 @@ macnamara11 <- rbind(mac11a, mac11b)
 
 macnamara11 <- macnamara11 %>% select(exp, subj, task, length, recall, list, span)
 
-save(macnamara11, file = "./pkg/data/macnamara11.rda")
+save(macnamara11, file = "./pkg/data/macnamara11.rda", compress = "xz")
 
 ### Plot Exp 1 Barplot:
 psd <- macnamara11[which(macnamara11$exp == 1 & macnamara11$recall == "serial"),]
 pd <- aggregate(span ~ task+list, data = psd, FUN = mean)
-pd <- pd[c(6,3,4,1,5,2),] 
+pd <- pd[c(6,3,4,1,5,2),]
 barspacing <- c(0.2,0.2,0.7,0.2,0.7,0.2)
 legendtext <- c("","Words", "Sentences", "Stories","")
 bp = barplot(pd$span, space = barspacing, col=c("dark gray","light gray","dark gray",
                                                "light gray","dark gray","light gray"),
-             ylab="Serial Span", xlab="Task", axisnames=T, 
+             ylab="Serial Span", xlab="Task", axisnames=T,
              ylim = c(0,1), xpd = T)
 axis(1, at = c(0,1.3,4.2,7.1,8.2), labels=legendtext, cex.axis=1, outer = F)
-legend(8, 1, c("similar", "dissimilar"), 
-       pch=c(15,15), col = c("darkgrey", "lightgrey"), 
+legend(8, 1, c("similar", "dissimilar"),
+       pch=c(15,15), col = c("darkgrey", "lightgrey"),
        horiz = F, cex = 0.8, yjust = 1, xjust = 1)
 ###################################################
 
@@ -367,46 +367,60 @@ ssvector <- unique(CD$setsize)
 cd <- CD
 cd$bin[cd$delta == 0] <- 0.0
 for (b in 2:nbins) {
-  cd$bin[cd$delta>deltabins[b-1] & cd$delta<deltabins[b]] <- deltabins[b] 
+  cd$bin[cd$delta>deltabins[b-1] & cd$delta<deltabins[b]] <- deltabins[b]
 }
 
 colors <- c("black", "gray50", "gray80", "white")
 
 source("BenchmarksWM.Data/Functions/lineplot.ci.R")
 
-lineplot.ci(deltabins, propResp, xdim=2, xlab="Size of Change (rad)", ylab="P('change')", 
+propResp <- array(dim=c(length(ssvector), nbins, length(idvector)))
+for (subj in idvector) {
+  for (ss in 1:length(ssvector)) {
+    d <- subset(CD, id==subj & setsize==ssvector[ss])
+    dd <- subset(d, delta==0)
+    propResp[ss,1,subj] <- mean(dd$response)
+    for (ch in 2:nbins) {
+      dd <- subset(d, delta>deltabins[ch-1] & delta<deltabins[ch])
+      propResp[ss,ch,subj] <- mean(dd$response)
+    }
+  }
+}
+
+
+lineplot.ci(deltabins, propResp, xdim=2, xlab="Size of Change (rad)", ylab="P('change')",
             pt=21:24, ptcol=colors, cex=1.2)
 legend(max(deltabins),0, legend=c("N=1", "N=2", "N=4", "N=8"), pch=c(21:24), pt.cex=1.2,
        pt.bg=colors, lty=1, xjust=1,yjust=0)
 
 keshvari13 <- cd %>% select(id,setsize,delta,bin,response)
-keshvari13 <- keshvari13 %>% rename(subj = id, deltabin = bin)
-save(keshvari13, file = "./pkg/data/keshvari13.rda")
+keshvari13 <- keshvari13 %>% dplyr::rename(subj = id, deltabin = bin)
+save(keshvari13, file = "./pkg/data/keshvari13.rda", compress = "xz")
 
 ### Plot Figure 2C in Keshvari et al. (2013)
 
 pd <- aggregate(response ~ deltabin+setsize, data = keshvari13, FUN = mean)
 
 plot(c(0,1.7), c(0,1.0), type = "n", xlab = "Size of Change (rad)",
-     ylab = "Proportion \"change\"", 
+     ylab = "Proportion \"change\"",
      main = "Change Detection in Visual WM", xaxt = "n")
-axis(side = 1, at = c(0.0,0.5,1.0,1.5), labels = c(0.0,0.5,1.0,1.5), 
+axis(side = 1, at = c(0.0,0.5,1.0,1.5), labels = c(0.0,0.5,1.0,1.5),
      cex.axis = 1.0)
-lines(x = pd$deltabin[pd$setsize == 2], 
-      y = pd$response[pd$setsize == 2], 
+lines(x = pd$deltabin[pd$setsize == 2],
+      y = pd$response[pd$setsize == 2],
       type = "b", lty = 1, pch = 15, col = "black")
-lines(x = pd$deltabin[pd$setsize == 4], 
-      y = pd$response[pd$setsize == 4], 
+lines(x = pd$deltabin[pd$setsize == 4],
+      y = pd$response[pd$setsize == 4],
       type = "b", lty = 2, pch = 16, col = "darkgrey")
-lines(x = pd$deltabin[pd$setsize == 6], 
-      y = pd$response[pd$setsize == 6], 
+lines(x = pd$deltabin[pd$setsize == 6],
+      y = pd$response[pd$setsize == 6],
       type = "b", lty = 3, pch = 17, col = "grey")
-lines(x = pd$deltabin[pd$setsize == 8], 
-      y = pd$response[pd$setsize == 8], 
+lines(x = pd$deltabin[pd$setsize == 8],
+      y = pd$response[pd$setsize == 8],
       type = "b", lty = 4, pch = 18, col = "lightgrey")
-legend(1.6, 0, c("N=1","N=2","N=4","N=8"), 
-       lty = 1:4, 
-       pch=15:18, col = c("black", "darkgrey", "grey","lightgrey"), 
+legend(1.6, 0, c("N=1","N=2","N=4","N=8"),
+       lty = 1:4,
+       pch=15:18, col = c("black", "darkgrey", "grey","lightgrey"),
        horiz = F, cex = 0.6, yjust = 0, xjust = 1)
 
 

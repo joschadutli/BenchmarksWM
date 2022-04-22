@@ -19,7 +19,7 @@ vn <- as.data.frame(HB[54:104, c(1:2, which(letters=="u"):(which(letters=="u")+8
 
 #function that does rearranging
 convert <- function(aw,mod,mat) {
-  convert <- aw %>% gather("spos","rec",contains("-B")) %>% 
+  convert <- aw %>% gather("spos","rec",contains("-B")) %>%
     mutate(spos=as.numeric(substr(spos,5,5))) %>%
     mutate(modality=(mod)) %>%
     mutate(material=(mat))
@@ -30,11 +30,11 @@ an2 <- convert(an,"auditory","numbers")
 vw2 <- convert(vw,"visual","words")
 vn2 <- convert(vn,"visual","numbers")
 #harvbeaman <- list(aw2,an2,vw2,vn2)
-harvbeaman <- bind_rows(aw2,an2,vw2,vn2) %>% mutate(modality=as.factor(modality)) %>% 
+harvbeaman <- bind_rows(aw2,an2,vw2,vn2) %>% mutate(modality=as.factor(modality)) %>%
   mutate(material=as.factor(material)) %>% mutate(rec=as.numeric(rec))
 
 
-harvey07 <- harvbeaman %>% dplyr::rename(subj = S) %>% 
+harvey07 <- harvbeaman %>% dplyr::rename(subj = S) %>%
   dplyr::rename(r_mode = Response) %>% dplyr::rename(serpos = spos)
 harvey07$acc <- harvey07$rec/100
 
@@ -42,58 +42,58 @@ harvey07$r_mode[harvey07$r_mode == 1] <- "written"
 harvey07$r_mode[harvey07$r_mode == 2] <- "spoken"
 
 harvey07 <- harvey07 %>% select(subj, r_mode, modality, material, serpos, acc)
-save(harvey07, file="./pkg/data/harvey07.rda")
+save(harvey07, file="./pkg/data/harvey07.rda", compress = "xz")
 
 ## Reproduce Figure 8 in Oberauer et al. (2018)
 
 d_writ <- harvey07[which(harvey07$r_mode == "written"),]
 d_spok <- harvey07[which(harvey07$r_mode == "spoken"),]
 
-par(mfrow=c(2,1))
+par(mfrow=c(1,2))
 
 pdw <- aggregate(acc ~ serpos*modality*material, data = d_writ, FUN = mean)
 
 plot(c(1,9), c(0.0,1.05), type = "n", xlab = "Serial Position",
-     ylab = "Proportion correct", 
+     ylab = "Proportion correct",
      main = "Written response", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8,9), labels = T)
 
-lines(x = pdw$serpos[pdw$modality == "auditory" & pdw$material == "numbers"], 
-      y = pdw$acc[pdw$modality == "auditory" & pdw$material == "numbers"], 
+lines(x = pdw$serpos[pdw$modality == "auditory" & pdw$material == "numbers"],
+      y = pdw$acc[pdw$modality == "auditory" & pdw$material == "numbers"],
       type = "b", lty = 1, pch= 21, bg="black", col="black")
-lines(x = pdw$serpos[pdw$modality == "auditory" & pdw$material == "words"], 
-      y = pdw$acc[pdw$modality == "auditory" & pdw$material == "words"], 
+lines(x = pdw$serpos[pdw$modality == "auditory" & pdw$material == "words"],
+      y = pdw$acc[pdw$modality == "auditory" & pdw$material == "words"],
       type = "b", lty = 2, pch= 22, bg="black", col="black")
-lines(x = pdw$serpos[pdw$modality == "visual" & pdw$material == "numbers"], 
-      y = pdw$acc[pdw$modality == "visual" & pdw$material == "numbers"], 
+lines(x = pdw$serpos[pdw$modality == "visual" & pdw$material == "numbers"],
+      y = pdw$acc[pdw$modality == "visual" & pdw$material == "numbers"],
       type = "b", lty = 3, pch= 21, bg="grey", col="black")
-lines(x = pdw$serpos[pdw$modality == "visual" & pdw$material == "words"], 
-      y = pdw$acc[pdw$modality == "visual" & pdw$material == "words"], 
+lines(x = pdw$serpos[pdw$modality == "visual" & pdw$material == "words"],
+      y = pdw$acc[pdw$modality == "visual" & pdw$material == "words"],
       type = "b", lty = 4, pch= 22, bg="grey", col="black")
 
 
 ### Figure 8b: Spoken response
 pds <- aggregate(acc ~ serpos*modality*material, data = d_spok, FUN = mean)
 plot(c(1,9), c(0.0,1.05), type = "n", xlab = "Serial Position",
-     ylab = "Proportion correct", 
+     ylab = "Proportion correct",
      main = "Spoken response", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8,9), labels = T)
 
-lines(x = pds$serpos[pds$modality == "auditory" & pds$material == "numbers"], 
-      y = pds$acc[pds$modality == "auditory" & pds$material == "numbers"], 
+lines(x = pds$serpos[pds$modality == "auditory" & pds$material == "numbers"],
+      y = pds$acc[pds$modality == "auditory" & pds$material == "numbers"],
       type = "b", lty = 1, pch= 21, bg="black", col="black")
-lines(x = pds$serpos[pds$modality == "auditory" & pds$material == "words"], 
-      y = pds$acc[pds$modality == "auditory" & pds$material == "words"], 
+lines(x = pds$serpos[pds$modality == "auditory" & pds$material == "words"],
+      y = pds$acc[pds$modality == "auditory" & pds$material == "words"],
       type = "b", lty = 2, pch= 22, bg="black", col="black")
-lines(x = pds$serpos[pds$modality == "visual" & pds$material == "numbers"], 
-      y = pds$acc[pds$modality == "visual" & pds$material == "numbers"], 
+lines(x = pds$serpos[pds$modality == "visual" & pds$material == "numbers"],
+      y = pds$acc[pds$modality == "visual" & pds$material == "numbers"],
       type = "b", lty = 3, pch= 21, bg="grey", col="black")
-lines(x = pds$serpos[pds$modality == "visual" & pds$material == "words"], 
-      y = pds$acc[pds$modality == "visual" & pds$material == "words"], 
+lines(x = pds$serpos[pds$modality == "visual" & pds$material == "words"],
+      y = pds$acc[pds$modality == "visual" & pds$material == "words"],
       type = "b", lty = 4, pch= 22, bg="grey", col="black")
-legend(4.5, 1.0, c("Auditory — numbers", "Auditory — words", "Visual — numbers", 
+legend(2.5, 1.0, c("Auditory — numbers", "Auditory — words", "Visual — numbers",
                    "Visual — words"), lty = 1:4, pch = c(21,22,21,22),
-       pt.bg = c("black","black","grey","grey"), horiz = F, cex = 0.6, 
+       pt.bg = c("black","black","grey","grey"), horiz = F, cex = 0.6,
        yjust = 1, xjust = 0)
 
 

@@ -10,7 +10,7 @@ pth  <- "BenchmarksWM.Data/BM1.1.SetsizeAccuracy/"
 ## - Duplicate data sets (.xls and .txt).
 ## - BM1.1.SetsizeAccuracy.R:
 ##     - requires a directory "functions" which is absent
-##     - assumes case-insentive filenames 
+##     - assumes case-insentive filenames
 
 ### Unsworth & Engle (2006a) ###
 
@@ -34,7 +34,7 @@ un$type <- recode(un$test, word = "simple", letter = "simple",
                   operation = "complex", reading = "complex")
 un <- un %>% select(subject, type, test, size, acc)
 unsworth06a <- un
-save(unsworth06a, file = "pkg/data/unsworth06a.rda")
+save(unsworth06a, file = "pkg/data/unsworth06a.rda", compress = "xz")
 rm(un)
 
 ### Bunting et al. (2006) ###
@@ -56,27 +56,28 @@ colnames(bu) <- c("subject", "gender", "speed", "span", "pos", "acc")
 bu$speed <- recode(bu$speed, f = "fast", s = "slow")
 bu$subject <- as.integer(bu$subject)
 bunting06 <- bu
-save(bunting06, file = "../pkg/data/bunting06.rda")
+save(bunting06, file = "./pkg/data/bunting06.rda", compress = "xz")
 rm(bu)
 
 ### McElree & Dosher (1989) ###
 fnam  <- paste0(pth, "/mcelree89.csv")
 mcelree89 <- read_csv(fnam)
-save(mcelree89, file = "../pkg/data/mcelree89.rda")
+save(mcelree89, file = "./pkg/data/mcelree89.rda", compress = "xz")
 
 ### Jonides et al. (1997) ###
 NbackPE <- c(0.03, 0.05, 0.065, 0.115)
 acc  <- 1-NbackPE
 back  <- 0:3
 jonides97  <- data.frame(back, acc)
-save(jonides97, file = "../pkg/data/jonides97.rda")
+save(jonides97, file = "./pkg/data/jonides97.rda", compress = "xz")
 
 ### Verhaeghen & Basak (2005)
 NbackVerhaeghenY <- c(0.97, 0.96, 0.945, 0.92, 0.86)
 acc  <- NbackVerhaeghenY
 back  <- 1:5
 verhaeghen05  <- data.frame(back, acc)
-save(verhaeghen05, file = "../pkg/data/verhaeghen05.rda")
+save(verhaeghen05, file = "./pkg/data/verhaeghen05.rda",
+     compress = "xz")
 
 ### Oberauer & Kliegel (2001)
 
@@ -93,7 +94,7 @@ colnames1 <- c("id", "setsize", "trial", "pt0", "pt1", "ptcat", "crit",
                "corrval1", "resp1", "correct1", "rt1", "corrval2", "resp2",
                "correct2", "rt2", "corrval3", "resp3", "correct3", "rt3",
                "corrval4", "resp4", "correct4", "rt4")
-mutaf1 <- read.table(fnam, header=F, fill=T, col.names=colnames1) 
+mutaf1 <- read.table(fnam, header=F, fill=T, col.names=colnames1)
 
 ## Load Part 2
 colnames2 <- c("id", "setsize", "trial", "pt0", "pt1", "ptcat", "crit",
@@ -102,7 +103,7 @@ colnames2 <- c("id", "setsize", "trial", "pt0", "pt1", "ptcat", "crit",
                "corrval4", "resp4", "correct4", "rt4", "corrval5", "resp5",
                "correct5", "rt5", "corrval6", "resp6", "correct6", "rt6")
 fnam  <- paste0(pth, "/Oberauer.Kliegl.MU2.DAT")
-mutaf2 <- read.table(fnam, header=F, fill=T, col.names=colnames2) 
+mutaf2 <- read.table(fnam, header=F, fill=T, col.names=colnames2)
 
 ## Label parts
 mutaf1$exp = 1
@@ -159,12 +160,12 @@ colnames(mutafX)  <- c("age", "subject", "part", "size", "ptime", "trial",
 
 ## Create final dataframe, with human-readble ordering of rows
 oberauer01 <- mutafX %>% arrange(subject, part, size, trial, item, measure)
-save(oberauer01, file = "../pkg/data/oberauer01.rda")
+save(oberauer01, file = "./pkg/data/oberauer01.rda", compress = "xz")
 
 ### Change detection: Adam et al (2015)
 fnam  <- paste0(pth, "Adam.ChangeDet.dat")
 adam15 <- read.table(fnam, header=F)
 colnames(adam15) <- c("subject", "size", "change", "acc")
-save(adam15, file = "../pkg/data/adam15.rda")
+save(adam15, file = "./pkg/data/adam15.rda", compress = "xz")
 
 

@@ -16,16 +16,17 @@ M <- as.data.frame(matrix(0, dim(madigan)[1], 11))
 for (line in 1:dim(madigan)[1]) {
   M[line,1] <- as.numeric(substring(madigan[line,], 1,2))
   for (col in 2:11) {
-    M[line,col] <- as.numeric(substring(madigan[line,], first=col+1, last=col+1))
+    M[line,col] <- as.numeric(substring(madigan[line,],
+                                        first=col+1, last=col+1))
   }
 }
 names(M) <- c("id", "modality", "direction", "sp1", "sp2", "sp3", "sp4", "sp5", "sp6", "sp7", "sp8")
 # 1 = audio, 2 = visual; 1 = forward, 2 = backward
 accuracy <- t(apply(M[,4:11], MARGIN=1, FUN=function(x){as.numeric(as.numeric(x)==c(1:8))}))
 Macc <- cbind(M[,1:3], accuracy)
-names(Macc) <- c("id", "modality", "direction", "sp1", "sp2", "sp3", "sp4", "sp5", "sp6", "sp7", "sp8") 
+names(Macc) <- c("id", "modality", "direction", "sp1", "sp2", "sp3", "sp4", "sp5", "sp6", "sp7", "sp8")
 Magg <- aggregate(cbind(sp1,sp2,sp3,sp4,sp5,sp6,sp7,sp8) ~ id+modality+direction, data=Macc, FUN=mean)
-names(Magg) <- c("id", "modality", "direction", "sp1", "sp2", "sp3", "sp4", "sp5", "sp6", "sp7", "sp8") 
+names(Magg) <- c("id", "modality", "direction", "sp1", "sp2", "sp3", "sp4", "sp5", "sp6", "sp7", "sp8")
 
 #to long format:
 
@@ -41,24 +42,24 @@ d$serpos[d$serpos == "sp7"] <- 7
 d$serpos[d$serpos == "sp8"] <- 8
 
 madigan71 <- d
-save(madigan71, file="./pkg/data/madigan71.rda")
+save(madigan71, file="./pkg/data/madigan71.rda", compress = "xz")
 
 # Reproduce Figure 7a in Obverauer et al. (2018) (data for visual presentation modality)
-visual <- madigan71[which(magidan71$modality == 2),]
+visual <- madigan71[which(madigan71$modality == 2),]
 
 pd <- aggregate(acc ~ serpos*direction, data = visual, FUN = mean)
 
 par(mfrow=c(1,2))
 plot(c(1,8), c(0.0,1.0), type = "n", xlab = "Serial Position",
-     ylab = "Proportion correct", 
+     ylab = "Proportion correct",
      main = "Serial Recall", xaxt = "n")
 axis(side = 1, at = c(2,4,6,8), labels = T)
 
-lines(x = pd$serpos[pd$direction == 1], 
-      y = pd$acc[pd$direction == 1], 
+lines(x = pd$serpos[pd$direction == 1],
+      y = pd$acc[pd$direction == 1],
       type = "l", lty = 1)
-lines(x = pd$serpos[pd$direction == 2], 
-      y = pd$acc[pd$direction == 2], 
+lines(x = pd$serpos[pd$direction == 2],
+      y = pd$acc[pd$direction == 2],
       type = "l", lty = 2)
 legend(1, 1.0, c("Forward", "Backward"), lty = 1:2,
        horiz = F, cex = 0.5, yjust = 1, xjust = 0)
@@ -70,7 +71,7 @@ legend(1, 1.0, c("Forward", "Backward"), lty = 1:2,
 fnam <- paste0(pth, "Peteranderl.2017.long.dat")
 
 colordata <- read.table(fnam, header=F)
-names(colordata)= c("id", "session", "trial", "serpos", 
+names(colordata)= c("id", "session", "trial", "serpos",
                     "target", "response", "iti1", "iti2", "iti3", "iti4", "time")
 
 colordata$AS[colordata$session == 1] <- 0
@@ -89,21 +90,21 @@ colordata$errordeg <- 180*colordata$errorrad/pi
 d <- aggregate(errordeg ~ id + trial + AS + serpos, data = colordata, FUN=mean)
 
 peteranderl17 <- d
-save(peteranderl17, file="./pkg/data/peteranderl17.rda")
+save(peteranderl17, file="./pkg/data/peteranderl17.rda", compress = "xz")
 
 pd <- aggregate(errordeg ~ AS*serpos, data = peteranderl17, FUN=mean)
 
 par(mfrow=c(1,1))
 plot(c(1,5), c(0.0,65), type = "n", xlab = "Serial Position",
-     ylab = "Precision error in degrees", 
+     ylab = "Precision error in degrees",
      main = "Serial Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5), labels = T)
 
-lines(x = pd$serpos[pd$AS == 0], 
-      y = pd$errordeg[pd$AS == 0], 
+lines(x = pd$serpos[pd$AS == 0],
+      y = pd$errordeg[pd$AS == 0],
       type = "l", lty = 1)
-lines(x = pd$serpos[pd$AS == 1], 
-      y = pd$errordeg[pd$AS == 1], 
+lines(x = pd$serpos[pd$AS == 1],
+      y = pd$errordeg[pd$AS == 1],
       type = "l", lty = 2)
 legend(1, 65, c("silent", "AS"), lty = 1:2,
        horiz = F, cex = 0.5, yjust = 1, xjust = 0)
@@ -125,7 +126,7 @@ fnam2 <- paste0(pth, "Oberauer.2003.LocRec.dat")
 globrec <- read.table(fnam1, header=T)
 locrec <- read.table(fnam2, header=TRUE, dec=".")
 
-### ask Prof. Oberauer about variable names. 
+### ask Prof. Oberauer about variable names.
 ### Probably best way to transform is to subset each section (e.g. 2:7)
 ### and transform to long format, than either rbind() or cbind()
 
@@ -156,7 +157,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(lif_accl$inpos,5,5), fixed = TRUE)
   lif_accl$inpos[selOut] <- as.numeric(i)
-}  
+}
 
 lsf_acc <- loc_spatialpos_forward[,1:7]
 lsf_accl <- gather(data = lsf_acc, key = "spatialpos", value = "acc", 2:7)
@@ -165,7 +166,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(lsf_accl$spatialpos,5,5), fixed = TRUE)
   lsf_accl$spatialpos[selOut] <- as.numeric(i)
-}  
+}
 
 lof_acc <- loc_output_forward[,1:7]
 lof_accl <- gather(data = lof_acc, key = "outpos", value = "acc", 2:7)
@@ -174,7 +175,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(lof_accl$outpos,6,6), fixed = TRUE)
   lof_accl$outpos[selOut] <- as.numeric(i)
-}  
+}
 
 loc_acc <- cbind(lif_accl, lsf_accl$spatialpos, lof_accl$outpos)
 
@@ -198,7 +199,7 @@ names(loc_forward)[which(names(loc_forward) == "lf_rt$rt")] <- "rt"
 loc_forward$cond <- "forward"
 loc_forward$memory <- "local"
 
-loc_forward <- loc_forward %>% rename(serpos = inpos) 
+loc_forward <- loc_forward %>% rename(serpos = inpos)
 loc_forward <- loc_forward %>% rename(in_acc = acc) %>%
   rename(in_rt = rt)
 loc_forward$out_acc <- loc_forward$in_acc
@@ -207,7 +208,7 @@ loc_forward$spatial_acc <- loc_forward$in_acc
 loc_forward$spatial_rt <- loc_forward$in_rt
 loc_forward <- loc_forward %>% rename(subj = vp)
 
-loc_forward <- loc_forward %>% select(subj, memory, cond, serpos, in_acc, 
+loc_forward <- loc_forward %>% select(subj, memory, cond, serpos, in_acc,
                                       spatial_acc, out_acc, in_rt, spatial_rt,
                                       out_rt)
 
@@ -243,7 +244,7 @@ for (i in 1:6) {
 }
 
 lir_rt <- loc_input_random[,c(1,8:13)]
-lir_rt_l <- gather(lir_rt, key = "serpos", value = "in_rt", 2:7) 
+lir_rt_l <- gather(lir_rt, key = "serpos", value = "in_rt", 2:7)
 for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(lir_rt_l$serpos,5,5), fixed = TRUE)
@@ -251,7 +252,7 @@ for (i in 1:6) {
 }
 
 lsr_rt <- loc_spatialpos_random[,c(1,8:13)]
-lsr_rt_l <- gather(lsr_rt, key = "serpos", value = "spatial_rt", 2:7) 
+lsr_rt_l <- gather(lsr_rt, key = "serpos", value = "spatial_rt", 2:7)
 for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(lsr_rt_l$serpos,5,5), fixed = TRUE)
@@ -259,7 +260,7 @@ for (i in 1:6) {
 }
 
 lor_rt <- loc_output_random[,c(1,8:13)]
-lor_rt_l <- gather(lor_rt, key = "serpos", value = "out_rt", 2:7) 
+lor_rt_l <- gather(lor_rt, key = "serpos", value = "out_rt", 2:7)
 for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(lor_rt_l$serpos,6,6), fixed = TRUE)
@@ -279,7 +280,7 @@ lir <- lir %>% rename(subj = vp)
 lir$memory <- "local"
 lir$cond <- "random"
 
-loc_random <- lir %>% select(subj, memory, cond, serpos, in_acc, 
+loc_random <- lir %>% select(subj, memory, cond, serpos, in_acc,
                              spatial_acc, out_acc, in_rt, spatial_rt,
                              out_rt)
 loc_long <- rbind(loc_forward, loc_random)
@@ -300,7 +301,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gif_accl$serpos,5,5), fixed = TRUE)
   gif_accl$serpos[selOut] <- as.numeric(i)
-}  
+}
 
 gsf_acc <- glob_spatialpos_forward[,1:7]
 gsf_accl <- gather(data = gsf_acc, key = "serpos", value = "spatial_acc", 2:7)
@@ -309,7 +310,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gsf_accl$serpos,5,5), fixed = TRUE)
   gsf_accl$serpos[selOut] <- as.numeric(i)
-}  
+}
 
 gof_acc <- glob_output_forward[,1:7]
 gof_accl <- gather(data = gof_acc, key = "serpos", value = "out_acc", 2:7)
@@ -318,7 +319,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gof_accl$serpos,6,6), fixed = TRUE)
   gof_accl$serpos[selOut] <- as.numeric(i)
-}  
+}
 
 grf <- glob_input_forward[,c(1,8:13)]
 grfl <- gather(grf, key = "serpos", value = "in_rt", 2:7)
@@ -326,7 +327,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(grfl$serpos,5,5), fixed = TRUE)
   grfl$serpos[selOut] <- as.numeric(i)
-} 
+}
 
 gsrf <- glob_spatialpos_forward[,c(1,8:13)]
 gsrfl <- gather(gsrf, key = "serpos", value = "spatial_rt", 2:7)
@@ -334,7 +335,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gsrfl$serpos,5,5), fixed = TRUE)
   gsrfl$serpos[selOut] <- as.numeric(i)
-} 
+}
 
 gorf <- glob_output_forward[,c(1,8:13)]
 gorfl <- gather(gorf, key = "serpos", value = "out_rt", 2:7)
@@ -342,7 +343,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gorfl$serpos,6,6), fixed = TRUE)
   gorfl$serpos[selOut] <- as.numeric(i)
-} 
+}
 
 globl <- cbind(gif_accl, grfl$in_rt, gsf_accl$spatial_acc, gsrfl$spatial_rt,
                gof_accl$out_acc, gorfl$out_rt)
@@ -357,7 +358,7 @@ globl <- globl %>% rename(subj = vp)
 globl$memory <- "global"
 globl$cond <- "forward"
 
-glob_forward <- globl %>% select(subj, memory, cond, serpos, in_acc, 
+glob_forward <- globl %>% select(subj, memory, cond, serpos, in_acc,
                                  spatial_acc, out_acc, in_rt, spatial_rt,
                                  out_rt)
 
@@ -370,7 +371,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gir_accl$serpos,5,5), fixed = TRUE)
   gir_accl$serpos[selOut] <- as.numeric(i)
-}  
+}
 
 gsr_acc <- glob_spatialpos_random[,1:7]
 gsr_accl <- gather(data = gsr_acc, key = "serpos", value = "spatial_acc", 2:7)
@@ -379,7 +380,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gsr_accl$serpos,5,5), fixed = TRUE)
   gsr_accl$serpos[selOut] <- as.numeric(i)
-}  
+}
 
 gor_acc <- glob_output_random[,1:7]
 gor_accl <- gather(data = gor_acc, key = "serpos", value = "out_acc", 2:7)
@@ -388,7 +389,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gor_accl$serpos,6,6), fixed = TRUE)
   gor_accl$serpos[selOut] <- as.numeric(i)
-}  
+}
 
 grr <- glob_input_random[,c(1,8:13)]
 grrl <- gather(grr, key = "serpos", value = "in_rt", 2:7)
@@ -396,7 +397,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(grrl$serpos,5,5), fixed = TRUE)
   grrl$serpos[selOut] <- as.numeric(i)
-} 
+}
 
 gsrr <- glob_spatialpos_random[,c(1,8:13)]
 gsrrl <- gather(gsrr, key = "serpos", value = "spatial_rt", 2:7)
@@ -404,7 +405,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gsrrl$serpos,5,5), fixed = TRUE)
   gsrrl$serpos[selOut] <- as.numeric(i)
-} 
+}
 
 gorr <- glob_output_random[,c(1,8:13)]
 gorrl <- gather(gorr, key = "serpos", value = "out_rt", 2:7)
@@ -412,7 +413,7 @@ for (i in 1:6) {
   ind <- as.character(i)
   selOut <- grepl(ind, substr(gorrl$serpos,5,5), fixed = TRUE)
   gorrl$serpos[selOut] <- as.numeric(i)
-} 
+}
 
 globlr <- cbind(gir_accl, grrl$in_rt, gsr_accl$spatial_acc, gsrrl$spatial_rt,
                gor_accl$out_acc, gorrl$out_rt)
@@ -427,37 +428,37 @@ globlr <- globlr %>% rename(subj = vp)
 globlr$memory <- "global"
 globlr$cond <- "random"
 
-glob_random <- globlr %>% select(subj, memory, cond, serpos, in_acc, 
+glob_random <- globlr %>% select(subj, memory, cond, serpos, in_acc,
                                  spatial_acc, out_acc, in_rt, spatial_rt,
                                  out_rt)
 
 glob_long <- rbind(glob_forward, glob_random)
 
 oberauer03b <- rbind(loc_long, glob_long)
-save(oberauer03b, file="./pkg/data/oberauer03b.rda")
+save(oberauer03b, file="./pkg/data/oberauer03b.rda", compress = "xz")
 
 
 ## Reproduce Figure 7B in Oberauer et al. (2018)
 pd <- oberauer03b[which(oberauer03b$cond == "random"),]
 agg_pd <- aggregate(in_acc ~ serpos*memory, data = pd, FUN = mean)
 plot(c(1,6), c(0.5,1.0), type = "n", xlab = "Serial Position (Input)",
-     ylab = "Proportion correct", 
+     ylab = "Proportion correct",
      main = "Serial Position Curve in Recognition Memory", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6), labels = T)
 
-lines(x = agg_pd$serpos[agg_pd$memory == "global"], 
-      y = agg_pd$in_acc[agg_pd$memory == "global"], 
+lines(x = agg_pd$serpos[agg_pd$memory == "global"],
+      y = agg_pd$in_acc[agg_pd$memory == "global"],
       type = "l", lty = 1)
-lines(x = agg_pd$serpos[agg_pd$memory == "local"], 
-      y = agg_pd$in_acc[agg_pd$memory == "local"], 
+lines(x = agg_pd$serpos[agg_pd$memory == "local"],
+      y = agg_pd$in_acc[agg_pd$memory == "local"],
       type = "l", lty = 1)
-points(x = agg_pd$serpos[agg_pd$memory == "global"], 
-       y = agg_pd$in_acc[agg_pd$memory == "global"],  
+points(x = agg_pd$serpos[agg_pd$memory == "global"],
+       y = agg_pd$in_acc[agg_pd$memory == "global"],
        pch = 21, bg = "black")
-points(x = agg_pd$serpos[agg_pd$memory == "local"], 
-       y = agg_pd$in_acc[agg_pd$memory == "local"],  
+points(x = agg_pd$serpos[agg_pd$memory == "local"],
+       y = agg_pd$in_acc[agg_pd$memory == "local"],
        pch = 22, bg = "grey")
-legend(1.0, 1, c("Item Recognition", "Relational Recognition"), lty = 1, 
+legend(1.0, 1, c("Item Recognition", "Relational Recognition"), lty = 1,
        pch = 21:22, pt.bg = c("black","grey"), horiz = F, cex = 0.8, yjust = 1, xjust = 0)
 
 

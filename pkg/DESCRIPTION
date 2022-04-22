@@ -9,6 +9,6 @@ Description: Individual-subject data from benchmark working memory experiments.
 License: GPL (>= 2)
 LazyData: true
 LazyDataCompression: xz
-Suggests: circular, dplyr, Hmisc, plyr, tidyr, tidyverse
+Suggests: circular, dplyr, Hmisc, plyr, tidyr, tidyverse, ggplot2
 Depends: R (>= 3.5)
 

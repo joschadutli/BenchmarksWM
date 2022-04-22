@@ -12,7 +12,7 @@ pth  <- "BenchmarksWM.Data/BM1.2.SetsizeRT/"
 ## - Duplicate data sets (.xls and .txt).
 ## - BM1.1.SetsizeAccuracy.R:
 ##     - requires a directory "functions" which is absent
-##     - assumes case-insentive filenames 
+##     - assumes case-insentive filenames
 
 ### Donkin & Nosofsky 2012b ###
 
@@ -24,7 +24,7 @@ SternFast <- NULL
 SternSlow <- NULL
 for (subj in 1:7) {
   filename = paste(fnam, as.character(subj), ".txt", sep="")
-  d <- read.table(filename, header=T)  
+  d <- read.table(filename, header=T)
   names(d)[1:2] <- c("x1", "id")
   d$id <- subj
   d <- d[,2:11]
@@ -45,7 +45,7 @@ don <- don %>% arrange(subject, size, pos, rate)
 don <- don %>% select(subject, rate, size, pos, rt)
 
 donkin12b <- don
-save(donkin12b, file="pkg/data/donkin12b.rda")
+save(donkin12b, file="./pkg/data/donkin12b.rda", compress = "xz")
 rm(don)
 
 ### Reproduce figure 3 in Oberauer et al. (2018)
@@ -58,34 +58,34 @@ dplot$gv[dplot$pos == 6] <- 6
 dfast <- dplot[which(dplot$rate == "fast"),]
 dslow <- dplot[which(dplot$rate == "slow"),]
 
-ggplot(data=dfast, mapping = aes(y=rt, x=as.factor(pos), group=interaction(size, gv), shape=as.factor(size))) +
-  ggtitle("Fast presentation rate") +
-  geom_point() + geom_line() + ylim(.35,.7) + ylab("RT (s)") + 
-  scale_x_discrete(name = "Serial Position",
-                     labels=c("1","2","3","4","5","new"),
-                     breaks=c(1,2,3,4,5,6)) +
-  scale_shape_discrete(name="Set size")
-
-ggplot(data=dslow, mapping = aes(y=rt, x=as.factor(pos), group=interaction(size, gv), shape=as.factor(size))) +
-  ggtitle("Slow presentation rate") +
-  geom_point() + geom_line() + ylim(.35,.7) + ylab("RT (s)") + 
-  scale_x_discrete(name = "Serial Position",
-                   labels=c("1","2","3","4","5","new"),
-                   breaks=c(1,2,3,4,5,6)) +
-  scale_shape_discrete(name="Set size")
+# ggplot(data=dfast, mapping = aes(y=rt, x=as.factor(pos), group=interaction(size, gv), shape=as.factor(size))) +
+#   ggtitle("Fast presentation rate") +
+#   geom_point() + geom_line() + ylim(.35,.7) + ylab("RT (s)") +
+#   scale_x_discrete(name = "Serial Position",
+#                      labels=c("1","2","3","4","5","new"),
+#                      breaks=c(1,2,3,4,5,6)) +
+#   scale_shape_discrete(name="Set size")
+#
+# ggplot(data=dslow, mapping = aes(y=rt, x=as.factor(pos), group=interaction(size, gv), shape=as.factor(size))) +
+#   ggtitle("Slow presentation rate") +
+#   geom_point() + geom_line() + ylim(.35,.7) + ylab("RT (s)") +
+#   scale_x_discrete(name = "Serial Position",
+#                    labels=c("1","2","3","4","5","new"),
+#                    breaks=c(1,2,3,4,5,6)) +
+#   scale_shape_discrete(name="Set size")
 
 par(mfrow=c(1,2))
 dfast$pos[dfast$pos == 6] <- "new"
-interaction.plot(dfast$pos, dfast$size, dfast$rt, type = "b", pch = 15:19, 
-                 ylim = c(.35,.70), xlab = "Serial Position", 
+interaction.plot(dfast$pos, dfast$size, dfast$rt, type = "b", pch = 15:19,
+                 ylim = c(.35,.70), xlab = "Serial Position",
                  ylab = "Mean RT", legend = F, xtick=T,
                  main = "Fast presentation rate")
 dslow$pos[dslow$pos == 6] <- "new"
 interaction.plot(dslow$pos, dslow$size, dslow$rt, type = "b", pch = 15:19,
                  ylim = c(.35,.70), xlab = "Serial Position",
-                 ylab = "Mean RT", trace.label = "Set size", 
+                 ylab = "Mean RT", trace.label = "Set size",
                  main = "Slow presentation rate", xtick = T)
-  
+
 ### Gilchrist & Cowan
 ### summary of changes
 
@@ -134,7 +134,7 @@ exp2 <- exp2[ which(!(exp2$subject %in% c(8,11,12,26))), ]
 gilch <- rbind(exp1, exp2)
 gilch <- gilch %>% select(exp, subject, order, location, size, change, acc, rt)
 gilchrist14 <- gilch
-save(gilchrist14, file="pkg/data/gilchrist14.rda")
+save(gilchrist14, file="./pkg/data/gilchrist14.rda", compress = "xz")
 
 ### for help file
 ### Reproduce plot of Figure 4 in Gilchrist & Cowan (2014).
@@ -149,26 +149,26 @@ exp2 <- exp2[which(exp2$acc == 1),]
 
 plotd <- aggregate(rt ~size*plotv, data = exp2, FUN = mean, na.rm=TRUE)
 plotd %>% ggplot(aes(x=size, y=rt, color=plotv)) +
-  geom_point() + geom_line() + 
-  scale_x_continuous(breaks=c(1,2,3,4,5,6)) + 
+  geom_point() + geom_line() +
+  scale_x_continuous(breaks=c(1,2,3,4,5,6)) +
   ylim(600,1100) +
   xlab("Set size") +
   ylab("Mean RT (ms)") +
   theme(legend.title = element_blank())
 
-### Shepherdson et al. (2018) data on RTs 
+### Shepherdson et al. (2018) data on RTs
 ## Read raw data of Experiment S1b (= Exp. 1b in Souza et al. (2014))
 filename = "./Shepherdson.RetroCue/Souza1b(L200H5000).csv"
-d1 <- read.csv(filename, header=T)  
+d1 <- read.csv(paste0(pth,filename), header=T)
 
 
 ## Read raw data of Experiment S1a (visual data = Exp. 1a in Souza et al. (2014))
 filename = "./Shepherdson.RetroCue/VisualVerbal(L200H5000).csv"
-d2 <- read.csv(filename, header=T)  
+d2 <- read.csv(paste0(pth,filename), header=T)
 
 ## Read raw data of Experiment 2
 filename = "./Shepherdson.RetroCue/word_data(L200H5000).csv"
-d3 <- read.csv(filename, header=T)  
+d3 <- read.csv(paste0(pth,filename), header=T)
 
 d1$exp <- "Exp S1b"
 d1 <- d1 %>% rename(subj = subj_idx) %>% rename(CTI = CSI)
@@ -194,11 +194,11 @@ shepherdson18 <- rbind(d1, d2, d3)
 shepherdson18$subj[shepherdson18$exp == "Exp S1b"] <- shepherdson18$subj[shepherdson18$exp == "Exp S1b"] +100
 shepherdson18$subj[shepherdson18$exp == "Exp 1"] <- shepherdson18$subj[shepherdson18$exp == "Exp 1"] + 200
 shepherdson18$subj[shepherdson18$exp == "Exp 2"] <- shepherdson18$subj[shepherdson18$exp == "Exp 2"] + 300
-save(shepherdson18, file="./pkg/data/shepherdson18.rda")
+save(shepherdson18, file="./pkg/data/shepherdson18.rda", compress = "xz")
 
 
 ### plot
-
+par(mfrow=c(1,1))
 data("shepherdson18")
 plotd <- shepherdson18[which(shepherdson18$exp == "Exp 1"), ]
 plotd <- aggregate(rt ~ size*CTI, data=plotd, FUN=mean)
@@ -208,30 +208,30 @@ plot <- interaction.plot(plotd$size, plotd$CTI, plotd$rt, type = "b",
                          main = "Set size effect on RT with retro cues")
 legend(1, 0.8, c("No Cue", "100 ms", "2000 ms", "400 ms"), pch=15:19, yjust=0)
 
-library(tidyr)
-grandmean <- mean(plotd$rt)
-wided <- spread(data=plotd, key=size, value=rt)
-wided$casemean <- rowMeans(subset(wided, select= c(`1`, `2`, `4`, `6`)), na.rm = T)
-wided$adj <- grandmean - wided$casemean
-wided$`1` <- wided$`1`+wided$adj
-wided$`2` <- wided$`2`+wided$adj
-wided$`4` <- wided$`4`+wided$adj
-wided$`6` <- wided$`6`+wided$adj
-d <- gather(data=wided, key = "size", value = "rt", 3:6)
-d_se <- aggregate(rt ~ size*CTI, data=d, FUN = sd)
-d_m <- aggregate(rt ~ size*CTI, data=d, FUN = mean)
-d_se <- d_se %>% rename(sd = rt)
-d_m <- cbind(d_m, d_se$sd)
-d_m$ci <- d_m$rt + 1.96*(d_m$`d_se$sd`/sqrt(16))
+# library(tidyr)
+# grandmean <- mean(plotd$rt)
+# wided <- spread(data=plotd, key=size, value=rt)
+# wided$casemean <- rowMeans(subset(wided, select= c(`1`, `2`, `4`, `6`)), na.rm = T)
+# wided$adj <- grandmean - wided$casemean
+# wided$`1` <- wided$`1`+wided$adj
+# wided$`2` <- wided$`2`+wided$adj
+# wided$`4` <- wided$`4`+wided$adj
+# wided$`6` <- wided$`6`+wided$adj
+# d <- gather(data=wided, key = "size", value = "rt", 3:6)
+# d_se <- aggregate(rt ~ size*CTI, data=d, FUN = sd)
+# d_m <- aggregate(rt ~ size*CTI, data=d, FUN = mean)
+# d_se <- d_se %>% rename(sd = rt)
+# d_m <- cbind(d_m, d_se$sd)
+# d_m$ci <- d_m$rt + 1.96*(d_m$`d_se$sd`/sqrt(16))
 
 
 ### Now read in data from Towse et al. (2008)
 
 # Load data for simple and complex span
 fnam <- paste0(pth, "Towse.ComplexSpan/Experimental Psychology E2 recall timing data.xlsx")
-timedatLL2 = as.data.frame(read_excel(fnam, sheet="LL2", range="A1:O85"))  
+timedatLL2 = as.data.frame(read_excel(fnam, sheet="LL2", range="A1:O85"))
 fnam <- paste0(pth, "Towse.ComplexSpan/Experimental Psychology E2 recall timing data.xlsx")
-timedatLL3 = as.data.frame(read_excel(fnam, sheet="LL3", range="A1:R85")) 
+timedatLL3 = as.data.frame(read_excel(fnam, sheet="LL3", range="A1:R85"))
 fnam <- paste0(pth, "Towse.ComplexSpan/Experimental Psychology computer records.xlsx")
 recalldat = as.data.frame(read_excel(fnam, sheet="Collated", range="A3:Q87"))
 
@@ -305,7 +305,7 @@ dat3$response[dat3$response == "Check"] <- "Incorrect"
 d3 <- dat3 %>% select(subj, set, condition, trial, listlength, read.time, prep.int, recall.word, pause, response, acc)
 
 towse08 <- rbind(d2,d3)
-save(towse08, file="./pkg/data/towse08.rda")
+save(towse08, file="./pkg/data/towse08.rda", compress = "xz")
 
 data("towse08")
 plotp <- aggregate(prep.int ~ condition*listlength, data = towse08, FUN = mean)
@@ -327,7 +327,7 @@ barplot(as.table(plotpause$pause),
         xlab="Pause", col = c("white", "lightgrey", "darkgrey", "black"),
         beside=TRUE, ylim = c(0,2))
 legend(0.1,2, legend = c("LL 2 integrated", "LL 2 independent",
-           "LL 3 integrated", "LL 2 independent", "LL = list length"), 
+           "LL 3 integrated", "LL 2 independent", "LL = list length"),
        col=c("white", "lightgrey", "darkgrey", "black"),
        fill=c("white", "lightgrey", "darkgrey", "black", NA))
 

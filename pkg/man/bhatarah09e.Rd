@@ -68,6 +68,6 @@ lines(x = pd$serpos[pd$word.length == "long"],
       type = "b", lty = 3, pch = 18, col = "green")
 legend(1, 1.0, c("short","medium","long"), lty = 1:3,
        pch=c(15,17,18), title = "Cue condition:", col = c("blue", "red","green"),
-       horiz = F, cex = 0.6, yjust = 1, xjust = 0)
+       horiz = FALSE, cex = 0.6, yjust = 1, xjust = 0)
 }
 \keyword{datasets}

@@ -24,11 +24,11 @@ d_long$serpos[d_long$serpos == "sp5"] <- 5
 d_long$serpos[d_long$serpos == "sp6"] <- 6
 
 tan08 <- d_long
-save(tan08, file="./pkg/data/tan08.rda")
+save(tan08, file="./pkg/data/tan08.rda", compress = "xz")
 
 plotd <- aggregate(corr ~ serpos*ptime, data = tan08, FUN = mean)
 plot(c(1,6), c(0,1), type = "n", xlab = "Serial Position",
-     ylab = "Proportion Correct", main = "Serial Recall as an Effect of 
+     ylab = "Proportion Correct", main = "Serial Recall as an Effect of
      Presentation Timing", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6), labels = T)
 lines(x = plotd$serpos[plotd$ptime == 1], y = plotd$corr[plotd$ptime == 1], type = "b", lty = 1, pch = 15)
@@ -52,27 +52,30 @@ datb$subj[datb$size == 4] <- datb$subj[datb$size == 4]+16
 datb$subj[datb$size == 6] <- datb$subj[datb$size == 6]+24
 
 bays11 <- datb %>% select(subj, size, ptime, error, dev)
-save(bays11, file="./pkg/data/bays11.rda")
+save(bays11, file="./pkg/data/bays11.rda", compress = "xz")
 
-### Reproduce Figure 6A in Oberauer et al. (2018)
+## Reproduce Figure 6B in Oberauer et al. (2018)
+## for exact reproduction, use the package library("circular") and sd.circular
+## for simple reproduction we use sd from base
+### get circular mean (sd) in rad
+# pd <- aggregate(dev ~ ptime*size, data = bays11, FUN = sd.circular)
 
-library("circular")
-### get circular mean in rad
-pd <- aggregate(dev ~ ptime*size, data = bays11, FUN = sd.circular)
+### normal sd, approximation of circular sd
+pd <- aggregate(dev ~ ptime*size, data = bays11, FUN = sd)
 pd$devrad <- 1/pd$dev
 plot(c(0.0,1.0), c(0,6), type = "n", xlab = "Presentation Time (s)",
      ylab = "Mean Precision (1/rad)", main = "Reproduction of Colors", xaxt = "n")
-axis(side = 1, at = c(0,0.2,0.4,0.6,0.8,1.0), labels = T)
-lines(x = pd$ptime[pd$size == 1], y = pd$devrad[pd$size == 1], 
+axis(side = 1, at = c(0,0.2,0.4,0.6,0.8,1.0), labels = TRUE)
+lines(x = pd$ptime[pd$size == 1], y = pd$devrad[pd$size == 1],
       type = "b", lty = 1, pch = 15)
-lines(x = pd$ptime[pd$size == 2], y = pd$devrad[pd$size == 2], 
+lines(x = pd$ptime[pd$size == 2], y = pd$devrad[pd$size == 2],
       type = "b", lty = 2, pch = 16)
-lines(x = pd$ptime[pd$size == 4], y = pd$devrad[pd$size == 4], 
+lines(x = pd$ptime[pd$size == 4], y = pd$devrad[pd$size == 4],
       type = "b", lty = 3, pch = 17)
-lines(x = pd$ptime[pd$size == 6], y = pd$devrad[pd$size == 6], 
+lines(x = pd$ptime[pd$size == 6], y = pd$devrad[pd$size == 6],
       type = "b", lty = 4, pch = 18)
 legend(1.0, 0, c("1", "2", "3", "4"), lty = 1:4, pch=15:18, title = "Set size:",
-       horiz = T, cex = 0.6, yjust = 0, xjust = 1)
+       horiz = TRUE, cex = 0.6, yjust = 0, xjust = 1)
 
 #par(mfrow=c(1,1))
 
@@ -80,7 +83,7 @@ legend(1.0, 0, c("1", "2", "3", "4"), lty = 1:4, pch=15:18, title = "Set size:",
 
 fnam <- paste0(pth, "Grenfell-EssamWard&Tan(2013)JEPLM&C.xls")
 # Load data for free-recall experiment
-data = as.data.frame(read_excel(fnam))  
+data = as.data.frame(read_excel(fnam))
 # include: 1=yes, 2=no; Suppression: "AS" = articulatory suppression, "NO AS" = no articulatory suppression
 
 # add numerical presentation time (in s)
@@ -94,19 +97,19 @@ data[data$blockrate=="s",]$prestime <- 3
 data$corr <- 0
 data$corr[!is.na(data$outputorder)] <- 1
 
-d <- data %>% select(Include, subj, trialnumber, Suppression, prestime, 
+d <- data %>% select(Include, subj, trialnumber, Suppression, prestime,
                      length, serpos, FRcorrect, corr)
 
 grenfell13 <- d
-save(grenfell13, file="./pkg/data/grenfell13.rda")
+save(grenfell13, file="./pkg/data/grenfell13.rda", compress = "xz")
 
 ## plots
 dincl <- grenfell13[which(grenfell13$Include == 1),]
-#dAS <- dincl[which(dincl$Suppression == "AS"),] 
+#dAS <- dincl[which(dincl$Suppression == "AS"),]
 #dSilent <- dincl[which(dincl$Suppression == "No AS"),]
 ###################
 d_FR <- dincl[which(dincl$serpos == 1),]
-dAS <- d_FR[which(d_FR$Suppression == "AS"),] 
+dAS <- d_FR[which(d_FR$Suppression == "AS"),]
 dSilent <- d_FR[which(d_FR$Suppression == "No AS"),]
 
 par(mfrow=c(1,2))
@@ -115,14 +118,14 @@ splot <- aggregate(FRcorrect ~ length*prestime, data = dSilent, FUN = mean)
 plot(c(2,12), c(0,1.1), type = "n", xlab = "List length",
      ylab = "P(first item recalled correctly)", main = "Silent", xaxt = "n")
 axis(side = 1, at = c(2,4,5,6,7,8,10,12), labels = T)
-lines(x = splot$length[splot$prestime == 0.5], 
-      y = splot$FRcorrect[splot$prestime == 0.5], 
+lines(x = splot$length[splot$prestime == 0.5],
+      y = splot$FRcorrect[splot$prestime == 0.5],
       type = "b", lty = 1, pch = 15)
-lines(x = splot$length[splot$prestime == 1], 
-      y = splot$FRcorrect[splot$prestime == 1], 
+lines(x = splot$length[splot$prestime == 1],
+      y = splot$FRcorrect[splot$prestime == 1],
       type = "b", lty = 2, pch = 16)
-lines(x = splot$length[splot$prestime == 3], 
-      y = splot$FRcorrect[splot$prestime == 3], 
+lines(x = splot$length[splot$prestime == 3],
+      y = splot$FRcorrect[splot$prestime == 3],
       type = "b", lty = 3, pch = 17)
 legend(2, 0, c("0.5 s / item", "1 s / item", "3 s / item"), lty = 1:3, pch=15:17,
        title = "Pres. Time:", horiz = F, cex = 0.5, yjust = 0, xjust = 0)
@@ -131,14 +134,14 @@ ASplot <- aggregate(FRcorrect ~ length*prestime, data = dAS, FUN = mean)
 plot(c(2,12), c(0,1.1), type = "n", xlab = "List length",
      ylab = "P(first item recalled correctly)", main = "Articulatory Suppression", xaxt = "n")
 axis(side = 1, at = c(2,4,5,6,7,8,10,12), labels = T)
-lines(x = ASplot$length[ASplot$prestime == 0.5], 
-      y = ASplot$FRcorrect[ASplot$prestime == 0.5], 
+lines(x = ASplot$length[ASplot$prestime == 0.5],
+      y = ASplot$FRcorrect[ASplot$prestime == 0.5],
       type = "b", lty = 1, pch = 15)
-lines(x = ASplot$length[ASplot$prestime == 1], 
-      y = ASplot$FRcorrect[ASplot$prestime == 1], 
+lines(x = ASplot$length[ASplot$prestime == 1],
+      y = ASplot$FRcorrect[ASplot$prestime == 1],
       type = "b", lty = 2, pch = 16)
-lines(x = ASplot$length[ASplot$prestime == 3], 
-      y = ASplot$FRcorrect[ASplot$prestime == 3], 
+lines(x = ASplot$length[ASplot$prestime == 3],
+      y = ASplot$FRcorrect[ASplot$prestime == 3],
       type = "b", lty = 3, pch = 17)
 
 
@@ -149,7 +152,7 @@ lines(x = ASplot$length[ASplot$prestime == 3],
 datal <- data %>% select(-outputorder, -word)
 dl <- spread(datal, key="serpos", value = "corr")
 dl$acc <- rowMeans(subset(dl, select = colnames(dl[11:22])), na.rm = T)
-dl <- dl %>% select(subj, Include, Suppression, trialnumber, length, FRcorrect, 
+dl <- dl %>% select(subj, Include, Suppression, trialnumber, length, FRcorrect,
                     prestime, acc)
 
 
@@ -181,31 +184,31 @@ d$trial <- (d$block-1)*max(d$trial) + d$trial
 d <- d %>% dplyr::rename(subj = sub)
 
 ricker17 <- d
-save(ricker17, file="./pkg/data/ricker17.rda")
+save(ricker17, file="./pkg/data/ricker17.rda", compress = "xz")
 
 ### plotting:
 
-### Vague reproduction of Figure 5 in Ricker & Hardman (2017)
+### Reproduction of Figure 5 in Ricker & Hardman (2017)
 ricker17$error <- abs(ricker17$error)
 dp <- aggregate(error ~ serpos*ctime, data = ricker17, FUN = mean)
 
 par(mfrow=c(1,1))
 plot(c(0.2,1.0), c(0,55), type = "n", xlab = "Condolidation time in seconds",
-     ylab = "Precision error in degrees", 
+     ylab = "Precision error in degrees",
      main = "Serial Position and Consolidation Time", xaxt = "n")
 axis(side = 1, at = c(0.2,0.4,0.6,0.8,1.0), labels = T)
 
-lines(x = dp$ctime[dp$serpos == 1], 
-      y = dp$error[dp$serpos == 1], 
+lines(x = dp$ctime[dp$serpos == 1],
+      y = dp$error[dp$serpos == 1],
       type = "l", lty = 1)
-lines(x = dp$ctime[dp$serpos == 2], 
-      y = dp$error[dp$serpos == 2], 
+lines(x = dp$ctime[dp$serpos == 2],
+      y = dp$error[dp$serpos == 2],
       type = "l", lty = 2)
-lines(x = dp$ctime[dp$serpos == 3], 
-      y = dp$error[dp$serpos == 3], 
+lines(x = dp$ctime[dp$serpos == 3],
+      y = dp$error[dp$serpos == 3],
       type = "l", lty = 3)
-lines(x = dp$ctime[dp$serpos == 4], 
-      y = dp$error[dp$serpos == 4], 
+lines(x = dp$ctime[dp$serpos == 4],
+      y = dp$error[dp$serpos == 4],
       type = "l", lty = 4)
 legend(1.0, 0, c("1", "2", "3", "4"), lty = 1:4,
        title = "Serial Position", horiz = F, cex = 0.5, yjust = 0, xjust = 1)

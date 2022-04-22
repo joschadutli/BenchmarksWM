@@ -62,12 +62,14 @@ ltyk <- c("solid","dashed")
 plot(c(0,7),c(0,3000), xlim=c(0.5,6.5),ylim=c(0,3100), type="n", las=1,
      xlab="Serial Position", ylab="Mean Latency (ms)",cex.lab=1.2,cex.axis=1.)
 for (k in c(0:1)) {
-  tbp <- filter(fl04m,condition==k)
+  tbp <- fl04m[which(fl04m$condition == k),]
   xx <- tbp$serpos - 0.05 + k*0.1
   lines(xx,tbp$rt,lwd=2,lty=ltyk[k+1])
   points(xx,tbp$rt,pch=21+k,bg=bgk[k+1],cex=1.5)
 }
 legend(6,2900,c("No interference","Interference"),lty=ltyk,pch=20+c(1:2),
        pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=1)
+
+
 }
 \keyword{datasets}

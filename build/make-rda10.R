@@ -44,35 +44,38 @@ souza1b$condition[souza1b$cuecond == 5] <- "no cue"
 souza1b$trial <- (souza1b$cuecond-1)*128 + souza1b$trial
 souza1b$trial <- (souza1b$session-1)*640 + souza1b$trial
 
-souza14 <- souza1b %>% select(id, session, trial, condition, PCI, setsize, probetype, 
+souza14 <- souza1b %>% select(id, session, trial, condition, PCI, setsize, probetype,
                               corr, rt)
 
-souza14 <- souza14 %>% rename(subj = id, acc = corr)
-save(souza14, file = "./pkg/data/souza14.rda")
+souza14 <- souza14 %>% dplyr::rename(subj = id, acc = corr)
+
+souza14 <- souza14 %>% dplyr::rename(CTI = PCI)
+
+save(souza14, file = "./pkg/data/souza14.rda", compress = "xz")
 
 ### plotting
 
 pd <- aggregate(acc ~ condition + setsize, data = souza14, FUN = mean)
 plot(c(1,6), c(0.7,1.0), type = "n", xlab = "Set Size",
      ylab = "Proportion correct", main = "Retro-Cue Effect in Change Detection", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6), labels = c(1,2,3,4,5,6), 
+axis(side = 1, at = c(1,2,3,4,5,6), labels = c(1,2,3,4,5,6),
      cex.axis = 0.7)
-lines(x = pd$setsize[pd$condition == "no cue"], 
-      y = pd$acc[pd$condition == "no cue"], 
+lines(x = pd$setsize[pd$condition == "no cue"],
+      y = pd$acc[pd$condition == "no cue"],
       type = "b", lty = 1, pch = 15, col = "black")
-lines(x = pd$setsize[pd$condition == "100 ms"], 
-      y = pd$acc[pd$condition == "100 ms"], 
+lines(x = pd$setsize[pd$condition == "100 ms"],
+      y = pd$acc[pd$condition == "100 ms"],
       type = "b", lty = 2, pch = 16, col = "lightgrey")
-lines(x = pd$setsize[pd$condition == "400 ms"], 
-      y = pd$acc[pd$condition == "400 ms"], 
+lines(x = pd$setsize[pd$condition == "400 ms"],
+      y = pd$acc[pd$condition == "400 ms"],
       type = "b", lty = 3, pch = 17, col = "grey")
-lines(x = pd$setsize[pd$condition == "1000 ms"], 
-      y = pd$acc[pd$condition == "1000 ms"], 
+lines(x = pd$setsize[pd$condition == "1000 ms"],
+      y = pd$acc[pd$condition == "1000 ms"],
       type = "b", lty = 4, pch = 18, col = "darkgrey")
-lines(x = pd$setsize[pd$condition == "2000 ms"], 
-      y = pd$acc[pd$condition == "2000 ms"], 
+lines(x = pd$setsize[pd$condition == "2000 ms"],
+      y = pd$acc[pd$condition == "2000 ms"],
       type = "b", lty = 5, pch = 19, col = "black")
-legend(1, 0.7, c("no cue", "100 ms",  "400 ms", "1000 ms", "2000 ms"), lty = c(1:4,5), 
+legend(1, 0.7, c("no cue", "100 ms",  "400 ms", "1000 ms", "2000 ms"), lty = c(1:4,5),
        pch=15:19, col = c("black", "lightgrey", "grey", "darkgrey", "black"),
        horiz = F, cex = 0.6, yjust = 0, xjust = 0, title = "Post-cue interval:")
 
@@ -82,7 +85,7 @@ legend(1, 0.7, c("no cue", "100 ms",  "400 ms", "1000 ms", "2000 ms"), lty = c(1
 ###### Oberauer & Lin (2017) Retro-cue in continuous reproduction
 
 Retrocue <- read.table(paste0(pth, "colorwheel5.dat"), header=F)
-names(Retrocue) <- c("id", "session", "cue", "xxx", "trial", "setsize", "cuecond", "cuelocation", 
+names(Retrocue) <- c("id", "session", "cue", "xxx", "trial", "setsize", "cuecond", "cuelocation",
                      "stim1", "loc1", "stim2", "loc2", "stim3", "loc3", "stim4", "loc4", "stim5", "loc5", "stim6", "loc6", "stim7", "loc7", "stim8", "loc8", "response")
 
 # cue: 1 = informative cue, 3 = neutral cue
@@ -101,13 +104,6 @@ Retrocue$diffrad <- wrap(Retrocue$responserad - Retrocue$targetrad)
 Retrocue$errorrad <- abs(Retrocue$diffrad)
 Retrocue$errordeg <- 180*Retrocue$errorrad/pi
 
-colors <- c("black", "grey", "white", "grey80", "grey20", "black", "white")
-ptypes <- c(21:25, 21:25)
-aggdat <- aggregate(errordeg ~ id + setsize + cuecond, data=Retrocue, FUN=mean)
-
-lineplot.ci3(data=aggdat, dv="errordeg", iv=c("setsize", "cuecond"), id=1, x=1, off=0.05, ylim=c(0,80),
-             cex=1.3, lty=1, pt = ptypes[1:3], ptcol=colors[1:3], xlab="Set Size", ylab="Error (deg)")
-legend(4,0,c("Neutral", "Invalid", "Valid"), pt.bg=colors[1:3], lty=1, pch=ptypes[1:3], pt.cex = 1.5, yjust=0)
 
 # trial
 
@@ -120,29 +116,29 @@ Retrocue$condition[Retrocue$cuecond == 0] <- "invalid"
 
 oberauer17 <- Retrocue %>% select(id, session, trial, condition, setsize, targetrad,
                                   responserad, errorrad, errordeg)
-oberauer17 <- oberauer17 %>% rename(subj = id, target = targetrad, response = responserad,
+oberauer17 <- oberauer17 %>% dplyr::rename(subj = id, target = targetrad, response = responserad,
                                     error = errorrad)
 
-save(oberauer17, file = "./pkg/data/oberauer17.rda")
+save(oberauer17, file = "./pkg/data/oberauer17.rda", compress = "xz")
 
 # Plot:
 
 pd <- aggregate(errordeg ~ + setsize + condition, data=oberauer17, FUN=mean)
 plot(c(1,8), c(0,80), type = "n", xlab = "Set Size",
      ylab = "Error (deg)", main = "Retro-Cue Effect in Continuous Reproduction", xaxt = "n")
-axis(side = 1, at = c(2,4,6,8), labels = c(2,4,6,8), 
+axis(side = 1, at = c(2,4,6,8), labels = c(2,4,6,8),
      cex.axis = 0.7)
-lines(x = pd$setsize[pd$condition == "neutral"], 
-      y = pd$errordeg[pd$condition == "neutral"], 
+lines(x = pd$setsize[pd$condition == "neutral"],
+      y = pd$errordeg[pd$condition == "neutral"],
       type = "b", lty = 1, pch = 15)
-lines(x = pd$setsize[pd$condition == "valid"], 
-      y = pd$errordeg[pd$condition == "valid"], 
+lines(x = pd$setsize[pd$condition == "valid"],
+      y = pd$errordeg[pd$condition == "valid"],
       type = "b", lty = 2, pch = 16)
-lines(x = pd$setsize[pd$condition == "invalid"], 
-      y = pd$errordeg[pd$condition == "invalid"], 
+lines(x = pd$setsize[pd$condition == "invalid"],
+      y = pd$errordeg[pd$condition == "invalid"],
       type = "b", lty = 3, pch = 17)
-legend(8, 0, c("neutral", "valid", "invalid"), lty = 1:3, 
-       pch=15:17, 
+legend(8, 0, c("neutral", "valid", "invalid"), lty = 1:3,
+       pch=15:17,
        horiz = F, cex = 0.6, yjust = 0, xjust = 1, title = "Cue condition:")
 
 
@@ -156,9 +152,9 @@ pth  <- "BenchmarksWM.Data/BM10.2.ItemSwitchEffects/"
 
 data<-read.csv(paste0(pth,'Hedge&Leonardsdata.csv'))
 # remove trials not included in RT analysis
-data2<-data[data$Block!=1 & data$TrialCorrect!=0 & data$Trial_type!=0,] 
+data2<-data[data$Block!=1 & data$TrialCorrect!=0 & data$Trial_type!=0,]
 #aggregate
-aggdata <-aggregate(data2$RT, by=list(data2$Experiment,data2$Participant,data2$Trial_type), 
+aggdata <-aggregate(data2$RT, by=list(data2$Experiment,data2$Participant,data2$Trial_type),
                     FUN=median, na.rm=TRUE)
 names(aggdata) <- c("Experiment", "PPT","Update_type","RT")
 aggdata$PPT<-as.factor(aggdata$PPT)
@@ -166,15 +162,15 @@ aggdata$Update_type<-as.factor(aggdata$Update_type)
 aggdata$Experiment<-as.factor(aggdata$Experiment)
 
 
-pd <- aggregate(data2$RT, by=list(data2$Experiment,data2$Trial_type), 
+pd <- aggregate(data2$RT, by=list(data2$Experiment,data2$Trial_type),
                 FUN=median, na.rm=TRUE)
 
 pdd <- aggregate(RT ~ Trial_type+Experiment, data = data2, FUN = median, na.rm = T)
 
 barplot(height = pdd$RT)
 
-hedge13 <- data %>% rename(exp = Experiment, subj = Participant, block = Block,
-                           trial = Trial_sequence, length = Sequence_length, 
+hedge13 <- data %>% dplyr::rename(exp = Experiment, subj = Participant, block = Block,
+                           trial = Trial_sequence, length = Sequence_length,
                            serpos = Update, update_type = Trial_type,
                            rt = RT, acc = TrialCorrect)
 hedge13 <- hedge13 %>% select(exp,subj,block,trial,length,serpos,update_type,acc,rt)
@@ -185,7 +181,7 @@ hedge13$update_type[hedge13$update_type == 2] <- "switch"
 
 hedge13$update_type <- as.factor(hedge13$update_type)
 
-save(hedge13, file = "./pkg/data/hedge13.rda") 
+save(hedge13, file = "./pkg/data/hedge13.rda", compress = "xz")
 
 ### Simple barplot
 hedge13included <- hedge13[which(hedge13$block != 1 & hedge13$update_type != "first update"
@@ -193,7 +189,7 @@ hedge13included <- hedge13[which(hedge13$block != 1 & hedge13$update_type != "fi
 pd <- aggregate(rt ~ update_type+exp, data = hedge13included, FUN = median, na.rm=T)
 
 
-bp = barplot(pd$rt, space = c(0.2,0.2,0.7,0.2), col=c("lightgrey", "darkgrey", 
+bp = barplot(pd$rt, space = c(0.2,0.2,0.7,0.2), col=c("lightgrey", "darkgrey",
                                                       "lightgrey", "darkgrey"),
              ylab="Median RT", xlab="Update Type", axisnames=F, ylim = c(0,1.5))
 text (1.3,1.3,"Experiment 1",cex=0.8)
@@ -209,7 +205,7 @@ pth  <- "BenchmarksWM.Data/BM10.2.ItemSwitchEffects/"
 
 data <- read.table(paste0(pth,"NBACK.ROH"))
 names(data) <- c('subj', 'session', 'trial','setsize', paste0('init.dig', 1:5),
-                 paste0('pres.dig', 1:20), paste0(c('x','y'), rep(1:20, each = 2)), 
+                 paste0('pres.dig', 1:20), paste0(c('x','y'), rep(1:20, each = 2)),
                  paste0('update_type', 1:20), paste0('dist', 1:20), paste0('ptype', 1:20),
                  paste0('intrusion', 1:20), paste0('lag', 1:20), paste0('rt',1:20),
                  paste0('acc', 1:20))
@@ -234,7 +230,7 @@ d_comp <- d_dig %>% select(subj, session, trial, setsize, init.dig1, init.dig2,
 ob06 <- cbind(d_comp, d_x$column, d_y$row, d_type$update_type, d_dist$dist,
               d_probe$ptype, d_intrusion$intrusion, d_lag$lag, d_rt$rt, d_acc$acc)
 
-ob06 <- ob06 %>% rename(column = `d_x$column`, row = `d_y$row`, 
+ob06 <- ob06 %>% dplyr::rename(column = `d_x$column`, row = `d_y$row`,
                         update_type = `d_type$update_type`, dist = `d_dist$dist`,
                         ptype = `d_probe$ptype`, intrusion = `d_intrusion$intrusion`,
                         lag = `d_lag$lag`, rt = `d_rt$rt`, acc = `d_acc$acc`)
@@ -245,28 +241,28 @@ ob06$serpos <- as.numeric(substr(ob06$serpos,9,10))
 
 ### plot
 
-pd <- aggregate(rt ~ setsize+update_type, data = ob06[which(ob06$session == 10 & 
+pd <- aggregate(rt ~ setsize+update_type, data = ob06[which(ob06$session == 10 &
                                                               ob06$update_type != -1),],
                 FUN = mean)
 plot(c(1,5), c(0,1800), type = "n", xlab = "Set Size",
      ylab = "RT (ms)", main = "Switch Costs in Session 10", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5), labels = c(1,2,3,4,5), 
+axis(side = 1, at = c(1,2,3,4,5), labels = c(1,2,3,4,5),
      cex.axis = 0.7)
-lines(x = pd$setsize[pd$update_type == 1], 
-      y = pd$rt[pd$update_type == 1], 
+lines(x = pd$setsize[pd$update_type == 1],
+      y = pd$rt[pd$update_type == 1],
       type = "b", lty = 1, pch = 15)
-lines(x = pd$setsize[pd$update_type == 0], 
-      y = pd$rt[pd$update_type == 0], 
+lines(x = pd$setsize[pd$update_type == 0],
+      y = pd$rt[pd$update_type == 0],
       type = "b", lty = 2, pch = 16)
 
-legend(5, 1800, c("no-switch", "switch"), lty = 1:2, 
-       pch=15:16, 
+legend(5, 1800, c("no-switch", "switch"), lty = 1:2,
+       pch=15:16,
        horiz = F, cex = 0.9, yjust = 1, xjust = 1)
 
 ob06$rt[ob06$rt > 30000] <- NA
 
 
-### rename some variable values for clarity:
+### dplyr::rename some variable values for clarity:
 
 ob06$update_type[ob06$update_type == -1] <- "first item"
 ob06$update_type[ob06$update_type == 0] <- "no-switch"
@@ -279,10 +275,10 @@ ob06$ptype[ob06$ptype == 1] <- "match"
 oberauer06 <- ob06 %>% select(subj, session, trial, setsize, init.dig1, init.dig2,
                               init.dig3, init.dig4, init.dig5, serpos, digit, column,
                               row, update_type, dist, ptype, lag, acc, rt)
-save(oberauer06, file = "./pkg/data/oberauer06.rda")
+save(oberauer06, file = "./pkg/data/oberauer06.rda", compress = "xz")
 
 ### Approximate replication of Figure 3 (top panel) in Oberauer (2006)
-pd <- aggregate(rt ~ setsize+update_type+session, 
+pd <- aggregate(rt ~ setsize+update_type+session,
                 data = oberauer06[which(oberauer06$update_type != "first item"),],
                 FUN = mean)
 bgk <- c("white","black")
@@ -301,49 +297,51 @@ for (k in c(1:10)) {
 
 legend(50,1800,c("no-switch", "switch"),lty=c(1:2),pch=c(22,19),pt.bg=bgk,cex=0.6,pt.cex=1.0, yjust = 1, xjust = 1)
 
-
-# cuecond: 1 = RC(100 ms), 2 = RC(400ms), 3 = RC(2000ms), 4 = no cue
-
-souza14a <- souza14a %>% rename(subj = id, acc = corr)
-
-souza14a$probetype[souza14a$ptype == 1] <- "match"
-souza14a$probetype[souza14a$ptype == 2] <- "intrusion"
-souza14a$probetype[souza14a$ptype == 3] <- "new probe"
-
-souza14a$CTI[souza14a$cuecond == 1] <- 100
-souza14a$CTI[souza14a$cuecond == 2] <- 400
-souza14a$CTI[souza14a$cuecond == 3] <- 2000
-souza14a$CTI[souza14a$cuecond == 4] <- 0
-
-souza14a$condition[souza14a$cuecond == 1] <- "100 ms"
-souza14a$condition[souza14a$cuecond == 2] <- "400 ms"
-souza14a$condition[souza14a$cuecond == 3] <- "2000 ms"
-souza14a$condition[souza14a$cuecond == 4] <- "no cue"
-
-souza14a <- souza14a %>% select(subj, session, trial, condition, CTI, setsize, probetype, 
-                              acc, rt)
-
-save(souza14a, file = "./pkg/data/souza14a.rda")
-
-souza14 <- souza14 %>% rename(CTI = PCI)
-
-save(souza14, file = "./pkg/data/souza14.rda")
-
-### Reproduce part of Figure 2 from Shepherdson et al. (2018)
-### without confidence interval
-
-data("souza14")
-plotd <- souza14a[which(!(souza14a$rt < 0.2) & !(souza14a$rt > 5.0)),]
-plotd <- aggregate(rt ~ setsize*CTI*subj, data=plotd, FUN=mean)
-plot <- interaction.plot(plotd$setsize, plotd$CTI, plotd$rt, type = "b",
-                         pch= 15:19, xlab = "Set size", ylab = "Mean RT",
-                         legend = F, xtick = T, ylim = c(0.4,1.3),
-                         main = "Set size effect on RT with retro cues")
-legend(1, 1.2, c("No Cue", "100 ms", "2000 ms", "400 ms"), pch=15:19, yjust=1)
-### watch out: legend is messy
-
-check <- shepherdson18[which(shepherdson18$exp == "Exp 1"), ]
-
-check2 <- souza14[which(!(souza14$rt < 0.2) & !(souza14$rt > 5.0)),]
-
-mean(check2$rt)
+#
+# #cuecond: 1 = RC(100 ms), 2 = RC(400ms), 3 = RC(2000ms), 4 = no cue
+#
+#
+# souza14a <- souza14a %>% dplyr::rename(subj = id, acc = corr)
+#
+# souza14a$probetype[souza14a$ptype == 1] <- "match"
+# souza14a$probetype[souza14a$ptype == 2] <- "intrusion"
+# souza14a$probetype[souza14a$ptype == 3] <- "new probe"
+#
+# souza14a$CTI[souza14a$cuecond == 1] <- 100
+# souza14a$CTI[souza14a$cuecond == 2] <- 400
+# souza14a$CTI[souza14a$cuecond == 3] <- 2000
+# souza14a$CTI[souza14a$cuecond == 4] <- 0
+#
+# souza14a$condition[souza14a$cuecond == 1] <- "100 ms"
+# souza14a$condition[souza14a$cuecond == 2] <- "400 ms"
+# souza14a$condition[souza14a$cuecond == 3] <- "2000 ms"
+# souza14a$condition[souza14a$cuecond == 4] <- "no cue"
+#
+# souza14a <- souza14a %>% select(subj, session, trial, condition, CTI, setsize, probetype,
+#                               acc, rt)
+#
+# # save(souza14a, file = "./pkg/data/souza14a.rda")
+#
+# souza14 <- souza14 %>% dplyr::rename(CTI = PCI)
+#
+# # save(souza14, file = "./pkg/data/souza14.rda")
+#
+# ### Reproduce part of Figure 2 from Shepherdson et al. (2018)
+# ### without confidence interval
+#
+# plotd <- souza14a[which(!(souza14a$rt < 0.2) & !(souza14a$rt > 5.0)),]
+# plotd <- aggregate(rt ~ setsize*CTI*subj, data=plotd, FUN=mean)
+# plot <- interaction.plot(plotd$setsize, plotd$CTI, plotd$rt, type = "b",
+#                          pch= 15:19, xlab = "Set size", ylab = "Mean RT",
+#                          legend = F, xtick = T, ylim = c(0.4,1.3),
+#                          main = "Set size effect on RT with retro cues")
+# legend(1, 1.2, c("No Cue", "100 ms", "2000 ms", "400 ms"), pch=15:19, yjust=1)
+# ### watch out: legend is messy
+#
+# data("shepherdson18")
+# check <- shepherdson18[which(shepherdson18$exp == "Exp 1"), ]
+#
+# check2 <- souza14a[which(!(souza14a$rt < 0.2) & !(souza14a$rt > 5.0)),]
+#
+# mean(check$rt)
+# mean(check2$rt)

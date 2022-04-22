@@ -51,7 +51,7 @@ for (sp in 1:9) {
 
 
 cowan02 <- d %>% select(subj, trial, Modality, StimGroup, StartPos, part, serpos, corr, rt)
-save(cowan02, file="./pkg/data/cowan02.rda")
+save(cowan02, file="./pkg/data/cowan02.rda", compress = "xz")
 
 u <- cowan02[which(cowan02$StimGroup == "U"),]
 uv <- u[which(u$Modality == "V"),]
@@ -123,7 +123,7 @@ d12 <- rbind(d1, d2)
 d <- rbind(d12, d4)
 
 lange11 <- d
-save(lange11, file = "./pkg/data/lange11.rda")
+save(lange11, file = "./pkg/data/lange11.rda", compress = "xz")
 
 ## a plot:
 
@@ -191,7 +191,7 @@ gew2$cue[gew2$cue == "Post-cued IFR"] <- "post-presentation"
 gew2$cue[gew2$cue == "Pre-cued IFR"] <- "pre-presentation"
 
 grenfell12 <- gew2
-save(grenfell12, file="./pkg/data/grenfell12.rda")
+save(grenfell12, file="./pkg/data/grenfell12.rda", compress = "xz")
 
 post <- filter(grenfell12, cue=="post-presentation")
 pre <- filter(grenfell12, cue=="pre-presentation")
@@ -332,7 +332,7 @@ healey14 <- healey14 %>% filter(value != 0)
 ## Finally, the package is based on dataframes rather than tibbles, so
 ## convert to df and save
 healey14 <- as.data.frame(healey14)
-save(healey14, file="./pkg/data/healey14.rda")
+save(healey14, file="./pkg/data/healey14.rda", compress = "xz")
 
 ## subset data and make it long:
 

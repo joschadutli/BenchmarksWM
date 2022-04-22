@@ -73,6 +73,110 @@ farrell04.Rd - Example code not working in a way I could not quickly diagnose. I
 --> this might take longer.
 --> added AJ Wills fixes from post-build into build scripts.
 
+### checking with R CMD check
+
+--> F instead of FALSE
+--> T instead of TRUE
+
+
+
+
+--> compression. how do I do that? 
+--> save(file, filepath, compress = "xz")
+
+### compress files and make build scripts work
+
+# make-rda4.x
+Hmisc dependency. Try to work around that
+--> for now, this is still inside the build script.
+--> rest fixed. works + compressed
+
+# make-rda1.1
+--> removed some dots in save commands
+--> works now and all data xz compressed
+
+# make-rda1.2
+--> removed some minor mistakes
+--> xz compressed all
+
+# make-rda1.3
+--> compressed xz
+
+# make-rda2.1
+--> fixed and compressed
+
+# make-rda2.4
+--> fixed and compressed
+
+# make-rdya3.1
+--> fixed and compressed
+
+# make-rda3.2
+--> fixed and compressed
+
+# make-rda3.3
+--> fixed and compressed
+
+# make-rda3.4
+--> compressed
+
+# make-rda5
+
+--> more fixes needed than usual
+--> all fixed now
+--> and compressed
+
+# make-rda6
+
+--> fixed and compressed
+
+# make-rda7
+
+--> compressed
+
+# make-rda8
+
+--> fixed and compressed
+
+# make-rda9
+
+--> longer fix. I seem to have replaced the same code to read in the different datasets. so, very bad practice. but now it works.
+--> compressed
+
+# make-rda10
+
+--> again, longer fix. added souza14 to the package although the dataset is actually already in shepherdson18. however, the souza14 paper is cited in the benchmarks and therfore I think this is good as is now.
+--> compressed
+
+# make-rda11
+
+--> fixed and compressed 
+--> needs package 'reshape2'. can't work around that. melt function is too powerful
+
+# make-rda12
+
+--> already fixed.
+--> compressed
+
+### run R CMD check again
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -52,8 +52,8 @@ music <- rbind(stac,leg,mqui)
 sound$type <- "speech"
 music$type <- "music"
 
-sound <- sound %>% rename(subj = `irrspeech$Vp`)
-music <- music %>% rename(subj = `irrmusic$Vp`)
+sound <- sound %>% dplyr::rename(subj = `irrspeech$Vp`)
+music <- music %>% dplyr::rename(subj = `irrmusic$Vp`)
 
 sound$serpos <- substr(sound$serpos,5,5)
 sound$serpos <- as.numeric(sound$serpos)
@@ -65,7 +65,7 @@ schlitt <- rbind(sound,music)
 
 schlittmeier12 <- schlitt %>% select(subj, type, condition, serpos, acc)
 
-save(schlittmeier12, file = "./pkg/data/schlittmeier12.rda")
+save(schlittmeier12, file = "./pkg/data/schlittmeier12.rda", compress = "xz")
 
 ### Figure 15 in Oberauer et al. (2018)
 
@@ -74,13 +74,13 @@ pd <- subset(pdd, type == "speech")
 plot(c(0,10), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Irrelevant speech and sound effects", xaxt = "n")
 axis(side = 1, at = c(2,4,6,8), labels = levels(pd$condition), cex.axis = 0.7)
-lines(x = pd$serpos[pd$condition == "quiet"], y = pd$acc[pd$condition == "quiet"], 
+lines(x = pd$serpos[pd$condition == "quiet"], y = pd$acc[pd$condition == "quiet"],
       type = "b", lty = 1, pch = 15, col = "red")
-lines(x = pd$serpos[pd$condition == "steady"], y = pd$acc[pd$condition == "steady"], 
+lines(x = pd$serpos[pd$condition == "steady"], y = pd$acc[pd$condition == "steady"],
       type = "b", lty = 2, pch = 17, col = "blue")
-lines(x = pd$serpos[pd$condition == "changing"], y = pd$acc[pd$condition == "changing"], 
+lines(x = pd$serpos[pd$condition == "changing"], y = pd$acc[pd$condition == "changing"],
       type = "b", lty = 3, pch = 18, col = "green")
-legend(0, 0, c("quiet", "steady", "changing"), lty = 1:3, pch=c(15,17, 18), 
+legend(0, 0, c("quiet", "steady", "changing"), lty = 1:3, pch=c(15,17, 18),
        title = "Condition:",
        col = c("red", "blue", "green"), horiz = F, cex = 0.6, yjust = 0, xjust = 0)
 
@@ -92,11 +92,11 @@ pth  <- "BenchmarksWM.Data/BM6.IrrelevantSound/Raoul.Bell.Replication/"
 
 
 data <- read.table(paste0(pth,"BENCHMARK_RAW_DATA.txt"), header=F)
-names(data) <- c("id", "session", "trial", "condition", 
+names(data) <- c("id", "session", "trial", "condition",
                  "stim1", "stim2", "stim3", "stim4", "stim5", "stim6", "stim7", "stim8",
                  "REM",
                  "resp1", "resp2", "resp3", "resp4", "resp5", "resp6", "resp7", "resp8",
-                 "SCORE", "Numremembered", "rt", 
+                 "SCORE", "Numremembered", "rt",
                  "distr1", "distr2", "distr3", "distr4", "distr5", "distr6", "distr7", "distr8", "distr9", "distr10")
 # conditions: SS = steady-state; CS = changing-state; DEV = auditory deviant
 
@@ -123,25 +123,25 @@ datalong$condition[datalong$condnum == 2] <- "changing"
 datalong$condition[datalong$condnum == 3] <- "auditory deviant"
 
 bell19 <- datalong %>% select(id, session, trial, condition, serpos, correct)
-bell19 <- bell19 %>% rename(subj = id)
+bell19 <- bell19 %>% dplyr::rename(subj = id)
 bell19$session <- as.character(bell19$session)
 bell19$session[bell19$session == "Day1"] <- 1
 bell19$session[bell19$session == "Day2"] <- 2
 
-save(bell19, file = "./pkg/data/bell19.rda")
+save(bell19, file = "./pkg/data/bell19.rda", compress = "xz")
 
 pd <- aggregate(correct ~ serpos+condition, data = bell19, FUN = mean)
 plot(c(1,8), c(0.3,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Auditory Deviant Effect", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8), labels = levels(pd$serpos), cex.axis = 0.7)
-lines(x = pd$serpos[pd$condition == "steady"], y = pd$correct[pd$condition == "steady"], 
+lines(x = pd$serpos[pd$condition == "steady"], y = pd$correct[pd$condition == "steady"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$condition == "auditory deviant"], 
-      y = pd$correct[pd$condition == "auditory deviant"], 
+lines(x = pd$serpos[pd$condition == "auditory deviant"],
+      y = pd$correct[pd$condition == "auditory deviant"],
       type = "b", lty = 2, pch = 17, col = "red")
-lines(x = pd$serpos[pd$condition == "changing"], y = pd$correct[pd$condition == "changing"], 
+lines(x = pd$serpos[pd$condition == "changing"], y = pd$correct[pd$condition == "changing"],
       type = "b", lty = 3, pch = 18, col = "green")
-legend(1, 0.3, c("steady", "auditory deviant", "changing"), lty = 1:3, pch=c(15,17, 18), 
+legend(1, 0.3, c("steady", "auditory deviant", "changing"), lty = 1:3, pch=c(15,17, 18),
        title = "Condition:",
        col = c("blue", "red", "green"), horiz = F, cex = 0.6, yjust = 0, xjust = 0)
 

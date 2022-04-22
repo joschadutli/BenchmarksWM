@@ -22,9 +22,10 @@ data$AS[data$group == 4] <- "AS"
 long_data <- gather(data, key = "condition", value = "span", 3:12)
 
 chen09 <- long_data
-save(chen09, file="./pkg/data/chen09.rda")
+save(chen09, file="./pkg/data/chen09.rda", compress = "xz")
 
 ### reproduce Figure 4 in Oberauer et al. (2018)
+par(mfrow=c(1,1))
 data("chen09")
 dAS <- subset(chen09, group==4) # data where rehearsal is articulatory suppressed
 plot_data <- aggregate(span ~ condition, data = dAS, FUN = mean)
@@ -32,8 +33,8 @@ plot_data <- plot_data[c(1,9,6,3,2,10,8,5,7,4),]
 t <- as.table(plot_data$span)
 names(t) <- plot_data$condition
 barplot(t, main = "Figure 4: Numbers of Chunks recalled",
-        xlab = "# = number of chunks presented; n = new single words; 
-        s = pretrained single words; p = pretrained word pairs (chunks)", 
+        xlab = "# = number of chunks presented; n = new single words;
+        s = pretrained single words; p = pretrained word pairs (chunks)",
         ylab = "Number of chunks recalled", ylim = c(0,4))
 
 

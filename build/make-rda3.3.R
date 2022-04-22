@@ -32,11 +32,29 @@ fl04tot$outpos[fl04tot$outpos < 0] <- NA
 ## all data:
 
 farrell04 <- fl04tot %>% select(subject,trial,condition,serpos,outpos,rt)
-save(farrell04, file="./pkg/data/farrell04.rda")
+save(farrell04, file="./pkg/data/farrell04.rda", compress = "xz")
 
 
-source("BenchmarksWM.Data/Functions/BakemanL.R")
-source("BenchmarksWM.Data/Functions/Confint.R")
+# Bakeman & McArthur correction (for long data): id = column with subject id, dv = column with dependent variable
+BakemanL <- function (data, id=1, dv=2) {
+  idvar <- data[,id]
+  subjMeans <- aggregate(x=data[,dv], by=list(data[,id]), FUN=mean)
+  names(subjMeans) <- c(id, dv)
+  ids <- unique(idvar)
+  corrdata <- data
+  for (ii in 1:length(ids)) {
+    corrdata[data[,id]==ids[ii],dv] <- corrdata[data[,id]==ids[ii],dv] - subjMeans[subjMeans[,id]==ids[ii],2] + mean(subjMeans[,2])
+  }
+  return(corrdata)
+}
+#Compute Means and Confidence Intervals (from wide data)
+Confint <- function(data) {
+  means <- colMeans(data)
+  ci <- 1.96*apply(data, MARGIN=2, sd)/sqrt(dim(data)[1])
+  upperci <- means+ci
+  lowerci <- means-ci
+  return(rbind(means, upperci, lowerci))
+}
 
 
 fl04rtagg <- aggregate(rt ~ subject + condition + serpos, data=farrell04, FUN=mean)
@@ -126,7 +144,7 @@ murdock70 <- molong %>% rename(subj = ID) %>%
   )
 
 
-save(murdock70, file="./pkg/data/murdock70.rda")
+save(murdock70, file="./pkg/data/murdock70.rda", compress = "xz")
 ## a plot:
 
 
@@ -196,7 +214,7 @@ SATdat$ptype[is.element(SATdat$cond, c(18:20))] <- 5  # recent negative lure fro
 SATdat$ptype[is.element(SATdat$cond, c(21:23))] <- 2  # new lure
 
 oeztekin10 <- SATdat %>% select(id, trial, lag, serpos, ptype, lagrt, rt, corr)
-save(oeztekin10, file="./pkg/data/oeztekin10.rda")
+save(oeztekin10, file="./pkg/data/oeztekin10.rda", compress = "xz")
 
 SATpos <- subset(oeztekin10, ptype==1)
 

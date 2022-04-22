@@ -192,7 +192,7 @@ check <- aggregate(cbind(arrow.span,word.span,matrix.span,letter.span,
                          ball.span) ~ subj, data = kane04, FUN = mean)
 
 
-save(kane04, file = "./pkg/data/kane04.rda")
+save(kane04, file = "./pkg/data/kane04.rda", compress = "xz")
 
 
 ####################################################
@@ -212,7 +212,7 @@ uns10 <- uns10 %>% rename(subj =ID, operation.span = Ospan, symmetry.span = Syms
 
 unsworth10 <- uns10
 
-save(unsworth10, file = "./pkg/data/unsworth10.rda")
+save(unsworth10, file = "./pkg/data/unsworth10.rda", compress = "xz")
 
 ## plot???
 
@@ -257,7 +257,7 @@ cowan98 <- Cowan98 %>% rename(subj = SubNo, ethnicity = ethnic, digit.span = Dig
                               digit.search.slope = DIGSLOPE, rapid.alphabet = Alpha,
                               rapid.counting = Count)
 
-save(cowan98, file="./pkg/data/cowan98.rda")
+save(cowan98, file="./pkg/data/cowan98.rda", compress = "xz")
 
 
 

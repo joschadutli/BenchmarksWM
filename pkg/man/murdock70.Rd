@@ -76,14 +76,14 @@ lines(x = pd$input,
 library(tidyverse)
 
 ## prepare data
-prep_pd <- murdock70 %>% filter(num_correct %in% 4:9) %>%
-  group_by(subj, trial) %>%
+prep_pd <- murdock70 \%>\% filter(num_correct \%in\% 4:9) \%>\%
+  group_by(subj, trial) \%>\%
   mutate(
     legal = case_when(max(output) > num_correct ~ 0,
                       TRUE ~ 1)
   )
 
-next_prep <- prep_pd %>% filter(legal == 1) %>% filter(output > 1)
+next_prep <- prep_pd \%>\% filter(legal == 1) \%>\% filter(output > 1)
 
 ## aggreagte data
 pdirl <- aggregate(irl ~ output + num_correct, data = next_prep, FUN = mean)
@@ -100,9 +100,10 @@ for (op in sort(unique(pdirl$num_correct))) {
          pch = op+12, bg = "black")
 }
 legend(1,12,sort(unique(pdirl$num_correct)),
-lty=sort(unique(pdirl$num_correct))-3,
-pch=sort(unique(pdirl$num_correct))+12,
-pt.bg=bgk,cex=1.,pt.cex=1.3, xjust=0)
+       lty=sort(unique(pdirl$num_correct))-3,
+       pch=sort(unique(pdirl$num_correct))+12,
+       pt.bg = "black",
+       cex=1.,pt.cex=1.3, xjust=0)
 
 
 
