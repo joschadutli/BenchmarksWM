@@ -22,7 +22,7 @@ help files.
 
 The package is likely to be useful for those wishing to conduct
 computational modelling, and/or secondary data analysis, of these
-benchmark datasets. 
+benchmark datasets.
 
 The package contains one or more datasets (each with a help file) for each
 benchmark listed by Oberauer et al. (2018). For a
@@ -30,7 +30,7 @@ complete list of included datasets, use \code{library(help =
 "BenchmarksWM")}. For a more structured view of all datasets organized by topics,
 use \code{?Overview} or \code{help(Overview)}.
 
- } 
+ }
 \author{
 \packageAuthor{BenchmarksWM}
 
@@ -45,11 +45,11 @@ Maintainer: \packageMaintainer{BenchmarksWM}
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
-  
+
 }
 \keyword{ package }
 \seealso{
-  \code{\link[catlearn:catlearn-package]{catlearn}}
+  \code{\link[catlearn::catlearn-package]{catlearn}}
 }
 \examples{
 

@@ -77,7 +77,7 @@ legend(1, 0.7, c("no cue", "100 ms",  "400 ms","1000 ms", "2000 ms"),
 lty = c(1:4,5),
        pch=15:19, col = c("black", "lightgrey", "grey",
        "darkgrey", "black"),
-       horiz = F, cex = 0.6, yjust = 0, xjust = 0,
+       horiz = FALSE, cex = 0.6, yjust = 0, xjust = 0,
        title = "Post-cue interval:")
 
 }
