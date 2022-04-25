@@ -8,77 +8,80 @@ rm(list=ls())
 ############### BM10 Prioritization of Information in WM #####################
 pth  <- "BenchmarksWM.Data/BM10.1.RetroCue/"
 
-
-Retrocue1 <- read.table(paste0(pth,"SouzaRetroCueVisVerb.dat"), header=F)
-names(Retrocue1) <- c("id", "session", "trial", "visverb", "cuecond", "setsize", "color1", "color2", "color3", "color4", "color5", "color6", "loc1", "loc2", "loc3", "loc4", "loc5", "loc6", "cuedloc", "ptype", "probecolor", "rt", "corr")
-# visverb: 1 = visual, 2 = verbal
-# cuecond: 1 = RC(100 ms), 2 = RC(400ms), 3 = RC(2000ms), 4 = no cue
-souza14a <- Retrocue1[which(Retrocue1$visverb == 2),]
-
-
-Retrocue2 <- read.table(paste0(pth,"SouzaRetroCueVis.dat"), header=F)
-names(Retrocue2) <- c("id", "session", "trial", "cuecond", "setsize", "color1", "color2", "color3", "color4", "color5", "color6", "loc1", "loc2", "loc3", "loc4", "loc5", "loc6", "cuedloc", "ptype", "probecolor", "rt", "corr")
-# cuecond: 1 = RC(100 ms), 2 = RC(400ms), 3 = RC(1000ms), 4 = RC(2000 ms) 5 = no cue
-# loc = location of stimulus (angle)
-# ptype: 1 = match, 2 = intrusion, 3 = new probe
-
-check1 <- Retrocue1[which(Retrocue1$visverb == 1),]
-
-souza1b <- Retrocue2
-souza1b$probetype[souza1b$ptype == 1] <- "match"
-souza1b$probetype[souza1b$ptype == 2] <- "intrusion"
-souza1b$probetype[souza1b$ptype == 3] <- "new probe"
-
-souza1b$PCI[souza1b$cuecond == 1] <- 100
-souza1b$PCI[souza1b$cuecond == 2] <- 400
-souza1b$PCI[souza1b$cuecond == 3] <- 1000
-souza1b$PCI[souza1b$cuecond == 4] <- 2000
-souza1b$PCI[souza1b$cuecond == 5] <- 0
-
-souza1b$condition[souza1b$cuecond == 1] <- "100 ms"
-souza1b$condition[souza1b$cuecond == 2] <- "400 ms"
-souza1b$condition[souza1b$cuecond == 3] <- "1000 ms"
-souza1b$condition[souza1b$cuecond == 4] <- "2000 ms"
-souza1b$condition[souza1b$cuecond == 5] <- "no cue"
-
-souza1b$trial <- (souza1b$cuecond-1)*128 + souza1b$trial
-souza1b$trial <- (souza1b$session-1)*640 + souza1b$trial
-
-souza14 <- souza1b %>% select(id, session, trial, condition, PCI, setsize, probetype,
-                              corr, rt)
-
-souza14 <- souza14 %>% dplyr::rename(subj = id, acc = corr)
-
-souza14 <- souza14 %>% dplyr::rename(CTI = PCI)
-
-save(souza14, file = "./pkg/data/souza14.rda", compress = "xz")
-
-### plotting
-
-pd <- aggregate(acc ~ condition + setsize, data = souza14, FUN = mean)
-plot(c(1,6), c(0.7,1.0), type = "n", xlab = "Set Size",
-     ylab = "Proportion correct", main = "Retro-Cue Effect in Change Detection", xaxt = "n")
-axis(side = 1, at = c(1,2,3,4,5,6), labels = c(1,2,3,4,5,6),
-     cex.axis = 0.7)
-lines(x = pd$setsize[pd$condition == "no cue"],
-      y = pd$acc[pd$condition == "no cue"],
-      type = "b", lty = 1, pch = 15, col = "black")
-lines(x = pd$setsize[pd$condition == "100 ms"],
-      y = pd$acc[pd$condition == "100 ms"],
-      type = "b", lty = 2, pch = 16, col = "lightgrey")
-lines(x = pd$setsize[pd$condition == "400 ms"],
-      y = pd$acc[pd$condition == "400 ms"],
-      type = "b", lty = 3, pch = 17, col = "grey")
-lines(x = pd$setsize[pd$condition == "1000 ms"],
-      y = pd$acc[pd$condition == "1000 ms"],
-      type = "b", lty = 4, pch = 18, col = "darkgrey")
-lines(x = pd$setsize[pd$condition == "2000 ms"],
-      y = pd$acc[pd$condition == "2000 ms"],
-      type = "b", lty = 5, pch = 19, col = "black")
-legend(1, 0.7, c("no cue", "100 ms",  "400 ms", "1000 ms", "2000 ms"), lty = c(1:4,5),
-       pch=15:19, col = c("black", "lightgrey", "grey", "darkgrey", "black"),
-       horiz = F, cex = 0.6, yjust = 0, xjust = 0, title = "Post-cue interval:")
-
+### This dataset is already included in shepherdson18 and documented
+### there as well. Thus, this section is included as a comment to not
+### interfere with the functioning of the build code.
+#
+# Retrocue1 <- read.table(paste0(pth,"SouzaRetroCueVisVerb.dat"), header=F)
+# names(Retrocue1) <- c("id", "session", "trial", "visverb", "cuecond", "setsize", "color1", "color2", "color3", "color4", "color5", "color6", "loc1", "loc2", "loc3", "loc4", "loc5", "loc6", "cuedloc", "ptype", "probecolor", "rt", "corr")
+# # visverb: 1 = visual, 2 = verbal
+# # cuecond: 1 = RC(100 ms), 2 = RC(400ms), 3 = RC(2000ms), 4 = no cue
+# souza14a <- Retrocue1[which(Retrocue1$visverb == 2),]
+#
+#
+# Retrocue2 <- read.table(paste0(pth,"SouzaRetroCueVis.dat"), header=F)
+# names(Retrocue2) <- c("id", "session", "trial", "cuecond", "setsize", "color1", "color2", "color3", "color4", "color5", "color6", "loc1", "loc2", "loc3", "loc4", "loc5", "loc6", "cuedloc", "ptype", "probecolor", "rt", "corr")
+# # cuecond: 1 = RC(100 ms), 2 = RC(400ms), 3 = RC(1000ms), 4 = RC(2000 ms) 5 = no cue
+# # loc = location of stimulus (angle)
+# # ptype: 1 = match, 2 = intrusion, 3 = new probe
+#
+# check1 <- Retrocue1[which(Retrocue1$visverb == 1),]
+#
+# souza1b <- Retrocue2
+# souza1b$probetype[souza1b$ptype == 1] <- "match"
+# souza1b$probetype[souza1b$ptype == 2] <- "intrusion"
+# souza1b$probetype[souza1b$ptype == 3] <- "new probe"
+#
+# souza1b$PCI[souza1b$cuecond == 1] <- 100
+# souza1b$PCI[souza1b$cuecond == 2] <- 400
+# souza1b$PCI[souza1b$cuecond == 3] <- 1000
+# souza1b$PCI[souza1b$cuecond == 4] <- 2000
+# souza1b$PCI[souza1b$cuecond == 5] <- 0
+#
+# souza1b$condition[souza1b$cuecond == 1] <- "100 ms"
+# souza1b$condition[souza1b$cuecond == 2] <- "400 ms"
+# souza1b$condition[souza1b$cuecond == 3] <- "1000 ms"
+# souza1b$condition[souza1b$cuecond == 4] <- "2000 ms"
+# souza1b$condition[souza1b$cuecond == 5] <- "no cue"
+#
+# souza1b$trial <- (souza1b$cuecond-1)*128 + souza1b$trial
+# souza1b$trial <- (souza1b$session-1)*640 + souza1b$trial
+#
+# souza14 <- souza1b %>% select(id, session, trial, condition, PCI, setsize, probetype,
+#                               corr, rt)
+#
+# souza14 <- souza14 %>% dplyr::rename(subj = id, acc = corr)
+#
+# souza14 <- souza14 %>% dplyr::rename(CTI = PCI)
+#
+# save(souza14, file = "./pkg/data/souza14.rda", compress = "xz")
+#
+# ### plotting
+#
+# pd <- aggregate(acc ~ condition + setsize, data = souza14, FUN = mean)
+# plot(c(1,6), c(0.7,1.0), type = "n", xlab = "Set Size",
+#      ylab = "Proportion correct", main = "Retro-Cue Effect in Change Detection", xaxt = "n")
+# axis(side = 1, at = c(1,2,3,4,5,6), labels = c(1,2,3,4,5,6),
+#      cex.axis = 0.7)
+# lines(x = pd$setsize[pd$condition == "no cue"],
+#       y = pd$acc[pd$condition == "no cue"],
+#       type = "b", lty = 1, pch = 15, col = "black")
+# lines(x = pd$setsize[pd$condition == "100 ms"],
+#       y = pd$acc[pd$condition == "100 ms"],
+#       type = "b", lty = 2, pch = 16, col = "lightgrey")
+# lines(x = pd$setsize[pd$condition == "400 ms"],
+#       y = pd$acc[pd$condition == "400 ms"],
+#       type = "b", lty = 3, pch = 17, col = "grey")
+# lines(x = pd$setsize[pd$condition == "1000 ms"],
+#       y = pd$acc[pd$condition == "1000 ms"],
+#       type = "b", lty = 4, pch = 18, col = "darkgrey")
+# lines(x = pd$setsize[pd$condition == "2000 ms"],
+#       y = pd$acc[pd$condition == "2000 ms"],
+#       type = "b", lty = 5, pch = 19, col = "black")
+# legend(1, 0.7, c("no cue", "100 ms",  "400 ms", "1000 ms", "2000 ms"), lty = c(1:4,5),
+#        pch=15:19, col = c("black", "lightgrey", "grey", "darkgrey", "black"),
+#        horiz = F, cex = 0.6, yjust = 0, xjust = 0, title = "Post-cue interval:")
+#
 
 
 

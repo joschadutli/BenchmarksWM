@@ -161,6 +161,9 @@ Hmisc dependency. Try to work around that
 ### run R CMD check again
 
 
+### additional change
+
+souza14 deleted because it is already in shepherdson18. The documentation files explain this. I out-commented the transformation of souza14 in the make-rda10 script.
 
 
 
