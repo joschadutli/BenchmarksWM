@@ -1,6 +1,6 @@
 build-last-errors="[]"
 build-last-errors-base-dir=""
-build-last-outputs="[{\"type\":2,\"output\":\"ERROR: Package build failed.\\n\\nThe build directory does not contain a DESCRIPTION file and so cannot be built as a package.\\n\\nBuild directory: ~/Desktop/Doktorat I/Benchmarks Project Fix/BenchmarksWM\\n\"}]"
+build-last-outputs="[]"
 compile_pdf_state="{\"tab_visible\":false,\"running\":false,\"target_file\":\"\",\"output\":\"\",\"errors\":[]}"
 files.monitored-path=""
 find-in-files-state="{\"handle\":\"\",\"input\":\"\",\"path\":\"\",\"regex\":false,\"ignoreCase\":false,\"results\":{\"file\":[],\"line\":[],\"lineValue\":[],\"matchOn\":[],\"matchOff\":[],\"replaceMatchOn\":[],\"replaceMatchOff\":[]},\"running\":false,\"replace\":false,\"preview\":false,\"gitFlag\":false,\"replacePattern\":\"\"}"
