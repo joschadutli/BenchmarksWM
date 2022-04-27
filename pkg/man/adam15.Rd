@@ -37,13 +37,13 @@
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
 
 }
-\references{ 
+\references{
 
   Adam, K.C.S., Mance, I., Fukuda, K., & Vogel, E.K. (2015). The
   contribution of attentional lapses to individual differences in visual
   working memory capacity. \emph{Journal of Cognitive Neuroscience, 27},
   1601-1616.
-  
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
