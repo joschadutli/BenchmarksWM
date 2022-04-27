@@ -18,7 +18,7 @@ The DESCRIPTION file:
 A collection of benchmark datasets for working memory researchers, as
 identified by Oberauer et al. (2018). This package is a fork of Oberauer
 (2019), with all datasets placed in a common format and documented with
-help files.
+help files, following the structure specified by Wills et al. (2017). 
 
 The package is likely to be useful for those wishing to conduct
 computational modelling, and/or secondary data analysis, of these
@@ -44,13 +44,16 @@ Maintainer: \packageMaintainer{BenchmarksWM}
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 
-  Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
+  Oberauer,
+  K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
+
+  Wills, A.J., O'Connell, G., Edmunds, C.E.R. & Inkster, A.B. (2017).
+  Progress in modeling through distributed collaboration: Concepts,
+  tools, and category-learning examples. \emph{The Psychology of
+  Learning and Motivation, 66}, 79-115.
 
 }
 \keyword{ package }
-\seealso{
-  \code{\link[catlearn::catlearn-package]{catlearn}}
-}
 \examples{
 
 data(unsworth06a)
