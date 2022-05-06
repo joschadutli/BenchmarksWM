@@ -49,7 +49,6 @@ data(ricker17)
 ricker17$error <- abs(ricker17$error)
 dp <- aggregate(error ~ serpos*ctime, data = ricker17, FUN = mean)
 
-par(mfrow=c(1,1))
 plot(c(0.2,1.0), c(0,55), type = "n", xlab = "Condolidation time in seconds",
      ylab = "Precision error in degrees",
      main = "Serial Position and Consolidation Time", xaxt = "n")

@@ -50,6 +50,8 @@ data(harvey07)
 d_writ <- harvey07[which(harvey07$r_mode == "written"),]
 d_spok <- harvey07[which(harvey07$r_mode == "spoken"),]
 
+oldpar <- par(no.readonly = TRUE)
+
 par(mfrow=c(1,2))
 
 pdw <- aggregate(acc ~ serpos*modality*material, data = d_writ, FUN = mean)
@@ -96,7 +98,7 @@ legend(2.5, 1.0, c("Auditory - numbers", "Auditory - words", "Visual - numbers",
                    "Visual - words"), lty = 1:4, pch = c(21,22,21,22),
        pt.bg = c("black","black","grey","grey"), horiz = FALSE, cex = 0.6,
        yjust = 1, xjust = 0)
-
+par(oldpar)
 
 }
 \keyword{datasets}

@@ -1,10 +1,12 @@
 Package: BenchmarksWM
 Type: Package
 Title: Working Memory Benchmarks
-Version: 1.0.2
-Date: 2022-04-27
-Author: Andy Wills, Joscha Dutli, Klaus Oberauer
-Maintainer: Joscha Dutli <joscha.dutli@psychologie.uzh.ch>
+Version: 1.0.3
+Date: 2022-05-06
+Authors@R: c(person(given = "Joscha", family = "Dutli", role = c("cre", "aut"), 
+    email = "joscha.dutli@psychologie.uzh.ch"),
+    person(given = "Andy", family = "Wills", role = "aut"),
+    person(given = "Klaus", family = "Oberauer", role = "aut"))
 Description: Individual-subject data from benchmark working memory experiments.
 License: GPL (>= 2)
 LazyData: true

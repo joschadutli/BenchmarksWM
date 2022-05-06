@@ -2,12 +2,12 @@
 \alias{grenfell12}
 \docType{data}
 \title{
-  Data from Grenfell-Essam and Ward's (2012) Experiment 1 on the Probability of 
+  Data from Grenfell-Essam and Ward's (2012) Experiment 1 on the Probability of
   First Recall by Serial Position in Free Recall
 }
 \description{
   Grenfell-Essam and Ward's (2012) Experiment 3 data show that for short lists,
-  participants usually start recall with the first list item whereas when the 
+  participants usually start recall with the first list item whereas when the
   lists get longer, they start with one of the last 4 items in the list. The latter
   effect is stronger, when participants are told before list presentation, that
   they are free to recall the list in any order.
@@ -33,14 +33,14 @@
 }
 \source{
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
-  
+
 }
 \references{
   Grenfell-Essam, R., & Ward, G. (2012). Examining the relationship between free
   recall and immediate serial recall: The role of list length, strategy use,
-  and test expectancy. \emph{Journal of Memory and Language, 67}, 106-148. 
+  and test expectancy. \emph{Journal of Memory and Language, 67}, 106-148.
   http://dx.doi.org/10.1016/j.jml.2012.04.004
-  
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
@@ -56,6 +56,7 @@ post <- filter(grenfell12, cue=="post-presentation")
 pre <- filter(grenfell12, cue=="pre-presentation")
 
 colors <- c("black", "grey50", "grey80", "white")
+oldpar <- par(no.readonly = TRUE)
 
 ## written by K. Oberauer
 plotpanel <- function(post,title4panel) {
@@ -82,5 +83,6 @@ plotpanel <- function(post,title4panel) {
 par(mfrow=c(1,2),mar=c(4, 4, 2, 1) + 0.2)
 plotpanel(pre,"Pre-cued")
 plotpanel(post,"Post-cued")
+par(oldpar)
 }
 \keyword{datasets}

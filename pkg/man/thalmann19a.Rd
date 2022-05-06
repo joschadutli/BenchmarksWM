@@ -59,6 +59,7 @@ pd$sso[pd$setsize_other == 2] <- 2
 pd$sso[pd$setsize_other == 4] <- 4
 p1 <- pd[which(pd$setsize_this == 2),]
 p2 <- pd[which(pd$setsize_this == 4),]
+oldpar <- par(no.readonly = TRUE)
 par(mfrow=c(1,2))
 plot(c(1,5), c(0.6,1.0), type = "n", xlab = "Size Other",
      ylab = "Proportion correct", main = "Size Tested = 2", xaxt = "n")
@@ -83,5 +84,6 @@ lines(x = p2$sso[p2$chunk_other == "Chunk"],
 lines(x = p2$sso[p2$chunk_other == "New List"],
       y = p2$seracc[p2$chunk_other == "New List"],
       type = "b", lty = 2, pch = 16, col = "red")
+par(oldpar)
 }
 \keyword{datasets}

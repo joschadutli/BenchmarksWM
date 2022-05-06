@@ -54,7 +54,7 @@
 data(farrell04)
 ### Reproduce Figure B2 in Oberauer et al. (2018) without CIs
 fl04m <- aggregate(rt~condition+serpos, data=farrell04, FUN=mean)
-par(mfrow=c(1,1))  #accuracy and then RT
+#accuracy and then RT
 bgk <- c("gray","black")
 ltyk <- c("solid","dashed")
 

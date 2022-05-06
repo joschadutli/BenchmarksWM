@@ -1,15 +1,14 @@
 \name{shepherdson18}
 \alias{shepherdson18}
 \docType{data}
-\title{Shepherdson, Oberauer, and Souza (2018) and Souza, Rerko, and Oberauer (2014) 
+\title{Shepherdson, Oberauer, and Souza (2018) and Souza, Rerko, and Oberauer (2014)
 data on the effect of retro cues and the effect of set size on response times
-%%   ~~ data name/kind ... ~~
 }
 \description{
-  These are individual-trial data from Shepherdson et al. (2018) and Souza et al. 
+  These are individual-trial data from Shepherdson et al. (2018) and Souza et al.
   (2014) on the retro cue effect and the set size effect on response times and
-  accuracy with letters (Exp 1), words (Exp2), and colored arrays (Exp S1a & S1b) 
-  as stimulus materials. 
+  accuracy with letters (Exp 1), words (Exp2), and colored arrays (Exp S1a & S1b)
+  as stimulus materials.
 }
 \usage{data("shepherdson18")}
 \format{
@@ -32,25 +31,25 @@ data on the effect of retro cues and the effect of set size on response times
   }
 }
 \details{
-  These are the individual-trial data of Experiments 1 & 2 in Shepherdson et al. 
-  (2018) and Experiments 1A (S1a) & 1B (S1b) in Souza et al. (2014). \cr 
-  Experiment 1 uses letters, Experiment 2 uses words and Experiments 1a & 1b use 
-  colors as stimuli. In all Experiments the appearance of retro cues 
+  These are the individual-trial data of Experiments 1 & 2 in Shepherdson et al.
+  (2018) and Experiments 1A (S1a) & 1B (S1b) in Souza et al. (2014). \cr
+  Experiment 1 uses letters, Experiment 2 uses words and Experiments 1a & 1b use
+  colors as stimuli. In all Experiments the appearance of retro cues
   was manipulated.
-  In one condition there is no retro cue. In the other conditions, the time 
-  available between presentation of the retro cue and the presentation of the 
-  recognition probe was varied between 100 ms, 400 ms & 2000 ms. In Experiment 
+  In one condition there is no retro cue. In the other conditions, the time
+  available between presentation of the retro cue and the presentation of the
+  recognition probe was varied between 100 ms, 400 ms & 2000 ms. In Experiment
   S1b there's an additional interval of 1000 ms.
   The set size was varied between 1, 2, 4 & 6 in Experiments 1, S1a & S1b and
   varied between 2, 4, 6 & 8 in Experiment 2.
-  
+
   The "No Cue" condition shows a monotonic increase in response times with
   increasing set size. The retro
-  cues lead to an impairment of this effect when there's enough time between 
+  cues lead to an impairment of this effect when there's enough time between
   the cue and the recognition probe (400 ms, but especially 1000 ms & 2000 ms).
   In these cases, the response times are more or less constant for different
   set sizes.
-  
+
 }
 \source{
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
@@ -62,23 +61,23 @@ data on the effect of retro cues and the effect of set size on response times
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
-  
+
   Shepherdson, P., Oberauer, K., & Souza, A. S. (2018). Working Memory Load
   and the Retro-Cue Effect: A Diffusion Model Account. \emph{Journal of Experimental
-  Psychology: Human Perception and Performance, 44}, 286-310. 
+  Psychology: Human Perception and Performance, 44}, 286-310.
   http://dx.doi.org/10.1037/xhp0000448
-  
+
   Souza, A. S., Rerko, L., & Oberauer, K. (2014). Unloading and reloading working
-  memory: Attending to one item frees capacity. \emph{Journal of Experimental 
+  memory: Attending to one item frees capacity. \emph{Journal of Experimental
   Psychology: Human Perception and Performance, 40}, 1237-1256.
   http://dx.doi.org/10.1037/a0036331
-  
-  
+
+
 }
 \examples{
   ### Reproduce part of Figure 2 from Shepherdson et al. (2018)
   ### without confidence interval
-  
+
   data("shepherdson18")
   plotd <- shepherdson18[which(shepherdson18$exp == "Exp 1"), ]
   plotd <- aggregate(rt ~ size*CTI*subj, data=plotd, FUN=mean)
@@ -87,6 +86,6 @@ data on the effect of retro cues and the effect of set size on response times
                            legend = FALSE, xtick = TRUE, ylim = c(0.4,1.3),
                            main = "Set size effect on RT with retro cues")
   legend(1, 0.8, c("No Cue", "100 ms", "2000 ms", "400 ms"), pch=15:19, yjust=0)
-  ### watch out: legend is messy
+  ### watch out: legend is sorted by characters not numericals
 }
 \keyword{datasets}
