@@ -30,7 +30,7 @@
     \item{\code{subj}}{Unique subject ID for each participant.}
     \item{\code{trial}}{Trial ID}
     \item{\code{output}}{Output Position: Ranging from 1 to 13.}
-    \item{\code{input}}{Serial Position of recalled item: Rangeing from 1 to 20; 99 = extralist intrusion.}
+    \item{\code{input}}{Serial Position of recalled item: Ranging from 1 to 20; 99 = extralist intrusion.}
     \item{\code{irl}}{Inter-response Latency measured in seconds}
     \item{\code{correct}}{Correct: Differentiates between correctly recalled items (
     \code{1} and extralist intrusions \code{0}}

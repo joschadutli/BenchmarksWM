@@ -29,14 +29,14 @@
   research by Oberauer et al. (2018). \cr
   A classic Sternberg (1966) task was
   completed with fast presentation rates and short retention intervals (RI) in
-  one group (experiment 1; subjects 1-4; rate = rate = 500 ms + 100 ms;
+  one group (experiment 1; subjects 1-4; rate = 500 ms + 100 ms;
   RI = 400 ms) or with slow presentation rates and relatively long RIs in the
   other group of participants (experiment 2; subjects 5-7; rate = 1000 ms +
   200 ms; RI = 2000 ms). \cr
-  Recognition response times for "fast" presentation rates are primarily deter-
-  mined by serial position (pos), whereas "slow" presentation rates lead to
-  a recognition response time distribution that is mainly due to a effect of
-  set sizes (Donkin & Nosofsky, 2012b).
+  Recognition response times for "fast" presentation rates are primarily
+  determined by serial position (pos), whereas "slow" presentation rates
+  lead to a recognition response time distribution that is mainly due
+  to a effect of set sizes (Donkin & Nosofsky, 2012b).
 
 }
 \source{

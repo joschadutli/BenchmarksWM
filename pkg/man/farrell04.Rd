@@ -2,18 +2,17 @@
 \alias{farrell04}
 \docType{data}
 \title{
-  Farrell and Lewandowsky's (2004; Exp. 2) Response Latency and Output Position Data for
-  Serial Positions with and without Interference (Distractor Task)
+  Farrell and Lewandowsky's (2004; Exp. 2) Response Latency and Output Position
+  Data for Serial Positions with and without Interference (Distractor Task)
 }
 \description{
   These are the individual-trial data from Experiment 2 in Farrell
   and Lewandowsky (2004). Stimuli were single consonants. In interference trials,
-  participants read four digits
-  aloud before performing forward serial recall. No interference trials are
-  characterized by immediate forward serial recall.
+  participants read four digits aloud before performing forward serial recall.
+  No interference trials are characterized by immediate forward serial recall.
 
-  In Farrell and Lewandowsky (2004), output positions were transformed to transposition
-  distances of the form: P(Response)/P(Opportunity).
+  In Farrell and Lewandowsky (2004), output positions were transformed
+  to transposition distances of the form: P(Response)/P(Opportunity).
 }
 \usage{data("farrell04")}
 \format{

@@ -9,7 +9,7 @@
 \packageDescription{BenchmarksWM}
 }
 \details{
-  Go to \code{\link{Overview}} for an overview of all the Benchmark subsections and datasets.
+  Go to \code{\link{benchmarks.overview}} for an overview of all the Benchmark subsections and datasets.
 
 The DESCRIPTION file:
 \packageDESCRIPTION{BenchmarksWM}
@@ -18,7 +18,7 @@ The DESCRIPTION file:
 A collection of benchmark datasets for working memory researchers, as
 identified by Oberauer et al. (2018). This package is a fork of Oberauer
 (2019), with all datasets placed in a common format and documented with
-help files, following the structure specified by Wills et al. (2017). 
+help files, following the structure specified by Wills et al. (2017).
 
 The package is likely to be useful for those wishing to conduct
 computational modelling, and/or secondary data analysis, of these
@@ -28,7 +28,7 @@ The package contains one or more datasets (each with a help file) for each
 benchmark listed by Oberauer et al. (2018). For a
 complete list of included datasets, use \code{library(help =
 "BenchmarksWM")}. For a more structured view of all datasets organized by topics,
-use \code{?Overview} or \code{help(Overview)}.
+use \code{?benchmarks.overview} or \code{help(benchmarks.overview)}.
 
  }
 \author{
@@ -44,8 +44,7 @@ Maintainer: \packageMaintainer{BenchmarksWM}
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 
-  Oberauer,
-  K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
+  Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
 
   Wills, A.J., O'Connell, G., Edmunds, C.E.R. & Inkster, A.B. (2017).
   Progress in modeling through distributed collaboration: Concepts,

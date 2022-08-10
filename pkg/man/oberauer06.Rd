@@ -58,27 +58,26 @@
   and Figure 2 in Oberauer (2006) in particular.
 }
 \source{
-      Oberauer,
-      K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
+      Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
 }
 \references{
-  
+
   Oberauer, K. (2006). Is the focus of attention in working memory
   expanded through practice? \emph{Journal of Experimental Psychology:
   Learning, Memory, and Cognition, 32},
   197-214. http://dx.doi.org/10.1037/0278-7393.32.2.197
-  
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
   G. (2018). Benchmarks for models of short-term and working
   memory. \emph{Psychological Bulletin, 144}, 885-958.
-    
+
 }
 \examples{
 ### Approximate replication of Figure 3 (top panel) in Oberauer (2006)
 data(oberauer06)
-pd <- aggregate(rt ~ setsize+update_type+session, 
+pd <- aggregate(rt ~ setsize+update_type+session,
                 data = oberauer06[which(oberauer06$update_type != "first item"),],
                 FUN = mean)
 bgk <- c("white","black")

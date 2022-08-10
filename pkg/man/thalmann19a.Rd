@@ -29,7 +29,7 @@
     \item{\code{sp}}{Serial position: \code{1}, \code{2}, \code{3}, or \code{4}}
     \item{\code{seracc}}{Accuracy in serial recall (strict scoring)}
     \item{\code{rt}}{Response time (s)}
-    \item{\code{freeacc}}{Accuracy in serial recall (lenient scoring)}
+    \item{\code{freeacc}}{Accuracy in free recall (lenient scoring)}
   }
 }
 \details{

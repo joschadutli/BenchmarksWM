@@ -9,7 +9,8 @@
   These are the individual-response data from Experiment 1 in Grenfell-Essam et
   al. (2013). The data show that for long lists of words, having time for
   articulatory rehearsal has an effect on the probability that the first item
-  is recalled correctly. Articulatorily suppressing rehearsal eliminates this effect.
+  is recalled correctly. Articulatorily suppressing rehearsal eliminates this
+  effect.
 }
 \usage{data("grenfell13")}
 \format{

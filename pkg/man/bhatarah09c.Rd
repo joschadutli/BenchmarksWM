@@ -6,10 +6,10 @@
   Effect and the Effects of Articulatory Suppression
 }
 \description{
-  These are the individual-trial data from Experiment 3 in Bhatarah et al. (2009). 
-  Participants preformed free recall or immediate serial recall of lists of words 
-  by experimental block. Word length varied betwee short (one syllable) and long 
-  (five syllables). Partcipants were asked to repeat aloud the word "the" during 
+  These are the individual-trial data from Experiment 3 in Bhatarah et al. (2009).
+  Participants preformed free recall or immediate serial recall of lists of words
+  by experimental block. Word length varied between short (one syllable) and long
+  (five syllables). Partcipants were asked to repeat aloud the word "the" during
   presentation of the word lists (articulatory suppression) or to keep quiet (quiet).
 }
 \usage{data("bhatarah09c")}
@@ -36,12 +36,12 @@
   Oberauer, K. (2019). BenchmarksWM. https://github.com/oberauer/BenchmarksWM
 }
 \references{
- 
+
   Bhatarah, P., Ward, G., Smith, J., & Hayes, L. (2009). Examining the relationship between
   free recall and immediate serial recall: Similar patterns of rehearsal and similar effects
   of word length, presentation rate, and articulatory suppression. \emph{Memory & Cognition,
   37}, 689-713. http://dx.doi.org/10.3758/MC.37.5.689
-  
+
   Oberauer, K., Lewandowsky, S., Awh, E., Brown, G.D.A, Conway, A.,
   Cowan, N., Donkin, C., Farrell, S., Hitch, G.J., Hurlstone, M.J., Ma,
   W.J., Morey, C.C., Nee, D.E., Schweppe, J., Vergauwe, E., and Ward,
@@ -52,29 +52,29 @@
 ### Reproduce Figure 6B in Bhatarah et al. (2009)
 data(bhatarah09c)
 ### Immediate serial recall
-pd <- aggregate(spos.correct ~ serpos+activity+word.length, 
+pd <- aggregate(spos.correct ~ serpos+activity+word.length,
                 data = bhatarah09c[which(bhatarah09c$task == "ISR"),], FUN = mean)
 plot(c(1,8), c(0.0,1.0), type = "n", xlab = "Serial Position",
      ylab = "Proportion correct", main = "Immediate Serial Recall", xaxt = "n")
 axis(side = 1, at = c(1,2,3,4,5,6,7,8), labels = levels(pd$serpos), cex.axis = 0.7)
-lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "articulatory suppression"], 
-      y = pd$spos.correct[pd$word.length == "short" & 
+lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "articulatory suppression"],
+      y = pd$spos.correct[pd$word.length == "short" &
                             pd$activity == "articulatory suppression"],
       type = "b", lty = 1, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "articulatory suppression"], 
-      y = pd$spos.correct[pd$word.length == "long" 
-                          & pd$activity == "articulatory suppression"], 
+lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "articulatory suppression"],
+      y = pd$spos.correct[pd$word.length == "long"
+                          & pd$activity == "articulatory suppression"],
       type = "b", lty = 1, pch = 17, col = "green")
-lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "quiet"], 
-      y = pd$spos.correct[pd$word.length == "short" & pd$activity == "quiet"], 
+lines(x = pd$serpos[pd$word.length == "short" & pd$activity == "quiet"],
+      y = pd$spos.correct[pd$word.length == "short" & pd$activity == "quiet"],
       type = "b", lty = 2, pch = 15, col = "blue")
-lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "quiet"], 
-      y = pd$spos.correct[pd$word.length == "long" & pd$activity == "quiet"], 
+lines(x = pd$serpos[pd$word.length == "long" & pd$activity == "quiet"],
+      y = pd$spos.correct[pd$word.length == "long" & pd$activity == "quiet"],
       type = "b", lty = 2, pch = 17, col = "green")
 legend(8, 1.0, c("AS-short","AS-long",
-                 "quiet-short","quiet-long"), lty = c(1,1,2,2), 
+                 "quiet-short","quiet-long"), lty = c(1,1,2,2),
        pch=c(15,17,15,17), title = "Cue condition:",
-       col = c("blue","green","blue","green"), horiz = FALSE, cex = 0.6, 
+       col = c("blue","green","blue","green"), horiz = FALSE, cex = 0.6,
        yjust = 1, xjust = 1)
 }
 \keyword{datasets}
