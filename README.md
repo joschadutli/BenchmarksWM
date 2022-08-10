@@ -24,7 +24,7 @@ R data packages provide a good medium for this additional step, because they are
 
 2022-04-27: Bug fixes, available as package version 1.0.2.
 
-2022-08-10: Added overview datasets to support package structure in line with CRAN policies, available as package version 1.1.0.
+2022-08-10: Added overview datasets to support structure and make compatible with CRAN policies, available as package version 1.1.0.
 
 ## How to install
 
