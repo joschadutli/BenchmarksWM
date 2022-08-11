@@ -17,66 +17,66 @@ pth  <- "BenchmarksWM.Data/BMOverview/"
 fnam <- paste0("../", pth, "benchmarks1.1.xlsx")
 dat <- read_excel(path=fnam, sheet = "Sheet 1")
 
-benchmark1.1 <- dat
+benchmarkWM1.1 <- dat
 
-save(benchmark1.1, file = "./data/benchmark1.1.rda", compress = "gzip")
+save(benchmarkWM1.1, file = "./data/benchmarkWM1.1.rda", compress = "gzip")
 
-# promptData(benchmark1.1, filename = "./man/benchmark1.1.Rd")
+# promptData(benchmarkWM1.1, filename = "./man/benchmarkWM1.1.Rd")
 
 ## Benchmarks 1.2
 
 fnam <- paste0("../", pth, "benchmarks1.2.xlsx")
 dat <- read_excel(path=fnam, sheet = "Sheet 1")
 
-benchmark1.2 <- dat
+benchmarkWM1.2 <- dat
 
-save(benchmark1.2, file = "./data/benchmark1.2.rda", compress = "gzip")
+save(benchmarkWM1.2, file = "./data/benchmarkWM1.2.rda", compress = "gzip")
 
-# promptData(benchmark1.2, filename = "./man/benchmark1.2.Rd")
+# promptData(benchmarkWM1.2, filename = "./man/benchmarkWM1.2.Rd")
 
 ## Benchmarks 1.3
 
 fnam <- paste0("../", pth, "benchmarks1.3.xlsx")
 dat <- read_excel(path=fnam, sheet = "Sheet 1")
 
-benchmark1.3 <- dat
+benchmarkWM1.3 <- dat
 
-save(benchmark1.3, file = "./data/benchmark1.3.rda", compress = "gzip")
+save(benchmarkWM1.3, file = "./data/benchmarkWM1.3.rda", compress = "gzip")
 
-# promptData(benchmark1.3, filename = "./man/benchmark1.3.Rd")
+# promptData(benchmarkWM1.3, filename = "./man/benchmarkWM1.3.Rd")
 
 ## Benchmarks 2.1
 
 fnam <- paste0("../", pth, "benchmarks2.1.xlsx")
 dat <- read_excel(path=fnam, sheet = "Sheet 1")
 
-benchmark2.1 <- dat
+benchmarkWM2.1 <- dat
 
-save(benchmark2.1, file = "./data/benchmark2.1.rda", compress = "gzip")
+save(benchmarkWM2.1, file = "./data/benchmarkWM2.1.rda", compress = "gzip")
 
-# promptData(benchmark2.1, filename = "./man/benchmark2.1.Rd")
+# promptData(benchmarkWM2.1, filename = "./man/benchmarkWM2.1.Rd")
 
 ## Benchmarks 2.4
 
 fnam <- paste0("../", pth, "benchmarks2.4.xlsx")
 dat <- read_excel(path=fnam, sheet = "Sheet 1")
 
-benchmark2.4 <- dat
+benchmarkWM2.4 <- dat
 
-save(benchmark2.4, file = "./data/benchmark2.4.rda", compress = "gzip")
+save(benchmarkWM2.4, file = "./data/benchmarkWM2.4.rda", compress = "gzip")
 
-# promptData(benchmark2.4, filename = "./man/benchmark2.4.Rd")
+# promptData(benchmarkWM2.4, filename = "./man/benchmarkWM2.4.Rd")
 
 ## Benchmarks 3
 
 fnam <- paste0("../", pth, "benchmarks3.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark3 <- dat
+benchmarkWM3 <- dat
 
-save(benchmark3, file = "./data/benchmark3.rda", compress = "gzip")
+save(benchmarkWM3, file = "./data/benchmarkWM3.rda", compress = "gzip")
 
-# promptData(benchmark3, filename = "./man/benchmark3.Rd")
+# promptData(benchmarkWM3, filename = "./man/benchmarkWM3.Rd")
 
 ## Benchmarks 4
 
@@ -84,11 +84,11 @@ save(benchmark3, file = "./data/benchmark3.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks4.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark4 <- dat
+benchmarkWM4 <- dat
 
-save(benchmark4, file = "./data/benchmark4.rda", compress = "gzip")
+save(benchmarkWM4, file = "./data/benchmarkWM4.rda", compress = "gzip")
 
-# promptData(benchmark4, filename = "./man/benchmark4.Rd")
+# promptData(benchmarkWM4, filename = "./man/benchmarkWM4.Rd")
 
 
 ## Benchmarks 5
@@ -96,11 +96,11 @@ save(benchmark4, file = "./data/benchmark4.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks5.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark5 <- dat
+benchmarkWM5 <- dat
 
-save(benchmark5, file = "./data/benchmark5.rda", compress = "gzip")
+save(benchmarkWM5, file = "./data/benchmarkWM5.rda", compress = "gzip")
 
-# promptData(benchmark5, filename = "./man/benchmark5.Rd")
+# promptData(benchmarkWM5, filename = "./man/benchmarkWM5.Rd")
 
 
 ## Benchmarks 6
@@ -108,11 +108,11 @@ save(benchmark5, file = "./data/benchmark5.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks6.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark6 <- dat
+benchmarkWM6 <- dat
 
-save(benchmark6, file = "./data/benchmark6.rda", compress = "gzip")
+save(benchmarkWM6, file = "./data/benchmarkWM6.rda", compress = "gzip")
 
-# promptData(benchmark6, filename = "./man/benchmark6.Rd")
+# promptData(benchmarkWM6, filename = "./man/benchmarkWM6.Rd")
 
 
 ## Benchmarks 7
@@ -120,11 +120,11 @@ save(benchmark6, file = "./data/benchmark6.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks7.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark7 <- dat
+benchmarkWM7 <- dat
 
-save(benchmark7, file = "./data/benchmark7.rda", compress = "gzip")
+save(benchmarkWM7, file = "./data/benchmarkWM7.rda", compress = "gzip")
 
-# promptData(benchmark7, filename = "./man/benchmark7.Rd")
+# promptData(benchmarkWM7, filename = "./man/benchmarkWM7.Rd")
 
 
 ## Benchmarks 8
@@ -132,11 +132,11 @@ save(benchmark7, file = "./data/benchmark7.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks8.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark8 <- dat
+benchmarkWM8 <- dat
 
-save(benchmark8, file = "./data/benchmark8.rda", compress = "gzip")
+save(benchmarkWM8, file = "./data/benchmarkWM8.rda", compress = "gzip")
 
-# promptData(benchmark8, filename = "./man/benchmark8.Rd")
+# promptData(benchmarkWM8, filename = "./man/benchmarkWM8.Rd")
 
 
 ## Benchmarks 9
@@ -144,11 +144,11 @@ save(benchmark8, file = "./data/benchmark8.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks9.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark9 <- dat
+benchmarkWM9 <- dat
 
-save(benchmark9, file = "./data/benchmark9.rda", compress = "gzip")
+save(benchmarkWM9, file = "./data/benchmarkWM9.rda", compress = "gzip")
 
-# promptData(benchmark9, filename = "./man/benchmark9.Rd")
+# promptData(benchmarkWM9, filename = "./man/benchmarkWM9.Rd")
 
 
 ## Benchmarks 10
@@ -156,11 +156,11 @@ save(benchmark9, file = "./data/benchmark9.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks10.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark10 <- dat
+benchmarkWM10 <- dat
 
-save(benchmark10, file = "./data/benchmark10.rda", compress = "gzip")
+save(benchmarkWM10, file = "./data/benchmarkWM10.rda", compress = "gzip")
 
-# promptData(benchmark10, filename = "./man/benchmark10.Rd")
+# promptData(benchmarkWM10, filename = "./man/benchmarkWM10.Rd")
 
 
 ## Benchmarks 11
@@ -168,11 +168,11 @@ save(benchmark10, file = "./data/benchmark10.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks11.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark11 <- dat
+benchmarkWM11 <- dat
 
-save(benchmark11, file = "./data/benchmark11.rda", compress = "gzip")
+save(benchmarkWM11, file = "./data/benchmarkWM11.rda", compress = "gzip")
 
-# promptData(benchmark11, filename = "./man/benchmark11.Rd")
+# promptData(benchmarkWM11, filename = "./man/benchmarkWM11.Rd")
 
 
 ## Benchmarks 12
@@ -180,11 +180,11 @@ save(benchmark11, file = "./data/benchmark11.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks12.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmark12 <- dat
+benchmarkWM12 <- dat
 
-save(benchmark12, file = "./data/benchmark12.rda", compress = "gzip")
+save(benchmarkWM12, file = "./data/benchmarkWM12.rda", compress = "gzip")
 
-# promptData(benchmark12, filename = "./man/benchmark12.Rd")
+# promptData(benchmarkWM12, filename = "./man/benchmarkWM12.Rd")
 
 
 
@@ -193,11 +193,11 @@ save(benchmark12, file = "./data/benchmark12.rda", compress = "gzip")
 fnam <- paste0("../", pth, "benchmarks_overview.xlsx")
 dat <- read_excel(path=fnam, sheet = "Tabelle1")
 
-benchmarks.overview <- dat
+benchmarksWM.overview <- dat
 
-save(benchmarks.overview, file = "./data/benchmarks.overview.rda", compress = "gzip")
+save(benchmarksWM.overview, file = "./data/benchmarksWM.overview.rda", compress = "gzip")
 
-# promptData(benchmarks.overview, filename = "./man/benchmarks.overview.Rd")
+# promptData(benchmarksWM.overview, filename = "./man/benchmarksWM.overview.Rd")
 
 
 
