@@ -9,7 +9,7 @@
 \packageDescription{BenchmarksWM}
 }
 \details{
-  Go to \code{\link{benchmarks.overview}} for an overview of all the Benchmark subsections and datasets.
+  Go to \code{\link{benchmarksWM.overview}} for an overview of all the Benchmark subsections and datasets.
 
 The DESCRIPTION file:
 \packageDESCRIPTION{BenchmarksWM}
@@ -28,7 +28,7 @@ The package contains one or more datasets (each with a help file) for each
 benchmark listed by Oberauer et al. (2018). For a
 complete list of included datasets, use \code{library(help =
 "BenchmarksWM")}. For a more structured view of all datasets organized by topics,
-use \code{?benchmarks.overview} or \code{help(benchmarks.overview)}.
+use \code{?benchmarksWM.overview} or \code{help(benchmarksWM.overview)}.
 
  }
 \author{
