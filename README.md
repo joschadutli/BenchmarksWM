@@ -16,10 +16,10 @@ R data packages provide a good medium for this additional step, because they are
 
 ## How to install
 
-Download the latest release from the 'releases' directory to your local machine and use `R CMD INSTALL BenchmarksWM_1.1.1.tar.gz` from the command line. Or from within R, navigate to the directory containing the downloaded file and use `install.packages("BenchmarksWM_1.1.1.tar.gz", repos=NULL)`
+Download the latest release from the 'releases' directory to your local machine and use `R CMD INSTALL BenchmarksWM_1.1.1.tar.gz` from the command line. Or from within R, navigate to the directory containing the downloaded file and use `install.packages("BenchmarksWM_1.1.1.tar.gz", repos=NULL)`. Alternatively, use the `devtools` package by running `devtools::install_github("joschadutli/BenchmarksWM/pkg")` from your R or R Studio console.
 
 ## How to use
-Once installed, type `library(BenchmarksWM)`. For an overview documentation of the content of the package including the list of benchmarks, type `?benchmarks.overview`. To see the general documentation of the package, type `?BenchmarksWM`. For documentation on a particular dataset, type e.g. `?adam15`. To view a dataset, type e.g. `View(adam15)`. To reproduce a benchmark, use the example code provided in the documentation for that dataset.
+Once installed, type `library(BenchmarksWM)`. To see the general documentation of the package, type `?BenchmarksWM`. For an overview documentation of the content of the package including the list of benchmarks, type `?benchmarks.overview`. From this documentation, you can navigate through all the benchmark sub-category documentations and all dataset documentations. For directly accessing the documentation on a particular dataset, type e.g. `?adam15`. To view a dataset, type e.g. `View(adam15)`. Load datasets with `data(adam15)`. To reproduce a figure of a benchmark, use the example code provided in the documentation for that dataset.
 
 ## Progress
 
