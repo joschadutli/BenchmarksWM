@@ -13,18 +13,6 @@
   of the single datasets included in this Benchmark.
 
 }
-\usage{data("benchmarkWM1.1")}
-\format{
-  A data frame with 7 observations on the following 6 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{task}}{Task used in the study}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{7 datasets with effects of set size on accuracy.}
 \describe{
@@ -82,7 +70,6 @@
 
 }
 \examples{
-  data(benchmarkWM1.1)
   data("unswort06a")
   ?unswort06a
 }

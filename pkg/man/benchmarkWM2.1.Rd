@@ -14,18 +14,6 @@
   links to the documentation files providing more precise descriptions
   of the single datasets included in this Benchmark.
 }
-\usage{data("benchmarkWM2.1")}
-\format{
-  A data frame with 3 observations on the following 6 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{task}}{Task used in the study}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{3 datasets with effects of filled retention intervals.}
 \describe{
@@ -65,7 +53,6 @@
 
 }
 \examples{
-data(benchmarkWM2.1)
 data(lewandowsky10)
 ?floden10
 }

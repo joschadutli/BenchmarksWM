@@ -12,17 +12,6 @@
   See Oberauer et al. (2018; 906) for a more precise description of the
   datasets and the Benchmark findings they represent.
 }
-\usage{data("benchmarkWM6")}
-\format{
-  A data frame with 2 observations on the following 5 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{2 datasets on the distracting effects of irrelevant sounds in WM tasks.}
 \describe{
@@ -52,7 +41,6 @@
 
 }
 \examples{
-  data(benchmarkWM6)
   data(schlittmeier12)
   ?bell19}
 \keyword{datasets}

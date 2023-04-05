@@ -13,17 +13,6 @@
   See Oberauer et al. (2018; 898ff.) for a more precise description of the
   datasets and the Benchmark findings they are associated with.
 }
-\usage{data("benchmarkWM3")}
-\format{
-  A data frame with 11 observations on the following 5 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
   \strong{11 datasets with effects of serial position on accuracy and/or retrieval latencies.}
   \describe{
@@ -102,7 +91,6 @@
 
 }
 \examples{
-  data(benchmarkWM3)
   data(madigan71)
   ?peteranderl17
 }

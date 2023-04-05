@@ -12,17 +12,6 @@
   See Oberauer et al. (2018; 910f.) for a more precise description of the datasets and the
   Benchmark findings they represent.
 }
-\usage{data("benchmarkWM10")}
-\format{
-  A data frame with 4 observations on the following 5 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{2 datasets on the effects of retro cues to individual items in WM.}
   \describe{
@@ -64,7 +53,6 @@
 
 }
 \examples{
-  data(benchmarkWM10)
   data(oberauer06)
   ?souza14
 }

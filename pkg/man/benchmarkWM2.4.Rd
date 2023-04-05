@@ -14,18 +14,6 @@
   links to the documentation files providing more precise descriptions
   of the single datasets included in this Benchmark.
 }
-\usage{data("benchmarkWM2.4")}
-\format{
-  A data frame with 3 observations on the following 6 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{task}}{Task used in the study}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{4 datasets with effects of presentation duration.}
 \describe{
@@ -68,7 +56,6 @@
   http://dx.doi.org/10.3758/PBR.15.3.535
 }
 \examples{
-data(benchmarkWM2.4)
 data(ricker17)
 ?bays11
 }

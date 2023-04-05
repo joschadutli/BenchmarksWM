@@ -13,17 +13,6 @@
   See Oberauer et al. (2018; 902-906) for a more precise description of the
   datasets and the benchmark findings they represent.
 }
-\usage{data("benchmarkWM5")}
-\format{
-  A data frame with 9 observations on the following 5 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
   \strong{9 datasets on combining multiple demands in WM tasks.}
   \describe{
@@ -87,7 +76,6 @@
 
 }
 \examples{
-  data(benchmarkWM5)
   data(vergauwe10)
   ?chein11
 }

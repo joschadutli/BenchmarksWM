@@ -12,15 +12,6 @@
   verbal WMC and processing speed in articulation and retrieval.
   See Oberauer et al. (2018; 912ff.) for a more precise description of the Benchmarks.
 }
-\usage{data("benchmarkWM12")}
-\format{
-  A data frame with 3 observations on the following 3 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{predictor}}{Predictor variable}
-    \item{\code{outcome}}{Outcome variable}
-  }
-}
 \details{
 \strong{3 datasets on individual differences in WM and WMC.}
   \describe{
@@ -57,7 +48,6 @@
 
 }
 \examples{
-  data(benchmarkWM12)
   data(kane04)
   ?unsworth10
 }

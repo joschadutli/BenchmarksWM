@@ -15,18 +15,6 @@
   of the single datasets included in this Benchmark.
 
 }
-\usage{data("benchmarkWM1.2")}
-\format{
-  A data frame with 4 observations on the following 6 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{task}}{Task used in the study}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
   \strong{4 datasets with set size effects on response times.}
   \describe{
@@ -78,7 +66,6 @@
 
 }
 \examples{
-data(benchmarkWM1.2)
 data(donkin12b)
 ?donkin12b
 }

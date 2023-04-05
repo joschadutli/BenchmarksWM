@@ -13,17 +13,6 @@
   See Oberauer et al. (2018; 906f.) and Bhatarah et al. (2009) for a more precise
   description of the datasets and the Benchmark findings they represent.
 }
-\usage{data("benchmarkWM8")}
-\format{
-  A data frame with 4 observations on the following 5 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{4 datasets on the effects of similarity in verbal and visual WM.}
 \describe{
@@ -63,7 +52,6 @@
 
 }
 \examples{
-  data(benchmarkWM8)
   data(keshvari13)
   ?macnamara11
 }

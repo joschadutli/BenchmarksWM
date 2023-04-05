@@ -10,15 +10,6 @@
   of the categories of findings as well as information about the respective
   datasets that were archived by Oberauer (2019).
 }
-\usage{data("benchmarksWM.overview")}
-\format{
-  A data frame with 15 observations on the following 3 variables.
-  \describe{
-    \item{\code{name}}{benchmark number}
-    \item{\samp{benchmark finding}}{finding associated with the benchmark}
-    \item{\samp{number of datasets}}{number of associated datasets available in the package}
-  }
-}
 \details{
   \strong{A list of categories of Benchmark data in Working Memory research from Oberauer
   et al. (2018).}
@@ -51,7 +42,6 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
 }
 \examples{
-  data(benchmarksWM.overview)
   help("benchmarksWM.overview")
   ?benchmarkWM1.1
   help("benchmarkWM3")

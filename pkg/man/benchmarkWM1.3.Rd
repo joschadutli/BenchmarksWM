@@ -15,18 +15,6 @@
   providing more precise descriptions
   of the single datasets included in this Benchmark.
 }
-\usage{data("benchmarkWM1.3")}
-\format{
-  A data frame with 1 observations on the following 6 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{task}}{Task used in the study}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{1 dataset on verbal working memory capacity limits.}
 \describe{
@@ -49,7 +37,6 @@
   memory. \emph{Psychological Bulletin, 144}, 885-958.
   }
 \examples{
-data(benchmarkWM1.3)
 data("chen09")
 ?chen09
 }

@@ -11,17 +11,6 @@
   the Hebb repitition effect.
   See Oberauer et al. (2018; 911f.) for a more precise description of the Benchmarks.
 }
-\usage{data("benchmarkWM11")}
-\format{
-  A data frame with 4 observations on the following 5 variables.
-  \describe{
-    \item{\code{dataset}}{Names of the datsets}
-    \item{\code{manipulation}}{Which variable(s) were manipulated}
-    \item{\code{response.variable}}{Outcome variable(s)}
-    \item{\code{memory.test}}{Type of memory test}
-    \item{\code{stimulus.material}}{Type of stimulus materials}
-  }
-}
 \details{
 \strong{5 datasets on the effects of chunking in WM. The Thalmann et al. (2019) datasets
   are not mentioned in section BM 11 in Oberauer et al. (2018).}
@@ -76,7 +65,6 @@
 
 }
 \examples{
-  data(benchmarkWM11)
   data(page06)
   ?portrat16
 }
