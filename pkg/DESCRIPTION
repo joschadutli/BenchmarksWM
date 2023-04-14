@@ -1,7 +1,7 @@
 Package: BenchmarksWM
 Type: Package
 Title: Working Memory Benchmarks
-Version: 1.1.1
+Version: 1.1.2
 Date: 2023-04-05
 Authors@R: c(person(given = "Joscha", family = "Dutli", role = c("cre", "aut"), 
     email = "joscha.dutli@psychologie.uzh.ch"),
