@@ -1,6 +1,6 @@
 # BenchmarksWM
 
-R data package for benchmark data in working memory research. 
+R data package for benchmark data in working memory research. (see https://doi.org/10.31234/osf.io/vm9pq for a pre-print introduction to the package)
 
 ## Purpose of project
 
