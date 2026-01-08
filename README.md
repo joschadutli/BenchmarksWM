@@ -31,7 +31,7 @@ remotes::install_github("joschadutli/BenchmarksWM", ref = "v1.1.3", subdir = "pk
 
 ### Or: Install from release tar.gz:
 
-Download the latest release from the 'releases' directory to your local machine. From within R, navigate to the directory containing the downloaded file and use: 
+**Download the latest release** from the 'releases' directory to your local machine. From within R, navigate to the directory containing the downloaded file and use: 
 ```r 
 install.packages("BenchmarksWM_1.1.3.tar.gz", repos=NULL)
 ```
