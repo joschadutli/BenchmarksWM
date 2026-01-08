@@ -37,15 +37,22 @@
     \item{\code{digit}}{Presented digit}
     \item{\code{column}}{Column in which digit was presented}
     \item{\code{row}}{Row in which digit was presented}
-    \item{\code{update_type}}{Type of updating step: \itemize{
-	\item{\code{first item}}{ (excluded from analysis)}
-	\item{\code{no-switch}} \item{\code{switch}}}}
+    \item{\code{update_type}}{Type of updating step:
+    \itemize{
+    	\item \code{first item} (excluded from analysis)
+    	\item \code{no-switch}
+    	\item \code{switch}
+    	}}
     \item{\code{dist}}{Unclear; could be a spatial distance across
       columns and rows.}
-    \item{\code{ptype}}{Probe type: \itemize{ \item{\code{match}}
-	\item{\code{mismatch}} \item{\code{intrusion}}{ (presented digit
-	  identical to a digit currently held in WM from another
-	  column)}}}
+    \item{\code{ptype}}{Probe type:
+    \itemize{
+      \item \code{match}
+      \item \code{mismatch}
+      \item \code{intrusion} (presented digit
+  	  identical to a digit currently held in WM from another
+  	  column)
+	  }}
     \item{\code{lag}}{Lag in serial positions since current column was
       last updated}
     \item{\code{acc}}{Correct/Incorrect response (1/0)}

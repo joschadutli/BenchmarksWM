@@ -16,12 +16,37 @@ R data packages provide a good medium for this additional step, because they are
 
 ## How to install
 
-Download the latest release from the 'releases' directory to your local machine and use `R CMD INSTALL BenchmarksWM_1.1.2.tar.gz` from the command line. Or from within R, navigate to the directory containing the downloaded file and use `install.packages("BenchmarksWM_1.1.2.tar.gz", repos=NULL)`. Alternatively, use the `devtools` package by running `devtools::install_github("joschadutli/BenchmarksWM/pkg")` from your R or R Studio console.
+### Recommended: install from GitHub (development version)
+
+```r
+install.packages("remotes")
+remotes::install_github("joschadutli/BenchmarksWM", subdir = "pkg")
+```
+
+### Alternatively, install a specific version
+
+```r
+remotes::install_github("joschadutli/BenchmarksWM", ref = "v1.1.3", subdir = "pkg")
+```
+
+### Or: Install from release tar.gz:
+
+Download the latest release from the 'releases' directory to your local machine. From within R, navigate to the directory containing the downloaded file and use: 
+```r 
+install.packages("BenchmarksWM_1.1.3.tar.gz", repos=NULL)
+```
+Alternatively, use: 
+```r 
+R CMD INSTALL BenchmarksWM_1.1.3.tar.gz
+``` 
+from the command line. 
 
 ## How to use
 Once installed, type `library(BenchmarksWM)`. To see the general documentation of the package, type `?BenchmarksWM`. For an overview documentation of the content of the package including the list of benchmarks, type `?benchmarks.overview`. From this documentation, you can navigate through all the benchmark sub-category documentations and all dataset documentations. For directly accessing the documentation on a particular dataset, type e.g. `?adam15`. To view a dataset, type e.g. `View(adam15)`. Load datasets with `data(adam15)`. To reproduce a figure of a benchmark, use the example code provided in the documentation for that dataset.
 
 ## Progress
+
+2026-01-08: Fixes of documentation .Rd files. Available as package version 1.1.3.
 
 2023-04-14: Small bug fixes. Available as package version 1.1.2.
 

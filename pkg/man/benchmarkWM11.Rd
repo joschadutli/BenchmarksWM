@@ -18,10 +18,10 @@
   \item{\code{\link{portrat16}}}{Effects of chunking in a complex span task (BM 11.1)}
   \item{\code{thalmann19}}{Effects of chunking and the relationship to unchunked items in presence of chunked items (in line with BM 11.1)}
   \itemize{
-  \item{\code{\link{thalmann19a}}}{: Experiment 1: Effects of pre-learned word-pairs (i.e. chunks)}
-  \item{\code{\link{thalmann19b}}}{: Experiment 2: Effects of chunked letters and singletons}
-  \item{\code{\link{thalmann19c}}}{: Experiment 3: Effects of chunked letters and singletons under articulatory suppression}
-  \item{\code{\link{thalmann19d}}}{: Experiment 4: Effects of chunks in different list positions}
+  \item \code{\link{thalmann19a}}: Experiment 1: Effects of pre-learned word-pairs (i.e. chunks)
+  \item \code{\link{thalmann19b}}: Experiment 2: Effects of chunked letters and singletons
+  \item \code{\link{thalmann19c}}: Experiment 3: Effects of chunked letters and singletons under articulatory suppression
+  \item \code{\link{thalmann19d}}: Experiment 4: Effects of chunks in different list positions
   }
   }
   \strong{1 dataset on the effects of word frequency in WM not mentioned in Oberauer et

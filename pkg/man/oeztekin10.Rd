@@ -23,21 +23,22 @@
     \item{\code{trial}}{Trial ID}
     \item{\code{lag}}{Index of lag in SAT: This variable can be used to calculate mean Lag + RT measures for each step of experimentally induced lag. Lags:
     \itemize{
-    \item{\code{0}}{43 ms}
-    \item{\code{1}}{200 ms}
-    \item{\code{2}}{300 ms}
-    \item{\code{3}}{500 ms}
-    \item{\code{4}}{800 ms}
-    \item{\code{5}}{1500 ms}
-    \item{\code{6}}{3000 ms}
+      \item \code{0}: 43 ms
+      \item \code{1}: 200 ms
+      \item \code{2}: 300 ms
+      \item \code{3}: 500 ms
+      \item \code{4}: 800 ms
+      \item \code{5}: 1500 ms
+      \item \code{6}: 3000 ms
     }}
     \item{\code{serpos}}{Serial Position}
-    \item{\code{ptype}}{Probe type: \itemize{
-    \item{\code{1}}{Positive probes}
-    \item{\code{2}}{new lure}
-    \item{\code{3}}{all lures from 1st category}
-    \item{\code{4}}{all lures from 2nd category}
-    \item{\code{5}}{recent negative lure from previous trial}
+    \item{\code{ptype}}{Probe type:
+    \itemize{
+      \item \code{1}: Positive probes
+      \item \code{2}: new lure
+      \item \code{3}: all lures from 1st category
+      \item \code{4}: all lures from 2nd category
+      \item \code{5}: recent negative lure from previous trial
     }}
     \item{\code{lagrt}}{Lag + RT in \code{ms}: Experimentally induced lag + individual response time}
     \item{\code{rt}}{Individual-trial response time in \code{ms}}

@@ -18,11 +18,12 @@
   \describe{
     \item{\code{cue}}{Cue for free recall or serial recall: \code{pre-presentation}
     or \code{post-presentation}.}
-    \item{\code{output}}{First-item recalled: \itemize{
-    \item{\code{Start}}{Starting from the first list item.}
-    \item{\code{Last 4}}{Starting with any item from the last 4 list items.}
-    \item{\code{Other}}{Starting from somewhere else.}
-    \item{\code{Error}}{Starting with an error, i.e. an item that was not part of the lsit.}
+    \item{\code{output}}{First-item recalled:
+    \itemize{
+      \item \code{Start}: Starting from the first list item.
+      \item \code{Last 4}: Starting with any item from the last 4 list items.
+      \item \code{Other}: Starting from somewhere else.
+      \item \code{Error}: Starting with an error, i.e. an item that was not part of the list.
     }}
     \item{\code{listlength}}{List length: \code{2}, \code{4}, \code{5}, \code{6}, \code{7}, \code{8}, \code{12}, \code{15}}
     \item{\code{prob_fr}}{Probability of first recall (probability that the first item recalled was in this \code{output} category).}

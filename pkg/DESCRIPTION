@@ -1,8 +1,8 @@
 Package: BenchmarksWM
 Type: Package
 Title: Working Memory Benchmarks
-Version: 1.1.2
-Date: 2023-04-14
+Version: 1.1.3
+Date: 2026-01-08
 Authors@R: c(person(given = "Joscha", family = "Dutli", role = c("cre", "aut"), 
     email = "joscha.dutli@psychologie.uzh.ch"),
     person(given = "Andy", family = "Wills", role = "aut"),
@@ -13,5 +13,5 @@ LazyData: true
 LazyDataCompression: xz
 Suggests: circular, dplyr, Hmisc, plyr, tidyr, tidyverse, ggplot2
 Depends: R (>= 3.5)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
 Encoding: UTF-8
