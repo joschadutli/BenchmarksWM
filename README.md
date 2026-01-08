@@ -19,7 +19,7 @@ R data packages provide a good medium for this additional step, because they are
 ### Recommended: install from GitHub (development version)
 
 ```r
-install.packages("remotes")
+#install.packages("remotes")
 remotes::install_github("joschadutli/BenchmarksWM", subdir = "pkg")
 ```
 
